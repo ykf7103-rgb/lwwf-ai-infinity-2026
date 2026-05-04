@@ -1,0 +1,43 @@
+# === LWWF 簡報 repo .gitignore ===
+
+# Sensitive / working files (do NOT commit)
+_gemini_b64.txt
+_rthk_transcript.txt
+.env
+.env.*
+_secrets/
+*.key
+*.pem
+poe_key.txt
+
+# Internal planning notes (kept locally only)
+SKILL.md
+SKILL\ \(*\).md
+PHOTO_PLAN.md
+GEMINI_IMAGE_PROMPTS.md
+
+# Old / superseded files
+教師筆記_總匯_20頁.html
+AI_INFINITY_終極家長簡報_40頁.html
+
+# OS & editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# Python helpers (generation scripts kept, but caches ignored)
+__pycache__/
+*.pyc
+*.pyo
+
+# Backup folders
+_backup/
+_old/
+
+# Unreviewed photos (uncomment to commit after confirming no privacy issues)
+3D1A6048.JPG
+
+# Large source originals (optional — uncomment if you want smaller repo)
+# Gemini_Generated_Image_*.png
