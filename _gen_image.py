@@ -30,6 +30,13 @@ import time
 import argparse
 from pathlib import Path
 
+# Force UTF-8 stdout for Windows terminal (cp950 唔識 ✓ ❌ 等)
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 try:
     import requests
 except ImportError:
