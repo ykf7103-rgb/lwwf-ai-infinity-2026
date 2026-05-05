@@ -314,6 +314,43 @@ ul.bullet li::before{content:''; position:absolute; left:0; top:11px;
 .spiral-grid .sg-cell{padding:7px 6px; background:var(--bg-card-solid);
   border:1px solid var(--border); border-radius:6px; font-size:10.5px; color:var(--ink-2); line-height:1.4;}
 
+/* === Print to PDF（Chrome Ctrl+P → Save as PDF）=== */
+@media print {
+  @page {
+    size: 1280px 720px;
+    margin: 0;
+  }
+  html, body {
+    width: 1280px !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: var(--bg) !important;
+  }
+  body::before, body::after { display: none !important; }
+  #progress, #section-tag, #brand, #pageInfo, #hint, #dots { display: none !important; }
+  .slide {
+    position: relative !important;
+    inset: auto !important;
+    width: 1280px !important;
+    height: 720px !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    pointer-events: auto !important;
+    page-break-after: always;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    display: flex !important;
+    overflow: hidden !important;
+  }
+  .slide:last-child { page-break-after: auto; }
+  .slide-inner { width: 100% !important; height: 100% !important; max-width: none !important; }
+  /* 確保大 hero 字唔會被 cut */
+  .cover h1, .big-q { transform: none !important; }
+  /* 強制顏色 print（Chrome 預設係 BW 模式）— 提示用戶 enable Background Graphics */
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+}
+
 @media (max-width:768px){
   .slide{ padding:24px 18px;}
   :root{ --t-hero:42px; --t-h1:30px; --t-h2:22px; --t-h3:18px; --t-body:14px; --pad-slide:24px 18px;}
