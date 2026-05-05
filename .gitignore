@@ -6,6 +6,7 @@ _rthk_transcript.txt
 .env
 .env.*
 _secrets/
+!_secrets/.gitkeep
 *.key
 *.pem
 poe_key.txt
