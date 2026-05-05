@@ -1,0 +1,55 @@
+# === LWWF 簡報 · Nano Banana 全圖 batch ===
+# 格式: filename | prompt
+# 註解行 (# 開頭) 會跳過
+
+# === 8 大科目 icon (4 個重生，覆蓋 PIL 版) ===
+icon_science.png | Beautiful minimalist square icon, 1:1 aspect ratio, soft warm cream paper background with subtle texture, centered single iconic illustration of a stylized green leaf with DNA helix and microscope element, elegant nature-tech minimalism fused with modern AI tech style, deep emerald green accent glow, soft drop shadow, no text, no watermark, premium app icon style
+icon_music.png | Beautiful minimalist square icon, 1:1 aspect ratio, soft warm cream paper background with subtle texture, centered single iconic illustration of a single musical note with sound waves curving into AI sparkle, elegant minimalism fused with modern AI tech style, warm orange and rose accent glow, soft drop shadow, no text, no watermark, premium app icon style
+icon_pe.png | Beautiful minimalist square icon, 1:1 aspect ratio, soft warm cream paper background with subtle texture, centered single iconic illustration of a stylized running figure with motion lines transforming into data stream, elegant minimalism fused with modern AI tech style, deep violet purple accent glow, soft drop shadow, no text, no watermark, premium app icon style
+icon_va.png | Beautiful minimalist square icon, 1:1 aspect ratio, soft warm cream paper background with subtle texture, centered single iconic illustration of a paint brush with a glowing color palette dot, elegant minimalism fused with modern AI tech style, warm coral terracotta accent glow, soft drop shadow, no text, no watermark, premium app icon style
+
+# === 中文科 (P10, P12) ===
+p10_chinese_class.png | Hong Kong primary school Chinese classroom scene, teacher writing traditional Chinese characters on whiteboard from back view, students in school uniform raising hands seen from behind, traditional Chinese calligraphy posters on wall, warm afternoon light, premium documentary style, no readable text, 16:9 aspect ratio
+p12_chinese_dictation.png | Hong Kong primary student using iPad with AI dictation interface showing illustrated Chinese characters and audio waveform visualization, child's hand pointing, warm tutorial atmosphere, side profile view, premium photography, no readable text, 16:9 aspect ratio
+
+# === 英文科 (P13, P14) ===
+p13_english_class.png | Hong Kong primary English classroom, weathered student notebook with handwritten English vocabulary practice (illegible text strokes), red pen on the page, soft natural window light, documentary detail shot, melancholic mood, no readable text, 16:9 aspect ratio
+p14_english_ai_dictation.png | Hong Kong primary student using iPad showing AI English vocabulary cards with illustrated objects (apple, butterfly), audio waveform at bottom, warm tutorial atmosphere, child's hand pointing, side profile, no readable text, 16:9 aspect ratio
+
+# === 數學科 (P16, P17) ===
+p16_math_class.png | Hong Kong primary math classroom detail shot, exercise book with handwritten arithmetic problems on grid paper, pencil and calculator beside, warm afternoon light, documentary style, no readable text, 16:9 aspect ratio
+p17_math_comic.png | Four-panel comic strip on white background, cute hand-drawn cartoon superhero solving fraction math problems with visualizations, Japanese manga style, vibrant colors, blending with photo of child's hand drawing the character, no readable text, 16:9 aspect ratio
+
+# === 音樂科 (P19, P20) ===
+p19_music_class.png | Hong Kong primary music classroom, piano keys close-up, child's hands hovering above keys, music sheet stand in soft focus background, warm stage lighting, no readable text, 16:9 aspect ratio
+p20_fruit_month_suno.png | Hong Kong primary parents and children gathered around iPads creating music together, real fruits and vegetables on tables (apples, carrots, oranges, broccoli), AI music generation interface visible with waveforms, happy collaborative atmosphere, warm community lighting, faces in profile, premium documentary, no readable text, 16:9 aspect ratio
+
+# === 體育科 (P21, P22, P23) ===
+p21_pe_class.png | Hong Kong primary school PE class outdoor, students in PE uniform running on school playground (faces motion-blurred), Hong Kong residential buildings in background, warm sunlight, dynamic action shot, documentary style, no readable text, 16:9 aspect ratio
+p22_national_treasure.png | Action shot of Hong Kong primary student energetically jumping rope, visible energy waves transforming into glowing blue clean air cannon defeating dark pollution monster on adjacent screen, panda mascot in background, dynamic cinematic motion blur, premium video game promotional style, side profile, no readable text, 16:9 aspect ratio
+p23_ai_pe_tv.png | Hong Kong primary student jumping rope in school gymnasium in front of large flat-screen TV mounted on wall, the TV displays simple AI counter interface with abstract data graphs, warm gym lighting, child viewed from side mid-jump, premium photography, no readable text, 16:9 aspect ratio
+
+# === 旗艦項目 (P23b 國寶) ===
+p23b_yaoshan_lizard.png | Close-up of a Chinese crocodile lizard (Shinisaurus crocodilurus) on a tree branch in a glass terrarium, IoT sensor devices around the enclosure with subtle LED lights, lush green tropical foliage, Hong Kong primary student observing through glass with awe (side profile), soft natural lighting, premium nature documentary style, no readable text, 16:9 aspect ratio
+
+# === 科學科 (P24, P25, P26) ===
+p24_science_class.png | Hong Kong primary science classroom, simple lab equipment microscope and beakers on table, child's hand pointing at a green plant, soft natural daylight from window, documentary close-up, no readable text, 16:9 aspect ratio
+p25_plant_id.png | Hong Kong primary student in school garden using tablet to scan a real flowering plant, AI plant identification interface visible on screen, lush greenery, golden hour lighting, side profile, premium documentary photography, no readable text, 16:9 aspect ratio
+p26_aldabra_tortoise.png | Hong Kong primary students gently and respectfully touching a giant Aldabra tortoise on school floor, awe and wonder on faces seen from side, natural warm lighting, hands-on educational moment, premium nature documentary photography, no readable text, 16:9 aspect ratio
+
+# === 人文 / 常識 (P27, P28, P29) ===
+p27_humanities.png | Traditional Chinese cultural objects display on classroom shelf, small lion dance figure, calligraphy brush, ethnic minority doll, child's hand reaching to touch, warm museum lighting, soft focus, no readable text, 16:9 aspect ratio
+p28_lokjoy_award.png | Hong Kong primary students proudly holding a bronze trophy at competition exhibition booth, behind them a banner with Chinese cultural design, tablets showing app interface on table, evaluators in background, faces in side profile, premium press photography, no readable text, 16:9 aspect ratio
+p29_culture_fitting.png | Hong Kong primary student standing in front of a magic mirror displaying them wearing virtual traditional Miao ethnic costume with intricate silver headdress, surrounding holographic ethnic costumes (Tibetan, Mongolian) floating in space, vibrant cultural display, side view, no readable text, 16:9 aspect ratio
+
+# === 視藝科 (P30, P31, P32) ===
+p30_visual_arts.png | Hong Kong primary visual arts classroom, student's hand sketching with pencil on paper, watercolor palette and brushes scattered around, sunlight streaming, documentary detail shot, warm tones, no readable text, 16:9 aspect ratio
+p31_modern_door_god.png | Modern reimagined Chinese door god figure wearing VR goggles holding a cyber sword, traditional Chinese ink painting style fused with cyberpunk neon, animated split-screen with original hand-drawn sketch on the left, dark navy background, premium illustration, no readable text, 16:9 aspect ratio
+p32_future_career_app.png | Triptych composition, left panel shows a child's hand-drawn pencil sketch of a future veterinarian, middle panel shows AI-enhanced version with cute manga style and bright colors, right panel shows iPad mockup with simple app interface, warm cohesive lighting, no readable text, 16:9 aspect ratio
+
+# === ACTION (P40, P41a-c, P45) ===
+p40_parent_workshop.png | Hong Kong school workshop hall with parents seated at tables using laptops, instructor at front pointing at projection screen showing visual programming interface, warm community atmosphere, school uniforms hanging on side, faces in profile, premium documentary photography, no readable text, 16:9 aspect ratio
+p41a_ai_garden.png | Hong Kong school playground transformed into AI garden, student-built installations including smart lizard feeder, pixel-art blind boxes display, glowing IoT sensor lights, immersive learning playground, twilight ambient cyan lighting, no readable text, 16:9 aspect ratio
+p41b_butterfly_garden.png | Hong Kong school 5G-enabled smart butterfly garden, IoT sensors with LED status lights monitoring environment, real butterflies on flowering plants, students observing with iPads showing data dashboard, side profile, warm natural lighting, premium documentary, no readable text, 16:9 aspect ratio
+p41c_parent_empowerment.png | Hong Kong parent confidently demonstrating self-built educational app on iPad to their child at home, both smiling in side profile, warm domestic evening lighting, family bonding moment, premium photography, no readable text, 16:9 aspect ratio
+p45_cta_horizon.png | Cinematic graduation scene, Hong Kong primary school students in graduation gowns viewed from behind looking up at vast horizon with subtle holographic AI INFINITY symbol floating in sky, futuristic Hong Kong cityscape at hopeful sunrise, dark navy sky transitioning to cyan magenta and gold sunrise colors, panoramic and inspiring, no readable text, 16:9 aspect ratio

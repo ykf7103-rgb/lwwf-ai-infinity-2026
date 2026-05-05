@@ -42,6 +42,8 @@ _orig/
 *.pdf
 _test_*.png
 _debug_*.json
+_batch_log.txt
+*.html.bak
 
 # Unreviewed photos (uncomment to commit after confirming no privacy issues)
 3D1A6048.JPG
