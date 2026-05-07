@@ -2,22 +2,115 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<title>AI INFINITY · 樂善堂梁黃蕙芳紀念學校 · 終極家長簡報</title>
-<meta http-equiv="refresh" content="0; url=AI_INFINITY_%E7%B5%82%E6%A5%B5%E5%AE%B6%E9%95%B7%E7%B0%A1%E5%A0%B1_45%E9%A0%81_v2.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI INFINITY · LWWF 家長簡報</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Fraunces:opsz,wght@9..144,700;9..144,900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  body{font-family:'Microsoft JhengHei','PMingLiU',sans-serif;
-    background:#faf9f5; color:#1d1c1a;
-    display:flex; align-items:center; justify-content:center;
-    height:100vh; margin:0; text-align:center;}
-  a{color:#cc785c; text-decoration:none; font-weight:700;}
-  a:hover{text-decoration:underline;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Sans TC','Microsoft JhengHei','PMingLiU',sans-serif;
+  background:#faf9f5;
+  color:#1d1c1a;
+  min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  padding:40px 20px;
+  position:relative; overflow-x:hidden;
+}
+body::before{
+  content:''; position:fixed; inset:0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(204,120,92,0.10), transparent 55%),
+    radial-gradient(ellipse at 80% 100%, rgba(212,163,115,0.10), transparent 55%);
+  pointer-events:none; z-index:0;
+}
+.wrap{max-width:1080px; width:100%; position:relative; z-index:1;}
+.brand{font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:3px; color:#9a948a; text-transform:uppercase; margin-bottom:14px;}
+h1{font-family:'Fraunces','Noto Serif TC',serif;
+  font-size:64px; font-weight:900; line-height:1.05; letter-spacing:-2px;
+  margin-bottom:14px;}
+.gradient{background:linear-gradient(135deg,#cc785c,#be185d,#b45309);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
+.subtitle{font-size:18px; color:#3d3a35; max-width:740px; line-height:1.65; margin-bottom:48px;}
+.cards{display:grid; grid-template-columns:repeat(2,1fr); gap:24px;}
+.card{background:#fff; border:1px solid rgba(29,28,26,0.08); border-radius:18px;
+  padding:36px; box-shadow:0 6px 22px rgba(29,28,26,0.05);
+  transition:all .35s; position:relative; overflow:hidden;
+  text-decoration:none; color:inherit; display:block; cursor:pointer;}
+.card:hover{transform:translateY(-4px); box-shadow:0 16px 40px rgba(204,120,92,0.18);
+  border-color:rgba(204,120,92,0.35);}
+.card.recommend::before{
+  content:'推薦'; position:absolute; top:18px; right:18px;
+  background:linear-gradient(135deg,#cc785c,#be185d); color:#fff;
+  font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700;
+  letter-spacing:2px; padding:5px 12px; border-radius:99px;
+  box-shadow:0 4px 12px rgba(204,120,92,0.4);}
+.card .badge{display:inline-block; font-family:'JetBrains Mono',monospace;
+  font-size:11px; letter-spacing:2px; font-weight:700; padding:5px 12px;
+  border-radius:99px; margin-bottom:14px;}
+.card.recommend .badge{background:rgba(204,120,92,0.10); color:#cc785c;}
+.card.legacy .badge{background:rgba(29,28,26,0.06); color:#6b675f;}
+.card h2{font-family:'Fraunces',serif; font-size:32px; font-weight:900;
+  margin-bottom:8px; line-height:1.15;}
+.card .pages{font-family:'JetBrains Mono',monospace; font-size:13px;
+  color:#9a948a; letter-spacing:1px; margin-bottom:14px;}
+.card .desc{font-size:14px; line-height:1.65; color:#3d3a35;}
+.card .features{margin-top:18px; padding-top:14px;
+  border-top:1px dashed rgba(29,28,26,0.10); font-size:13px; line-height:1.85;}
+.card .features li{list-style:none; padding-left:18px; position:relative;}
+.card .features li::before{content:'·'; position:absolute; left:6px;
+  font-weight:900; color:#cc785c;}
+.card .open{margin-top:20px; display:inline-flex; align-items:center; gap:6px;
+  font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:1.5px;
+  font-weight:700; color:#cc785c; text-transform:uppercase;
+  transition:gap .3s;}
+.card:hover .open{gap:12px;}
+.foot{margin-top:32px; font-family:'JetBrains Mono',monospace; font-size:11px;
+  color:#9a948a; letter-spacing:2px;}
+@media (max-width:768px){
+  h1{font-size:42px;}
+  .cards{grid-template-columns:1fr;}
+}
 </style>
-<script>location.replace('AI_INFINITY_終極家長簡報_45頁_v2.html');</script>
 </head>
 <body>
-<div>
-  <h2>AI INFINITY · 家長簡報載入中⋯</h2>
-  <p>如未自動跳轉，<a href="AI_INFINITY_終極家長簡報_45頁_v2.html">按此進入簡報</a></p>
+<div class="wrap">
+  <div class="brand">LWWF · 樂善堂梁黃蕙芳紀念學校 · 2026 家長簡報</div>
+  <h1><span class="gradient">AI INFINITY</span></h1>
+  <p class="subtitle">無限可能　·　無限創造　·　無限學習　·　無限未來。請揀其中一個版本進入。</p>
+  <div class="cards">
+    <a class="card recommend" href="AI_INFINITY_精選_20頁_v3.html">
+      <span class="badge">V3 · 精選版</span>
+      <h2>20 頁精選簡報</h2>
+      <div class="pages">20 SLIDES · 16:9 · 為真相片設計</div>
+      <p class="desc">全新設計嘅家長講座主用版本——精準書面語、首 4 頁研究依據、大量 16:9 照片位、全頁面動畫質感。</p>
+      <ul class="features">
+        <li>4 頁研究依據（WEF / OECD / Bloom / Hattie）</li>
+        <li>8 大科目每科 1 頁，每頁有大 16:9 相片位</li>
+        <li>動畫進場 + 數字 count-up + photo-frame 呼吸提示</li>
+        <li>留大空間俾真實學生／家長相片</li>
+      </ul>
+      <span class="open">進入 →</span>
+    </a>
+    <a class="card legacy" href="AI_INFINITY_終極家長簡報_45頁_v2.html">
+      <span class="badge">V2 · 完整版</span>
+      <h2>45 頁完整簡報</h2>
+      <div class="pages">45 SLIDES · 詳盡版</div>
+      <p class="desc">完整保留嘅舊版本。內容更詳盡，包括痛點論述、工具揭秘、家長 FAQ 等——適合需要深入解說嘅場合。</p>
+      <ul class="features">
+        <li>每科 3 頁（痛點 + 方案 A + 方案 B）</li>
+        <li>包含全球研究、政策回應、評估改革</li>
+        <li>家長 FAQ + 雷達圖比較</li>
+        <li>適合作參考，對比 V3 設計取捨</li>
+      </ul>
+      <span class="open">進入 →</span>
+    </a>
+  </div>
+  <p class="foot">
+    GitHub: github.com/ykf7103-rgb/lwwf-ai-infinity-2026　·　Pages: ykf7103-rgb.github.io/lwwf-ai-infinity-2026
+  </p>
 </div>
 </body>
 </html>

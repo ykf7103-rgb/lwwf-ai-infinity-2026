@@ -50,3 +50,6 @@ _batch_log.txt
 
 # Large source originals (optional — uncomment if you want smaller repo)
 # Gemini_Generated_Image_*.png
+photos/
+
+# Real student photos - NEVER commit
