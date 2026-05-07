@@ -3,111 +3,197 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI INFINITY · 樂善堂梁黃蕙芳紀念學校 · 家長簡報（20 頁精選版）</title>
+<title>AI INFINITY · LWWF · 20 頁精選版</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&family=JetBrains+Mono:wght@400;700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
-<script src="_lib/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+TC:wght@700;900&family=JetBrains+Mono:wght@700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#faf9f5; --bg-2:#f5f2ea;
-  --bg-card:#ffffff; --bg-card-2:rgba(255,255,255,0.85);
+  --bg:#faf9f5;
+  --bg-card:#ffffff;
   --ink:#1d1c1a; --ink-2:#3d3a35; --ink-3:#6b675f; --ink-4:#9a948a;
-  --border:rgba(29,28,26,0.07); --border-strong:rgba(29,28,26,0.14);
+  --border:rgba(29,28,26,0.08);
   --c1:#0891b2; --c2:#be185d; --c3:#b45309; --c4:#047857; --c5:#6d28d9;
-  --c-claude:#cc785c; --c-claude-2:#d4a373;
-  --c-pain:#dc2626;
-  --shadow-sm:0 1px 3px rgba(29,28,26,0.06);
-  --shadow:0 6px 18px rgba(29,28,26,0.06), 0 2px 6px rgba(29,28,26,0.04);
-  --shadow-lg:0 16px 40px rgba(29,28,26,0.08), 0 6px 14px rgba(29,28,26,0.04);
-  --shadow-glow:0 0 0 1px rgba(204,120,92,0.15), 0 12px 36px rgba(204,120,92,0.18);
+  --c-claude:#cc785c; --c-pain:#dc2626;
+  --shadow-sm:0 2px 8px rgba(29,28,26,0.06);
+  --shadow:0 8px 28px rgba(29,28,26,0.08);
+  --shadow-lg:0 24px 60px rgba(29,28,26,0.12);
+  --shadow-glow:0 0 0 1px rgba(204,120,92,0.18), 0 16px 48px rgba(204,120,92,0.22);
+  --ease-spring:cubic-bezier(.68,-0.55,.265,1.55);
+  --ease-out:cubic-bezier(.22,1,.36,1);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{width:100%;height:100%;overflow:hidden;}
 body{
   font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC','PMingLiU',sans-serif;
-  font-weight:400; background:var(--bg); color:var(--ink);
-  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  background:var(--bg); color:var(--ink);
+  -webkit-font-smoothing:antialiased;
   position:relative;
 }
 body::before{
   content:''; position:fixed; inset:0; z-index:0;
   background-image:url('bg_main.png');
-  background-size:cover; background-position:center; opacity:0.12;
+  background-size:cover; background-position:center; opacity:0.10;
   pointer-events:none;
 }
 body::after{
   content:''; position:fixed; inset:0; z-index:1;
   background:
-    radial-gradient(ellipse at 15% 0%, rgba(204,120,92,0.10), transparent 55%),
-    radial-gradient(ellipse at 85% 100%, rgba(212,163,115,0.10), transparent 55%);
+    radial-gradient(ellipse at 15% 0%,rgba(204,120,92,0.12),transparent 55%),
+    radial-gradient(ellipse at 85% 100%,rgba(212,163,115,0.12),transparent 55%);
   pointer-events:none;
 }
-.slide,#progress,#section-tag,#brand,#pageInfo,#hint,#dots{z-index:10;}
+
+/* === Floating particles === */
+.particle{position:fixed; pointer-events:none; z-index:2;
+  border-radius:50%; opacity:0.4; filter:blur(1px);
+  animation:floatParticle linear infinite;}
+@keyframes floatParticle{
+  0%{transform:translateY(0) translateX(0); opacity:0;}
+  10%,90%{opacity:0.45;}
+  100%{transform:translateY(-110vh) translateX(40px); opacity:0;}
+}
+
+/* === Cursor follower === */
+.cursor-glow{position:fixed; pointer-events:none; z-index:3;
+  width:32px; height:32px; border-radius:50%;
+  background:radial-gradient(circle,rgba(204,120,92,0.35),transparent 70%);
+  transition:transform 0.08s linear; mix-blend-mode:multiply;}
 
 /* === Top + bottom UI === */
+.slide,#progress,#section-tag,#brand,#pageInfo,#hint,#dots{z-index:10;}
 #progress{position:fixed; top:0; left:0; height:3px;
   background:linear-gradient(90deg,var(--c-claude),var(--c2),var(--c3));
-  width:5%; transition:width .7s cubic-bezier(.4,0,.2,1);
-  z-index:100; box-shadow:0 0 18px rgba(204,120,92,0.4);}
+  width:5%; transition:width .9s var(--ease-out);
+  z-index:100; box-shadow:0 0 24px rgba(204,120,92,0.55);}
 #section-tag{position:fixed; top:18px; left:32px; z-index:50;
   font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-3);
-  letter-spacing:3px; text-transform:uppercase; padding:6px 14px;
-  background:rgba(255,255,255,0.75); border:1px solid var(--border);
-  border-radius:99px; backdrop-filter:blur(10px); box-shadow:var(--shadow-sm);}
+  letter-spacing:3px; text-transform:uppercase; padding:7px 16px;
+  background:rgba(255,255,255,0.85); border:1px solid var(--border);
+  border-radius:99px; backdrop-filter:blur(10px); box-shadow:var(--shadow-sm);
+  transition:all .4s var(--ease-spring);}
 #brand{position:fixed; top:18px; right:32px; z-index:50;
   font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-4); letter-spacing:2px;}
 #pageInfo{position:fixed; bottom:18px; right:32px; z-index:50;
-  font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--ink-2);}
-#pageInfo .total{color:var(--ink-4);}
+  font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:700;
+  color:var(--ink-2);}
+#pageInfo .total{color:var(--ink-4); font-weight:400;}
 #hint{position:fixed; bottom:18px; left:32px; z-index:50;
   font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-4); letter-spacing:1px;}
 #dots{position:fixed; bottom:50px; left:50%; transform:translateX(-50%);
-  z-index:50; display:flex; gap:4px; padding:7px 14px;
-  background:rgba(255,255,255,0.8); border-radius:99px;
+  z-index:50; display:flex; gap:5px; padding:8px 16px;
+  background:rgba(255,255,255,0.85); border-radius:99px;
   backdrop-filter:blur(12px); border:1px solid var(--border);
   box-shadow:var(--shadow-sm); max-width:90vw; flex-wrap:wrap;}
-#dots .dot{width:6px; height:6px; border-radius:50%;
-  background:rgba(29,28,26,0.16); transition:all .35s; cursor:pointer;}
-#dots .dot.active{background:var(--c-claude); width:22px; border-radius:99px;
-  box-shadow:0 0 12px rgba(204,120,92,0.5);}
-#dots .dot.passed{background:rgba(29,28,26,0.36);}
+#dots .dot{width:7px; height:7px; border-radius:50%;
+  background:rgba(29,28,26,0.18); transition:all .4s var(--ease-spring); cursor:pointer;}
+#dots .dot.active{background:var(--c-claude); width:28px; border-radius:99px;
+  box-shadow:0 0 16px rgba(204,120,92,0.6);}
+#dots .dot.passed{background:rgba(29,28,26,0.4);}
+#dots .dot:hover{transform:scale(1.5);}
 
 /* === Slide layout === */
 .slide{position:absolute; inset:0;
   display:flex; align-items:center; justify-content:center;
   padding:48px 64px; opacity:0; pointer-events:none;
-  transition:opacity .7s cubic-bezier(.4,0,.2,1), transform .7s cubic-bezier(.4,0,.2,1);
-  transform:translateY(30px); overflow:hidden;}
-.slide.active{opacity:1; pointer-events:auto; transform:translateY(0);}
+  transition:opacity .8s var(--ease-out), transform .8s var(--ease-out);
+  transform:scale(0.96); overflow:hidden;}
+.slide.active{opacity:1; pointer-events:auto; transform:scale(1);}
 .slide-inner{width:100%; max-width:1380px; height:100%;
-  display:flex; flex-direction:column; justify-content:center; gap:18px;}
+  display:flex; flex-direction:column; justify-content:center; gap:24px;}
 
-/* === Animations === */
-@keyframes slideUpFade{from{opacity:0; transform:translateY(36px);} to{opacity:1; transform:translateY(0);}}
-@keyframes slideRightFade{from{opacity:0; transform:translateX(-30px);} to{opacity:1; transform:translateX(0);}}
-@keyframes scaleIn{from{opacity:0; transform:scale(0.85);} to{opacity:1; transform:scale(1);}}
-@keyframes float{0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);}}
-@keyframes pulseSoft{0%,100%{transform:scale(1); box-shadow:var(--shadow);} 50%{transform:scale(1.025); box-shadow:var(--shadow-glow);}}
-@keyframes shimmer{0%{background-position:-200% 0;} 100%{background-position:200% 0;}}
-@keyframes breath{0%,100%{border-color:rgba(180,83,9,0.32);} 50%{border-color:rgba(204,120,92,0.55);}}
-@keyframes drawLine{from{stroke-dashoffset:1000;} to{stroke-dashoffset:0;}}
-@keyframes glowRing{0%,100%{box-shadow:0 0 0 0 rgba(204,120,92,0);} 50%{box-shadow:0 0 0 12px rgba(204,120,92,0.08);}}
-@keyframes rotateSlow{from{transform:rotate(0);} to{transform:rotate(360deg);}}
+/* === KEYFRAMES (the magic) === */
+@keyframes jumpIn{
+  0%{opacity:0; transform:scale(0.3) translateY(80px);}
+  55%{opacity:1; transform:scale(1.12) translateY(-12px);}
+  72%{transform:scale(0.93) translateY(4px);}
+  88%{transform:scale(1.04) translateY(-2px);}
+  100%{transform:scale(1) translateY(0);}
+}
+@keyframes waveIn{
+  0%{opacity:0; transform:translateY(70px) rotate(-12deg);}
+  55%{opacity:1; transform:translateY(-12px) rotate(6deg);}
+  78%{transform:translateY(4px) rotate(-2deg);}
+  100%{transform:translateY(0) rotate(0);}
+}
+@keyframes slideRight{
+  0%{opacity:0; transform:translateX(-80px);}
+  60%{opacity:1; transform:translateX(8px);}
+  100%{transform:translateX(0);}
+}
+@keyframes slideLeft{
+  0%{opacity:0; transform:translateX(80px);}
+  60%{opacity:1; transform:translateX(-8px);}
+  100%{transform:translateX(0);}
+}
+@keyframes scaleBoom{
+  0%{opacity:0; transform:scale(0);}
+  60%{opacity:1; transform:scale(1.18);}
+  80%{transform:scale(0.92);}
+  100%{transform:scale(1);}
+}
+@keyframes float{0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);}}
+@keyframes float3d{
+  0%,100%{transform:translateY(0) rotate(0);}
+  33%{transform:translateY(-12px) rotate(3deg);}
+  66%{transform:translateY(-6px) rotate(-2deg);}
+}
+@keyframes pulseGlow{
+  0%,100%{box-shadow:0 8px 28px rgba(0,0,0,0.10);}
+  50%{box-shadow:0 0 40px rgba(204,120,92,0.5), 0 0 80px rgba(190,24,93,0.3);}
+}
+@keyframes spinSlow{from{transform:rotate(0);} to{transform:rotate(360deg);}}
+@keyframes shimmerBg{
+  0%{background-position:-200% 0;}
+  100%{background-position:200% 0;}
+}
+@keyframes breathBorder{
+  0%,100%{border-color:rgba(180,83,9,0.32); transform:scale(1);}
+  50%{border-color:rgba(204,120,92,0.65); transform:scale(1.005);
+    box-shadow:0 0 30px rgba(204,120,92,0.18);}
+}
+@keyframes shineSweep{
+  0%{left:-60%;} 100%{left:160%;}
+}
+@keyframes confettiFall{
+  0%{transform:translateY(-20vh) rotate(0); opacity:1;}
+  100%{transform:translateY(120vh) rotate(720deg); opacity:0;}
+}
+@keyframes orbPulse{
+  0%,100%{transform:scale(1); opacity:0.7;}
+  50%{transform:scale(1.15); opacity:1;}
+}
+@keyframes ringRipple{
+  0%{transform:scale(1); opacity:1;}
+  100%{transform:scale(2.2); opacity:0;}
+}
+@keyframes underline{
+  from{transform:scaleX(0);} to{transform:scaleX(1);}
+}
 
-.slide.active .slide-inner > *{animation:slideUpFade .8s cubic-bezier(.4,0,.2,1) backwards;}
-.slide.active .slide-inner > *:nth-child(1){animation-delay:.1s;}
-.slide.active .slide-inner > *:nth-child(2){animation-delay:.22s;}
-.slide.active .slide-inner > *:nth-child(3){animation-delay:.34s;}
-.slide.active .slide-inner > *:nth-child(4){animation-delay:.46s;}
-.slide.active .slide-inner > *:nth-child(5){animation-delay:.58s;}
+/* Stagger entry for slide elements */
+.slide.active .slide-inner > *{
+  animation:jumpIn .9s var(--ease-spring) backwards;
+}
+.slide.active .slide-inner > *:nth-child(1){animation-delay:.05s;}
+.slide.active .slide-inner > *:nth-child(2){animation-delay:.18s;}
+.slide.active .slide-inner > *:nth-child(3){animation-delay:.31s;}
+.slide.active .slide-inner > *:nth-child(4){animation-delay:.44s;}
+.slide.active .slide-inner > *:nth-child(5){animation-delay:.57s;}
 .slide.active .slide-inner > *:nth-child(6){animation-delay:.70s;}
 
-/* === Typography === */
-.kicker{font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
-  letter-spacing:3px; text-transform:uppercase; color:var(--c-claude);
-  display:inline-flex; align-items:center; gap:8px;}
-.kicker::before{content:''; width:24px; height:2px; background:var(--c-claude);}
+/* === Letter-by-letter reveal === */
+.h-anim .letter{
+  display:inline-block; opacity:0;
+  animation:waveIn 0.85s var(--ease-spring) forwards;
+}
+
+/* === Big Typography === */
+.kicker{font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700;
+  letter-spacing:4px; text-transform:uppercase; color:var(--c-claude);
+  display:inline-flex; align-items:center; gap:10px; padding:6px 0;}
+.kicker::before{content:''; width:32px; height:2px; background:var(--c-claude);
+  animation:underline .8s var(--ease-out) forwards; transform-origin:left;}
 .kicker.k-cyan{color:var(--c1);} .kicker.k-cyan::before{background:var(--c1);}
 .kicker.k-magenta{color:var(--c2);} .kicker.k-magenta::before{background:var(--c2);}
 .kicker.k-amber{color:var(--c3);} .kicker.k-amber::before{background:var(--c3);}
@@ -115,188 +201,207 @@ body::after{
 .kicker.k-violet{color:var(--c5);} .kicker.k-violet::before{background:var(--c5);}
 .kicker.k-pain{color:var(--c-pain);} .kicker.k-pain::before{background:var(--c-pain);}
 
-h1{font-family:'Fraunces','Noto Serif TC','Microsoft JhengHei','MingLiU','PMingLiU',serif;
-  font-size:72px; font-weight:900; line-height:1.0; letter-spacing:-2.5px;}
-h2{font-family:'Fraunces','Noto Serif TC','Microsoft JhengHei','MingLiU','PMingLiU',serif;
-  font-size:46px; font-weight:800; line-height:1.1; letter-spacing:-1.2px;}
-h3{font-size:22px; font-weight:700; line-height:1.35;}
-h4{font-size:16px; font-weight:700;}
-p.lead{font-size:18px; line-height:1.6; color:var(--ink-2); font-weight:400;}
-p.body{font-size:15px; line-height:1.7; color:var(--ink-2);}
-p.small{font-size:12.5px; color:var(--ink-3); line-height:1.55;}
+h1.mega{font-family:'Fraunces','Noto Serif TC','Microsoft JhengHei',serif;
+  font-size:140px; font-weight:900; line-height:0.95; letter-spacing:-5px;}
+h1.hero{font-family:'Fraunces','Noto Serif TC','Microsoft JhengHei',serif;
+  font-size:96px; font-weight:900; line-height:1.0; letter-spacing:-3px;}
+h2.big{font-family:'Fraunces','Noto Serif TC','Microsoft JhengHei',serif;
+  font-size:72px; font-weight:900; line-height:1.05; letter-spacing:-2px;}
+h2.med{font-family:'Fraunces','Noto Serif TC','Microsoft JhengHei',serif;
+  font-size:56px; font-weight:900; line-height:1.1; letter-spacing:-1.5px;}
+h3.lead{font-size:28px; font-weight:700; line-height:1.35;}
+h3.mid{font-size:24px; font-weight:700;}
+p.tagline{font-size:26px; line-height:1.55; color:var(--ink-2); font-weight:400;}
+p.body{font-size:18px; line-height:1.65; color:var(--ink-2);}
+p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
 
-.gradient-text{background:linear-gradient(135deg,var(--c-claude) 0%, var(--c2) 50%, var(--c3) 100%);
+.gradient-text{background:linear-gradient(135deg,var(--c-claude) 0%,var(--c2) 50%,var(--c3) 100%);
+  background-size:200% 200%;
   -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  background-size:200% 200%; animation:shimmer 6s ease-in-out infinite;}
+  animation:shimmerBg 5s ease-in-out infinite;}
 .gradient-text-cool{background:linear-gradient(135deg,var(--c1),var(--c4));
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
+  background-size:200% 200%;
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  animation:shimmerBg 5s ease-in-out infinite;}
 
-/* === 16:9 Photo frame (the star of the show) === */
+/* === 16:9 Photo frame === */
 .photo16{position:relative; width:100%; aspect-ratio:16/9;
   background:linear-gradient(135deg,#fffaf3,#fff8f0);
-  border:2.5px dashed rgba(180,83,9,0.32); border-radius:18px;
+  border:3px dashed rgba(180,83,9,0.32); border-radius:22px;
   display:flex; align-items:center; justify-content:center; flex-direction:column;
-  gap:10px; cursor:pointer; overflow:hidden;
-  box-shadow:0 6px 22px rgba(204,120,92,0.05);
-  transition:all .4s cubic-bezier(.4,0,.2,1);
-  animation:breath 4s ease-in-out infinite;}
-.photo16::before{content:'📷'; font-size:42px; opacity:0.32;
-  transition:transform .5s, opacity .3s;}
-.photo16:hover{border-color:var(--c-claude); transform:translateY(-3px);
-  box-shadow:0 16px 44px rgba(204,120,92,0.18); animation:none;}
-.photo16:hover::before{transform:scale(1.18) rotate(-4deg); opacity:0.55;}
-.photo16 .ph-id{font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
-  background:rgba(180,83,9,0.10); color:var(--c3); padding:5px 14px; border-radius:99px;
+  gap:14px; cursor:pointer; overflow:hidden;
+  box-shadow:0 8px 30px rgba(204,120,92,0.06);
+  transition:all .5s var(--ease-spring);
+  animation:breathBorder 4s ease-in-out infinite;}
+.photo16::before{content:'📷'; font-size:60px; opacity:0.32;
+  transition:transform .6s var(--ease-spring), opacity .3s;}
+.photo16::after{content:''; position:absolute; top:0; left:-60%;
+  width:50%; height:100%;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,0.45) 50%,transparent 70%);
+  transform:skewX(-22deg); animation:shineSweep 4s ease-in-out infinite;
+  pointer-events:none;}
+.photo16:hover{border-color:var(--c-claude); transform:translateY(-6px) scale(1.01);
+  box-shadow:0 22px 60px rgba(204,120,92,0.25);}
+.photo16:hover::before{transform:scale(1.25) rotate(-6deg); opacity:0.6;}
+.photo16 .ph-id{font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700;
+  background:rgba(180,83,9,0.10); color:var(--c3); padding:7px 18px; border-radius:99px;
   letter-spacing:1.5px;}
-.photo16 .ph-hint{font-size:12.5px; color:var(--ink-3); max-width:75%; text-align:center; line-height:1.55;}
-.photo16 img.real{position:absolute; inset:0; width:100%; height:100%;
-  object-fit:cover;}
+.photo16 .ph-hint{font-size:15px; color:var(--ink-3); max-width:80%;
+  text-align:center; line-height:1.55;}
+.photo16 img.real{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
 .photo16.has-image{border:none; animation:none; background:transparent;}
-.photo16.has-image::before, .photo16.has-image .ph-id, .photo16.has-image .ph-hint{display:none;}
+.photo16.has-image::before, .photo16.has-image::after,
+.photo16.has-image .ph-id, .photo16.has-image .ph-hint{display:none;}
 
 /* === Cards === */
 .card{background:var(--bg-card); border:1px solid var(--border);
-  border-radius:16px; padding:22px; box-shadow:var(--shadow-sm);
-  transition:all .35s cubic-bezier(.4,0,.2,1); position:relative; overflow:hidden;}
-.card:hover{border-color:var(--border-strong); box-shadow:var(--shadow-lg);
-  transform:translateY(-2px);}
+  border-radius:20px; padding:28px; box-shadow:var(--shadow-sm);
+  transition:all .5s var(--ease-spring); position:relative; overflow:hidden;}
+.card:hover{transform:translateY(-6px) scale(1.015);
+  box-shadow:var(--shadow-lg); border-color:rgba(204,120,92,0.3);}
 .card::before{content:''; position:absolute; top:0; left:-100%;
-  width:100%; height:2px;
+  width:100%; height:3px;
   background:linear-gradient(90deg,transparent,var(--c-claude),transparent);
-  transition:left .8s;}
+  transition:left .9s var(--ease-out);}
 .card:hover::before{left:100%;}
 
-.card-l-cyan{border-left:3px solid var(--c1);}
-.card-l-magenta{border-left:3px solid var(--c2);}
-.card-l-amber{border-left:3px solid var(--c3);}
-.card-l-emerald{border-left:3px solid var(--c4);}
-.card-l-violet{border-left:3px solid var(--c5);}
-.card-l-claude{border-left:3px solid var(--c-claude);}
+.card-l-cyan{border-left:4px solid var(--c1);}
+.card-l-magenta{border-left:4px solid var(--c2);}
+.card-l-amber{border-left:4px solid var(--c3);}
+.card-l-emerald{border-left:4px solid var(--c4);}
+.card-l-violet{border-left:4px solid var(--c5);}
+.card-l-claude{border-left:4px solid var(--c-claude);}
 
-.card-research{padding:24px; background:linear-gradient(135deg,#fffefb,#fffaf3);
-  border:1px solid rgba(204,120,92,0.18); border-radius:18px;
-  box-shadow:var(--shadow);
-  display:flex; flex-direction:column; gap:8px;}
-
-/* === Stat numbers (count-up animated) === */
-.stat-num{font-family:'Fraunces','Noto Serif TC',serif;
-  font-size:64px; font-weight:900; line-height:1; letter-spacing:-2px;
+/* === Stat numbers === */
+.stat-mega{font-family:'Fraunces',serif;
+  font-size:120px; font-weight:900; line-height:0.9; letter-spacing:-4px;
+  background:linear-gradient(135deg,var(--c-claude),var(--c2));
+  background-size:200% 200%;
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  animation:shimmerBg 5s ease-in-out infinite;}
+.stat-num{font-family:'Fraunces',serif;
+  font-size:88px; font-weight:900; line-height:0.9; letter-spacing:-3px;
   background:linear-gradient(135deg,var(--c-claude),var(--c2));
   -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
-.stat-label{font-size:12px; color:var(--ink-3); letter-spacing:2px;
-  text-transform:uppercase; margin-top:4px; font-family:'JetBrains Mono',monospace;}
+.stat-label{font-size:14px; color:var(--ink-3); letter-spacing:2.5px;
+  text-transform:uppercase; margin-top:6px; font-family:'JetBrains Mono',monospace;
+  font-weight:700;}
 
 /* === Subject icon === */
-.subject-icon-lg{width:88px; height:88px; flex:none;
-  border-radius:18px; overflow:hidden;
-  box-shadow:0 8px 28px rgba(0,0,0,0.10);
-  animation:float 5s ease-in-out infinite;}
-.subject-icon-lg img{width:100%; height:100%; object-fit:cover; display:block;}
-.subject-icon-md{width:48px; height:48px; flex:none;
-  border-radius:11px; overflow:hidden;
-  box-shadow:0 4px 12px rgba(0,0,0,0.08);}
+.subject-icon-xl{width:128px; height:128px; flex:none;
+  border-radius:24px; overflow:hidden;
+  box-shadow:0 12px 36px rgba(0,0,0,0.12);
+  animation:float3d 5s ease-in-out infinite;
+  transition:transform .4s var(--ease-spring);}
+.subject-icon-xl:hover{transform:scale(1.1) rotate(-4deg);}
+.subject-icon-xl img{width:100%; height:100%; object-fit:cover; display:block;}
+.subject-icon-md{width:56px; height:56px; flex:none;
+  border-radius:13px; overflow:hidden;
+  box-shadow:0 6px 16px rgba(0,0,0,0.08);}
 .subject-icon-md img{width:100%; height:100%; object-fit:cover; display:block;}
 
 /* === Chips === */
-.chip{display:inline-flex; align-items:center; gap:7px;
-  padding:6px 14px; border-radius:99px;
-  font-size:13px; font-weight:600;
-  background:rgba(255,255,255,0.7); border:1px solid var(--border);
-  margin-right:6px; margin-bottom:6px;
-  transition:all .3s; cursor:default;}
-.chip:hover{transform:translateY(-1px); background:#fff; border-color:var(--c-claude);}
-.chip-c1{color:var(--c1); border-color:rgba(8,145,178,0.25);}
-.chip-c2{color:var(--c2); border-color:rgba(190,24,93,0.25);}
-.chip-c3{color:var(--c3); border-color:rgba(180,83,9,0.25);}
-.chip-c4{color:var(--c4); border-color:rgba(4,120,87,0.25);}
-.chip-c5{color:var(--c5); border-color:rgba(109,40,217,0.25);}
-.chip-claude{color:var(--c-claude); border-color:rgba(204,120,92,0.25);}
+.chip{display:inline-flex; align-items:center; gap:8px;
+  padding:10px 22px; border-radius:99px;
+  font-size:18px; font-weight:700;
+  background:rgba(255,255,255,0.85); border:2px solid var(--border);
+  margin:4px; transition:all .35s var(--ease-spring); cursor:default;
+  animation:jumpIn .8s var(--ease-spring) backwards;}
+.chip:hover{transform:translateY(-3px) scale(1.06); border-color:var(--c-claude);
+  box-shadow:0 8px 24px rgba(204,120,92,0.18);}
+.chip.c1{color:var(--c1);} .chip.c2{color:var(--c2);} .chip.c3{color:var(--c3);}
+.chip.c4{color:var(--c4);} .chip.c5{color:var(--c5);} .chip.cc{color:var(--c-claude);}
 
-/* === Button CTA === */
-.btn-cta{display:inline-flex; align-items:center; gap:8px;
-  padding:14px 28px; border-radius:99px;
+/* === CTA button === */
+.btn-cta{display:inline-flex; align-items:center; gap:12px;
+  padding:20px 44px; border-radius:99px;
   background:linear-gradient(135deg,var(--c-claude),var(--c2));
-  color:#fff; font-weight:700; font-size:14px; cursor:pointer;
-  border:none; box-shadow:0 6px 18px rgba(204,120,92,0.32);
-  transition:all .35s; position:relative; overflow:hidden;
-  letter-spacing:1px;}
+  color:#fff; font-weight:900; font-size:20px; cursor:pointer;
+  border:none; box-shadow:0 12px 32px rgba(204,120,92,0.4);
+  transition:all .4s var(--ease-spring); position:relative; overflow:hidden;
+  letter-spacing:2px;}
 .btn-cta::after{content:''; position:absolute; inset:0;
-  background:linear-gradient(90deg,transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
-  transform:translateX(-100%); transition:transform .8s;}
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.4) 50%,transparent 100%);
+  transform:translateX(-100%); transition:transform .9s;}
 .btn-cta:hover::after{transform:translateX(100%);}
-.btn-cta:hover{transform:translateY(-2px); box-shadow:0 12px 32px rgba(204,120,92,0.42);}
-
-/* === Source citation === */
-.src{font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--ink-4);
-  letter-spacing:0.8px; padding:2px 8px; background:rgba(29,28,26,0.04);
-  border-radius:4px; display:inline-block;}
-.src-row{font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--ink-3);
-  margin-top:8px; line-height:1.6; letter-spacing:0.3px;}
-.src-row strong{color:var(--ink-2);}
+.btn-cta:hover{transform:translateY(-4px) scale(1.04);
+  box-shadow:0 20px 50px rgba(204,120,92,0.55);}
+.btn-cta:active{transform:translateY(-2px) scale(0.98);}
 
 /* === Quote === */
-.quote{position:relative; padding:14px 22px 14px 30px; border-radius:10px;
+.quote{position:relative; padding:18px 28px 18px 36px; border-radius:14px;
   background:linear-gradient(135deg,#fff8f3,#fffefb);
-  border-left:3px solid var(--c-claude); box-shadow:var(--shadow-sm);}
-.quote::before{content:'"'; position:absolute; left:10px; top:2px;
-  font-family:'Fraunces',serif; font-size:54px; color:var(--c-claude);
-  opacity:0.32; line-height:0.65;}
-.quote-text{font-size:14.5px; color:var(--ink); font-weight:500; line-height:1.6;}
-.quote-author{font-size:11px; color:var(--c-claude); margin-top:6px;
-  font-family:'JetBrains Mono',monospace; letter-spacing:1.5px;}
+  border-left:4px solid var(--c-claude); box-shadow:var(--shadow-sm);}
+.quote::before{content:'"'; position:absolute; left:12px; top:0;
+  font-family:'Fraunces',serif; font-size:80px; color:var(--c-claude);
+  opacity:0.3; line-height:0.7;}
+.quote-text{font-size:20px; color:var(--ink); font-weight:600; line-height:1.5;}
+.quote-author{font-size:13px; color:var(--c-claude); margin-top:8px;
+  font-family:'JetBrains Mono',monospace; letter-spacing:1.5px; font-weight:700;}
 
-/* === Grid utilities === */
-.g2{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
-.g3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
-.g4{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
-.g-img-text{display:grid; grid-template-columns:7fr 5fr; gap:36px; align-items:center;}
-.g-text-img{display:grid; grid-template-columns:5fr 7fr; gap:36px; align-items:center;}
-.g-3img{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+/* === Grid === */
+.g2{display:grid; grid-template-columns:repeat(2,1fr); gap:24px;}
+.g3{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+.g4{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+.g-img-text{display:grid; grid-template-columns:8fr 5fr; gap:48px; align-items:center;}
+.g-text-img{display:grid; grid-template-columns:5fr 8fr; gap:48px; align-items:center;}
 
-/* === Cover special === */
+/* === Cover orb === */
 .cover-stage{display:flex; flex-direction:column; align-items:center;
-  justify-content:center; text-align:center; height:100%; gap:20px;
+  justify-content:center; text-align:center; height:100%; gap:24px;
   position:relative;}
-.cover-orb{position:absolute; width:520px; height:520px; border-radius:50%;
-  background:radial-gradient(circle,rgba(204,120,92,0.15),transparent 70%);
-  z-index:-1; animation:pulseSoft 6s ease-in-out infinite;}
+.cover-orb{position:absolute; width:680px; height:680px; border-radius:50%;
+  background:radial-gradient(circle,rgba(204,120,92,0.20),transparent 65%);
+  z-index:-1; animation:orbPulse 6s ease-in-out infinite;}
 
-/* === Subject hero header === */
-.subject-hero{display:flex; align-items:center; gap:24px; margin-bottom:8px;}
+/* === Subject hero === */
+.subject-hero{display:flex; align-items:center; gap:32px; margin-bottom:8px;}
 .subject-hero h2{flex:1;}
 
-/* === Research card === */
-.research-card{padding:22px 24px; background:#fff;
-  border-radius:16px; border:1px solid var(--border);
-  box-shadow:var(--shadow-sm); transition:all .35s;
-  display:flex; flex-direction:column; gap:8px; height:100%;}
-.research-card:hover{transform:translateY(-3px); box-shadow:var(--shadow-lg);
-  border-color:rgba(204,120,92,0.3);}
-.research-card .src-tag{font-family:'JetBrains Mono',monospace; font-size:10.5px;
-  letter-spacing:1.4px; color:var(--c1); font-weight:700;
-  padding:3px 10px; background:rgba(8,145,178,0.08); border-radius:4px;
-  display:inline-block; margin-bottom:6px; text-transform:uppercase;}
-.research-card .stat{font-family:'Fraunces',serif; font-size:38px; font-weight:900;
-  line-height:1; color:var(--ink); margin:4px 0;}
-.research-card .stat .small-suffix{font-size:18px; color:var(--ink-3); font-weight:600;}
-.research-card .desc{font-size:13.5px; line-height:1.55; color:var(--ink-2);}
-.research-card .ref{font-size:10.5px; color:var(--ink-4); font-style:italic;
-  border-top:1px dashed var(--border); padding-top:8px; margin-top:auto;}
+/* === Research card big numbers === */
+.research-card{padding:30px; background:#fff;
+  border-radius:22px; border:1px solid var(--border);
+  box-shadow:var(--shadow-sm); transition:all .5s var(--ease-spring);
+  display:flex; flex-direction:column; gap:10px; height:100%;
+  position:relative; overflow:hidden;}
+.research-card:hover{transform:translateY(-8px) scale(1.02);
+  box-shadow:var(--shadow-lg); border-color:rgba(204,120,92,0.35);}
+.research-card .src-tag{font-family:'JetBrains Mono',monospace; font-size:12px;
+  letter-spacing:2px; color:var(--c1); font-weight:700;
+  padding:5px 14px; background:rgba(8,145,178,0.08); border-radius:99px;
+  display:inline-block; margin-bottom:8px; align-self:flex-start;}
+.research-card .stat{font-family:'Fraunces',serif; font-size:64px; font-weight:900;
+  line-height:0.95; color:var(--ink); margin:6px 0;
+  background:linear-gradient(135deg,var(--c-claude),var(--c2));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
+.research-card .stat .small-suffix{font-size:24px; -webkit-text-fill-color:var(--ink-3);
+  background:none; font-weight:700;}
+.research-card h4{font-size:24px; line-height:1.3;}
+.research-card .desc{font-size:16px; line-height:1.55; color:var(--ink-2); font-weight:500;}
+.research-card .ref{font-size:11px; color:var(--ink-4); font-style:italic;
+  border-top:1px dashed var(--border); padding-top:10px; margin-top:auto;
+  font-family:'JetBrains Mono',monospace;}
+
+/* === Confetti === */
+.confetti{position:fixed; top:-20px;
+  width:14px; height:14px; z-index:200; pointer-events:none;
+  animation:confettiFall 3s linear forwards;}
 
 /* === Print to PDF === */
 @media print{
   @page{size:1280px 720px; margin:0;}
   html,body{width:1280px!important; height:auto!important; overflow:visible!important;
     background:var(--bg)!important;}
-  body::before, body::after{display:none!important;}
+  body::before, body::after, .particle, .cursor-glow, .confetti{display:none!important;}
   #progress,#section-tag,#brand,#pageInfo,#hint,#dots{display:none!important;}
   .slide{position:relative!important; inset:auto!important;
     width:1280px!important; height:720px!important;
     opacity:1!important; transform:none!important; transition:none!important;
     pointer-events:auto!important; page-break-after:always; display:flex!important;
-    overflow:hidden!important;}
+    overflow:hidden!important; animation:none!important;}
   .slide:last-child{page-break-after:auto;}
   .slide-inner{width:100%!important; height:100%!important;}
+  .slide-inner > *, .h-anim .letter{animation:none!important; opacity:1!important;}
   *{-webkit-print-color-adjust:exact!important; print-color-adjust:exact!important;}
 }
 </style>
@@ -309,680 +414,533 @@ p.small{font-size:12.5px; color:var(--ink-3); line-height:1.55;}
 <div id="pageInfo"><span id="pn">1</span><span class="total"> / 20</span></div>
 <div id="hint">← → 切換　·　F 全屏</div>
 <div id="dots"></div>
+<div class="cursor-glow" id="cursor-glow"></div>
 
-<!-- ========================================== -->
-<!-- 第一部 · 開場 + 研究依據 (P1-P4) -->
-<!-- ========================================== -->
-
-<!-- P1 封面 -->
-<section class="slide active" data-slide="1" data-section="OPENING · 開場">
+<!-- ===== P1 封面 ===== -->
+<section class="slide active" data-slide="1" data-section="OPENING · 開場" data-confetti="1">
   <div class="slide-inner cover-stage">
     <div class="cover-orb"></div>
-    <div class="kicker">LWWF · 樂善堂梁黃蕙芳紀念學校 · 2026 家長簡報</div>
-    <h1><span class="gradient-text">AI INFINITY</span></h1>
-    <p style="font-size:22px; color:var(--ink-2); max-width:880px; font-weight:300; letter-spacing:1px;">
-      無限可能　·　無限創造　·　無限學習　·　無限未來
+    <div class="kicker">LWWF · 2026 家長簡報</div>
+    <h1 class="mega h-anim"><span class="gradient-text">AI INFINITY</span></h1>
+    <p class="tagline" style="font-size:32px; font-weight:300; letter-spacing:4px;">
+      無限可能　·　無限創造　·　無限未來
     </p>
-    <p style="font-size:12px; color:var(--ink-3); font-family:'JetBrains Mono',monospace; letter-spacing:4px;">
-      SHAPING TOMORROW'S CREATORS, TODAY
-    </p>
-    <div class="g4" style="max-width:960px; margin-top:14px; gap:14px;">
-      <div class="card" style="padding:16px; text-align:center;">
+    <div class="g4" style="max-width:1040px; margin-top:14px; gap:18px; width:100%;">
+      <div class="card" style="text-align:center; padding:22px;">
         <div class="stat-num" data-target="8">8</div>
-        <div class="stat-label">大科目 AI 融入</div>
+        <div class="stat-label">大科目</div>
       </div>
-      <div class="card" style="padding:16px; text-align:center;">
+      <div class="card" style="text-align:center; padding:22px;">
         <div class="stat-num" data-target="70">70</div>
-        <div class="stat-label">校網第一引入企業 AI</div>
+        <div class="stat-label">校網第一</div>
       </div>
-      <div class="card" style="padding:16px; text-align:center;">
-        <div class="stat-num" style="font-size:42px;">P1-P6</div>
-        <div class="stat-label">螺旋式跨學科</div>
+      <div class="card" style="text-align:center; padding:22px;">
+        <div class="stat-num" style="font-size:62px;">P1-P6</div>
+        <div class="stat-label">螺旋課程</div>
       </div>
-      <div class="card" style="padding:16px; text-align:center;">
+      <div class="card" style="text-align:center; padding:22px;">
         <div class="stat-num" data-target="2025">2025</div>
-        <div class="stat-label">STEAM 革新元年</div>
+        <div class="stat-label">革新元年</div>
       </div>
     </div>
-    <div style="margin-top:6px;">
-      <span class="chip chip-c2">中文</span>
-      <span class="chip chip-c1">英文</span>
-      <span class="chip chip-c3">數學</span>
-      <span class="chip chip-c2">人文／常識</span>
-      <span class="chip chip-c4">科學</span>
-      <span class="chip chip-c3">音樂</span>
-      <span class="chip chip-c5">體育</span>
-      <span class="chip chip-claude">視藝</span>
+    <div>
+      <span class="chip c2">中文</span><span class="chip c1">英文</span>
+      <span class="chip c3">數學</span><span class="chip c2">人文</span>
+      <span class="chip c4">科學</span><span class="chip c3">音樂</span>
+      <span class="chip c5">體育</span><span class="chip cc">視藝</span>
     </div>
   </div>
 </section>
 
-<!-- P2 為何要改變？— 全球研究嘅警號 -->
+<!-- ===== P2 全球研究 ===== -->
 <section class="slide" data-slide="2" data-section="RESEARCH · 全球研究">
   <div class="slide-inner">
-    <div class="kicker k-cyan">RESEARCH · 全球研究嘅警號</div>
-    <h2>為何要改變？　<span class="gradient-text">四項權威研究告訴我們</span></h2>
-    <p class="lead" style="max-width:1080px;">家長嘅憂慮是真實嘅——但解答呢個憂慮唔可以靠感覺，必須建基於全球教育界經得起時間考驗嘅研究發現。</p>
-    <div class="g4" style="margin-top:8px; flex:1;">
+    <div class="kicker k-cyan">RESEARCH</div>
+    <h2 class="big h-anim">為何要改變？</h2>
+    <p class="tagline" style="max-width:900px;">四項權威研究　·　告訴我哋答案</p>
+    <div class="g4" style="flex:1; gap:16px;">
       <div class="research-card">
         <div class="src-tag">WEF · 2025</div>
-        <h4>未來工種大轉型</h4>
-        <div class="stat">22<span class="small-suffix">% 新增</span> · 14<span class="small-suffix">% 消失</span></div>
-        <p class="desc">未來 5 年內，全球工作崗位有 22% 屬於新增，14% 將會消失，淨增長 7%——其中 86% 嘅企業已採用 AI 並對勞動力產生衝擊。</p>
-        <div class="ref">World Economic Forum · Future of Jobs Report 2025</div>
+        <div class="stat">22<span class="small-suffix">%</span></div>
+        <h4>新工種誕生</h4>
+        <p class="desc">未來 5 年 22% 工作新增、14% 消失。</p>
+        <div class="ref">Future of Jobs Report 2025</div>
       </div>
       <div class="research-card">
-        <div class="src-tag">OECD · 2030</div>
-        <h4>學習者能動性</h4>
-        <div class="stat">Agency<span class="small-suffix"> · 核心素養</span></div>
-        <p class="desc">OECD 提出 2030 學習框架，將「Agency（能動性）」列為核心——學生需具備為自身學習設定目標、反思、調整方向嘅能力。</p>
+        <div class="src-tag" style="color:var(--c4); background:rgba(4,120,87,0.08);">OECD · 2030</div>
+        <div class="stat" style="background:linear-gradient(135deg,var(--c1),var(--c4)); -webkit-background-clip:text;">Agency</div>
+        <h4>學習能動性</h4>
+        <p class="desc">學生主導學習，唔再係被動接收。</p>
         <div class="ref">OECD Learning Framework 2030</div>
       </div>
       <div class="research-card">
-        <div class="src-tag">BLOOM · 1984</div>
-        <h4>2 Sigma 個人化效應</h4>
-        <div class="stat">98<span class="small-suffix"> 百分位</span></div>
-        <p class="desc">Benjamin Bloom 證實：一對一嘅個人化導師教學，可將學生成績由 50 百分位提升至 98 百分位——即兩個標準差（2 Sigma）。</p>
-        <div class="ref">Bloom (1984) · The 2 Sigma Problem</div>
+        <div class="src-tag" style="color:var(--c3); background:rgba(180,83,9,0.08);">BLOOM · 1984</div>
+        <div class="stat">2σ</div>
+        <h4>個人化突破</h4>
+        <p class="desc">一對一導師可令成績升至 98 百分位。</p>
+        <div class="ref">Bloom · The 2 Sigma Problem</div>
       </div>
       <div class="research-card">
-        <div class="src-tag">HATTIE · 2009</div>
+        <div class="src-tag" style="color:var(--c5); background:rgba(109,40,217,0.08);">HATTIE · 2009</div>
+        <div class="stat">d=0.50</div>
         <h4>探究式學習</h4>
-        <div class="stat">d=0.50<span class="small-suffix"> 高於平均</span></div>
-        <p class="desc">John Hattie 整合超過 800 項元分析發現：探究式學習效應值 d=0.50，明顯高於平均水平 d=0.40，是高效教學策略。</p>
-        <div class="ref">Hattie (2009) · Visible Learning Meta-Analysis</div>
+        <p class="desc">明顯高於平均 d=0.40 嘅高效策略。</p>
+        <div class="ref">Visible Learning Meta-Analysis</div>
       </div>
     </div>
-    <p class="src-row" style="text-align:center;"><strong>本校嘅判斷：</strong>培育「能與 AI 並肩工作嘅一代」，唔係趨勢，係必然。</p>
   </div>
 </section>
 
-<!-- P3 香港 + 本校嘅落實 -->
-<section class="slide" data-slide="3" data-section="RESEARCH · 香港落實">
+<!-- ===== P3 香港落實 ===== -->
+<section class="slide" data-slide="3" data-section="LOCAL · 香港落實">
   <div class="slide-inner">
-    <div class="kicker k-emerald">LOCAL · 香港 + 本校落實</div>
-    <h2>呢啲研究　<span class="gradient-text-cool">本校已喺實踐</span></h2>
+    <div class="kicker k-emerald">LOCAL</div>
+    <h2 class="big h-anim">本校已喺<span class="gradient-text-cool">實踐</span></h2>
     <div class="g-text-img" style="flex:1;">
-      <div style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; flex-direction:column; gap:18px;">
         <div class="card card-l-emerald">
-          <div class="kicker k-emerald" style="margin-bottom:6px;">POLICY · 政策回應</div>
-          <h3>教育局《價值觀教育架構》</h3>
-          <p class="body" style="margin-top:4px;">政府已於 2021 年起推動價值觀教育、AI 素養與資訊判讀。本校嘅 AI INFINITY 戰略，正好對應呢三大方向。</p>
+          <h3 class="lead" style="color:var(--c4);">📜 教育局《價值觀架構》</h3>
         </div>
         <div class="card card-l-claude">
-          <div class="kicker" style="margin-bottom:6px;">SCHOOL · 校本革新</div>
-          <h3>2025-2026：「電腦科」革新為「STEAM 科」</h3>
-          <p class="body" style="margin-top:4px;">由打字、Word、PowerPoint，全面升級至運算思維、跨學科整合、AI 共創——並非新增一科，而係從根本重構。</p>
+          <h3 class="lead" style="color:var(--c-claude);">🎓 「電腦科」革新為「STEAM 科」</h3>
         </div>
         <div class="card card-l-cyan">
-          <div class="kicker k-cyan" style="margin-bottom:6px;">SCOPE · 全面覆蓋</div>
-          <h3>8 大科目 AI 融入（不只 6 科）</h3>
-          <p class="body" style="margin-top:4px;">中、英、數、人文／常識、科學、音樂、體育、視藝——8 大主科全面融入 AI，學生唔需要等到中學先接觸。</p>
+          <h3 class="lead" style="color:var(--c1);">🌐 8 大科 AI 融入（不只 6 科）</h3>
         </div>
       </div>
       <div class="photo16">
-        <div class="ph-id">P3 · 校本實踐照片位</div>
-        <div class="ph-hint">建議放：校長／團隊合照　·　STEAM 課堂全景　·　校園實況</div>
+        <div class="ph-id">P3 · 校本實踐</div>
+        <div class="ph-hint">校長／團隊合照　·　STEAM 課堂全景</div>
       </div>
     </div>
-    <p class="src-row"><strong>資料來源：</strong>香港教育局《價值觀教育架構》（2021） · 本校 STEAM 課程組（楊錦鋒老師主理） · 2025-2026 教學進度簡表（NotebookLM 教師筆記）</p>
   </div>
 </section>
 
-<!-- P4 教育趨向 × 8 大科 矩陣 -->
-<section class="slide" data-slide="4" data-section="RESEARCH · 趨向矩陣">
+<!-- ===== P4 矩陣 ===== -->
+<section class="slide" data-slide="4" data-section="MATRIX · 趨向矩陣">
   <div class="slide-inner">
-    <div class="kicker k-magenta">MATRIX · 8 大科 × 全球趨向</div>
-    <h2>每一科　<span class="gradient-text">都有明確的未來定位</span></h2>
-    <p class="lead" style="max-width:1100px;">下表清楚展示：8 大科目分別對應哪一項全球研究發現、哪一項本地政策，以及校本如何具體落實。</p>
+    <div class="kicker k-magenta">MATRIX</div>
+    <h2 class="big h-anim">8 大科　×　<span class="gradient-text">未來定位</span></h2>
     <div style="flex:1; overflow:auto; margin-top:6px;">
-      <table style="width:100%; border-collapse:collapse; font-size:12.5px;">
+      <table style="width:100%; border-collapse:collapse; font-size:16px;">
         <thead>
-          <tr style="background:rgba(204,120,92,0.06);">
-            <th style="padding:10px 12px; text-align:left; border-bottom:2px solid var(--c-claude); color:var(--c-claude); font-family:'JetBrains Mono',monospace; letter-spacing:1px; width:13%;">科目</th>
-            <th style="padding:10px 12px; text-align:left; border-bottom:2px solid var(--c-claude); color:var(--c-claude); font-family:'JetBrains Mono',monospace; letter-spacing:1px;">對應全球研究</th>
-            <th style="padding:10px 12px; text-align:left; border-bottom:2px solid var(--c-claude); color:var(--c-claude); font-family:'JetBrains Mono',monospace; letter-spacing:1px;">校本實踐重點</th>
+          <tr style="background:rgba(204,120,92,0.08);">
+            <th style="padding:14px 16px; text-align:left; border-bottom:3px solid var(--c-claude); color:var(--c-claude); font-family:'JetBrains Mono',monospace; letter-spacing:2px; font-size:13px; width:18%;">科目</th>
+            <th style="padding:14px 16px; text-align:left; border-bottom:3px solid var(--c-claude); color:var(--c-claude); font-family:'JetBrains Mono',monospace; letter-spacing:2px; font-size:13px;">對應趨向</th>
+            <th style="padding:14px 16px; text-align:left; border-bottom:3px solid var(--c-claude); color:var(--c-claude); font-family:'JetBrains Mono',monospace; letter-spacing:2px; font-size:13px;">校本實踐</th>
           </tr>
         </thead>
         <tbody>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:9px 12px; font-weight:700; color:var(--c2);"><span style="display:inline-flex; align-items:center; gap:8px;"><span class="subject-icon-md"><img src="icon_chinese.png" alt=""></span>中文</span></td><td style="padding:9px 12px;">UNESCO 文化傳承 + Critical Thinking</td><td style="padding:9px 12px;">P4 狐假虎威新編；成語攻防戰（學生組別作品）</td></tr>
-          <tr style="border-bottom:1px solid var(--border); background:rgba(8,145,178,0.03);"><td style="padding:9px 12px; font-weight:700; color:var(--c1);"><span style="display:inline-flex; align-items:center; gap:8px;"><span class="subject-icon-md"><img src="icon_english.png" alt=""></span>英文</span></td><td style="padding:9px 12px;">OECD Agency 學習能動性</td><td style="padding:9px 12px;">AI 默書助手（家長 Workshop 衍生）</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:9px 12px; font-weight:700; color:var(--c3);"><span style="display:inline-flex; align-items:center; gap:8px;"><span class="subject-icon-md"><img src="icon_math.png" alt=""></span>數學</span></td><td style="padding:9px 12px;">Bloom 2 Sigma 個人化突破</td><td style="padding:9px 12px;">P4 乘法大師；漫畫變身器；蘇格拉底反問</td></tr>
-          <tr style="border-bottom:1px solid var(--border); background:rgba(190,24,93,0.03);"><td style="padding:9px 12px; font-weight:700; color:var(--c2);"><span style="display:inline-flex; align-items:center; gap:8px;"><span class="subject-icon-md"><img src="icon_humanities.png" alt=""></span>人文／常識</span></td><td style="padding:9px 12px;">教育局《價值觀教育架構》</td><td style="padding:9px 12px;">一帶一路 fact-check；樂在其「中」（季軍）</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:9px 12px; font-weight:700; color:var(--c4);"><span style="display:inline-flex; align-items:center; gap:8px;"><span class="subject-icon-md"><img src="icon_science.jpg" alt=""></span>科學</span></td><td style="padding:9px 12px;">Hattie d=0.50 探究式學習</td><td style="padding:9px 12px;">P6 識花君；生態保育體驗日；國寶 AI 管家</td></tr>
-          <tr style="border-bottom:1px solid var(--border); background:rgba(180,83,9,0.03);"><td style="padding:9px 12px; font-weight:700; color:var(--c3);"><span style="display:inline-flex; align-items:center; gap:8px;"><span class="subject-icon-md"><img src="icon_music.jpg" alt=""></span>音樂</span></td><td style="padding:9px 12px;">UNESCO 創意表達 + 親子協作</td><td style="padding:9px 12px;">「水果月」親子 AI 歌曲創作（Suno + Padlet）</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:9px 12px; font-weight:700; color:var(--c5);"><span style="display:inline-flex; align-items:center; gap:8px;"><span class="subject-icon-md"><img src="icon_pe.jpg" alt=""></span>體育</span></td><td style="padding:9px 12px;">WHO 兒童活動指引 + 數據素養</td><td style="padding:9px 12px;">P5 AI 國寶守衛戰；AI 智能體育系統（試行）</td></tr>
-          <tr style="background:rgba(204,120,92,0.04);"><td style="padding:9px 12px; font-weight:700; color:var(--c-claude);"><span style="display:inline-flex; align-items:center; gap:8px;"><span class="subject-icon-md"><img src="icon_va.jpg" alt=""></span>視藝</span></td><td style="padding:9px 12px;">21 世紀核心技能 4C（Creativity）</td><td style="padding:9px 12px;">P5 現代門神；P6 未來職業 APP（生涯規劃）</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:14px 16px; font-weight:900; font-size:20px; color:var(--c2);"><span style="display:inline-flex; align-items:center; gap:14px;"><span class="subject-icon-md"><img src="icon_chinese.png" alt=""></span>中文</span></td><td style="padding:14px 16px;">UNESCO 文化傳承</td><td style="padding:14px 16px;">P4 狐假虎威　·　成語攻防戰</td></tr>
+          <tr style="border-bottom:1px solid var(--border); background:rgba(8,145,178,0.03);"><td style="padding:14px 16px; font-weight:900; font-size:20px; color:var(--c1);"><span style="display:inline-flex; align-items:center; gap:14px;"><span class="subject-icon-md"><img src="icon_english.png" alt=""></span>英文</span></td><td style="padding:14px 16px;">OECD Agency</td><td style="padding:14px 16px;">AI 默書助手</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:14px 16px; font-weight:900; font-size:20px; color:var(--c3);"><span style="display:inline-flex; align-items:center; gap:14px;"><span class="subject-icon-md"><img src="icon_math.png" alt=""></span>數學</span></td><td style="padding:14px 16px;">Bloom 2 Sigma</td><td style="padding:14px 16px;">乘法大師　·　漫畫變身器</td></tr>
+          <tr style="border-bottom:1px solid var(--border); background:rgba(190,24,93,0.03);"><td style="padding:14px 16px; font-weight:900; font-size:20px; color:var(--c2);"><span style="display:inline-flex; align-items:center; gap:14px;"><span class="subject-icon-md"><img src="icon_humanities.png" alt=""></span>人文</span></td><td style="padding:14px 16px;">教育局價值觀</td><td style="padding:14px 16px;">樂在其「中」（季軍）　·　文化試身室</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:14px 16px; font-weight:900; font-size:20px; color:var(--c4);"><span style="display:inline-flex; align-items:center; gap:14px;"><span class="subject-icon-md"><img src="icon_science.jpg" alt=""></span>科學</span></td><td style="padding:14px 16px;">Hattie 探究式</td><td style="padding:14px 16px;">識花君　·　國寶 AI 管家</td></tr>
+          <tr style="border-bottom:1px solid var(--border); background:rgba(180,83,9,0.03);"><td style="padding:14px 16px; font-weight:900; font-size:20px; color:var(--c3);"><span style="display:inline-flex; align-items:center; gap:14px;"><span class="subject-icon-md"><img src="icon_music.jpg" alt=""></span>音樂</span></td><td style="padding:14px 16px;">UNESCO 創意表達</td><td style="padding:14px 16px;">「水果月」AI 親子歌曲</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:14px 16px; font-weight:900; font-size:20px; color:var(--c5);"><span style="display:inline-flex; align-items:center; gap:14px;"><span class="subject-icon-md"><img src="icon_pe.jpg" alt=""></span>體育</span></td><td style="padding:14px 16px;">WHO 兒童活動</td><td style="padding:14px 16px;">國寶守衛戰　·　AI 智能體育</td></tr>
+          <tr style="background:rgba(204,120,92,0.04);"><td style="padding:14px 16px; font-weight:900; font-size:20px; color:var(--c-claude);"><span style="display:inline-flex; align-items:center; gap:14px;"><span class="subject-icon-md"><img src="icon_va.jpg" alt=""></span>視藝</span></td><td style="padding:14px 16px;">21C 4C 創意</td><td style="padding:14px 16px;">現代門神　·　未來職業 APP</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="small" style="text-align:center; font-style:italic;">每一科並非孤立——都對應全球趨向、本地政策、校本實踐三層邏輯。</p>
   </div>
 </section>
 
-<!-- ========================================== -->
-<!-- 第二部 · 8 大科目核心 (P5-P14) -->
-<!-- ========================================== -->
-
-<!-- P5 中文 -->
-<section class="slide" data-slide="5" data-section="CORE · 中文科">
+<!-- ===== P5 中文 ===== -->
+<section class="slide" data-slide="5" data-section="CORE · 中文">
   <div class="slide-inner">
     <div class="subject-hero">
-      <div class="subject-icon-lg"><img src="icon_chinese.png" alt="中文"></div>
+      <div class="subject-icon-xl"><img src="icon_chinese.png" alt="中文"></div>
       <div style="flex:1;">
         <div class="kicker k-magenta">中文 · CHINESE</div>
-        <h2>由「背誦默寫」　走向　<span class="gradient-text">「文化共創」</span></h2>
+        <h2 class="big h-anim">由背誦　走向　<span class="gradient-text">共創</span></h2>
       </div>
     </div>
-    <div class="g-text-img" style="flex:1;">
-      <div style="display:flex; flex-direction:column; gap:12px;">
-        <div class="card card-l-magenta">
-          <h3 style="color:var(--c2);">📜 P4 課程：狐假虎威新編</h3>
-          <p class="body" style="margin-top:4px;">學生用 AI 重新詮釋古典成語故事，融入現代道德判斷與文化反思——並非取代寫作，而是訓練「與 AI 對話」的能力。</p>
-        </div>
-        <div class="card card-l-magenta">
-          <h3 style="color:var(--c2);">🃏 學生組別作品：AI 成語攻防戰</h3>
-          <p class="body" style="margin-top:4px;">P5 學生自主開發嘅 MTG 風格成語對戰遊戲，學生需要喺攻防回合間運用適切成語——比賽榮獲全港小學優異獎。</p>
-        </div>
-        <div class="quote">
-          <div class="quote-text">寫作從來唔係背書。如何在 AI 時代仍然保留「人嘅聲音」，先係本科存在的理由。</div>
-          <div class="quote-author">— 中文科組（待錄）</div>
-        </div>
-      </div>
+    <div class="g-img-text" style="flex:1;">
       <div class="photo16">
-        <div class="ph-id">P5 · 中文堂或學生組別作品</div>
-        <div class="ph-hint">建議放：成語攻防戰實況　·　學生 iPad 文化共創　·　中文科教師教學情境</div>
+        <div class="ph-id">P5 · 中文</div>
+        <div class="ph-hint">成語攻防戰實況　·　學生 iPad 文化共創</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <h3 class="lead" style="color:var(--c2);">📜 P4 狐假虎威新編</h3>
+        <h3 class="lead" style="color:var(--c2);">🃏 AI 成語攻防戰<br><span style="font-size:16px; color:var(--c3); font-weight:600;">全港小學優異獎（103 件）</span></h3>
+        <div class="quote">
+          <div class="quote-text">寫作從來唔係背書。</div>
+          <div class="quote-author">中文科組</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- P6 英文 -->
-<section class="slide" data-slide="6" data-section="CORE · 英文科">
+<!-- ===== P6 英文 ===== -->
+<section class="slide" data-slide="6" data-section="CORE · 英文">
   <div class="slide-inner">
     <div class="subject-hero">
-      <div class="subject-icon-lg"><img src="icon_english.png" alt="英文"></div>
+      <div class="subject-icon-xl"><img src="icon_english.png" alt="英文"></div>
       <div style="flex:1;">
         <div class="kicker k-cyan">英文 · ENGLISH</div>
-        <h2>由「補習依賴」　走向　<span class="gradient-text-cool">「家長共建 App」</span></h2>
-      </div>
-    </div>
-    <div class="g-img-text" style="flex:1;">
-      <div class="photo16">
-        <div class="ph-id">P6 · 英文堂或 AI 默書助手</div>
-        <div class="ph-hint">建議放：學生用 iPad 默書　·　家長 Workshop 共建 App 實況　·　AI 介面截圖</div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:12px;">
-        <div class="card card-l-cyan">
-          <h3 style="color:var(--c1);">🪄 AI 魔法默書助手</h3>
-          <p class="body" style="margin-top:4px;">家長親手用 Vibe Coding 為自己孩子建立默書 App——標準英式發音、永不疲倦、隨時聽寫。30 分鐘出原型，5 分鐘出第一版。</p>
-        </div>
-        <div class="card card-l-cyan">
-          <h3 style="color:var(--c1);">🎙️ AI 對話練習</h3>
-          <p class="body" style="margin-top:4px;">學生與 AI 進行情境對話練習，AI 提供即時糾正及語法建議——對應 OECD Agency 概念，由學生主導學習節奏。</p>
-        </div>
-        <div class="quote">
-          <div class="quote-text">Vibe Coding 就好像聽得明人話的超級助手！我們可以直接說想要甚麼功能，省下很多除錯時間。</div>
-          <div class="quote-author">— 黃靖宸 5C · RTHK 訪問</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- P7 數學 -->
-<section class="slide" data-slide="7" data-section="CORE · 數學科">
-  <div class="slide-inner">
-    <div class="subject-hero">
-      <div class="subject-icon-lg"><img src="icon_math.png" alt="數學"></div>
-      <div style="flex:1;">
-        <div class="kicker k-amber">數學 · MATHEMATICS</div>
-        <h2>由「找答案」　走向　<span class="gradient-text">「蘇格拉底式思辨」</span></h2>
+        <h2 class="big h-anim">由補習　走向　<span class="gradient-text-cool">共建 App</span></h2>
       </div>
     </div>
     <div class="g-text-img" style="flex:1;">
-      <div style="display:flex; flex-direction:column; gap:12px;">
-        <div class="card card-l-amber">
-          <h3 style="color:var(--c3);">📐 P4 課程：乘法大師</h3>
-          <p class="body" style="margin-top:4px;">學生使用 AI 個人化練習系統，配合 Bloom 2 Sigma 嘅個人化突破——AI 唔係取代老師，而係令每位學生都有專屬嘅練習路徑。</p>
-        </div>
-        <div class="card card-l-amber">
-          <h3 style="color:var(--c3);">🤖 蘇格拉底反問模式</h3>
-          <p class="body" style="margin-top:4px;">AI 唔會直接俾答案，而係不斷反問：「點解你咁諗？仲有冇其他方法？」訓練學生嘅後設認知與批判思維。</p>
-        </div>
-        <div class="card card-l-amber">
-          <h3 style="color:var(--c3);">🎨 學生組別作品：數學漫畫變身器</h3>
-          <p class="body" style="margin-top:4px;">學生將抽象數學概念，配合 AI 工具轉成四格漫畫——將「理解」由文字記憶昇華為視覺敘事。</p>
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <h3 class="lead" style="color:var(--c1);">🪄 AI 魔法默書助手</h3>
+        <p class="tagline" style="font-size:22px; color:var(--ink-2);">家長 30 分鐘出原型</p>
+        <div class="quote">
+          <div class="quote-text">Vibe Coding 就好像聽得明人話的超級助手。</div>
+          <div class="quote-author">黃靖宸 5C · RTHK</div>
         </div>
       </div>
       <div class="photo16">
-        <div class="ph-id">P7 · 數學課堂或學生作品</div>
-        <div class="ph-hint">建議放：學生數學課堂實況　·　漫畫變身器作品　·　iPad AI 個人化練習</div>
+        <div class="ph-id">P6 · 英文</div>
+        <div class="ph-hint">學生用 iPad 默書　·　家長 Workshop 共建 App</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- P8 人文 -->
-<section class="slide" data-slide="8" data-section="CORE · 人文／常識">
+<!-- ===== P7 數學 ===== -->
+<section class="slide" data-slide="7" data-section="CORE · 數學">
   <div class="slide-inner">
     <div class="subject-hero">
-      <div class="subject-icon-lg"><img src="icon_humanities.png" alt="人文"></div>
+      <div class="subject-icon-xl"><img src="icon_math.png" alt="數學"></div>
       <div style="flex:1;">
-        <div class="kicker k-magenta">人文／常識 · HUMANITIES</div>
-        <h2>由「背書本」　走向　<span class="gradient-text">「身份與文化嘅探索」</span></h2>
+        <div class="kicker k-amber">數學 · MATH</div>
+        <h2 class="big h-anim">由找答案　走向　<span class="gradient-text">蘇格拉底</span></h2>
       </div>
     </div>
     <div class="g-img-text" style="flex:1;">
       <div class="photo16">
-        <div class="ph-id">P8 · 人文堂或樂在其「中」攤位</div>
-        <div class="ph-hint">建議放：頒獎禮合照（季軍）·　文化試身室實況　·　常識堂教學情境</div>
+        <div class="ph-id">P7 · 數學</div>
+        <div class="ph-hint">學生數學課堂　·　漫畫變身器作品</div>
       </div>
-      <div style="display:flex; flex-direction:column; gap:12px;">
-        <div class="card card-l-magenta">
-          <h3 style="color:var(--c2);">👘 AI 中華文化試身室</h3>
-          <p class="body" style="margin-top:4px;">學生透過 AI 影像生成技術，「試身」民族服飾——以親身體驗深化對多元文化嘅理解，超越 textbook 嘅平面認識。</p>
-        </div>
-        <div class="card card-l-magenta">
-          <h3 style="color:var(--c2);">🏛️ 樂在其「中」（全港季軍）</h3>
-          <p class="body" style="margin-top:4px;">學生組別作品於全港小學中華文化教育比賽中，於 500 隊參賽隊伍中榮獲季軍——以遊戲形式重塑文化教育。</p>
-        </div>
-        <div class="quote">
-          <div class="quote-text">真正的文化傳承，唔係將學生變成歷史嘅旁觀者，而係令佢哋成為文化嘅再創造者。</div>
-          <div class="quote-author">— 校長許敏詩 · RTHK 訪問</div>
-        </div>
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <h3 class="lead" style="color:var(--c3);">📐 P4 乘法大師</h3>
+        <h3 class="lead" style="color:var(--c3);">🤖 蘇格拉底反問</h3>
+        <h3 class="lead" style="color:var(--c3);">🎨 數學漫畫變身器</h3>
       </div>
     </div>
   </div>
 </section>
 
-<!-- P9 科學 -->
+<!-- ===== P8 人文 ===== -->
+<section class="slide" data-slide="8" data-section="CORE · 人文" data-confetti="1">
+  <div class="slide-inner">
+    <div class="subject-hero">
+      <div class="subject-icon-xl"><img src="icon_humanities.png" alt="人文"></div>
+      <div style="flex:1;">
+        <div class="kicker k-magenta">人文 · HUMANITIES</div>
+        <h2 class="big h-anim">由背書　走向　<span class="gradient-text">身份探索</span></h2>
+      </div>
+    </div>
+    <div class="g-text-img" style="flex:1;">
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <h3 class="lead" style="color:var(--c2);">🏛️ 樂在其「中」<br><span style="font-size:18px; color:var(--c3);">全港季軍（500 隊）</span></h3>
+        <h3 class="lead" style="color:var(--c2);">👘 AI 中華文化試身室</h3>
+        <div class="quote">
+          <div class="quote-text">由文化嘅旁觀者　變成再創造者。</div>
+          <div class="quote-author">校長許敏詩</div>
+        </div>
+      </div>
+      <div class="photo16">
+        <div class="ph-id">P8 · 人文</div>
+        <div class="ph-hint">頒獎合照　·　文化試身室實況</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== P9 科學 ===== -->
 <section class="slide" data-slide="9" data-section="CORE · 科學">
   <div class="slide-inner">
     <div class="subject-hero">
-      <div class="subject-icon-lg"><img src="icon_science.jpg" alt="科學"></div>
+      <div class="subject-icon-xl"><img src="icon_science.jpg" alt="科學"></div>
       <div style="flex:1;">
         <div class="kicker k-emerald">科學 · SCIENCE</div>
-        <h2>由「實驗報告」　走向　<span class="gradient-text-cool">「真實世界探究」</span></h2>
+        <h2 class="big h-anim">由實驗報告　走向　<span class="gradient-text-cool">真實探究</span></h2>
       </div>
     </div>
-    <div class="g-text-img" style="flex:1;">
-      <div style="display:flex; flex-direction:column; gap:12px;">
-        <div class="card card-l-emerald">
-          <h3 style="color:var(--c4);">🌱 P6 課程：識花君</h3>
-          <p class="body" style="margin-top:4px;">學生喺校園花圃使用 AI 植物識別 App——應用即場觀察、AI 工具、分類學知識，跨科學與常識嘅探究實踐。</p>
-        </div>
-        <div class="card card-l-emerald">
-          <h3 style="color:var(--c4);">🐢 AI 生態保育體驗日</h3>
-          <p class="body" style="margin-top:4px;">透過親身接觸阿達伯拉象龜，並引入 AI 物種辨識工具——學生由旁觀者轉為保育嘅實際參與者。</p>
-        </div>
-        <div class="card card-l-emerald">
-          <h3 style="color:var(--c4);">🦎 旗艦項目：國寶 AI 管家</h3>
-          <p class="body" style="margin-top:4px;">校內領養瑤山鱷蜥（中國一級保護動物），配合 IoT 感應器同 AI 監測系統——詳見 P13 旗艦頁。</p>
-        </div>
-      </div>
+    <div class="g-img-text" style="flex:1;">
       <div class="photo16">
-        <div class="ph-id">P9 · 科學課堂或保育實踐</div>
-        <div class="ph-hint">建議放：學生用識花君實況　·　象龜接觸日　·　校園花圃實景</div>
+        <div class="ph-id">P9 · 科學</div>
+        <div class="ph-hint">識花君實況　·　象龜接觸日　·　校園花圃</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <h3 class="lead" style="color:var(--c4);">🌱 P6 識花君</h3>
+        <h3 class="lead" style="color:var(--c4);">🐢 阿達伯拉象龜</h3>
+        <h3 class="lead" style="color:var(--c4);">🦎 國寶 AI 管家</h3>
       </div>
     </div>
   </div>
 </section>
 
-<!-- P10 音樂 -->
+<!-- ===== P10 音樂 ===== -->
 <section class="slide" data-slide="10" data-section="CORE · 音樂">
   <div class="slide-inner">
     <div class="subject-hero">
-      <div class="subject-icon-lg"><img src="icon_music.jpg" alt="音樂"></div>
+      <div class="subject-icon-xl"><img src="icon_music.jpg" alt="音樂"></div>
       <div style="flex:1;">
         <div class="kicker k-amber">音樂 · MUSIC</div>
-        <h2>由「樂理練習」　走向　<span class="gradient-text">「親子 AI 共創」</span></h2>
-      </div>
-    </div>
-    <div class="g-img-text" style="flex:1;">
-      <div class="photo16">
-        <div class="ph-id">P10 · 音樂堂或水果月活動</div>
-        <div class="ph-hint">建議放：水果月 親子合照　·　Suno 介面截圖　·　Padlet 平台展示</div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:12px;">
-        <div class="card card-l-amber">
-          <h3 style="color:var(--c3);">🍎 「水果月」AI 親子歌曲創作</h3>
-          <p class="body" style="margin-top:4px;">家長與學生使用 Suno AI 共創粵語歌曲，主題以水果與生活營養為核心——學習成果上載 Padlet 平台與全校分享。</p>
-        </div>
-        <div class="card card-l-amber">
-          <h3 style="color:var(--c3);">🎤 Suno 粵語歌學習</h3>
-          <p class="body" style="margin-top:4px;">運用粵語語音模型生成原創歌曲，學生唔再係音樂嘅消費者，而係音樂嘅作者——對應 UNESCO 創意表達框架。</p>
-        </div>
-        <div class="quote">
-          <div class="quote-text">當學生發現自己「會作歌」，佢對音樂嘅熱情會由被動變為主動。AI 唔係取代創作，而係降低創作的門檻。</div>
-          <div class="quote-author">— 音樂科組（待錄）</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- P11 體育 -->
-<section class="slide" data-slide="11" data-section="CORE · 體育">
-  <div class="slide-inner">
-    <div class="subject-hero">
-      <div class="subject-icon-lg"><img src="icon_pe.jpg" alt="體育"></div>
-      <div style="flex:1;">
-        <div class="kicker k-violet">體育 · PHYSICAL EDUCATION</div>
-        <h2>由「動作示範」　走向　<span class="gradient-text">「IoT 數據體育」</span></h2>
+        <h2 class="big h-anim">由樂理　走向　<span class="gradient-text">親子共創</span></h2>
       </div>
     </div>
     <div class="g-text-img" style="flex:1;">
-      <div style="display:flex; flex-direction:column; gap:12px;">
-        <div class="card card-l-violet">
-          <h3 style="color:var(--c5);">🛡️ P5 課程：AI 國寶守衛戰 2.0</h3>
-          <p class="body" style="margin-top:4px;">學生跳繩動作觸發 AI 視覺辨識，跳繩次數轉化為「清潔氣流大砲」嘅能量——將枯燥嘅體能訓練變成國寶守衛任務。</p>
-        </div>
-        <div class="card card-l-violet">
-          <h3 style="color:var(--c5);">⚡ AI 智能體育系統（試行）</h3>
-          <p class="body" style="margin-top:4px;">於體育館設置大電視 AI 視覺辨識，可實時計算跳繩次數、跳遠距離——對應 WHO 兒童活動指引嘅數據素養要求。</p>
-        </div>
-        <div class="card card-l-violet">
-          <h3 style="color:var(--c5);">🎯 並非「監測」而係「賦能」</h3>
-          <p class="body" style="margin-top:4px;">系統強調個人改善，而非全班排名——避免學生因為比較而產生運動焦慮。資料只供個人參考。</p>
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <h3 class="lead" style="color:var(--c3);">🍎 「水果月」親子 AI 歌曲</h3>
+        <h3 class="lead" style="color:var(--c3);">🎤 Suno 粵語歌學習</h3>
+        <div class="quote">
+          <div class="quote-text">學生由音樂消費者　變成作者。</div>
+          <div class="quote-author">音樂科組</div>
         </div>
       </div>
       <div class="photo16">
-        <div class="ph-id">P11 · 體育堂或國寶守衛戰</div>
-        <div class="ph-hint">建議放：學生跳繩實況　·　大電視 AI 計數畫面　·　體育堂實照</div>
+        <div class="ph-id">P10 · 音樂</div>
+        <div class="ph-hint">水果月親子合照　·　Suno 介面</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- P12 視藝 -->
+<!-- ===== P11 體育 ===== -->
+<section class="slide" data-slide="11" data-section="CORE · 體育">
+  <div class="slide-inner">
+    <div class="subject-hero">
+      <div class="subject-icon-xl"><img src="icon_pe.jpg" alt="體育"></div>
+      <div style="flex:1;">
+        <div class="kicker k-violet">體育 · PE</div>
+        <h2 class="big h-anim">由動作示範　走向　<span class="gradient-text">IoT 數據</span></h2>
+      </div>
+    </div>
+    <div class="g-img-text" style="flex:1;">
+      <div class="photo16">
+        <div class="ph-id">P11 · 體育</div>
+        <div class="ph-hint">學生跳繩實況　·　大電視 AI 計數</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <h3 class="lead" style="color:var(--c5);">🛡️ AI 國寶守衛戰 2.0</h3>
+        <h3 class="lead" style="color:var(--c5);">⚡ AI 智能體育系統</h3>
+        <p class="tagline" style="font-size:18px; color:var(--ink-3); font-style:italic;">非監測　·　係賦能</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== P12 視藝 ===== -->
 <section class="slide" data-slide="12" data-section="CORE · 視藝">
   <div class="slide-inner">
     <div class="subject-hero">
-      <div class="subject-icon-lg"><img src="icon_va.jpg" alt="視藝"></div>
+      <div class="subject-icon-xl"><img src="icon_va.jpg" alt="視藝"></div>
       <div style="flex:1;">
         <div class="kicker" style="color:var(--c-claude);">視藝 · VISUAL ARTS</div>
-        <h2>由「臨摹練習」　走向　<span class="gradient-text">「文化保育與創新」</span></h2>
+        <h2 class="big h-anim">由臨摹　走向　<span class="gradient-text">創新</span></h2>
       </div>
     </div>
-    <div class="g-img-text" style="flex:1;">
-      <div class="photo16">
-        <div class="ph-id">P12 · 視藝堂或學生作品</div>
-        <div class="ph-hint">建議放：學生手繪稿　·　現代門神 AI 動畫　·　未來職業 APP 草圖</div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:12px;">
-        <div class="card card-l-claude">
-          <h3 style="color:var(--c-claude);">🎭 P5 課程：現代門神</h3>
-          <p class="body" style="margin-top:4px;">學生先以傳統水墨手繪稿構思角色，再使用 AI 工具將其轉化為動態作品——傳統與創新並非對立，而係互相成就。</p>
-        </div>
-        <div class="card card-l-claude">
-          <h3 style="color:var(--c-claude);">🎓 P6 課程：未來職業 APP</h3>
-          <p class="body" style="margin-top:4px;">畢業生涯規劃融入視藝——學生為自己嘅未來職業設計 APP 介面草圖，再用 AI 完善視覺呈現。創意 × 自我認同。</p>
-        </div>
+    <div class="g-text-img" style="flex:1;">
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <h3 class="lead" style="color:var(--c-claude);">🎭 P5 現代門神</h3>
+        <h3 class="lead" style="color:var(--c-claude);">🎓 P6 未來職業 APP</h3>
         <div class="quote">
-          <div class="quote-text">AI 唔會取代畫筆，但會擴闊學生對「創作」嘅想像。我們嘅責任，係教佢哋判斷邊個版本最有自己嘅靈魂。</div>
-          <div class="quote-author">— 張楚雯老師 · 視藝科</div>
+          <div class="quote-text">AI 唔會取代畫筆　·　會擴闊想像。</div>
+          <div class="quote-author">張楚雯老師</div>
         </div>
+      </div>
+      <div class="photo16">
+        <div class="ph-id">P12 · 視藝</div>
+        <div class="ph-hint">學生手繪稿　·　現代門神 AI 動畫</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- P13 旗艦：瑤山鱷蜥 -->
-<section class="slide" data-slide="13" data-section="FLAGSHIP · 國寶 AI 管家">
+<!-- ===== P13 旗艦 ===== -->
+<section class="slide" data-slide="13" data-section="FLAGSHIP · 旗艦">
   <div class="slide-inner">
-    <div class="kicker">FLAGSHIP · 旗艦項目</div>
-    <h2>跨學科旗艦：<span class="gradient-text">國寶 AI 管家 · 瑤山鱷蜥</span></h2>
+    <div class="kicker">FLAGSHIP</div>
+    <h2 class="big h-anim">國寶 AI 管家　<span class="gradient-text">瑤山鱷蜥</span></h2>
     <div class="g-img-text" style="flex:1;">
       <div class="photo16">
-        <div class="ph-id">P13 · 瑤山鱷蜥領養實照</div>
-        <div class="ph-hint">建議放：本校領養嘅瑤山鱷蜥　·　IoT 監測裝置　·　學生觀察實況</div>
+        <div class="ph-id">P13 · 瑤山鱷蜥</div>
+        <div class="ph-hint">本校領養瑤山鱷蜥　·　IoT 監測　·　學生觀察</div>
       </div>
       <div style="display:flex; flex-direction:column; gap:14px;">
-        <p class="lead">本校榮幸成為香港少數幾間獲準合法領養 <strong style="color:var(--c4);">瑤山鱷蜥</strong>（中國一級保護動物）嘅小學——讓學生親身參與真實嘅瀕危物種保育。</p>
-        <div class="g2" style="gap:12px;">
-          <div class="card card-l-emerald" style="padding:16px;">
-            <h4 style="color:var(--c4);">🦎 真實國寶</h4>
-            <p class="small" style="margin-top:4px;">中國一級保護動物 · 全球瀕危品種，本校以教育之名為其提供安全棲所。</p>
+        <p class="tagline" style="font-size:22px;">中國一級保護動物　·　全球瀕危</p>
+        <div class="g2" style="gap:14px;">
+          <div class="card card-l-emerald" style="padding:18px;">
+            <h3 class="mid" style="color:var(--c4);">🦎 真實國寶</h3>
           </div>
-          <div class="card card-l-cyan" style="padding:16px;">
-            <h4 style="color:var(--c1);">📡 IoT 智能監測</h4>
-            <p class="small" style="margin-top:4px;">溫度、濕度、光照等 IoT 感應器實時上傳數據，由學生分析。</p>
+          <div class="card card-l-cyan" style="padding:18px;">
+            <h3 class="mid" style="color:var(--c1);">📡 IoT 監測</h3>
           </div>
-          <div class="card card-l-amber" style="padding:16px;">
-            <h4 style="color:var(--c3);">🔬 AI 行為辨識</h4>
-            <p class="small" style="margin-top:4px;">AI 攝影機辨識鱷蜥日常行為模式，記錄健康狀況。</p>
+          <div class="card card-l-amber" style="padding:18px;">
+            <h3 class="mid" style="color:var(--c3);">🔬 AI 行為辨識</h3>
           </div>
-          <div class="card card-l-violet" style="padding:16px;">
-            <h4 style="color:var(--c5);">🌍 跨學科融合</h4>
-            <p class="small" style="margin-top:4px;">科學 + STEAM + 人文（保育倫理）+ 資訊科技。</p>
+          <div class="card card-l-violet" style="padding:18px;">
+            <h3 class="mid" style="color:var(--c5);">🌍 跨學科</h3>
           </div>
-        </div>
-      </div>
-    </div>
-    <p class="src-row" style="text-align:center;"><strong>合作單位：</strong>瑤山鱷蜥保育協會 · 國家自然保護區　·　<strong>校內主理：</strong>蕭蕙欣主任、楊錦鋒老師</p>
-  </div>
-</section>
-
-<!-- P14 P1-P6 螺旋式課程 -->
-<section class="slide" data-slide="14" data-section="CURRICULUM · 螺旋課程">
-  <div class="slide-inner">
-    <div class="kicker k-cyan">CURRICULUM · 螺旋式課程架構</div>
-    <h2>由淺入深　<span class="gradient-text-cool">P1-P6 兩階段</span></h2>
-    <div class="g2" style="margin-top:8px; flex:1;">
-      <div class="card card-l-emerald" style="display:flex; flex-direction:column;">
-        <div class="kicker k-emerald">階段一 · 初小 P1-P3</div>
-        <h3 style="color:var(--c4); margin-top:6px;">奠基期 · 運算思維 + AI 啟蒙</h3>
-        <p class="body" style="margin-top:8px;">透過遊戲化、具象化操作，培養學生最底層嘅邏輯解難能力。</p>
-        <h4 style="font-size:13px; margin-top:14px; color:var(--c4);">📦 主要工具（學校已採購）</h4>
-        <ul style="margin-top:6px; font-size:13px; padding-left:18px; line-height:1.85;">
-          <li><strong>Matatalab 實物編程</strong>（P1-P2 入門）</li>
-          <li><strong>Scratch Jr.</strong>（P2-P3 圖像化編程）</li>
-          <li><strong>Code.org</strong>（P3 進階運算思維）</li>
-        </ul>
-        <p class="small" style="margin-top:10px; font-style:italic;">P1-P3 暫未引入生成式 AI——保護兒童早期認知發展，先打好邏輯根基。</p>
-      </div>
-      <div class="card card-l-cyan" style="display:flex; flex-direction:column;">
-        <div class="kicker k-cyan">階段二 · 高小 P4-P6</div>
-        <h3 style="color:var(--c1); margin-top:6px;">賦能期 · 企業 AI + 跨科 PBL</h3>
-        <p class="body" style="margin-top:8px;">全面引入企業級 AI 工具，進行深度跨學科實作（PBL）。</p>
-        <h4 style="font-size:13px; margin-top:14px; color:var(--c1);">📚 課程作品（正規課程內容）</h4>
-        <ul style="margin-top:6px; font-size:13px; padding-left:18px; line-height:1.85;">
-          <li><strong>P4：</strong>狐假虎威新編、乘法大師、會發光月餅</li>
-          <li><strong>P5：</strong>現代門神、AI 國寶守衛戰、AI 翻譯官</li>
-          <li><strong>P6：</strong>AI 智慧停車場、識花君、畢業生涯規劃</li>
-        </ul>
-        <p class="small" style="margin-top:10px; font-style:italic; color:var(--c3);">⚠️ 學生組別／比賽作品（成語攻防戰、文化試身室、國寶 AI 管家等）並非正規課程，係課餘自主探究。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================================== -->
-<!-- 第三部 · 評估 + 行動 (P15-P20) -->
-<!-- ========================================== -->
-
-<!-- P15 AI 倫理 + 評估革新 -->
-<section class="slide" data-slide="15" data-section="ETHICS · AI 倫理 + 評估">
-  <div class="slide-inner">
-    <div class="kicker k-pain">ETHICS · AI 倫理紅線 + 評估革新</div>
-    <h2>引入 AI　<span class="gradient-text">必須有清楚邊界</span></h2>
-    <div class="g2" style="margin-top:8px; flex:1;">
-      <div style="display:flex; flex-direction:column; gap:12px;">
-        <div class="card" style="border-left:3px solid var(--c-pain);">
-          <h4 style="color:var(--c-pain);">🚫 紅線 1：絕不取代人嘅判斷</h4>
-          <p class="body" style="margin-top:6px;">AI 嘅功能係輔助與啟發，老師與學生嘅判斷永遠優先。任何重大評核決定，必經人手覆核。</p>
-        </div>
-        <div class="card" style="border-left:3px solid var(--c-pain);">
-          <h4 style="color:var(--c-pain);">🚫 紅線 2：絕不輸出未經驗證嘅事實</h4>
-          <p class="body" style="margin-top:6px;">學生必須學會 fact-check——AI 可以幫忙撰寫，但事實準確性嘅最後責任係作者本人。</p>
-        </div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:12px;">
-        <div class="card card-l-emerald">
-          <h4 style="color:var(--c4);">📋 評估三層架構</h4>
-          <p class="body" style="margin-top:6px;"><strong>1. 紙筆評估：</strong>仍能驗證基礎知識掌握（AI 仍未能完全取代）。</p>
-          <p class="body" style="margin-top:4px;"><strong>2. 歷程檔案：</strong>記錄學生由構思 → 嘗試 → 修正嘅完整路徑。</p>
-          <p class="body" style="margin-top:4px;"><strong>3. 實作 + 口頭：</strong>學生需向同儕解說自己嘅作品邏輯，避免流於 AI 代寫。</p>
-        </div>
-        <div class="quote">
-          <div class="quote-text">紙筆唔會被取代，但單靠紙筆，唔再足以反映 AI 時代學生嘅真實能力。</div>
-          <div class="quote-author">— 校長許敏詩 · RTHK 訪問</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- P16 比賽獎項 -->
-<section class="slide" data-slide="16" data-section="ACHIEVEMENT · 比賽獎項">
+<!-- ===== P14 課程 ===== -->
+<section class="slide" data-slide="14" data-section="CURRICULUM · 課程">
   <div class="slide-inner">
-    <div class="kicker k-amber">ACHIEVEMENT · 真實成果</div>
-    <h2>學生嘅作品　<span class="gradient-text">已得到外界認可</span></h2>
+    <div class="kicker k-cyan">CURRICULUM</div>
+    <h2 class="big h-anim">P1-P6　<span class="gradient-text-cool">兩階段</span></h2>
+    <div class="g2" style="flex:1;">
+      <div class="card card-l-emerald" style="display:flex; flex-direction:column; gap:14px;">
+        <div class="kicker k-emerald">階段一　·　P1-P3</div>
+        <h2 class="med" style="color:var(--c4);">奠基期</h2>
+        <p class="tagline" style="font-size:20px; color:var(--ink-2);">運算思維　·　AI 啟蒙</p>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="chip c4">Matatalab</span>
+          <span class="chip c4">Scratch Jr.</span>
+          <span class="chip c4">Code.org</span>
+        </div>
+      </div>
+      <div class="card card-l-cyan" style="display:flex; flex-direction:column; gap:14px;">
+        <div class="kicker k-cyan">階段二　·　P4-P6</div>
+        <h2 class="med" style="color:var(--c1);">賦能期</h2>
+        <p class="tagline" style="font-size:20px; color:var(--ink-2);">企業 AI　·　跨科 PBL</p>
+        <p class="body" style="color:var(--ink-2);"><strong>P4：</strong>狐假虎威　·　乘法大師<br><strong>P5：</strong>現代門神　·　國寶守衛戰<br><strong>P6：</strong>識花君　·　畢業生涯</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== P15 倫理 ===== -->
+<section class="slide" data-slide="15" data-section="ETHICS · 倫理">
+  <div class="slide-inner">
+    <div class="kicker k-pain">ETHICS</div>
+    <h2 class="big h-anim">兩條　<span style="color:var(--c-pain);">紅線</span></h2>
+    <div class="g2" style="flex:1;">
+      <div class="card" style="border-left:4px solid var(--c-pain); display:flex; flex-direction:column; justify-content:center; gap:18px;">
+        <div style="font-size:88px; line-height:1;">🚫</div>
+        <h2 class="med" style="color:var(--c-pain);">絕不取代<br>人嘅判斷</h2>
+      </div>
+      <div class="card" style="border-left:4px solid var(--c-pain); display:flex; flex-direction:column; justify-content:center; gap:18px;">
+        <div style="font-size:88px; line-height:1;">🚫</div>
+        <h2 class="med" style="color:var(--c-pain);">絕不輸出<br>未驗證事實</h2>
+      </div>
+    </div>
+    <div class="quote" style="margin-top:6px;">
+      <div class="quote-text">紙筆唔會被取代　·　但已不足以反映 AI 時代真實能力。</div>
+      <div class="quote-author">校長許敏詩 · RTHK</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== P16 比賽獎項 ===== -->
+<section class="slide" data-slide="16" data-section="ACHIEVEMENT · 比賽" data-confetti="1">
+  <div class="slide-inner">
+    <div class="kicker k-amber">ACHIEVEMENT</div>
+    <h2 class="big h-anim">學生作品　<span class="gradient-text">已獲認可</span></h2>
+    <div class="g3" style="flex:1; gap:24px;">
+      <div class="research-card">
+        <div class="src-tag" style="color:var(--c3); background:rgba(180,83,9,0.10);">CHAMPIONSHIP</div>
+        <div class="stat">季軍</div>
+        <h4>樂在其「中」</h4>
+        <p class="desc">500 隊參賽中　·　全港小學季軍。</p>
+      </div>
+      <div class="research-card">
+        <div class="src-tag" style="color:var(--c2); background:rgba(190,24,93,0.10);">EXCELLENCE</div>
+        <div class="stat">優異獎</div>
+        <h4>AI 成語攻防戰</h4>
+        <p class="desc">103 件作品中　·　全港小學優異獎。</p>
+      </div>
+      <div class="research-card">
+        <div class="src-tag" style="color:var(--c1); background:rgba(8,145,178,0.10);">GLOBAL</div>
+        <div class="stat" style="background:linear-gradient(135deg,var(--c1),var(--c4)); -webkit-background-clip:text;">BETT</div>
+        <h4>倫敦 2026</h4>
+        <p class="desc">本校代表將於 BETT 教育科技展。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== P17 全球 ===== -->
+<section class="slide" data-slide="17" data-section="GLOBAL · 全球">
+  <div class="slide-inner">
+    <div class="kicker k-cyan">GLOBAL</div>
+    <h2 class="big h-anim">與全球　<span class="gradient-text-cool">接軌</span></h2>
+    <div class="g3" style="flex:1; gap:24px;">
+      <div class="research-card">
+        <div class="src-tag" style="color:var(--c1); background:rgba(8,145,178,0.10);">UK · 2026</div>
+        <h2 class="med" style="font-size:42px;">BETT</h2>
+        <p class="desc">全球最大教育科技展。</p>
+      </div>
+      <div class="research-card">
+        <div class="src-tag" style="color:var(--c4); background:rgba(4,120,87,0.10);">PARTNER</div>
+        <h2 class="med" style="font-size:42px;">教育局</h2>
+        <p class="desc">AI 教育試驗學校。</p>
+      </div>
+      <div class="research-card">
+        <div class="src-tag" style="color:var(--c-claude); background:rgba(204,120,92,0.10);">INDUSTRY</div>
+        <h2 class="med" style="font-size:42px;">騰訊 AI</h2>
+        <p class="desc">校網第一引入。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== P18 家長 Workshop ===== -->
+<section class="slide" data-slide="18" data-section="ACTION · Workshop">
+  <div class="slide-inner">
+    <div class="kicker">ACTION</div>
+    <h2 class="big h-anim">家長都係　<span class="gradient-text">創造者</span></h2>
     <div class="g-img-text" style="flex:1;">
       <div class="photo16">
-        <div class="ph-id">P16 · 領獎合照或攤位實況</div>
-        <div class="ph-hint">建議放：頒獎禮合照　·　比賽攤位實況　·　獎座照　·　學生比賽中嘅 portrait</div>
+        <div class="ph-id">P18 · 家長 Workshop</div>
+        <div class="ph-hint">家長 Workshop 合照　·　家長使用 iPad 編程</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <h2 class="med" style="font-size:48px; color:var(--c-claude);">30 分鐘</h2>
+        <p class="tagline" style="font-size:22px;">由零基礎　·　到出原型</p>
+        <h3 class="lead" style="color:var(--c-claude);">🛠️ Vibe Coding</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== P19 未來 ===== -->
+<section class="slide" data-slide="19" data-section="FUTURE · 未來">
+  <div class="slide-inner">
+    <div class="kicker k-emerald">FUTURE</div>
+    <h2 class="big h-anim">下一步　<span class="gradient-text-cool">3 大計劃</span></h2>
+    <div class="g3" style="flex:1; gap:18px;">
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div class="photo16"><div class="ph-id">P19a</div><div class="ph-hint">學生作品展示牆</div></div>
+        <h3 class="lead" style="color:var(--c4); text-align:center;">🌿 AI Garden</h3>
       </div>
       <div style="display:flex; flex-direction:column; gap:12px;">
-        <div class="card card-l-amber">
-          <div class="kicker k-amber" style="margin-bottom:6px;">CHAMPIONSHIP · 季軍</div>
-          <h3>樂在其「中」全港小學中華文化教育比賽</h3>
-          <p class="body" style="margin-top:4px;"><strong>500 隊參賽中</strong>，本校以「攤位 × AI × 文化共創」嘅模式榮獲季軍。</p>
-        </div>
-        <div class="card card-l-magenta">
-          <div class="kicker k-magenta" style="margin-bottom:6px;">EXCELLENCE · 優異獎</div>
-          <h3>AI 成語攻防戰</h3>
-          <p class="body" style="margin-top:4px;"><strong>103 件參賽作品</strong>中，學生組別作品榮獲全港小學優異獎。</p>
-        </div>
-        <div class="card card-l-cyan">
-          <div class="kicker k-cyan" style="margin-bottom:6px;">REACH · 走出香港</div>
-          <h3>BETT London 2026 · 教育科技展</h3>
-          <p class="body" style="margin-top:4px;">本校代表將於倫敦 BETT 展示「國寶 AI 管家」項目。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- P17 全球接軌 -->
-<section class="slide" data-slide="17" data-section="GLOBAL · 全球接軌">
-  <div class="slide-inner">
-    <div class="kicker k-cyan">GLOBAL · 全球接軌</div>
-    <h2>本校與　<span class="gradient-text-cool">全球教育創新接軌</span></h2>
-    <div class="g3" style="margin-top:8px; flex:1;">
-      <div class="research-card">
-        <div class="src-tag" style="color:var(--c1); background:rgba(8,145,178,0.08);">UK · 2026</div>
-        <h4>BETT London</h4>
-        <p class="desc">全球最大教育科技展。本校受邀於 2026 BETT 展示「國寶 AI 管家」項目。</p>
-        <div class="ref">英國倫敦 ExCeL · 2026 年 1 月</div>
-      </div>
-      <div class="research-card">
-        <div class="src-tag" style="color:var(--c4); background:rgba(4,120,87,0.08);">PARTNER · 政府合作</div>
-        <h4>教育局合作項目</h4>
-        <p class="desc">本校為教育局「AI 教育試驗學校」之一，課程與政策方向同步。</p>
-        <div class="ref">香港特別行政區政府教育局</div>
-      </div>
-      <div class="research-card">
-        <div class="src-tag" style="color:var(--c-claude); background:rgba(204,120,92,0.08);">INDUSTRY · 業界合作</div>
-        <h4>騰訊 AI 教育平台</h4>
-        <p class="desc">採用企業級 AI 平台，學生使用嘅工具與業界同步。</p>
-        <div class="ref">騰訊教育 · 校網第一引入</div>
-      </div>
-    </div>
-    <div class="quote" style="margin-top:14px;">
-      <div class="quote-text">我地嘅學生唔需要等到中學或者大學，先接觸到企業正在使用嘅 AI 工具——由小學開始。</div>
-      <div class="quote-author">— 校長許敏詩 · RTHK 訪問</div>
-    </div>
-  </div>
-</section>
-
-<!-- P18 家長 Workshop -->
-<section class="slide" data-slide="18" data-section="ACTION · 家長 Workshop">
-  <div class="slide-inner">
-    <div class="kicker">ACTION · 家長賦能</div>
-    <h2>家長唔止旁觀者　<span class="gradient-text">您都係 AI 創造者</span></h2>
-    <div class="g-img-text" style="flex:1;">
-      <div class="photo16">
-        <div class="ph-id">P18 · 家長 Workshop 實況</div>
-        <div class="ph-hint">建議放：家長 Workshop 合照　·　家長使用 iPad 編程　·　工作坊海報</div>
+        <div class="photo16"><div class="ph-id">P19b</div><div class="ph-hint">蝴蝶園　·　IoT</div></div>
+        <h3 class="lead" style="color:var(--c1); text-align:center;">🦋 智慧蝴蝶園</h3>
       </div>
       <div style="display:flex; flex-direction:column; gap:12px;">
-        <div class="card card-l-claude">
-          <h3 style="color:var(--c-claude);">🛠️ 30 分鐘出原型</h3>
-          <p class="body" style="margin-top:4px;">由零編程基礎開始，使用 Vibe Coding（自然語言編程），30 分鐘內完成屬於自己孩子嘅 AI 默書 App。</p>
-        </div>
-        <div class="card card-l-claude">
-          <h3 style="color:var(--c-claude);">🎯 定期舉行</h3>
-          <p class="body" style="margin-top:4px;">每學期舉辦至少 2 次家長 AI Workshop，配合學生課程進度——家長與孩子並肩學習。</p>
-        </div>
-        <div class="card card-l-claude">
-          <h3 style="color:var(--c-claude);">💬 不只係技術，更係溝通</h3>
-          <p class="body" style="margin-top:4px;">家長親自做過先理解：AI 唔係魔法，係工具。家中嘅 AI 對話因此變得有質素、有界線。</p>
-        </div>
+        <div class="photo16"><div class="ph-id">P19c</div><div class="ph-hint">家長 Workshop</div></div>
+        <h3 class="lead" style="color:var(--c-claude); text-align:center;">👨‍👩‍👧 家長賦能 2.0</h3>
       </div>
     </div>
   </div>
 </section>
 
-<!-- P19 未來藍圖 -->
-<section class="slide" data-slide="19" data-section="FUTURE · 未來藍圖">
-  <div class="slide-inner">
-    <div class="kicker k-emerald">FUTURE · 未來藍圖</div>
-    <h2>下一步　<span class="gradient-text-cool">我哋將推進嘅 3 大計劃</span></h2>
-    <div class="g-3img" style="flex:1; gap:18px;">
-      <div style="display:flex; flex-direction:column; gap:10px;">
-        <div class="photo16">
-          <div class="ph-id">P19a · AI Garden</div>
-          <div class="ph-hint">學生作品展示牆</div>
-        </div>
-        <div class="card card-l-emerald" style="padding:14px;">
-          <h4 style="color:var(--c4);">🌿 AI Garden（學生作品花園）</h4>
-          <p class="small" style="margin-top:4px;">校園設立常設展示空間，匯集歷屆學生 AI 作品——智能鱷蜥餵食器、像素盲盒、IoT 感應燈等。</p>
-        </div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:10px;">
-        <div class="photo16">
-          <div class="ph-id">P19b · 智慧蝴蝶園</div>
-          <div class="ph-hint">蝴蝶園實景 / IoT 感應器</div>
-        </div>
-        <div class="card card-l-cyan" style="padding:14px;">
-          <h4 style="color:var(--c1);">🦋 5G 智慧蝴蝶園</h4>
-          <p class="small" style="margin-top:4px;">校園 5G IoT 感應蝴蝶園，學生實時觀察生態數據，理解環境參數對物種嘅影響。</p>
-        </div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:10px;">
-        <div class="photo16">
-          <div class="ph-id">P19c · 家長賦能 2.0</div>
-          <div class="ph-hint">家長 Workshop 實照</div>
-        </div>
-        <div class="card card-l-claude" style="padding:14px;">
-          <h4 style="color:var(--c-claude);">👨‍👩‍👧 家長賦能 2.0</h4>
-          <p class="small" style="margin-top:4px;">由「會用 AI」昇華為「會教 AI」——家長親手為自己孩子訂製學習工具。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- P20 CTA 結語 -->
-<section class="slide" data-slide="20" data-section="CTA · 結語">
+<!-- ===== P20 CTA 結尾 ===== -->
+<section class="slide" data-slide="20" data-section="CTA · 結語" data-confetti="1">
   <div class="slide-inner cover-stage">
     <div class="cover-orb"></div>
-    <div class="kicker">CTA · 結語</div>
-    <h1 style="font-size:60px; max-width:1100px;">由「科技嘅消費者」<br><span class="gradient-text">轉為能解決真實世界問題嘅創造者</span></h1>
-    <p style="font-size:20px; color:var(--ink-2); max-width:920px; line-height:1.7; font-weight:300;">
-      我地嘅信念好簡單——希望每一位學生都能夠由「科技嘅消費者」，慢慢變成「能夠用科技解決真實世界問題嘅創造者」。<br><br>
-      多謝您今日嘅出席。AI INFINITY 係一條路，我哋邀請您一齊行。
+    <div class="kicker">CTA</div>
+    <h1 class="hero h-anim" style="font-size:88px; max-width:1180px; line-height:1.1;">
+      由消費者　<br><span class="gradient-text">轉為創造者</span>
+    </h1>
+    <p class="tagline" style="max-width:880px; font-size:22px;">
+      AI INFINITY 係一條路　·　邀請您一齊行
     </p>
-    <div class="photo16" style="max-width:720px; margin:8px auto;">
-      <div class="ph-id">P20 · 結尾全景</div>
-      <div class="ph-hint">建議放：學生畢業合照　·　校園日出全景　·　學生齊望未來嘅背影</div>
+    <div class="photo16" style="max-width:780px;">
+      <div class="ph-id">P20 · 結尾</div>
+      <div class="ph-hint">學生畢業合照　·　校園日出全景</div>
     </div>
-    <button class="btn-cta">如有疑問　·　歡迎聯繫</button>
-    <p class="small" style="font-family:'JetBrains Mono',monospace; letter-spacing:3px; color:var(--ink-4);">
-      LWWF · 樂善堂梁黃蕙芳紀念學校
-    </p>
+    <button class="btn-cta" onclick="fireConfetti()">多謝您今日嘅出席　·　🎉</button>
   </div>
 </section>
 
@@ -994,6 +952,41 @@ const progress = document.getElementById('progress');
 const sectionTag = document.getElementById('section-tag');
 const total = slides.length;
 
+// === Letter split ===
+function splitLetters() {
+  document.querySelectorAll('.h-anim').forEach(el => {
+    if (el.dataset.split) return;
+    el.dataset.split = '1';
+    const html = el.innerHTML;
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    el.innerHTML = '';
+    function walk(node, parent) {
+      node.childNodes.forEach(child => {
+        if (child.nodeType === 3) {
+          [...child.textContent].forEach((c, i) => {
+            const s = document.createElement('span');
+            s.className = 'letter';
+            s.textContent = c === ' ' ? ' ' : c;
+            parent.appendChild(s);
+          });
+        } else {
+          const clone = child.cloneNode(false);
+          parent.appendChild(clone);
+          walk(child, clone);
+        }
+      });
+    }
+    walk(tmp, el);
+    // assign delays
+    el.querySelectorAll('.letter').forEach((l, i) => {
+      l.style.animationDelay = `${0.3 + i * 0.04}s`;
+    });
+  });
+}
+splitLetters();
+
+// === Dots ===
 slides.forEach((s, i) => {
   const dot = document.createElement('div');
   dot.className = 'dot';
@@ -1007,6 +1000,12 @@ function goTo(idx) {
   if (idx < 0 || idx >= total) return;
   slides[current].classList.remove('active');
   slides[idx].classList.add('active');
+  // reset letter animations
+  slides[idx].querySelectorAll('.letter').forEach(l => {
+    l.style.animation = 'none';
+    void l.offsetWidth;
+    l.style.animation = '';
+  });
   current = idx;
   pn.textContent = idx + 1;
   progress.style.width = `${((idx + 1) / total) * 100}%`;
@@ -1015,29 +1014,94 @@ function goTo(idx) {
     d.classList.toggle('active', i === idx);
     d.classList.toggle('passed', i < idx);
   });
-  // count-up numbers
-  const nums = slides[idx].querySelectorAll('.stat-num[data-target]');
-  nums.forEach(n => animateCount(n));
+  // count-up
+  slides[idx].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
+  // confetti on special slides
+  if (slides[idx].dataset.confetti) fireConfetti();
 }
 
+// === Count-up with bounce ===
 function animateCount(el) {
   const target = parseInt(el.dataset.target);
   if (isNaN(target)) return;
-  const dur = 1200;
+  const dur = 1400;
   const start = performance.now();
   function frame(t) {
     const p = Math.min(1, (t - start) / dur);
-    const eased = 1 - Math.pow(1 - p, 3);
+    const eased = p < 1 ? 1 - Math.pow(1 - p, 4) : 1;
     el.textContent = Math.floor(target * eased);
     if (p < 1) requestAnimationFrame(frame);
-    else el.textContent = target;
+    else {
+      el.textContent = target;
+      el.style.animation = 'jumpIn 0.5s';
+      setTimeout(() => el.style.animation = '', 500);
+    }
   }
   requestAnimationFrame(frame);
 }
 
-// initial count-up trigger
-slides[0].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
+// === Confetti ===
+function fireConfetti() {
+  const colors = ['#cc785c','#be185d','#b45309','#0891b2','#047857','#6d28d9'];
+  for (let i = 0; i < 80; i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = `${Math.random() * 100}vw`;
+    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+    c.style.animationDelay = `${Math.random() * 0.4}s`;
+    c.style.animationDuration = `${2.5 + Math.random() * 2}s`;
+    c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    c.style.transform = `rotate(${Math.random() * 360}deg)`;
+    c.style.width = `${8 + Math.random() * 10}px`;
+    c.style.height = c.style.width;
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 5000);
+  }
+}
 
+// === Floating particles ===
+function spawnParticles() {
+  const colors = ['rgba(204,120,92,0.4)','rgba(190,24,93,0.3)','rgba(8,145,178,0.3)','rgba(4,120,87,0.3)'];
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = 6 + Math.random() * 12;
+    p.style.width = p.style.height = `${size}px`;
+    p.style.left = `${Math.random() * 100}vw`;
+    p.style.bottom = `${-Math.random() * 30}vh`;
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    p.style.animationDuration = `${15 + Math.random() * 25}s`;
+    p.style.animationDelay = `${Math.random() * 10}s`;
+    document.body.appendChild(p);
+  }
+}
+spawnParticles();
+
+// === Cursor glow ===
+const cg = document.getElementById('cursor-glow');
+document.addEventListener('mousemove', e => {
+  cg.style.transform = `translate(${e.clientX - 16}px, ${e.clientY - 16}px)`;
+});
+
+// === 3D card tilt ===
+function bindTilt() {
+  document.querySelectorAll('.card, .research-card').forEach(card => {
+    if (card.dataset.tilt) return;
+    card.dataset.tilt = '1';
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width / 2) / (r.width / 2);
+      const y = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+      card.style.transform = `perspective(800px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) translateZ(8px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+bindTilt();
+
+// === Keyboard nav ===
 document.addEventListener('keydown', e => {
   if (['ArrowRight', ' ', 'PageDown'].includes(e.key)) goTo(current + 1);
   else if (['ArrowLeft', 'PageUp'].includes(e.key)) goTo(current - 1);
@@ -1046,27 +1110,33 @@ document.addEventListener('keydown', e => {
   else if (e.key.toLowerCase() === 'f') {
     if (!document.fullscreenElement) document.documentElement.requestFullscreen();
     else document.exitFullscreen();
-  }
+  } else if (e.key.toLowerCase() === 'c') fireConfetti();
 });
 
+// Click side nav
 document.body.addEventListener('click', e => {
-  if (e.target.closest('.photo16, .card, .btn-cta, .chip, button, a')) return;
+  if (e.target.closest('.photo16, .card, .btn-cta, .chip, button, a, table, .research-card')) return;
   const w = window.innerWidth;
   if (e.clientX > w / 2) goTo(current + 1);
   else goTo(current - 1);
 });
 
+// Photo frame click hint
 document.querySelectorAll('.photo16').forEach(ph => {
-  ph.addEventListener('click', () => {
+  ph.addEventListener('click', e => {
+    e.stopPropagation();
     if (ph.classList.contains('has-image')) return;
     const id = ph.querySelector('.ph-id')?.textContent || '';
     const hint = ph.querySelector('.ph-hint')?.textContent || '';
-    alert(`${id}\n\n${hint}\n\n用法：將相片放入此資料夾，然後在 HTML 中加：\n<img class="real" src="你的相片.jpg">\n並在外層加 class="has-image"。`);
+    alert(`${id}\n\n${hint}\n\n用法：將相片放入此資料夾，HTML 中加：\n<img class="real" src="你的相片.jpg">\n+ 外層加 class="has-image"`);
   });
 });
 
+// Initial setup
 progress.style.width = `${(1 / total) * 100}%`;
 sectionTag.textContent = slides[0].dataset.section || '';
+slides[0].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
+setTimeout(() => fireConfetti(), 600);
 </script>
 </body>
 </html>
