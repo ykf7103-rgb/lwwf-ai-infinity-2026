@@ -289,21 +289,25 @@ p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
   border-top:1px dashed var(--border); padding-top:9px; margin-top:auto;
   font-family:'JetBrains Mono',monospace;}
 
-/* === Card with background image (medium opacity overlay) === */
-.research-card.with-bg{position:relative; overflow:hidden; z-index:0;}
-.research-card.with-bg::after{
+/* === Card with background image (generic, applies to .card and .research-card) === */
+.with-bg{position:relative; overflow:hidden; z-index:0;}
+.with-bg::after{
   content:''; position:absolute; inset:0; z-index:-1;
   background-size:cover; background-position:center;
   opacity:0.42; transition:opacity .4s var(--ease-out);
   border-radius:inherit;
 }
-.research-card.with-bg:hover::after{opacity:0.58;}
-.research-card.with-bg.bg-lost::after{background-image:url('bg_p2_lost.jpg');}
-.research-card.with-bg.bg-new::after{background-image:url('bg_p2_new.jpg');}
-.research-card.with-bg.bg-skill::after{background-image:url('bg_p2_skill.jpg');}
-.research-card.with-bg > *{position:relative; z-index:1;}
-/* 文字直接 on top - 用 hard 1px outline 模擬 stroke, 文字邊緣 sharp 唔再矇 */
-.research-card.with-bg h4{
+.with-bg:hover::after{opacity:0.58;}
+.with-bg > *{position:relative; z-index:1;}
+/* 硬邊 1px outline 模擬 stroke - 文字邊緣 sharp 唔矇 */
+.with-bg h3, .with-bg h4, .with-bg .desc, .with-bg .body, .with-bg .ref, .with-bg .lead, .with-bg .mid, .with-bg p{
+  text-shadow:
+    1px 0 0 rgba(255,253,248,0.95),
+    -1px 0 0 rgba(255,253,248,0.95),
+    0 1px 0 rgba(255,253,248,0.95),
+    0 -1px 0 rgba(255,253,248,0.95);
+}
+.with-bg h3, .with-bg h4{
   text-shadow:
     1px 0 0 rgba(255,253,248,0.95),
     -1px 0 0 rgba(255,253,248,0.95),
@@ -312,26 +316,23 @@ p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
     1px 1px 0 rgba(255,253,248,0.85),
     -1px -1px 0 rgba(255,253,248,0.85);
 }
-.research-card.with-bg .desc{
-  text-shadow:
-    1px 0 0 rgba(255,253,248,0.95),
-    -1px 0 0 rgba(255,253,248,0.95),
-    0 1px 0 rgba(255,253,248,0.95),
-    0 -1px 0 rgba(255,253,248,0.95);
-  font-weight:600;
-}
-.research-card.with-bg .ref{
-  text-shadow:
-    1px 0 0 rgba(255,253,248,0.95),
-    -1px 0 0 rgba(255,253,248,0.95),
-    0 1px 0 rgba(255,253,248,0.95),
-    0 -1px 0 rgba(255,253,248,0.95);
-  font-weight:500;
-}
-.research-card.with-bg .stat{
+.with-bg .desc, .with-bg .body{font-weight:600;}
+.with-bg .stat{
   filter:drop-shadow(0 1px 2px rgba(255,253,248,0.9))
          drop-shadow(0 0 4px rgba(255,253,248,0.6));
 }
+/* 圖片背景對應檔名 */
+.with-bg.bg-lost::after{background-image:url('bg_p2_lost.jpg');}
+.with-bg.bg-new::after{background-image:url('bg_p2_new.jpg');}
+.with-bg.bg-skill::after{background-image:url('bg_p2_skill.jpg');}
+.with-bg.bg-analytical::after{background-image:url('bg_p3_analytical.jpg');}
+.with-bg.bg-creative::after{background-image:url('bg_p3_creative.jpg');}
+.with-bg.bg-ai::after{background-image:url('bg_p3_ai.jpg');}
+.with-bg.bg-resilience::after{background-image:url('bg_p3_resilience.jpg');}
+.with-bg.bg-curiosity::after{background-image:url('bg_p3_curiosity.jpg');}
+.with-bg.bg-edb::after{background-image:url('bg_p4_edb.jpg');}
+.with-bg.bg-hku::after{background-image:url('bg_p4_hku.jpg');}
+.with-bg.bg-first::after{background-image:url('bg_p4_first.jpg');}
 
 .src-row{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-3);
   margin-top:8px; line-height:1.6; letter-spacing:0.3px;}
@@ -441,27 +442,27 @@ p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
     <h2 class="big">2027 年的<span class="gradient-text">必備技能</span></h2>
     <p class="tagline" style="max-width:1080px;">五項技能，全部都是 AI 時代教育的核心。</p>
     <div class="g3" style="flex:1; gap:14px;">
-      <div class="card card-l-cyan">
+      <div class="card card-l-cyan with-bg bg-analytical">
         <div class="kicker k-cyan">01 · ANALYTICAL</div>
         <h3 class="lead" style="margin-top:8px;">分析性思維</h3>
         <p class="body" style="font-size:14px; margin-top:6px;">問對問題、拆解複雜情境。AI 給的是答案，但決定問甚麼問題的，仍然是人。</p>
       </div>
-      <div class="card card-l-magenta">
+      <div class="card card-l-magenta with-bg bg-creative">
         <div class="kicker k-magenta">02 · CREATIVE</div>
         <h3 class="lead" style="margin-top:8px;">創造力</h3>
         <p class="body" style="font-size:14px; margin-top:6px;">AI 隨便寫都有 80 分——人類的「品味」與「獨特觀點」是決勝點。創意 = AI 不可取代的稀缺品。</p>
       </div>
-      <div class="card card-l-amber">
+      <div class="card card-l-amber with-bg bg-ai">
         <div class="kicker k-amber">03 · AI LITERACY</div>
         <h3 class="lead" style="margin-top:8px;">AI 與大數據素養</h3>
         <p class="body" style="font-size:14px; margin-top:6px;">會用 AI、會質疑 AI、會與 AI 協作。並非「會聊天」，而是能判斷 AI 何時錯、何時可信。</p>
       </div>
-      <div class="card card-l-emerald">
+      <div class="card card-l-emerald with-bg bg-resilience">
         <div class="kicker k-emerald">04 · RESILIENCE</div>
         <h3 class="lead" style="margin-top:8px;">韌性與敏捷</h3>
         <p class="body" style="font-size:14px; margin-top:6px;">AI 不懂挫折，學生在失敗中迭代成主角。能在不確定中前進，是 AI 時代最稀缺的特質。</p>
       </div>
-      <div class="card card-l-violet">
+      <div class="card card-l-violet with-bg bg-curiosity">
         <div class="kicker k-violet">05 · CURIOSITY</div>
         <h3 class="lead" style="margin-top:8px;">好奇心 + 主動學習</h3>
         <p class="body" style="font-size:14px; margin-top:6px;">AI 永遠取代不了的人類核心特質。好奇心驅動終身學習，是面對 44% 技能過時的唯一保險。</p>
@@ -483,19 +484,19 @@ p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
     <h2 class="big">香港 AI 教育<span class="gradient-text-warm">已經啟動</span></h2>
     <p class="tagline" style="max-width:1080px;">本校屬於最早的實踐者之一。</p>
     <div class="g3" style="flex:1; gap:18px;">
-      <div class="card card-l-cyan" style="display:flex; flex-direction:column;">
+      <div class="card card-l-cyan with-bg bg-edb" style="display:flex; flex-direction:column;">
         <div class="kicker k-cyan">教育局</div>
         <h2 class="med" style="color:var(--c1); margin-top:6px; font-size:48px;">$50<span style="font-size:24px; color:var(--ink-3);">萬</span></h2>
         <h3 class="mid" style="margin-top:6px;">「智」啟學教計劃</h3>
         <p class="body" style="font-size:14px; margin-top:6px;">公帑資助學校的一筆過撥款，推動「AI for ALL Subjects」全科應用，配合教育局《數字素養架構》校本實踐。<strong style="color:var(--c1);">本校已申請並全面落實。</strong></p>
       </div>
-      <div class="card card-l-magenta" style="display:flex; flex-direction:column;">
+      <div class="card card-l-magenta with-bg bg-hku" style="display:flex; flex-direction:column;">
         <div class="kicker k-magenta">香港大學</div>
         <h2 class="med" style="color:var(--c2); margin-top:6px; font-size:38px;">QTN-DT</h2>
         <h3 class="mid" style="margin-top:6px;">人工智能年代的自主學習</h3>
         <p class="body" style="font-size:14px; margin-top:6px;">港大統籌的優質教育基金網絡計劃，研究 AI 時代的自主學習模式。<strong style="color:var(--c2);">本校為參與校之一</strong>，與全港頂尖學校共同實踐。</p>
       </div>
-      <div class="card card-l-amber" style="display:flex; flex-direction:column;">
+      <div class="card card-l-amber with-bg bg-first" style="display:flex; flex-direction:column;">
         <div class="kicker k-amber">70 校網</div>
         <h2 class="med" style="color:var(--c3); margin-top:6px; font-size:60px;">#1</h2>
         <h3 class="mid" style="margin-top:6px;">第一間引入企業級 AI</h3>
