@@ -283,21 +283,21 @@ p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
   -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
 .research-card .stat .small-suffix{font-size:20px; -webkit-text-fill-color:var(--ink-3);
   background:none; font-weight:700;}
-.research-card h4{font-size:19px; line-height:1.3;}
-.research-card .desc{font-size:14px; line-height:1.6; color:var(--ink-2);}
-.research-card .ref{font-size:11px; color:var(--ink-4); font-style:italic;
-  border-top:1px dashed var(--border); padding-top:8px; margin-top:auto;
+.research-card h4{font-size:23px; line-height:1.3; font-weight:800;}
+.research-card .desc{font-size:16.5px; line-height:1.65; color:var(--ink-2); font-weight:500;}
+.research-card .ref{font-size:13px; color:var(--ink-3); font-style:italic;
+  border-top:1px dashed var(--border); padding-top:9px; margin-top:auto;
   font-family:'JetBrains Mono',monospace;}
 
-/* === Card with background image (low opacity overlay) === */
+/* === Card with background image (medium opacity overlay) === */
 .research-card.with-bg{position:relative; overflow:hidden; z-index:0;}
 .research-card.with-bg::after{
   content:''; position:absolute; inset:0; z-index:-1;
   background-size:cover; background-position:center;
-  opacity:0.20; transition:opacity .4s var(--ease-out);
+  opacity:0.42; transition:opacity .4s var(--ease-out);
   border-radius:inherit;
 }
-.research-card.with-bg:hover::after{opacity:0.32;}
+.research-card.with-bg:hover::after{opacity:0.58;}
 .research-card.with-bg.bg-lost::after{background-image:url('bg_p2_lost.jpg');}
 .research-card.with-bg.bg-new::after{background-image:url('bg_p2_new.jpg');}
 .research-card.with-bg.bg-skill::after{background-image:url('bg_p2_skill.jpg');}
@@ -305,11 +305,14 @@ p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
 /* 文字背景加白色 wash 增加可讀性 */
 .research-card.with-bg h4,
 .research-card.with-bg .desc{
-  background:linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6));
-  padding:2px 8px; border-radius:4px; margin-left:-8px;
-  display:inline-block;
+  background:linear-gradient(rgba(255,253,248,0.85),rgba(255,253,248,0.85));
+  padding:4px 10px; border-radius:6px; margin-left:-10px;
+  display:inline-block; backdrop-filter:blur(2px);
 }
-.research-card.with-bg .desc{display:block; padding:8px 10px;}
+.research-card.with-bg .desc{display:block; padding:10px 12px; line-height:1.65;}
+.research-card.with-bg .ref{
+  background:rgba(255,253,248,0.80); padding:8px 10px; border-radius:6px;
+  margin-left:-10px; backdrop-filter:blur(2px);}
 
 .src-row{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-3);
   margin-top:8px; line-height:1.6; letter-spacing:0.3px;}
