@@ -302,17 +302,31 @@ p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
 .research-card.with-bg.bg-new::after{background-image:url('bg_p2_new.jpg');}
 .research-card.with-bg.bg-skill::after{background-image:url('bg_p2_skill.jpg');}
 .research-card.with-bg > *{position:relative; z-index:1;}
-/* 文字背景加白色 wash 增加可讀性 */
-.research-card.with-bg h4,
-.research-card.with-bg .desc{
-  background:linear-gradient(rgba(255,253,248,0.85),rgba(255,253,248,0.85));
-  padding:4px 10px; border-radius:6px; margin-left:-10px;
-  display:inline-block; backdrop-filter:blur(2px);
+/* 文字直接 on top, 用 shadow 增加可讀性, 唔遮背景 */
+.research-card.with-bg h4{
+  text-shadow:
+    0 0 10px rgba(255,253,248,0.95),
+    0 0 18px rgba(255,253,248,0.85),
+    0 1px 1px rgba(0,0,0,0.08);
 }
-.research-card.with-bg .desc{display:block; padding:10px 12px; line-height:1.65;}
+.research-card.with-bg .desc{
+  text-shadow:
+    0 0 8px rgba(255,253,248,0.95),
+    0 0 14px rgba(255,253,248,0.85),
+    0 1px 1px rgba(0,0,0,0.05);
+  font-weight:600;
+}
 .research-card.with-bg .ref{
-  background:rgba(255,253,248,0.80); padding:8px 10px; border-radius:6px;
-  margin-left:-10px; backdrop-filter:blur(2px);}
+  text-shadow:
+    0 0 6px rgba(255,253,248,0.95),
+    0 0 10px rgba(255,253,248,0.85);
+  font-weight:500;
+}
+.research-card.with-bg .stat{
+  text-shadow:
+    0 0 16px rgba(255,253,248,0.85),
+    0 0 24px rgba(255,253,248,0.65);
+}
 
 .src-row{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-3);
   margin-top:8px; line-height:1.6; letter-spacing:0.3px;}
