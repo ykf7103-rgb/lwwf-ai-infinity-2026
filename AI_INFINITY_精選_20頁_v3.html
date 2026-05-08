@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI INFINITY · 樂善堂梁黃蕙芳紀念學校 · 20 頁精選版</title>
+<title>AI INFINITY · 樂善堂梁黃蕙芳紀念學校 · 21 頁精選版</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&family=JetBrains+Mono:wght@400;700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
@@ -333,6 +333,33 @@ p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
 .with-bg.bg-edb::after{background-image:url('bg_p4_edb.jpg');}
 .with-bg.bg-hku::after{background-image:url('bg_p4_hku.jpg');}
 .with-bg.bg-first::after{background-image:url('bg_p4_first.jpg');}
+.with-bg.bg-summary::after{background-image:url('bg_p3_summary.jpg');}
+
+/* === Photo-mix layout (multiple photos in 16:9 region) === */
+.photo-mix{position:relative; width:100%; aspect-ratio:16/9;
+  display:grid; grid-template-columns:1.5fr 1fr; gap:8px;
+  background:transparent; border:none; animation:none;}
+.photo-mix > img, .photo-mix > .stack > img{
+  width:100%; height:100%; object-fit:cover;
+  border-radius:14px; box-shadow:var(--shadow);
+  transition:transform .4s var(--ease-out);}
+.photo-mix > img:hover, .photo-mix > .stack > img:hover{transform:scale(1.02);}
+.photo-mix .stack{display:flex; flex-direction:column; gap:8px;}
+.photo-mix.three .stack{display:grid; grid-template-rows:1fr 1fr; gap:8px;}
+.photo-mix.cards-row{grid-template-columns:1fr; gap:8px;}
+.photo-mix.cards-row .cards-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:6px;}
+.photo-mix.cards-row .cards-strip img{width:100%; height:100%; object-fit:contain;
+  border-radius:10px; box-shadow:var(--shadow-sm); background:#fffaf3;}
+
+/* === Photo trio (3 photos in 16:9) === */
+.photo-trio{position:relative; width:100%; aspect-ratio:16/9;
+  display:grid; grid-template-columns:1.4fr 1fr; grid-template-rows:1fr 1fr; gap:8px;}
+.photo-trio > img:nth-child(1){grid-row:1 / span 2;
+  width:100%; height:100%; object-fit:cover;
+  border-radius:14px; box-shadow:var(--shadow);}
+.photo-trio > img:nth-child(n+2){
+  width:100%; height:100%; object-fit:cover;
+  border-radius:14px; box-shadow:var(--shadow);}
 
 .src-row{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-3);
   margin-top:8px; line-height:1.6; letter-spacing:0.3px;}
@@ -362,7 +389,7 @@ p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
 <div id="progress"></div>
 <div id="section-tag">PROLOGUE</div>
 <div id="brand">LWWF · 2026</div>
-<div id="pageInfo"><span id="pn">1</span><span class="total"> / 20</span></div>
+<div id="pageInfo"><span id="pn">1</span><span class="total"> / 21</span></div>
 <div id="hint">← → 切換　·　F 全屏</div>
 <div id="dots"></div>
 
@@ -467,7 +494,7 @@ p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
         <h3 class="lead" style="margin-top:8px;">好奇心 + 主動學習</h3>
         <p class="body" style="font-size:14px; margin-top:6px;">AI 永遠取代不了的人類核心特質。好奇心驅動終身學習，是面對 44% 技能過時的唯一保險。</p>
       </div>
-      <div class="card card-l-claude">
+      <div class="card card-l-claude with-bg bg-summary">
         <div class="kicker">02 + 03 + 05</div>
         <h3 class="lead" style="margin-top:8px;">這些技能　·　全部都是 AI 教育的核心</h3>
         <p class="body" style="font-size:14px; margin-top:6px;">本校 AI INFINITY 戰略，正是針對這五項技能逐一設計課程——並非趨勢追隨，而是基於 WEF 與 OECD 的研究依據。</p>
@@ -566,40 +593,50 @@ p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
           <div class="quote-author">鄭芷渝 5C · RTHK 訪問</div>
         </div>
       </div>
-      <div class="photo16">
-        <div class="ph-id">P6 · 中文</div>
-        <div class="ph-hint">成語攻防戰實況　·　學生 iPad 文化共創　·　中文科組教學情境</div>
+      <div class="photo-mix three">
+        <img src="photos/p6_chinese_battle.jpg" alt="成語攻防戰實況">
+        <div class="stack">
+          <img src="photos/p6_chinese_cards.jpg" alt="AI 集換卡網頁">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+            <img src="photos/p6_general_ssr.png" alt="SSR 武將" style="width:100%; height:100%; object-fit:contain; background:#fffaf3; border-radius:10px; box-shadow:var(--shadow-sm);">
+            <img src="photos/p6_general_sr.png" alt="SR 武將" style="width:100%; height:100%; object-fit:contain; background:#fffaf3; border-radius:10px; box-shadow:var(--shadow-sm);">
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== P7 英文 ===== -->
-<section class="slide" data-slide="7" data-section="英文 · ENGLISH">
+<!-- ===== P7 英文 · AI 魔法默書助手 ===== -->
+<section class="slide" data-slide="7" data-section="英文 · AI 魔法默書助手">
   <div class="slide-inner">
     <div class="subject-hero">
       <div class="subject-icon-xl"><img src="icon_english.png" alt="英文"></div>
       <div style="flex:1;">
-        <div class="kicker k-cyan">英文 · ENGLISH</div>
-        <h2 class="big">由補習依賴　走向　<span class="gradient-text-cool">家長共建 App</span></h2>
+        <div class="kicker k-cyan">英文 · AI 魔法默書助手</div>
+        <h2 class="big">家長 30 分鐘　<span class="gradient-text-cool">親手做出默書 App</span></h2>
       </div>
     </div>
     <div class="g-img-text" style="flex:1;">
       <div class="photo16">
-        <div class="ph-id">P7 · 英文</div>
-        <div class="ph-hint">學生用 iPad 默書　·　家長 Workshop 共建 App　·　AI 介面截圖</div>
+        <div class="ph-id">P7 · AI 默書助手</div>
+        <div class="ph-hint">家長 Workshop 共建 App　·　學生用 iPad 默書　·　AI 介面截圖（稍後補相）</div>
       </div>
-      <div style="display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div class="card card-l-cyan">
+          <h3 class="lead" style="color:var(--c1);">🪄 革命：家長由「監督」變「夥伴」</h3>
+          <p class="body" style="margin-top:6px; font-size:15px;">家長以<strong style="color:var(--c1);">自然語言</strong>描述需求（無需編程經驗）→ 一鍵輸入每週生字詞語 → AI 自動生成<strong>配有插圖</strong>的默書 App，附有<strong>真實語音讀題</strong>（粵語／普通話／英式發音）。</p>
+        </div>
         <div class="card card-l-cyan">
           <h3 class="lead" style="color:var(--c1);">🎯 三層學習階梯</h3>
-          <p class="body" style="margin-top:6px;"><strong>① 圖像識別：</strong>AI 生成詞彙對應插圖，視覺化記憶。<br><strong>② 標準英式發音：</strong>RP British English 真人語音模型，比補習老師更標準。<br><strong>③ 情境造句：</strong>AI 對話練習日常生活情境。</p>
+          <p class="body" style="margin-top:6px; font-size:15px;"><strong>① 圖像識別：</strong>AI 生成詞彙插圖　<strong>② 標準英式發音：</strong>RP 真人語音　<strong>③ 情境造句：</strong>AI 對話練習</p>
         </div>
         <div class="card card-l-emerald">
-          <h3 class="lead" style="color:var(--c4);">💡 家長省下多少？</h3>
-          <p class="body" style="margin-top:6px;">傳統補習費 <strong>$5,000／月</strong>，老師對學生的注意力 = 1 分鐘／堂。家長親手用 AI 製作，<strong style="color:var(--c4);">近乎免費</strong>，永不疲倦、隨時聽寫。</p>
+          <h3 class="lead" style="color:var(--c4);">💡 中英雙語通用</h3>
+          <p class="body" style="margin-top:6px; font-size:15px;">同一個 App 中英共用——<strong>一次 Workshop 解決兩科默書焦慮</strong>。傳統補習 $5,000／月　→　近乎免費，永不疲倦、隨時聽寫。</p>
         </div>
         <div class="quote">
-          <div class="quote-text">Vibe Coding 就好像聽得明人話的超級助手。我們可以直接說想要甚麼功能，省下很多除錯時間。</div>
+          <div class="quote-text">Vibe Coding 就好像聽得明人話的超級助手。直接說想要甚麼功能，省下很多除錯時間。</div>
           <div class="quote-author">黃靖宸 5C · RTHK 訪問</div>
         </div>
       </div>
@@ -621,53 +658,90 @@ p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
       <div style="display:flex; flex-direction:column; gap:14px;">
         <div class="card card-l-amber">
           <h3 class="lead" style="color:var(--c3);">📐 P4 課程：乘法大師</h3>
-          <p class="body" style="margin-top:6px;">AI 個人化練習路徑，自動診斷每位學生的「卡關區」，配合 Bloom 2 Sigma 個人化突破。</p>
+          <p class="body" style="margin-top:6px;"><strong>高年級學生製作 AI 程式</strong>，回饋低年級——P5/P6 學生親手寫程式，俾 P2 同學練習乘法。學生由學習者變成 AI 工具的<strong style="color:var(--c3);">設計者</strong>。</p>
         </div>
         <div class="card card-l-amber">
           <h3 class="lead" style="color:var(--c3);">🤖 蘇格拉底反問模式</h3>
-          <p class="body" style="margin-top:6px;">AI 不會直接給答案，而是不斷反問：「為何這樣想？還有其他方法嗎？」訓練學生的後設認知與批判思維。</p>
+          <p class="body" style="margin-top:6px;">AI 不會直接給答案，而是不斷反問：「為何這樣想？還有其他方法嗎？」訓練後設認知與批判思維。</p>
         </div>
         <div class="card card-l-amber">
           <h3 class="lead" style="color:var(--c3);">🎨 學生組別：數學漫畫變身器</h3>
-          <p class="body" style="margin-top:6px;">學生先親手畫角色（無 AI 代勞），再輸入數學題，AI 自動生成四格漫畫解題步驟，學生最後親自講解（fact-check）。<strong>數學 × 中文 × 視藝 × 科技</strong>四科融合。</p>
+          <p class="body" style="margin-top:6px;">學生先親手畫角色，再輸入數學題，AI 自動生成<strong>四格漫畫</strong>解題步驟，最後親自講解（fact-check）。<strong>數學 × 中文 × 視藝 × 科技</strong>四科融合。</p>
         </div>
       </div>
-      <div class="photo16">
-        <div class="ph-id">P8 · 數學</div>
-        <div class="ph-hint">學生數學課堂　·　漫畫變身器作品　·　iPad AI 個人化練習</div>
+      <div class="photo-mix">
+        <img src="photos/p8_math_class.jpg" alt="乘法大師課堂">
+        <div class="stack">
+          <img src="photos/p8_math_comic.jpg" alt="數學漫畫變身器作品">
+        </div>
       </div>
     </div>
     <p class="src-row"><strong>研究依據：</strong>Bloom, B. S. (1984). <em>The 2 Sigma Problem</em>, Educational Researcher, 13(6)——一對一導師可令學生表現由 50 百分位升至 98 百分位（兩個標準差）。AI 個人化導師正是 2 Sigma 難題的破解。</p>
   </div>
 </section>
 
-<!-- ===== P9 人文 ===== -->
-<section class="slide" data-slide="9" data-section="人文 · HUMANITIES">
+<!-- ===== P9 人文 · 樂在其「中」 ===== -->
+<section class="slide" data-slide="9" data-section="人文 · 樂在其「中」">
   <div class="slide-inner">
     <div class="subject-hero">
       <div class="subject-icon-xl"><img src="icon_humanities.png" alt="人文"></div>
       <div style="flex:1;">
-        <div class="kicker k-magenta">人文 · HUMANITIES</div>
-        <h2 class="big">由背書本　走向　<span class="gradient-text">身份探索</span></h2>
+        <div class="kicker k-magenta">人文 · 樂在其「中」</div>
+        <h2 class="big">由 App Inventor　到　<span class="gradient-text">AI 集換卡</span></h2>
       </div>
     </div>
-    <div class="g-img-text" style="flex:1;">
-      <div class="photo16">
-        <div class="ph-id">P9 · 人文</div>
-        <div class="ph-hint">頒獎合照（季軍）　·　文化試身室實況　·　常識堂教學情境</div>
+    <p class="tagline" style="font-size:20px; color:var(--ink-2); max-width:1180px;">
+      由電腦堂 <strong style="color:var(--c2);">App Inventor</strong> →
+      <strong style="color:var(--c2);">AI 中華文化「樂在其中」App</strong> →
+      <strong style="color:var(--c2);">AI 集換卡</strong>　·　三個世代演進
+    </p>
+    <div class="g3" style="flex:1; gap:18px;">
+      <div class="card card-l-magenta" style="display:flex; flex-direction:column;">
+        <div class="kicker k-magenta">第一代　·　奠基</div>
+        <h3 class="lead" style="color:var(--c2); margin-top:6px;">📱 App Inventor</h3>
+        <p class="body" style="font-size:14px; margin-top:6px;">由電腦堂起步——學生用 MIT App Inventor 圖像化編程砌出初代文化遊戲。奠基期嘅編程訓練。</p>
       </div>
-      <div style="display:flex; flex-direction:column; gap:14px;">
+      <div class="card card-l-magenta" style="display:flex; flex-direction:column;">
+        <div class="kicker k-magenta">第二代　·　全港季軍</div>
+        <h3 class="lead" style="color:var(--c2); margin-top:6px;">🏛️ 樂在其「中」App</h3>
+        <p class="body" style="font-size:14px; margin-top:6px;">融合 AI，學生重新詮釋中華文化主題。<strong style="color:var(--c3);">全港小學中華文化教育比賽 500 隊中榮獲季軍</strong>。</p>
+      </div>
+      <div class="card card-l-magenta" style="display:flex; flex-direction:column;">
+        <div class="kicker k-magenta">第三代　·　最新</div>
+        <h3 class="lead" style="color:var(--c2); margin-top:6px;">🃏 AI 集換卡</h3>
+        <p class="body" style="font-size:14px; margin-top:6px;">由 App 升級為實體 + AI 卡牌系統——學生輸入成語造句，AI 即場評分抽出 SSR / SR 武將卡（岳飛、關羽）。</p>
+      </div>
+    </div>
+    <div class="quote" style="margin-top:6px;">
+      <div class="quote-text">真正的文化傳承，並非令學生變成歷史的旁觀者，而是令他們成為文化的再創造者。</div>
+      <div class="quote-author">校長許敏詩 · RTHK 訪問</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== P9b AI 中華文化試身室 (新增) ===== -->
+<section class="slide" data-slide="9b" data-section="人文 · AI 中華文化試身室">
+  <div class="slide-inner">
+    <div class="kicker k-magenta">人文 · AI 中華文化試身室</div>
+    <h2 class="big"><span class="gradient-text">人工智能</span>　帶你穿越時空</h2>
+    <div class="g-img-text" style="flex:1;">
+      <div class="photo-trio">
+        <img src="photos/p9b_culture_screen.jpg" alt="文化試身室實況">
+        <img src="photos/p9b_culture_booth.jpg" alt="試身室攤位 banner">
+        <img src="photos/p9b_culture_portrait.jpg" alt="學生攞文化試身相">
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
         <div class="card card-l-magenta">
-          <h3 class="lead" style="color:var(--c2);">🏛️ 樂在其「中」　<span style="font-size:14px; color:var(--c3); font-weight:600;">學生組別 · 全港季軍</span></h3>
-          <p class="body" style="margin-top:6px;">全港小學中華文化教育比賽　·　<strong>500 隊參賽中</strong>，本校以「攤位 × AI × 文化共創」嘅模式榮獲<strong style="color:var(--c3);">季軍</strong>，將枯燥嘅文化教學轉化為遊戲式體驗。</p>
+          <h3 class="lead" style="color:var(--c2);">👘 即場試身　·　即場拍照</h3>
+          <p class="body" style="margin-top:6px; font-size:15px;">AI 攝影機 + 大電視介面，學生站到鏡頭前——AI 即時將學生「換上」民族服飾（藏族、苗族、蒙古族）背景，化身古代人物。</p>
         </div>
         <div class="card card-l-magenta">
-          <h3 class="lead" style="color:var(--c2);">👘 AI 中華文化試身室</h3>
-          <p class="body" style="margin-top:6px;">學生透過 AI 影像生成技術，「試身」民族服飾——以親身體驗深化對多元文化的理解，超越教科書嘅平面認識。對應教育局《價值觀教育架構》。</p>
+          <h3 class="lead" style="color:var(--c2);">🌏 超越教科書嘅文化體驗</h3>
+          <p class="body" style="margin-top:6px; font-size:15px;">由「閱讀文化」轉為「親身穿戴」——對應教育局《價值觀教育架構》。學生帶走自己嘅試身相，回家延續分享。</p>
         </div>
-        <div class="quote">
-          <div class="quote-text">真正的文化傳承，並非令學生變成歷史的旁觀者，而是令他們成為文化的再創造者。</div>
-          <div class="quote-author">校長許敏詩 · RTHK 訪問</div>
+        <div class="card card-l-claude">
+          <h3 class="lead" style="color:var(--c-claude);">🎯 教育意義</h3>
+          <p class="body" style="margin-top:6px; font-size:15px;">AI 並非取代真實服飾體驗，而係降低門檻——令每位學生都能跨越時空，與多元文化產生個人連結。</p>
         </div>
       </div>
     </div>
@@ -718,9 +792,11 @@ p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
       </div>
     </div>
     <div class="g-img-text" style="flex:1;">
-      <div class="photo16">
-        <div class="ph-id">P11 · 音樂</div>
-        <div class="ph-hint">水果月親子合照　·　Suno 介面　·　Padlet 平台展示</div>
+      <div class="photo-mix">
+        <img src="photos/p11_music_ai.jpg" alt="學生 AI 歌曲創作">
+        <div class="stack">
+          <img src="photos/p11_music_padlet.png" alt="水果月 Padlet 親子 AI 歌曲創作平台">
+        </div>
       </div>
       <div style="display:flex; flex-direction:column; gap:14px;">
         <div class="card card-l-amber">
@@ -765,9 +841,11 @@ p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
           <p class="body" style="margin-top:6px;">系統強調個人改善，而非全班排名——避免學生因比較而產生運動焦慮。資料只供個人參考，<strong>不寫心跳血氧、不點名比較</strong>。</p>
         </div>
       </div>
-      <div class="photo16">
-        <div class="ph-id">P12 · 體育</div>
-        <div class="ph-hint">學生跳繩實況　·　大電視 AI 計數畫面　·　體育堂實照</div>
+      <div class="photo-mix">
+        <img src="photos/p12_pe_tv.jpg" alt="學生大電視 AI 體育系統">
+        <div class="stack">
+          <img src="photos/p12_pe_outdoor.png" alt="學生跳繩戶外體育堂">
+        </div>
       </div>
     </div>
   </div>

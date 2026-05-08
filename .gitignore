@@ -45,11 +45,11 @@ _debug_*.json
 _batch_log.txt
 *.html.bak
 
+# Note: photos/ folder is now committed (real student photos for V3 deployment)
+
 # Unreviewed photos (uncomment to commit after confirming no privacy issues)
 3D1A6048.JPG
 
 # Large source originals (optional — uncomment if you want smaller repo)
 # Gemini_Generated_Image_*.png
-photos/
-
-# Real student photos - NEVER commit
+# photos/ folder enabled for V3 deployment (was previously excluded)
