@@ -289,6 +289,28 @@ p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
   border-top:1px dashed var(--border); padding-top:8px; margin-top:auto;
   font-family:'JetBrains Mono',monospace;}
 
+/* === Card with background image (low opacity overlay) === */
+.research-card.with-bg{position:relative; overflow:hidden; z-index:0;}
+.research-card.with-bg::after{
+  content:''; position:absolute; inset:0; z-index:-1;
+  background-size:cover; background-position:center;
+  opacity:0.20; transition:opacity .4s var(--ease-out);
+  border-radius:inherit;
+}
+.research-card.with-bg:hover::after{opacity:0.32;}
+.research-card.with-bg.bg-lost::after{background-image:url('bg_p2_lost.jpg');}
+.research-card.with-bg.bg-new::after{background-image:url('bg_p2_new.jpg');}
+.research-card.with-bg.bg-skill::after{background-image:url('bg_p2_skill.jpg');}
+.research-card.with-bg > *{position:relative; z-index:1;}
+/* 文字背景加白色 wash 增加可讀性 */
+.research-card.with-bg h4,
+.research-card.with-bg .desc{
+  background:linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6));
+  padding:2px 8px; border-radius:4px; margin-left:-8px;
+  display:inline-block;
+}
+.research-card.with-bg .desc{display:block; padding:8px 10px;}
+
 .src-row{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-3);
   margin-top:8px; line-height:1.6; letter-spacing:0.3px;}
 .src-row strong{color:var(--ink-2);}
@@ -364,21 +386,21 @@ p.small{font-size:13px; color:var(--ink-3); line-height:1.55;}
     <h2 class="big">未來工作的<span class="gradient-text">劇變</span></h2>
     <p class="tagline" style="max-width:1080px;">當孩子畢業時，世界已經不一樣。</p>
     <div class="g3" style="flex:1; gap:20px;">
-      <div class="research-card">
+      <div class="research-card with-bg bg-lost">
         <div class="src-tag" style="color:var(--c-pain); background:rgba(220,38,38,0.10);">即將消失</div>
         <div class="stat" style="background:linear-gradient(135deg,var(--c-pain),#f97316); -webkit-background-clip:text;">8,300萬</div>
         <h4>個工作職位</h4>
         <p class="desc">資料輸入、傳統文書、簡單客服——所有「重複性、規則明確」的工作，AI 完全取代。家長現時鼓勵的「穩定文職」前景，五年內或不存在。</p>
         <div class="ref">WEF 預測 2023-2027</div>
       </div>
-      <div class="research-card">
+      <div class="research-card with-bg bg-new">
         <div class="src-tag" style="color:var(--c4); background:rgba(4,120,87,0.10);">即將誕生</div>
         <div class="stat" style="background:linear-gradient(135deg,var(--c4),var(--c1)); -webkit-background-clip:text;">6,900萬</div>
         <h4>個新工作職位</h4>
         <p class="desc">AI 訓練師、Prompt 工程師、人機協作專家、AI 倫理師——新崗位的共通點：需要與 AI 合作、判斷、再創造。</p>
         <div class="ref">WEF 新興職位類別</div>
       </div>
-      <div class="research-card">
+      <div class="research-card with-bg bg-skill">
         <div class="src-tag" style="color:var(--c3); background:rgba(180,83,9,0.10);">技能轉型</div>
         <div class="stat">44<span class="small-suffix">%</span></div>
         <h4>核心技能五年內被打亂</h4>
