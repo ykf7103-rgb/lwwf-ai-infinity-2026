@@ -681,7 +681,17 @@ TRANSLATIONS = {
     "未來職業": "Future Career",
     "未來職業 APP": "Future Career APP",
     "默書": "Dictation",
-    "萬": "0,000",
+    # Numbers: convert 萬 → million properly
+    "8,300萬": "83 million",
+    "6,900萬": "69 million",
+    "8300萬": "83 million",
+    "6900萬": "69 million",
+    "1,130萬": "11.3 million",
+    "$50萬": "$500,000",
+    "50萬": "500,000",
+    "$5,000／月": "$5,000/month",
+    "$5,000／月": "$5,000/month",
+    "$2,000-$5,000": "$2,000-$5,000",
     "代": "Gen",
     "由": "From ",
     "係": " ",
@@ -781,6 +791,14 @@ for node in text_nodes:
 
 
 # === Final cleanup: collapse whitespace + fix punctuation in text nodes ===
+PUNCT_MAP = {
+    '，': ',', '。': '.', '：': ':', '；': ';',
+    '？': '?', '！': '!', '、': ',',
+    '（': ' (', '）': ') ', '「': '"', '」': '"',
+    '『': '"', '』': '"', '·': '·',
+    '　': ' ',  # full-width space → normal space
+    '／': '/',
+}
 text_nodes = list(soup_en.find_all(string=True))
 for node in text_nodes:
     if isinstance(node, Comment):
@@ -788,15 +806,22 @@ for node in text_nodes:
     if is_in_skip_zone(node):
         continue
     s = str(node)
+    # Replace Chinese punctuation with EN equivalents
+    for ch_punct, en_punct in PUNCT_MAP.items():
+        s = s.replace(ch_punct, en_punct)
+    # Fix split number: "8, 3000, 000" → "83,000,000" → fixed via direct dict above
+    # but still clean up "X, YYY, YYY" → "X,YYY,YYY"
+    s = re.sub(r'(\d),\s+(\d)', r'\1,\2', s)
+    # Fix "11. 3" → "11.3" (number with decimal)
+    s = re.sub(r'(\d)\.\s+(\d)', r'\1.\2', s)
     # Collapse multiple spaces
     s = re.sub(r'[ \t]{2,}', ' ', s)
     # Remove space before EN punctuation
     s = re.sub(r' +([,.;:!?)\]])', r'\1', s)
-    # Add space after EN punctuation if next is letter/digit
-    s = re.sub(r'([,.])([A-Za-z0-9])', r'\1 \2', s)
-    # Insert space between glued lowercase+Capital (skip acronyms like WEF)
+    # Add space after EN punctuation if next is letter
+    s = re.sub(r'([,.;])([A-Za-z])', r'\1 \2', s)
+    # Insert space between glued lowercase+Capital (skip acronyms)
     s = re.sub(r'([a-z])([A-Z][a-z])', r'\1 \2', s)
-    # Trim leading/trailing space inside isolated text
     if s != str(node):
         node.replace_with(NavigableString(s))
 
