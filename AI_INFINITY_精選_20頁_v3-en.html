@@ -346,7 +346,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 }
 .with-bg:hover::after{opacity:0.58;}
 .with-bg > *{position:relative; z-index:1;}
-/* 硬邊 1px outline 模擬 stroke - 文字邊緣 sharp 唔矇 */
+/* 硬邊 1px outline 模擬 stroke - text邊緣 sharp 唔矇 */
 .with-bg h3, .with-bg h4, .with-bg .desc, .with-bg .body, .with-bg .ref, .with-bg .lead, .with-bg .mid, .with-bg p{
   text-shadow:
     1px 0 0 rgba(255,253,248,0.95),
@@ -368,7 +368,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   filter:drop-shadow(0 1px 2px rgba(255,253,248,0.9))
          drop-shadow(0 0 4px rgba(255,253,248,0.6));
 }
-/* 圖片背景對應檔名 */
+/* image片背景to應檔名 */
 .with-bg.bg-lost::after{background-image:url('bg_p2_lost.jpg');}
 .with-bg.bg-new::after{background-image:url('bg_p2_new.jpg');}
 .with-bg.bg-skill::after{background-image:url('bg_p2_skill.jpg');}
@@ -387,7 +387,8 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   display:grid; grid-template-columns:1.5fr 1fr; gap:8px;
   background:transparent; border:none; animation:none;}
 .photo-mix > img, .photo-mix > .stack > img{
-  width:100%; height:100%; object-fit:cover;
+  width:100%; height:100%; object-fit:contain;
+  background:#fff8f0;
   border-radius:14px; box-shadow:var(--shadow);
   transition:transform .4s var(--ease-out);}
 .photo-mix > img:hover, .photo-mix > .stack > img:hover{transform:scale(1.02);}
@@ -402,10 +403,10 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 .photo-trio{position:relative; width:100%; height:100%; min-height:0;
   display:grid; grid-template-columns:1.4fr 1fr; grid-template-rows:1fr 1fr; gap:8px;}
 .photo-trio > img:nth-child(1){grid-row:1 / span 2;
-  width:100%; height:100%; object-fit:cover;
+  width:100%; height:100%; object-fit:contain; background:#fff8f0;
   border-radius:14px; box-shadow:var(--shadow);}
 .photo-trio > img:nth-child(n+2){
-  width:100%; height:100%; object-fit:cover;
+  width:100%; height:100%; object-fit:contain; background:#fff8f0;
   border-radius:14px; box-shadow:var(--shadow);}
 
 /* === Photo full (single photo, contain to show whole faces) === */
@@ -414,9 +415,9 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   background:linear-gradient(135deg,#fff8f0,#fffaf3);
   border-radius:18px; overflow:hidden;
   box-shadow:var(--shadow); padding:0;}
-.photo-full img{width:100%; height:100%; object-fit:cover;
+.photo-full img{width:100%; height:100%; object-fit:contain;
+  background:#fff8f0;
   transition:transform .5s var(--ease-out);}
-.photo-full.contain img{object-fit:contain; background:#fff8f0;}
 .photo-full:hover img{transform:scale(1.02);}
 
 /* === Photo before/after (side-by-side) === */
@@ -469,8 +470,8 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <div id="progress"></div>
 <div id="section-tag">PROLOGUE</div>
 <div id="lang-switch">
-  <button data-lang="t" class="active" title="繁體Chinese">繁</button>
-  <button data-lang="s" title="简体Chinese">简</button>
+  <button data-lang="t" class="active" title="繁 Chinese">繁</button>
+  <button data-lang="s" title="简Chinese">简</button>
   <button data-lang="e" class="active" title="English">EN</button>
 </div>
 <div id="lang-loading">Converting…</div>
@@ -479,7 +480,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <div id="hint">← → Navigate · F Fullscreen</div>
 <div id="dots"></div>
 
-<!-- ===== P1 封面 ===== -->
+
 <section class="slide active" data-slide="1" data-section="OPENING">
   <div class="slide-inner cover-stage">
     <div class="cover-orb"></div>
@@ -489,7 +490,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       Infinite Possibility · Infinite Creation · Infinite Future
     </p>
     <div style="width:100%; max-width:880px; aspect-ratio:16/9; border-radius:20px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0;">
-      <img src="photos/p1_hero.jpg" alt="LWWF 校長與學生" style="width:100%; height:100%; object-fit:cover;">
+      <img src="photos/p1_hero.jpg" alt="LWWF Principal with students" style="width:100%; height:100%; object-fit:contain;">
     </div>
     <div class="g4" style="max-width:1020px; gap:18px; width:100%;">
       <div class="card" style="text-align:center; padding:20px;">
@@ -512,7 +513,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   </div>
 </section>
 
-<!-- ===== P2 全球研究: 未來工作Disruption ===== -->
+
 <section class="slide" data-slide="2" data-section="RESEARCH · GLOBAL">
   <div class="slide-inner">
     <div class="kicker k-cyan">Global Research · WEF 2023</div>
@@ -521,14 +522,14 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
     <div class="g3" style="flex:1; gap:20px;">
       <div class="research-card with-bg bg-lost">
         <div class="src-tag" style="color:var(--c-pain); background:rgba(220,38,38,0.10);">DISAPPEARING</div>
-        <div class="stat" style="background:linear-gradient(135deg,var(--c-pain),#f97316); -webkit-background-clip:text;">8,300萬</div>
+        <div class="stat" style="background:linear-gradient(135deg,var(--c-pain),#f97316); -webkit-background-clip:text;">8,300M</div>
         <h4>jobs</h4>
         <p class="desc">Data entry, traditional clerical work, simple customer service — every "repetitive, rule-based" job will be fully replaced by AI. The "stable office career" parents currently encourage may not exist in 5 years.</p>
         <div class="ref">WEF forecast 2023-2027</div>
       </div>
       <div class="research-card with-bg bg-new">
         <div class="src-tag" style="color:var(--c4); background:rgba(4,120,87,0.10);">EMERGING</div>
-        <div class="stat" style="background:linear-gradient(135deg,var(--c4),var(--c1)); -webkit-background-clip:text;">6,900萬</div>
+        <div class="stat" style="background:linear-gradient(135deg,var(--c4),var(--c1)); -webkit-background-clip:text;">6,900M</div>
         <h4>new jobs</h4>
         <p class="desc">AI trainers, Prompt engineers, Human-AI collaboration specialists, AI ethicists — these new roles share one trait: working with AI, judging, and re-creating.</p>
         <div class="ref">WEF emerging job categories</div>
@@ -545,7 +546,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   </div>
 </section>
 
-<!-- ===== P3 未來Critical Skills Top 5 ===== -->
+
 <section class="slide" data-slide="3" data-section="RESEARCH · CRITICAL SKILLS">
   <div class="slide-inner">
     <div class="kicker k-cyan">Global Research · WEF 2023 + OECD 2030</div>
@@ -583,11 +584,11 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
         <p class="body" style="font-size:14px; margin-top:6px;">Our school's AI INFINITY strategy designs curriculum for each of these five skills — not trend-chasing, but grounded in WEF and OECD research.</p>
       </div>
     </div>
-    <p class="src-row"><strong>Source: </strong>WEF <em>Future of Jobs 2023</em>,  38–43 p「Skills Outlook」章節；OECD <em>Future of Education and Skills 2030</em> 框架 (學習羅盤 2030) . </p>
+    <p class="src-row"><strong>Source: </strong>WEF <em>Future of Jobs 2023</em>,  38–43 p「Skills Outlook」chapter；OECD <em>Future of Education and Skills 2030</em> framework (Learning Compass 2030) . </p>
   </div>
 </section>
 
-<!-- ===== P4 香港本地: EDB已啟動 ===== -->
+
 <section class="slide" data-slide="4" data-section="RESEARCH · HK ROLLOUT">
   <div class="slide-inner">
     <div class="kicker k-amber">HK Local · EDB + HKU + District 70</div>
@@ -596,9 +597,9 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
     <div class="g3" style="flex:1; gap:18px;">
       <div class="card card-l-cyan with-bg bg-edb" style="display:flex; flex-direction:column;">
         <div class="kicker k-cyan">EDB</div>
-        <h2 class="med" style="color:var(--c1); margin-top:6px; font-size:48px;">$50<span style="font-size:24px; color:var(--ink-3);">萬</span></h2>
+        <h2 class="med" style="color:var(--c1); margin-top:6px; font-size:48px;">$50<span style="font-size:24px; color:var(--ink-3);">M</span></h2>
         <h3 class="mid" style="margin-top:6px;">Smart i-Learn Programme</h3>
-        <p class="body" style="font-size:14px; margin-top:6px;">公帑資助School的一筆過撥款, 推動「AI for ALL Subjects」全科應用, 配合EDB《數字素養架構》School Practice. <strong style="color:var(--c1);">Our school has applied and fully implemented.</strong></p>
+        <p class="body" style="font-size:14px; margin-top:6px;">Government-fundedSchool one-time grant, to roll out「AI for ALL Subjects」all-subject deployment, aligned withEDB《Digital Literacy Framework》School Practice. <strong style="color:var(--c1);">Our school has applied and fully implemented.</strong></p>
       </div>
       <div class="card card-l-magenta with-bg bg-hku" style="display:flex; flex-direction:column;">
         <div class="kicker k-magenta">HKU</div>
@@ -615,13 +616,13 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
     </div>
     <div class="card card-l-emerald" style="margin-top:6px; padding:16px;">
       <div class="kicker k-emerald">EARLY MOVER</div>
-      <p class="body" style="margin-top:6px;">Our school has been a <strong style="color:var(--c4);">Jockey Club CoolThink@JC pilot school for years</strong>, 並非 AI 教育的新手——而是HK AI Education最早期的實踐者. 在這個基礎上, 我們持續更新工具、優化教法. </p>
+      <p class="body" style="margin-top:6px;">Our school has been a <strong style="color:var(--c4);">Jockey Club CoolThink@JC pilot school for years</strong>, Not AI newcomer to education——butHK AI Educationthe earliest practitioners. On this foundation, we continually update tools and refine pedagogy. </p>
     </div>
-    <p class="src-row"><strong>Source: </strong>香港EDB「智啟學教」計劃 (2024 年公布) ；HKU優質教育基金 QTN-DT 網絡計劃名單；Tencent Youth AI Education Platform合作School紀錄；賽馬會 CoolThink@JC 先導School歷年名單. </p>
+    <p class="src-row"><strong>Source: </strong>HKEDBSmart i-Learn Programme (2024  announced) ；HKUQuality Education Fund QTN-DT Network Programme list；Tencent Youth AI Education PlatformpartnerSchoolrecord；Jockey Club CoolThink@JC pilotSchoolhistorical list. </p>
   </div>
 </section>
 
-<!-- ===== P5 八大科 × 未來矩陣 ===== -->
+
 <section class="slide" data-slide="5" data-section="MATRIX · TREND MAPPING">
   <div class="slide-inner">
     <div class="kicker k-magenta">8 Subjects × Future Mapping</div>
@@ -636,50 +637,50 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
           </tr>
         </thead>
         <tbody>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c2);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img src="icon_chinese.png" alt=""></span>Chinese</span></td><td style="padding:11px 14px;">Cultural Heritage · AI Ethics</td><td style="padding:11px 14px;">P4 Fox Borrows Tiger's Might新編 · 成語攻防戰</td></tr>
-          <tr style="border-bottom:1px solid var(--border); background:rgba(8,145,178,0.03);"><td style="padding:11px 14px; font-weight:700; color:var(--c1);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img src="icon_english.png" alt=""></span>English</span></td><td style="padding:11px 14px;">Learning Agency (OECD)</td><td style="padding:11px 14px;">AI 默書助手 · 升中銜接</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c3);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img src="icon_math.png" alt=""></span>Math</span></td><td style="padding:11px 14px;">2 Sigma Personalisation</td><td style="padding:11px 14px;">Multiplication Master · 漫畫變身器 · Socratic Questioning</td></tr>
-          <tr style="border-bottom:1px solid var(--border); background:rgba(190,24,93,0.03);"><td style="padding:11px 14px; font-weight:700; color:var(--c2);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img src="icon_humanities.png" alt=""></span>Humanities</span></td><td style="padding:11px 14px;">National Identity · Cross-Cultural</td><td style="padding:11px 14px;">Joyfully Chinese (季軍)  · 文化試身室</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c4);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img src="icon_science.jpg" alt=""></span>Science</span></td><td style="padding:11px 14px;">Sensory · STEM Inquiry</td><td style="padding:11px 14px;">Plant ID Master · 生態保育日 · National Treasure AI Steward</td></tr>
-          <tr style="border-bottom:1px solid var(--border); background:rgba(180,83,9,0.03);"><td style="padding:11px 14px; font-weight:700; color:var(--c3);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img src="icon_music.jpg" alt=""></span>Music</span></td><td style="padding:11px 14px;">Aesthetics · AI Co-Creation</td><td style="padding:11px 14px;">「水果月」親子 AI 歌曲 (Suno) </td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c5);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img src="icon_pe.jpg" alt=""></span>PE</span></td><td style="padding:11px 14px;">Health Literacy · IoT Data Age</td><td style="padding:11px 14px;">AI 國寶守衛戰 · AI 智能PE系統</td></tr>
-          <tr style="background:rgba(204,120,92,0.04);"><td style="padding:11px 14px; font-weight:700; color:var(--c-claude);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img src="icon_va.jpg" alt=""></span>Visual Arts</span></td><td style="padding:11px 14px;">Creativity · 文化保育</td><td style="padding:11px 14px;">Modern Door Gods · 未來職業 APP</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c2);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img src="icon_chinese.png" alt=""></span>Chinese</span></td><td style="padding:11px 14px;">Cultural Heritage · AI Ethics</td><td style="padding:11px 14px;">P4 Fox Borrows Tiger's Might Reimagined · Idiom Battle</td></tr>
+          <tr style="border-bottom:1px solid var(--border); background:rgba(8,145,178,0.03);"><td style="padding:11px 14px; font-weight:700; color:var(--c1);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img src="icon_english.png" alt=""></span>English</span></td><td style="padding:11px 14px;">Learning Agency (OECD)</td><td style="padding:11px 14px;">AI Dictation Assistant · Secondary Transition</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c3);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img src="icon_math.png" alt=""></span>Math</span></td><td style="padding:11px 14px;">2 Sigma Personalisation</td><td style="padding:11px 14px;">Multiplication Master · Comic Generator · Socratic Questioning</td></tr>
+          <tr style="border-bottom:1px solid var(--border); background:rgba(190,24,93,0.03);"><td style="padding:11px 14px; font-weight:700; color:var(--c2);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img src="icon_humanities.png" alt=""></span>Humanities</span></td><td style="padding:11px 14px;">National Identity · Cross-Cultural</td><td style="padding:11px 14px;">Joyfully Chinese (3rd Place)  · Cultural Fitting Room</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c4);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img src="icon_science.jpg" alt=""></span>Science</span></td><td style="padding:11px 14px;">Sensory · STEM Inquiry</td><td style="padding:11px 14px;">Plant ID Master · Conservation Day · National Treasure AI Steward</td></tr>
+          <tr style="border-bottom:1px solid var(--border); background:rgba(180,83,9,0.03);"><td style="padding:11px 14px; font-weight:700; color:var(--c3);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img src="icon_music.jpg" alt=""></span>Music</span></td><td style="padding:11px 14px;">Aesthetics · AI Co-Creation</td><td style="padding:11px 14px;">「Fruit Month」Family AI Song (Suno) </td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c5);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img src="icon_pe.jpg" alt=""></span>PE</span></td><td style="padding:11px 14px;">Health Literacy · IoT Data Age</td><td style="padding:11px 14px;">AI National Treasure Guardian · AI SmartPESystem</td></tr>
+          <tr style="background:rgba(204,120,92,0.04);"><td style="padding:11px 14px; font-weight:700; color:var(--c-claude);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img src="icon_va.jpg" alt=""></span>Visual Arts</span></td><td style="padding:11px 14px;">Creativity · Cultural Heritage</td><td style="padding:11px 14px;">Modern Door Gods · Future Career APP</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-<!-- ===== P6 CHINESE · AI Idiom Battle ===== -->
+
 <section class="slide" data-slide="6" data-section="CHINESE · AI Idiom Battle">
   <div class="slide-inner">
     <div class="subject-hero">
       <div class="subject-icon-xl"><img src="icon_chinese.png" alt="Chinese"></div>
       <div style="flex:1;">
         <div class="kicker k-magenta">CHINESE · AI Idiom Battle</div>
-        <h2 class="big">將學Chinese　變成　<span class="gradient-text">a Card Battle</span></h2>
+        <h2 class="big">Turn learningChinese　into　<span class="gradient-text">a Card Battle</span></h2>
       </div>
     </div>
     <div style="display:grid; grid-template-columns:1.5fr 1fr; gap:18px; flex:1; align-items:stretch; min-height:0;">
-      <!-- 左:學生玩攻防戰大圖 (加大) -->
+      
       <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0;">
-        <img src="photos/p6_chinese_battle.jpg" alt="4 學生玩成語攻防戰桌遊"
+        <img src="photos/p6_chinese_battle.jpg" alt="4 students playing the Idiom Battle card game"
              style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
       </div>
-      <!-- 右上:2 卡並排 + 下:Gameplay + 獎項 -->
+      
       <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
-        <!-- 2 卡並排 (上半部) -->
+        
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; flex:1; min-height:0;">
           <div style="border-radius:10px; overflow:hidden; box-shadow:var(--shadow-sm); background:#fffaf3;">
-            <img src="photos/p6_general_ssr.png" alt="SSR 將軍卡"
+            <img src="photos/p6_general_ssr.png" alt="SSR General Card"
                  style="width:100%; height:100%; object-fit:contain;">
           </div>
           <div style="border-radius:10px; overflow:hidden; box-shadow:var(--shadow-sm); background:#fffaf3;">
-            <img src="photos/p6_general_sr.png" alt="SR 將軍卡"
+            <img src="photos/p6_general_sr.png" alt="SR General Card"
                  style="width:100%; height:100%; object-fit:contain;">
           </div>
         </div>
-        <!-- Gameplay + 評pts + 獎項 (下半部) -->
+        
         <div class="card card-l-magenta">
           <h3 class="lead" style="color:var(--c2); font-size:16px;">🎯 Gameplay</h3>
           <p class="body" style="font-size:12.5px; margin-top:4px;">Input idiom sentences → AI <strong>10-point AI scoring</strong> → 20% chance of <strong>UR General Card</strong> (Yue Fei, Guan Yu, Li Jing).</p>
@@ -696,23 +697,23 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   </div>
 </section>
 
-<!-- ===== P7 AI Magic Dictation ===== -->
+
 <section class="slide" data-slide="7" data-section="AI Magic Dictation">
   <div class="slide-inner">
     <div class="subject-hero">
-      <div class="subject-icon-xl"><img src="icon_english.png" alt="默書"></div>
+      <div class="subject-icon-xl"><img src="icon_english.png" alt="Dictation"></div>
       <div style="flex:1;">
-        <div class="kicker k-cyan">校本研發 · AI Magic Dictation</div>
+        <div class="kicker k-cyan">School-developed · AI Magic Dictation</div>
         <h2 class="big">Teachers + Gemini · Co-developed　<span class="gradient-text-cool">School Dictation Tool</span></h2>
       </div>
     </div>
     <div style="display:grid; grid-template-columns:1.5fr 1fr; gap:28px; flex:1; align-items:stretch;">
-      <!-- 左:大圖 web app 截圖 -->
+      
       <div style="border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff;">
-        <img src="photos/p7_ai_dictation_app.jpg" alt="AI Magic Dictation web app 介面"
+        <img src="photos/p7_ai_dictation_app.jpg" alt="AI Magic Dictation web app interface"
              style="width:100%; height:100%; object-fit:contain; background:#fff;">
       </div>
-      <!-- 右:介紹 -->
+      
       <div style="display:flex; flex-direction:column; gap:14px;">
         <div class="card card-l-cyan">
           <h3 class="lead" style="color:var(--c1);">🤝 Teachers × Gemini · Co-creation</h3>
@@ -735,7 +736,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   </div>
 </section>
 
-<!-- ===== P8 Math ===== -->
+
 <section class="slide" data-slide="8" data-section="MATH">
   <div class="slide-inner">
     <div class="subject-hero">
@@ -746,7 +747,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       </div>
     </div>
     <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:28px; flex:1; align-items:stretch;">
-      <!-- 左:3 cards 文字 -->
+      
       <div style="display:flex; flex-direction:column; gap:14px;">
         <div class="card card-l-amber">
           <h3 class="lead" style="color:var(--c3);">📐 P4: Multiplication Master</h3>
@@ -757,18 +758,18 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
           <p class="body" style="margin-top:8px; font-size:17px;">AI doesn't give answers but asks back: "Why think this way? Other approaches?" Training critical thinking.</p>
         </div>
         <div class="card card-l-amber">
-          <h3 class="lead" style="color:var(--c3);">🎨 Math漫畫變身器</h3>
-          <p class="body" style="margin-top:8px; font-size:17px;">Students draw characters → AI generates <strong>4-panel comic solutions</strong> → students fact-check & explain.<strong>Math × Chinese × Visual Arts × 科技</strong> integration.</p>
+          <h3 class="lead" style="color:var(--c3);">🎨 MathComic Generator</h3>
+          <p class="body" style="margin-top:8px; font-size:17px;">Students draw characters → AI generates <strong>4-panel comic solutions</strong> → students fact-check & explain.<strong>Math × Chinese × Visual Arts × Tech</strong> integration.</p>
         </div>
       </div>
-      <!-- 右:2 圖 (上小張課堂 + 下大張漫畫完整顯示) -->
+      
       <div style="display:flex; flex-direction:column; gap:14px;">
         <div style="flex:0 0 auto; aspect-ratio:16/9; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
-          <img src="photos/p8_math_class.jpg" alt="Multiplication Master課堂"
-               style="width:100%; height:100%; object-fit:cover; object-position:center;">
+          <img src="photos/p8_math_class.jpg" alt="Multiplication Master class"
+               style="width:100%; height:100%; object-fit:contain; object-position:center;">
         </div>
         <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; padding:8px;">
-          <img src="photos/p8_math_comic.jpg" alt="Math漫畫變身器作品"
+          <img src="photos/p8_math_comic.jpg" alt="Math Comic Generator output"
                style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
       </div>
@@ -777,7 +778,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   </div>
 </section>
 
-<!-- ===== P9 HUMANITIES · Joyfully Chinese ===== -->
+
 <section class="slide" data-slide="9" data-section="HUMANITIES · Joyfully Chinese">
   <div class="slide-inner">
     <div class="subject-hero">
@@ -795,18 +796,18 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
     <div class="g3" style="flex:1; gap:18px;">
       <div class="card card-l-magenta" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
         <div style="aspect-ratio:4/3; overflow:hidden; background:#fff8f0;">
-          <img src="photos/p9_gen1_app_inventor.jpg" alt="一 Gen App Inventor 編程課堂"
+          <img src="photos/p9_gen1_app_inventor.jpg" alt="Gen 1 · App Inventor coding class"
                style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
         <div style="padding:18px 20px;">
           <div class="kicker k-magenta">Gen 1 · Foundation</div>
           <h3 class="lead" style="color:var(--c2); margin-top:6px;">📱 App Inventor</h3>
-          <p class="body" style="font-size:16px; margin-top:8px;">From Computer class 起步——學生用 MIT App Inventor 圖像化編程砌出初 Gen文化遊戲. 奠基期嘅編程訓練. </p>
+          <p class="body" style="font-size:16px; margin-top:8px;">From Computer class starts — students use MIT App Inventor image visual coding to build initial Gencultural games. Foundation-era coding training. </p>
         </div>
       </div>
       <div class="card card-l-magenta" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
         <div style="aspect-ratio:4/3; overflow:hidden; background:#fff8f0;">
-          <img src="photos/p9_gen2_lokjoy.jpg" alt="二 Gen Joyfully Chinese攤位"
+          <img src="photos/p9_gen2_lokjoy.jpg" alt="Gen 2 · Joyfully Chinese booth"
                style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
         <div style="padding:18px 20px;">
@@ -817,13 +818,13 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       </div>
       <div class="card card-l-magenta" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
         <div style="aspect-ratio:4/3; overflow:hidden; background:#fff8f0;">
-          <img src="photos/p9_gen3_ai_cards.jpg" alt="三 Gen AI TCG Cards"
-               style="width:100%; height:100%; object-fit:cover; object-position:center top;">
+          <img src="photos/p9_gen3_ai_cards.jpg" alt="Gen 3 · AI TCG cards"
+               style="width:100%; height:100%; object-fit:contain; object-position:center top;">
         </div>
         <div style="padding:18px 20px;">
           <div class="kicker k-magenta">Gen 3 · Latest</div>
           <h3 class="lead" style="color:var(--c2); margin-top:6px;">🃏 AI TCG Cards</h3>
-          <p class="body" style="font-size:16px; margin-top:8px;">由 App 升級為實體 + AI 卡牌系統——學生Input idiom sentences, AI 即場評pts抽出 SSR / SR 武將卡. </p>
+          <p class="body" style="font-size:16px; margin-top:8px;">  App upgraded to physical + AI card system — studentsInput idiom sentences, AI liveScoreptsdraw SSR / SR General cards. </p>
         </div>
       </div>
     </div>
@@ -834,17 +835,17 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   </div>
 </section>
 
-<!-- ===== P9b AI 中華文化試身室 (新增) ===== -->
+
 <section class="slide" data-slide="9b" data-section="HUMANITIES · AI Cultural Fitting Room">
   <div class="slide-inner">
     <div class="kicker k-magenta">HUMANITIES · AI Cultural Fitting Room</div>
     <h2 class="big"><span class="gradient-text">Artificial Intelligence</span>　takes you through time</h2>
     <div class="g-img-text" style="flex:1;">
       <div class="photo-trio">
-        <img src="photos/p9b_culture_portrait.jpg" alt="學生持文化試身室相 + 攤位"
+        <img src="photos/p9b_culture_portrait.jpg" alt="Student with Cultural Fitting Room photos + booth"
              style="object-fit:contain; background:#fff8f0;">
-        <img src="photos/p9b_culture_screen.jpg" alt="文化試身室實況">
-        <img src="photos/p9b_culture_booth.jpg" alt="試身室攤位 banner">
+        <img src="photos/p9b_culture_screen.jpg" alt="Cultural Fitting Room live">
+        <img src="photos/p9b_culture_booth.jpg" alt="Fitting Room booth banner">
       </div>
       <div style="display:flex; flex-direction:column; gap:12px;">
         <div class="card card-l-magenta">
@@ -853,7 +854,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
         </div>
         <div class="card card-l-magenta">
           <h3 class="lead" style="color:var(--c2);">🌏 Beyond Textbook Cultural Experience</h3>
-          <p class="body" style="margin-top:6px; font-size:15px;">由「閱讀文化」轉為「親身穿戴」——對應EDB《價值觀教育架構》. 學生帶走自己嘅試身相, 回家延續pts享. </p>
+          <p class="body" style="margin-top:6px; font-size:15px;">From "reading culture" to "personally wearing" — aligned withEDB《Values Education Framework》. Students take home their try-on photos, to continue at home, share. </p>
         </div>
         <div class="card card-l-claude">
           <h3 class="lead" style="color:var(--c-claude);">🎯 Educational Significance</h3>
@@ -864,7 +865,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   </div>
 </section>
 
-<!-- ===== P10 Science ===== -->
+
 <section class="slide" data-slide="10" data-section="SCIENCE">
   <div class="slide-inner">
     <div class="subject-hero">
@@ -898,7 +899,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
           <div style="position:absolute; top:8px; left:8px; background:rgba(204,120,92,0.92); color:#fff; padding:4px 12px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px; font-weight:700;">▶ Plant ID Video</div>
         </div>
         <div style="flex:1; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
-          <img src="photos/p10_science_steward.jpg" alt="學生持 iPad + National Treasure AI Steward展板"
+          <img src="photos/p10_science_steward.jpg" alt="Student with iPad + National Treasure AI Steward booth"
                style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
       </div>
@@ -906,7 +907,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   </div>
 </section>
 
-<!-- ===== P11 Music ===== -->
+
 <section class="slide" data-slide="11" data-section="MUSIC">
   <div class="slide-inner">
     <div class="subject-hero">
@@ -919,11 +920,11 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
     <div class="g-img-text" style="flex:1;">
       <div style="display:flex; flex-direction:column; gap:14px; height:100%;">
         <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
-          <img src="photos/p11_music_ai.jpg" alt="水果月 AI 歌曲頒獎合照"
+          <img src="photos/p11_music_ai.jpg" alt="Fruit Month AI Song award photo"
                style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
         <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
-          <img src="photos/p11_music_padlet.png" alt="水果月 Padlet 親子 AI 歌曲創作平台"
+          <img src="photos/p11_music_padlet.png" alt="Fruit Month Padlet AI Song platform"
                style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
       </div>
@@ -934,25 +935,25 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
         </div>
         <div class="card card-l-amber">
           <h3 class="lead" style="color:var(--c3);">🎤 From Consumer to Author</h3>
-          <p class="body" style="margin-top:6px;">當學生發現自己「會作歌」, 對Music的熱情會由被動變為主動. AI 並非取 Gen創作, 而是降低創作的門檻——對應 UNESCO Creativity表達框架. </p>
+          <p class="body" style="margin-top:6px;">When students discover they "can compose", toMusictheir passion turns from passive to active. AI Nottake Gencreation, butlowers the creation barrier — aligned with UNESCO Creativitytableexpressframework. </p>
         </div>
         <div class="quote">
-          <div class="quote-text">Music科以前係欣賞與演唱為主, 難以讓學生親身體驗創作. Suno 改變了這一切. </div>
-          <div class="quote-author">Music科組</div>
+          <div class="quote-text">Music used to focus on appreciation and singing, hard for students to experience real creation. Suno changed everything. </div>
+          <div class="quote-author">Musicsubjectgroup</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== P12 PE ===== -->
+
 <section class="slide" data-slide="12" data-section="PHYSICAL EDUCATION">
   <div class="slide-inner">
     <div class="subject-hero">
       <div class="subject-icon-xl"><img src="icon_pe.jpg" alt="PE"></div>
       <div style="flex:1;">
         <div class="kicker k-violet">PE · PHYSICAL EDUCATION</div>
-        <h2 class="big">From Demos to 　<span class="gradient-text">IoT 數據PE</span></h2>
+        <h2 class="big">From Demos to 　<span class="gradient-text">IoT DataPE</span></h2>
       </div>
     </div>
     <div class="g-text-img" style="flex:1;">
@@ -962,8 +963,8 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
           <p class="body" style="margin-top:6px;">Students' rope-skipping triggers AI vision recognition, jump counts become "clean-air cannon" energy, defeating pollution monsters — turning boring fitness training into a national-treasure guardian mission.</p>
         </div>
         <div class="card card-l-violet">
-          <h3 class="lead" style="color:var(--c5);">⚡ AI 智能PE系統 (試行) </h3>
-          <p class="body" style="margin-top:6px;">於PE館設置大電視 AI 視覺辨識, 可實時計算跳繩次數、跳遠距離——對應 WHO 兒童活動指引嘅數據素養要求. </p>
+          <h3 class="lead" style="color:var(--c5);">⚡ AI SmartPESystem ((Pilot)) </h3>
+          <p class="body" style="margin-top:6px;">in PELarge screen in venue AI vision recognition, can calculate in real time rope-skips and long-jumps — meeting WHO children-activity data literacy requirements. </p>
         </div>
         <div class="card card-l-violet">
           <h3 class="lead" style="color:var(--c5);">🎯 Not Surveillance, but Empowerment</h3>
@@ -972,11 +973,11 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       </div>
       <div style="display:flex; flex-direction:column; gap:14px; height:100%;">
         <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
-          <img src="photos/p12_pe_tv.jpg" alt="大電視 AI PE系統"
+          <img src="photos/p12_pe_tv.jpg" alt="Large-screen AI Sport System"
                style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
         <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
-          <img src="photos/p12_pe_outdoor.png" alt="學生跳繩戶外PE堂"
+          <img src="photos/p12_pe_outdoor.png" alt="Students rope-skipping outdoors"
                style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
       </div>
@@ -984,7 +985,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   </div>
 </section>
 
-<!-- ===== P13 Visual Arts ===== -->
+
 <section class="slide" data-slide="13" data-section="VISUAL ARTS">
   <div class="slide-inner">
     <div class="subject-hero">
@@ -1005,7 +1006,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
         </div>
         <div style="flex:1; min-height:0; display:grid; grid-template-columns:1fr 1fr; gap:8px;">
           <div style="position:relative; border-radius:10px; overflow:hidden; box-shadow:var(--shadow-sm); background:#fff8f0;">
-            <img src="photos/p13_va_original.jpeg" alt="學生Original手繪"
+            <img src="photos/p13_va_original.jpeg" alt="Student original hand-drawn"
                  style="width:100%; height:100%; object-fit:contain;">
             <span style="position:absolute; bottom:4px; left:4px; background:rgba(29,28,26,0.85); color:#fff; padding:2px 8px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:1px; font-weight:700;">Original</span>
           </div>
@@ -1023,25 +1024,25 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
         </div>
         <div class="card card-l-claude">
           <h3 class="lead" style="color:var(--c-claude);">🎓 P6: Future Career APP</h3>
-          <p class="body" style="margin-top:6px;">Career Planning融入Visual Arts——學生為自己嘅未來職業設計 APP 介面草圖, 再用 AI 完善視覺呈現. <strong>Creativity × 自我認同</strong>. </p>
+          <p class="body" style="margin-top:6px;">Career Planningintegrated intoVisual Arts——Students for their ownFuture Careerdesign APP interface image, then use AI refine visual presentation. <strong>Creativity × Self-identity</strong>. </p>
         </div>
         <div class="quote">
           <div class="quote-text">AI doesn't replace the brush but expands students' imagination of "creation". Our duty: teach them to judge which version has their own soul.</div>
-          <div class="quote-author">張楚雯老師 · Visual Arts科</div>
+          <div class="quote-author">Ms Cheung · Visual Artssubject</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== P14 旗艦: Yaoshan Crocodile Lizard ===== -->
+
 <section class="slide" data-slide="14" data-section="FLAGSHIP PROJECT">
   <div class="slide-inner">
     <div class="kicker k-emerald">FLAGSHIP PROJECT</div>
     <h2 class="big">National Treasure AI Steward　<span class="gradient-text">Yaoshan Crocodile Lizard</span></h2>
     <div class="g-img-text" style="flex:1;">
       <div class="photo-full">
-        <img src="photos/p14_flagship_booth.jpg" alt="National Treasure AI Steward攤位 + 5 學生 + 鱷蜥盒 + 大電視">
+        <img src="photos/p14_flagship_booth.jpg" alt="National Treasure AI Steward booth + 5 students + lizard box + screen">
       </div>
       <div style="display:flex; flex-direction:column; gap:14px;">
         <p class="tagline" style="font-size:20px;">China Class-1 Protected · Globally Endangered</p>
@@ -1060,16 +1061,16 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
           </div>
           <div class="card card-l-violet" style="padding:16px;">
             <h3 class="mid" style="color:var(--c5);">🌍 Cross-Disciplinary</h3>
-            <p class="small" style="margin-top:4px;">Science + STEAM + Humanities + 資訊科技. </p>
+            <p class="small" style="margin-top:4px;">Science + STEAM + Humanities + informationTech. </p>
           </div>
         </div>
       </div>
     </div>
-    <p class="src-row"><strong>Led by: </strong>Dean Siu, Mr Yeung · <strong>Partners: </strong>Yaoshan Crocodile Lizard保育協會</p>
+    <p class="src-row"><strong>Led by: </strong>Dean Siu, Mr Yeung · <strong>Partners: </strong>Yaoshan Crocodile LizardConservation Society</p>
   </div>
 </section>
 
-<!-- ===== P15 課程架構 ===== -->
+
 <section class="slide" data-slide="15" data-section="CURRICULUM · Spiral Pathway">
   <div class="slide-inner">
     <div class="kicker k-cyan">CURRICULUM</div>
@@ -1077,8 +1078,8 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
     <div class="g2" style="flex:1; gap:24px;">
       <div class="card card-l-emerald" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
         <div style="aspect-ratio:16/9; overflow:hidden; background:#fff8f0;">
-          <img src="photos/p15_matatalab.jpeg" alt="P1-P3 Matatalab 實物編程"
-               style="width:100%; height:100%; object-fit:cover;">
+          <img src="photos/p15_matatalab.jpeg" alt="P1-P3 · Matatalab tangible coding"
+               style="width:100%; height:100%; object-fit:contain;">
         </div>
         <div style="padding:20px 24px; display:flex; flex-direction:column; gap:10px; flex:1;">
           <div class="kicker k-emerald">Stage 1 · P1-P3 Foundation</div>
@@ -1110,31 +1111,31 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
             <strong style="color:var(--c1);">P5: </strong>Modern Door Gods · AI Translator<br>
             <strong style="color:var(--c1);">P6: </strong>Plant ID Master · Career Planning
           </p>
-          <p class="small" style="font-style:italic; color:var(--c3);">學生組別 / 比賽作品 (成語攻防戰、文化試身室、National Treasure AI Steward等) 係課餘自主探究. </p>
+          <p class="small" style="font-style:italic; color:var(--c3);">Student-group / competition works (Idiom Battle、Cultural Fitting Room、National Treasure AI Steward etc.) are extracurricular self-inquiry. </p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== P16 AI 倫理 + 評估 ===== -->
+
 <section class="slide" data-slide="16" data-section="ETHICS + ASSESSMENT">
   <div class="slide-inner">
     <div class="kicker k-pain">AI ETHICS · ASSESSMENT REFORM</div>
     <h2 class="big">Introducing AI　<span style="color:var(--c-pain);">Requires Clear Boundaries</span></h2>
     <div style="display:grid; grid-template-columns:1fr 1.1fr; gap:28px; flex:1; align-items:stretch;">
-      <!-- 左:同學使用 AI 課室實況 -->
+      
       <div style="display:flex; flex-direction:column; gap:12px;">
         <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0;">
-          <img src="photos/p17_cyber_game.jpg" alt="學生用 ThinkPad AI 設計"
-               style="width:100%; height:100%; object-fit:cover; object-position:center;">
+          <img src="photos/p17_cyber_game.jpg" alt="Student designing with AI on ThinkPad"
+               style="width:100%; height:100%; object-fit:contain; object-position:center;">
         </div>
         <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
-          <img src="photos/p16_magnetic_car.jpg" alt="學生展示 Magnetic Car AI 作品"
-               style="width:100%; height:100%; object-fit:cover; object-position:center;">
+          <img src="photos/p16_magnetic_car.jpg" alt="Student presenting Magnetic Car AI work"
+               style="width:100%; height:100%; object-fit:contain; object-position:center;">
         </div>
       </div>
-      <!-- 右:倫理 + 評估 -->
+      
       <div style="display:flex; flex-direction:column; gap:14px;">
         <div class="card card-l-pain">
           <h3 class="lead" style="color:var(--c-pain);">🚫 Red Line 1: Never replace human judgement</h3>
@@ -1149,7 +1150,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
           <p class="body" style="margin-top:6px; font-size:16px;"><strong>① Paper-pen</strong> · <strong>② Process Portfolio</strong> · <strong>③ Demo + Oral Explanation</strong> — three tracks parallel, avoiding AI-ghostwriting.</p>
         </div>
         <div class="quote">
-          <div class="quote-text">Paper-pen不會被取 Gen, 但已不足以反映 AI 時 Gen的真實能力. </div>
+          <div class="quote-text">Paper-penwill not be replaced, but no longer reflects true AI-era capability. </div>
           <div class="quote-author">Principal Ms Hui · RTHK Interview</div>
         </div>
       </div>
@@ -1157,7 +1158,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   </div>
 </section>
 
-<!-- ===== P17 比賽獎項 ===== -->
+
 <section class="slide" data-slide="17" data-section="AWARDS · COMPETITIONS">
   <div class="slide-inner">
     <div class="kicker k-amber">AWARDSS</div>
@@ -1165,11 +1166,11 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
     <div class="g-img-text" style="flex:1;">
       <div style="display:flex; flex-direction:column; gap:10px; height:100%; min-height:0;">
         <div style="flex:1; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
-          <img src="photos/p17_award_2024.jpg" alt="2024 國民身份認同頒獎典禮全體合照"
+          <img src="photos/p17_award_2024.jpg" alt="2024 National Identity Award ceremony"
                style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
         <div style="flex:1; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
-          <img src="photos/p17_bett_uk.jpg" alt="BETT UK 2026 攤位"
+          <img src="photos/p17_bett_uk.jpg" alt="BETT UK 2026 booth"
                style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
       </div>
@@ -1182,7 +1183,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
         <div class="card card-l-magenta">
           <div class="kicker k-magenta">MERIT AWARD</div>
           <h3 class="lead" style="margin-top:6px;">AI Idiom Battle</h3>
-          <p class="body" style="margin-top:4px;">國民身份認同應用程式設計比賽 · 103 selected from 103 entries. </p>
+          <p class="body" style="margin-top:4px;">National IdentityApp Design Competition · 103 selected from 103 entries. </p>
         </div>
         <div class="card card-l-cyan">
           <div class="kicker k-cyan">GLOBAL · Beyond HK</div>
@@ -1194,7 +1195,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   </div>
 </section>
 
-<!-- ===== P18 家長 Workshop ===== -->
+
 <section class="slide" data-slide="18" data-section="ACTION · Workshop">
   <div class="slide-inner">
     <div class="kicker">PARENT EMPOWERMENT · WORKSHOP</div>
@@ -1202,12 +1203,12 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
     <div class="g-img-text" style="flex:1;">
       <div style="display:flex; flex-direction:column; gap:12px; height:100%;">
         <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
-          <img src="photos/p18_workshop_audience.jpeg" alt="家長 Workshop 實況"
-               style="width:100%; height:100%; object-fit:cover; object-position:center;">
+          <img src="photos/p18_workshop_audience.jpeg" alt="Parent Workshop live"
+               style="width:100%; height:100%; object-fit:contain; object-position:center;">
         </div>
         <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
-          <img src="photos/p18_workshop_ppt.jpeg" alt="AI-Era Super Parent Gemini × Poe 實戰工作坊"
-               style="width:100%; height:100%; object-fit:cover; object-position:center;">
+          <img src="photos/p18_workshop_ppt.jpeg" alt="AI-Era Super Parent Gemini × Poe Hands-on Workshop"
+               style="width:100%; height:100%; object-fit:contain; object-position:center;">
         </div>
       </div>
       <div style="display:flex; flex-direction:column; gap:14px;">
@@ -1228,7 +1229,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   </div>
 </section>
 
-<!-- ===== P19 未來藍圖 ===== -->
+
 <section class="slide" data-slide="19" data-section="FUTURE BLUEPRINT">
   <div class="slide-inner">
     <div class="kicker k-emerald">FUTURE BLUEPRINT</div>
@@ -1236,8 +1237,8 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
     <div class="g3" style="flex:1; gap:18px;">
       <div style="display:flex; flex-direction:column; gap:12px;">
         <div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
-          <img src="photos/p19_ai_garden.jpg" alt="AI Garden Student Works"
-               style="width:100%; height:100%; object-fit:cover;">
+          <img src="photos/p19_ai_garden.jpg" alt="AI Garden student works"
+               style="width:100%; height:100%; object-fit:contain;">
         </div>
         <div class="card card-l-emerald" style="padding:18px;">
           <h3 class="mid" style="color:var(--c4);">🌿 AI Garden</h3>
@@ -1247,7 +1248,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       <div style="display:flex; flex-direction:column; gap:12px;">
         <div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
           <img src="photos/p19_5g_butterfly.jpg" alt="5G Smart Butterfly Garden"
-               style="width:100%; height:100%; object-fit:cover;">
+               style="width:100%; height:100%; object-fit:contain;">
         </div>
         <div class="card card-l-cyan" style="padding:18px;">
           <h3 class="mid" style="color:var(--c1);">🦋 5G Smart Butterfly Garden</h3>
@@ -1256,8 +1257,8 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       </div>
       <div style="display:flex; flex-direction:column; gap:12px;">
         <div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
-          <img src="photos/p18_workshop_ppt.jpeg" alt="AI-Era Super Parent Gemini × Poe 工作坊"
-               style="width:100%; height:100%; object-fit:cover;">
+          <img src="photos/p18_workshop_ppt.jpeg" alt="AI-Era Super Parent · Gemini × Poe Workshop"
+               style="width:100%; height:100%; object-fit:contain;">
         </div>
         <div class="card card-l-claude" style="padding:14px;">
           <h3 class="mid" style="color:var(--c-claude);">👨‍👩‍👧 Parent Empowerment 2.0</h3>
@@ -1268,7 +1269,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   </div>
 </section>
 
-<!-- ===== P20 CTA 結語 ===== -->
+
 <section class="slide" data-slide="20" data-section="CONCLUSION">
   <div class="slide-inner cover-stage">
     <div class="cover-orb"></div>
@@ -1280,8 +1281,8 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       We hope every student transforms from a "tech consumer"<br>into "a creator who solves real problems with tech".
     </p>
     <div style="width:100%; max-width:880px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0;">
-      <img src="photos/p20_cta_expo.jpg" alt="LWWF 學生 + 教師 + 教博合照"
-           style="width:100%; height:100%; object-fit:cover;">
+      <img src="photos/p20_cta_expo.jpg" alt="LWWF students + teachers · Education Expo"
+           style="width:100%; height:100%; object-fit:contain;">
     </div>
     <button class="btn-cta">Thank You for Joining Us Today</button>
     <p class="small" style="font-family:'JetBrains Mono',monospace; letter-spacing:3px; color:var(--ink-4);">
@@ -1379,7 +1380,7 @@ progress.style.width = `${(1 / total) * 100}%`;
 sectionTag.textContent = slides[0].dataset.section || '';
 slides[0].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
 
-// === 語言切換 (file-based, 跳到對應 file 同保留 slide #) ===
+// === 語言切換 (file-based, 跳到to應 file 同保留 slide #) ===
 (function() {
   const fileMap = {
     't': 'AI_INFINITY_精選_20p_v3.html',
@@ -1395,12 +1396,12 @@ slides[0].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
       // 同 current page 一樣就唔做嘢
       const cur = location.pathname.split('/').pop();
       if (decodeURIComponent(cur) === target) return;
-      // 保留 hash (slide #) 等用戶喺同一p
+      // 保留 hash (slide #)  etc.用戶喺同一p
       const hash = '#' + (current + 1);
       location.href = target + hash;
     });
   });
-  // 開p時讀 hash 跳對應 slide
+  // 開ptime讀 hash 跳to應 slide
   if (location.hash) {
     const n = parseInt(location.hash.replace('#', '')) - 1;
     if (n >= 0 && n < total) {

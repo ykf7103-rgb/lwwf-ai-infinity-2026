@@ -387,7 +387,8 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   display:grid; grid-template-columns:1.5fr 1fr; gap:8px;
   background:transparent; border:none; animation:none;}
 .photo-mix > img, .photo-mix > .stack > img{
-  width:100%; height:100%; object-fit:cover;
+  width:100%; height:100%; object-fit:contain;
+  background:#fff8f0;
   border-radius:14px; box-shadow:var(--shadow);
   transition:transform .4s var(--ease-out);}
 .photo-mix > img:hover, .photo-mix > .stack > img:hover{transform:scale(1.02);}
@@ -402,10 +403,10 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 .photo-trio{position:relative; width:100%; height:100%; min-height:0;
   display:grid; grid-template-columns:1.4fr 1fr; grid-template-rows:1fr 1fr; gap:8px;}
 .photo-trio > img:nth-child(1){grid-row:1 / span 2;
-  width:100%; height:100%; object-fit:cover;
+  width:100%; height:100%; object-fit:contain; background:#fff8f0;
   border-radius:14px; box-shadow:var(--shadow);}
 .photo-trio > img:nth-child(n+2){
-  width:100%; height:100%; object-fit:cover;
+  width:100%; height:100%; object-fit:contain; background:#fff8f0;
   border-radius:14px; box-shadow:var(--shadow);}
 
 /* === Photo full (single photo, contain to show whole faces) === */
@@ -414,9 +415,9 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   background:linear-gradient(135deg,#fff8f0,#fffaf3);
   border-radius:18px; overflow:hidden;
   box-shadow:var(--shadow); padding:0;}
-.photo-full img{width:100%; height:100%; object-fit:cover;
+.photo-full img{width:100%; height:100%; object-fit:contain;
+  background:#fff8f0;
   transition:transform .5s var(--ease-out);}
-.photo-full.contain img{object-fit:contain; background:#fff8f0;}
 .photo-full:hover img{transform:scale(1.02);}
 
 /* === Photo before/after (side-by-side) === */
@@ -489,7 +490,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       无限可能　·　无限创造　·　无限未来
     </p>
     <div style="width:100%; max-width:880px; aspect-ratio:16/9; border-radius:20px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0;">
-      <img src="photos/p1_hero.jpg" alt="LWWF 校长与学生" style="width:100%; height:100%; object-fit:cover;">
+      <img src="photos/p1_hero.jpg" alt="LWWF 校长与学生" style="width:100%; height:100%; object-fit:contain;">
     </div>
     <div class="g4" style="max-width:1020px; gap:18px; width:100%;">
       <div class="card" style="text-align:center; padding:20px;">
@@ -765,7 +766,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       <div style="display:flex; flex-direction:column; gap:14px;">
         <div style="flex:0 0 auto; aspect-ratio:16/9; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
           <img src="photos/p8_math_class.jpg" alt="乘法大师课堂"
-               style="width:100%; height:100%; object-fit:cover; object-position:center;">
+               style="width:100%; height:100%; object-fit:contain; object-position:center;">
         </div>
         <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; padding:8px;">
           <img src="photos/p8_math_comic.jpg" alt="数学漫画变身器作品"
@@ -818,7 +819,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       <div class="card card-l-magenta" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
         <div style="aspect-ratio:4/3; overflow:hidden; background:#fff8f0;">
           <img src="photos/p9_gen3_ai_cards.jpg" alt="第三代 AI 集换卡"
-               style="width:100%; height:100%; object-fit:cover; object-position:center top;">
+               style="width:100%; height:100%; object-fit:contain; object-position:center top;">
         </div>
         <div style="padding:18px 20px;">
           <div class="kicker k-magenta">第三代　·　最新</div>
@@ -1078,7 +1079,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       <div class="card card-l-emerald" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
         <div style="aspect-ratio:16/9; overflow:hidden; background:#fff8f0;">
           <img src="photos/p15_matatalab.jpeg" alt="P1-P3 Matatalab 实物编程"
-               style="width:100%; height:100%; object-fit:cover;">
+               style="width:100%; height:100%; object-fit:contain;">
         </div>
         <div style="padding:20px 24px; display:flex; flex-direction:column; gap:10px; flex:1;">
           <div class="kicker k-emerald">阶段一　·　P1-P3 奠基期</div>
@@ -1127,11 +1128,11 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       <div style="display:flex; flex-direction:column; gap:12px;">
         <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0;">
           <img src="photos/p17_cyber_game.jpg" alt="学生用 ThinkPad AI 设计"
-               style="width:100%; height:100%; object-fit:cover; object-position:center;">
+               style="width:100%; height:100%; object-fit:contain; object-position:center;">
         </div>
         <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
           <img src="photos/p16_magnetic_car.jpg" alt="学生展示 Magnetic Car AI 作品"
-               style="width:100%; height:100%; object-fit:cover; object-position:center;">
+               style="width:100%; height:100%; object-fit:contain; object-position:center;">
         </div>
       </div>
       <!-- 右:伦理 + 评估 -->
@@ -1203,11 +1204,11 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       <div style="display:flex; flex-direction:column; gap:12px; height:100%;">
         <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
           <img src="photos/p18_workshop_audience.jpeg" alt="家长 Workshop 实况"
-               style="width:100%; height:100%; object-fit:cover; object-position:center;">
+               style="width:100%; height:100%; object-fit:contain; object-position:center;">
         </div>
         <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
           <img src="photos/p18_workshop_ppt.jpeg" alt="AI 时代超级家长 Gemini × Poe 实战工作坊"
-               style="width:100%; height:100%; object-fit:cover; object-position:center;">
+               style="width:100%; height:100%; object-fit:contain; object-position:center;">
         </div>
       </div>
       <div style="display:flex; flex-direction:column; gap:14px;">
@@ -1237,7 +1238,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       <div style="display:flex; flex-direction:column; gap:12px;">
         <div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
           <img src="photos/p19_ai_garden.jpg" alt="AI Garden 学生作品"
-               style="width:100%; height:100%; object-fit:cover;">
+               style="width:100%; height:100%; object-fit:contain;">
         </div>
         <div class="card card-l-emerald" style="padding:18px;">
           <h3 class="mid" style="color:var(--c4);">🌿 AI Garden</h3>
@@ -1247,7 +1248,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       <div style="display:flex; flex-direction:column; gap:12px;">
         <div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
           <img src="photos/p19_5g_butterfly.jpg" alt="5G 智慧蝴蝶园"
-               style="width:100%; height:100%; object-fit:cover;">
+               style="width:100%; height:100%; object-fit:contain;">
         </div>
         <div class="card card-l-cyan" style="padding:18px;">
           <h3 class="mid" style="color:var(--c1);">🦋 5G 智慧蝴蝶园</h3>
@@ -1257,7 +1258,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       <div style="display:flex; flex-direction:column; gap:12px;">
         <div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
           <img src="photos/p18_workshop_ppt.jpeg" alt="AI 时代超级家长 Gemini × Poe 工作坊"
-               style="width:100%; height:100%; object-fit:cover;">
+               style="width:100%; height:100%; object-fit:contain;">
         </div>
         <div class="card card-l-claude" style="padding:14px;">
           <h3 class="mid" style="color:var(--c-claude);">👨‍👩‍👧 家长赋能 2.0</h3>
@@ -1281,7 +1282,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
     </p>
     <div style="width:100%; max-width:880px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0;">
       <img src="photos/p20_cta_expo.jpg" alt="LWWF 学生 + 教师 + 教博合照"
-           style="width:100%; height:100%; object-fit:cover;">
+           style="width:100%; height:100%; object-fit:contain;">
     </div>
     <button class="btn-cta">多谢您今日的出席</button>
     <p class="small" style="font-family:'JetBrains Mono',monospace; letter-spacing:3px; color:var(--ink-4);">
