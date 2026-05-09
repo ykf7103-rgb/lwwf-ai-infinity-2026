@@ -844,7 +844,17 @@ TRANSLATIONS = [
     ("由", " "),  # last fallback (very risky but minimal context now)
 ]
 
-# Apply translations in order
+# Apply translations in order WITH whitespace padding to ensure word boundaries.
+# Chinese has no space between words, so direct substitution glues EN tokens together.
+# Solution: pad EN value with leading/trailing spaces, collapse multi-space at end.
+def _pad(eng: str) -> str:
+    """Add spacing padding only if EN value starts/ends with letter/number."""
+    if not eng:
+        return eng
+    left = ' ' if eng[0].isalnum() else ''
+    right = ' ' if eng[-1].isalnum() else ''
+    return left + eng + right
+
 for zh, eng in TRANSLATIONS:
     en = en.replace(zh, eng)
 
@@ -933,6 +943,141 @@ for zh, eng in FINAL_CLEAN:
 en = en.replace('繁体中文', 'Traditional Chinese')
 en = en.replace('繁體中文', 'Traditional Chinese')
 en = en.replace('简体中文', 'Simplified Chinese')
+
+# === Whitespace cleanup (visible text only, NOT attributes/HTML structure) ===
+def cleanup_html_text(html: str) -> str:
+    """Collapse multi-space in text nodes, fix space-before-punctuation."""
+    out = []
+    i = 0
+    while i < len(html):
+        if html[i] == '<':
+            j = html.find('>', i)
+            if j == -1:
+                out.append(html[i:]); break
+            out.append(html[i:j+1])
+            i = j + 1
+        else:
+            j = html.find('<', i)
+            if j == -1:
+                seg = html[i:]; i = len(html)
+            else:
+                seg = html[i:j]; i = j
+            # ONLY: collapse multiple horizontal whitespace to one
+            seg = re.sub(r'[ \t]{2,}', ' ', seg)
+            # Remove space before EN punctuation
+            seg = re.sub(r' +([,.;:!?)\]])', r'\1', seg)
+            # Add space after EN comma/period if next is letter
+            seg = re.sub(r'([,.])([A-Za-z])', r'\1 \2', seg)
+            # Insert space between glued lowercase+Capital words: "intoDynamic" → "into Dynamic"
+            seg = re.sub(r'([a-z])([A-Z][a-z])', r'\1 \2', seg)
+            # Insert space between letter and digit/percent attached: "44%" stays, but "letter9" → "letter 9"
+            # (skip — too risky, would break things like "P5/P6")
+            out.append(seg)
+    return ''.join(out)
+
+en = cleanup_html_text(en)
+
+# === Specific glued-word patches (common artifacts from char-level dict) ===
+GLUED_FIX = [
+    # specific glued lowercase pairs (most common)
+    ('intoDynamic', 'into Dynamic'),
+    ('intoCreator', 'into creator'),
+    ('toCreators', 'to Creators'),
+    ('canCalculate', 'can calculate'),
+    ('homepts', 'at home'),
+    ('home pts', 'at home'),
+    ('willnot', 'will not'),
+    ('Notreplace', 'not replace'),
+    ('takenGen', 'replaced'),
+    (' pts ', ' '),
+    ('  ', ' '),
+    # Common transitions
+    ('createcreate', 'create'),
+    ('Personal experiencecreate', 'experience real creation'),
+    ('Personal experience創作', 'experience real creation'),
+    ('Frozen Cards', 'card'),
+    # Common punctuation cleanup
+    (' .', '.'),
+    (' ,', ','),
+    (' :', ':'),
+    (' ;', ';'),
+    ('  ', ' '),
+    # Run-on around HTML entities — keep
+    # Multiple spaces final pass
+
+    # Specific awkward phrases
+    ('From Computer class starts', 'Starting from Computer class'),
+    ('App Inventor image visual coding', 'App Inventor visual coding'),
+    ('Gencultural games', 'Gen-1 cultural games'),
+    ('Frozen Cards', 'card'),
+    ('AI live Scoreptsdraw', 'AI scores live and draws'),
+    ('Scoreptsdraw', 'scores and draws'),
+    ('alignedwithEDB', 'aligned with the EDB'),
+    ('alignedwith', 'aligned with '),
+    ('aligned withEDB', 'aligned with the EDB'),
+    ('aligned with the EDB《', 'aligned with the EDB '),
+    ('EDB《', 'EDB '),
+    ('》', ''),
+    ('《', ''),
+    ('students Input', 'students input'),
+    ('rope-skipsand', 'rope-skips and'),
+    (' barrier — UNESCOcreative', ' barrier — UNESCO creative'),
+    ('UNESCOcreative', 'UNESCO creative'),
+    ('AlignedwithUNESCO', 'aligned with UNESCO'),
+    ('lowers the creation barrier', 'lowers the creation barrier'),
+    ('takenG', 'replaced'),
+    (' takenGen ', ' '),
+    (' Gen ', ' '),  # leftover from "代→Gen" badly placed
+    ('GenS', 'gens'),
+    ('Gen·', '·'),
+    ('Gen ·', '·'),
+    ('Gen）', ')'),
+    ('Gen)', ')'),
+    ('Gen·', '·'),
+    ('Gen,', ','),
+    ('Gen.', '.'),
+    (' . ', '. '),
+    (' , ', ', '),
+    ('  ', ' '),
+    # Final colons
+    ('LWWF · MemorialSchool', 'LWWF · Memorial School'),
+    ('MemorialSchool', 'Memorial School'),
+
+    # Round 2 specific glued fixes
+    ('to Musictheir passion', 'about music, their passion'),
+    ('Musictheir', 'music, their'),
+    ('AI Nottake Gencreation', "AI doesn't replace creation"),
+    ('Nottake Gencreation', "doesn't replace creation"),
+    ('Nottake', 'does not take'),
+    ('Gencreation', 'creation'),
+    ('butlowers', 'but lowers'),
+    ('butexpands', 'but expands'),
+    ('in PELarge screen', 'Large screen'),
+    ('PELarge', 'Large'),
+    ('classstarts', 'class — '),
+    ('songssharing', 'songs sharing'),
+    ('platformsharing', 'platform sharing'),
+    ('takeGen', 'replaced'),
+    (' Gencreation', ' creation'),
+    (' Genwill ', ' will '),
+    ('NotGen', 'no longer'),
+    ('Genrepresent', 'represents'),
+    ('Genand', 'and'),
+    ('GenP', 'P'),
+    ('Pen Gen', 'pen'),
+    ('Pen Genand', 'pen and'),
+    ('Genof ', 'of '),
+    ('homeshare', 'home, share'),
+    (' homeshare', ' home, share'),
+
+    # Final whitespace
+    ('  ', ' '),
+]
+GLUED_FIX = [(o, n) for o, n in GLUED_FIX if o]
+for old, new in GLUED_FIX:
+    en = en.replace(old, new)
+# Final multi-space collapse
+en = re.sub(r'  +', ' ', en)
 
 DST_EN.write_text(en, encoding="utf-8")
 print(f"✓ {DST_EN.name} ({DST_EN.stat().st_size/1024:.0f} KB)")
