@@ -946,34 +946,38 @@ en = en.replace('简体中文', 'Simplified Chinese')
 
 # === Whitespace cleanup (visible text only, NOT attributes/HTML structure) ===
 def cleanup_html_text(html: str) -> str:
-    """Collapse multi-space in text nodes, fix space-before-punctuation."""
-    out = []
-    i = 0
-    while i < len(html):
-        if html[i] == '<':
-            j = html.find('>', i)
-            if j == -1:
-                out.append(html[i:]); break
-            out.append(html[i:j+1])
-            i = j + 1
-        else:
-            j = html.find('<', i)
-            if j == -1:
-                seg = html[i:]; i = len(html)
+    """Collapse multi-space in text nodes; SKIP entirely inside <script>/<style>."""
+    # Split by <script>...</script> and <style>...</style> so we can skip them
+    parts = re.split(r'(<(?:script|style)[\s\S]*?</(?:script|style)>)', html, flags=re.IGNORECASE)
+    result = []
+    for part in parts:
+        if re.match(r'<(?:script|style)', part, re.IGNORECASE):
+            # Don't touch script/style content
+            result.append(part)
+            continue
+        # Process this part: walk by tag boundaries
+        out = []
+        i = 0
+        while i < len(part):
+            if part[i] == '<':
+                j = part.find('>', i)
+                if j == -1:
+                    out.append(part[i:]); break
+                out.append(part[i:j+1])
+                i = j + 1
             else:
-                seg = html[i:j]; i = j
-            # ONLY: collapse multiple horizontal whitespace to one
-            seg = re.sub(r'[ \t]{2,}', ' ', seg)
-            # Remove space before EN punctuation
-            seg = re.sub(r' +([,.;:!?)\]])', r'\1', seg)
-            # Add space after EN comma/period if next is letter
-            seg = re.sub(r'([,.])([A-Za-z])', r'\1 \2', seg)
-            # Insert space between glued lowercase+Capital words: "intoDynamic" → "into Dynamic"
-            seg = re.sub(r'([a-z])([A-Z][a-z])', r'\1 \2', seg)
-            # Insert space between letter and digit/percent attached: "44%" stays, but "letter9" → "letter 9"
-            # (skip — too risky, would break things like "P5/P6")
-            out.append(seg)
-    return ''.join(out)
+                j = part.find('<', i)
+                if j == -1:
+                    seg = part[i:]; i = len(part)
+                else:
+                    seg = part[i:j]; i = j
+                seg = re.sub(r'[ \t]{2,}', ' ', seg)
+                seg = re.sub(r' +([,.;:!?)\]])', r'\1', seg)
+                seg = re.sub(r'([,.])([A-Za-z])', r'\1 \2', seg)
+                seg = re.sub(r'([a-z])([A-Z][a-z])', r'\1 \2', seg)
+                out.append(seg)
+        result.append(''.join(out))
+    return ''.join(result)
 
 en = cleanup_html_text(en)
 
