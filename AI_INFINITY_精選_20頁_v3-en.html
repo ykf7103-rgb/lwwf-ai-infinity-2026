@@ -10,127 +10,127 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&amp;family=Noto+Serif+TC:wght@600;700;900&amp;family=JetBrains+Mono:wght@400;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --bg:#faf9f5;
-  --bg-card:#ffffff;
-  --ink:#1d1c1a; --ink-2:#3d3a35; --ink-3:#6b675f; --ink-4:#9a948a;
-  --border:rgba(29,28,26,0.08);
-  --c1:#0891b2; --c2:#be185d; --c3:#b45309; --c4:#047857; --c5:#6d28d9;
-  --c-claude:#cc785c; --c-pain:#dc2626;
-  --shadow-sm:0 2px 8px rgba(29,28,26,0.06);
-  --shadow:0 8px 28px rgba(29,28,26,0.08);
-  --shadow-lg:0 18px 44px rgba(29,28,26,0.10);
-  --ease-out:cubic-bezier(.22,1,.36,1);
+ --bg:#faf9f5;
+ --bg-card:#ffffff;
+ --ink:#1d1c1a; --ink-2:#3d3a35; --ink-3:#6b675f; --ink-4:#9a948a;
+ --border:rgba(29,28,26,0.08);
+ --c1:#0891b2; --c2:#be185d; --c3:#b45309; --c4:#047857; --c5:#6d28d9;
+ --c-claude:#cc785c; --c-pain:#dc2626;
+ --shadow-sm:0 2px 8px rgba(29,28,26,0.06);
+ --shadow:0 8px 28px rgba(29,28,26,0.08);
+ --shadow-lg:0 18px 44px rgba(29,28,26,0.10);
+ --ease-out:cubic-bezier(.22,1,.36,1);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{width:100%;height:100%;overflow:hidden;}
 body{
-  font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC','PMingLiU',sans-serif;
-  background:var(--bg); color:var(--ink);
-  -webkit-font-smoothing:antialiased; position:relative;
+ font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC','PMingLiU',sans-serif;
+ background:var(--bg); color:var(--ink);
+ -webkit-font-smoothing:antialiased; position:relative;
 }
 body::before{
-  content:''; position:fixed; inset:0; z-index:0;
-  background-image:url('bg_main.png');
-  background-size:cover; background-position:center; opacity:0.10;
-  pointer-events:none;
+ content:''; position:fixed; inset:0; z-index:0;
+ background-image:url('bg_main.png');
+ background-size:cover; background-position:center; opacity:0.10;
+ pointer-events:none;
 }
 body::after{
-  content:''; position:fixed; inset:0; z-index:1;
-  background:
-    radial-gradient(ellipse at 15% 0%,rgba(204,120,92,0.10),transparent 55%),
-    radial-gradient(ellipse at 85% 100%,rgba(212,163,115,0.10),transparent 55%);
-  pointer-events:none;
+ content:''; position:fixed; inset:0; z-index:1;
+ background:
+  radial-gradient(ellipse at 15% 0%,rgba(204,120,92,0.10),transparent 55%),
+  radial-gradient(ellipse at 85% 100%,rgba(212,163,115,0.10),transparent 55%);
+ pointer-events:none;
 }
 .slide,#progress,#section-tag,#brand,#pageInfo,#hint,#dots{z-index:10;}
 
 #progress{position:fixed; top:0; left:0; height:3px;
-  background:linear-gradient(90deg,var(--c-claude),var(--c2),var(--c3));
-  width:5%; transition:width .8s var(--ease-out);
-  z-index:100; box-shadow:0 0 18px rgba(204,120,92,0.45);}
+ background:linear-gradient(90deg,var(--c-claude),var(--c2),var(--c3));
+ width:5%; transition:width.8s var(--ease-out);
+ z-index:100; box-shadow:0 0 18px rgba(204,120,92,0.45);}
 #section-tag{position:fixed; top:18px; left:32px; z-index:50;
-  font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-3);
-  letter-spacing:3px; text-transform:uppercase; padding:6px 14px;
-  background:rgba(255,255,255,0.85); border:1px solid var(--border);
-  border-radius:99px; backdrop-filter:blur(10px); box-shadow:var(--shadow-sm);}
+ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-3);
+ letter-spacing:3px; text-transform:uppercase; padding:6px 14px;
+ background:rgba(255,255,255,0.85); border:1px solid var(--border);
+ border-radius:99px; backdrop-filter:blur(10px); box-shadow:var(--shadow-sm);}
 
 /* === 語言切換按鈕 === */
 #lang-switch{position:fixed; top:14px; left:50%; transform:translateX(-50%);
-  z-index:80; display:flex; gap:4px;
-  background:rgba(255,255,255,0.92); border:1px solid var(--border);
-  border-radius:99px; padding:4px; box-shadow:var(--shadow);
-  backdrop-filter:blur(12px);}
+ z-index:80; display:flex; gap:4px;
+ background:rgba(255,255,255,0.92); border:1px solid var(--border);
+ border-radius:99px; padding:4px; box-shadow:var(--shadow);
+ backdrop-filter:blur(12px);}
 #lang-switch button{
-  padding:6px 16px; border:none; background:transparent;
-  font-family:'JetBrains Mono','Noto Sans TC',sans-serif;
-  font-size:12px; font-weight:700;
-  color:var(--ink-3); border-radius:99px; cursor:pointer;
-  transition:all .25s var(--ease-out); letter-spacing:1px;
-  min-width:42px;}
+ padding:6px 16px; border:none; background:transparent;
+ font-family:'JetBrains Mono','Noto Sans TC',sans-serif;
+ font-size:12px; font-weight:700;
+ color:var(--ink-3); border-radius:99px; cursor:pointer;
+ transition:all.25s var(--ease-out); letter-spacing:1px;
+ min-width:42px;}
 #lang-switch button:hover{color:var(--ink); background:rgba(204,120,92,0.08);}
 #lang-switch button.active{
-  background:linear-gradient(135deg,var(--c-claude),var(--c2));
-  color:#fff; box-shadow:0 4px 12px rgba(204,120,92,0.30);}
+ background:linear-gradient(135deg,var(--c-claude),var(--c2));
+ color:#fff; box-shadow:0 4px 12px rgba(204,120,92,0.30);}
 #lang-loading{position:fixed; top:60px; left:50%; transform:translateX(-50%);
-  z-index:80; padding:6px 16px; background:rgba(0,0,0,0.85); color:#fff;
-  border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:11px;
-  letter-spacing:1.5px; opacity:0; transition:opacity .3s; pointer-events:none;}
+ z-index:80; padding:6px 16px; background:rgba(0,0,0,0.85); color:#fff;
+ border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:11px;
+ letter-spacing:1.5px; opacity:0; transition:opacity.3s; pointer-events:none;}
 #lang-loading.show{opacity:1;}
 #brand{position:fixed; top:18px; right:32px; z-index:50;
-  font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-4); letter-spacing:2px;}
+ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-4); letter-spacing:2px;}
 #pageInfo{position:fixed; bottom:18px; right:32px; z-index:50;
-  font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:700;
-  color:var(--ink-2);}
-#pageInfo .total{color:var(--ink-4); font-weight:400;}
+ font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:700;
+ color:var(--ink-2);}
+#pageInfo.total{color:var(--ink-4); font-weight:400;}
 #hint{position:fixed; bottom:18px; left:32px; z-index:50;
-  font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-4); letter-spacing:1px;}
+ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-4); letter-spacing:1px;}
 #dots{position:fixed; bottom:50px; left:50%; transform:translateX(-50%);
-  z-index:50; display:flex; gap:4px; padding:7px 14px;
-  background:rgba(255,255,255,0.85); border-radius:99px;
-  backdrop-filter:blur(12px); border:1px solid var(--border);
-  box-shadow:var(--shadow-sm); max-width:90vw; flex-wrap:wrap;}
-#dots .dot{width:6px; height:6px; border-radius:50%;
-  background:rgba(29,28,26,0.18); transition:all .35s; cursor:pointer;}
-#dots .dot.active{background:var(--c-claude); width:22px; border-radius:99px;
-  box-shadow:0 0 12px rgba(204,120,92,0.55);}
-#dots .dot.passed{background:rgba(29,28,26,0.36);}
+ z-index:50; display:flex; gap:4px; padding:7px 14px;
+ background:rgba(255,255,255,0.85); border-radius:99px;
+ backdrop-filter:blur(12px); border:1px solid var(--border);
+ box-shadow:var(--shadow-sm); max-width:90vw; flex-wrap:wrap;}
+#dots.dot{width:6px; height:6px; border-radius:50%;
+ background:rgba(29,28,26,0.18); transition:all.35s; cursor:pointer;}
+#dots.dot.active{background:var(--c-claude); width:22px; border-radius:99px;
+ box-shadow:0 0 12px rgba(204,120,92,0.55);}
+#dots.dot.passed{background:rgba(29,28,26,0.36);}
 
 .slide{position:absolute; inset:0;
-  display:flex; align-items:center; justify-content:center;
-  padding:24px 36px; opacity:0; pointer-events:none;
-  transition:opacity .6s var(--ease-out), transform .6s var(--ease-out);
-  transform:translateY(20px); overflow:hidden;}
+ display:flex; align-items:center; justify-content:center;
+ padding:24px 36px; opacity:0; pointer-events:none;
+ transition:opacity.6s var(--ease-out), transform.6s var(--ease-out);
+ transform:translateY(20px); overflow:hidden;}
 .slide.active{opacity:1; pointer-events:auto; transform:translateY(0);}
 .slide-inner{width:100%; max-width:1380px; height:100%; min-height:0;
-  display:flex; flex-direction:column; justify-content:center; gap:10px;
-  overflow:hidden;}
+ display:flex; flex-direction:column; justify-content:center; gap:10px;
+ overflow:hidden;}
 .slide-inner > *{min-height:0; min-width:0; flex-shrink:1;}
 /* === Force grid items to shrink (default min-content can overflow) === */
-.g2 > *, .g3 > *, .g4 > *, .g-img-text > *, .g-text-img > *,
+.g2 > *,.g3 > *,.g4 > *,.g-img-text > *,.g-text-img > *,
 .slide-inner [style*="grid-template"] > *{
-  min-height:0; min-width:0;
+ min-height:0; min-width:0;
 }
 /* === Cap aspect-ratio containers so they never overflow viewport === */
 .slide-inner [style*="aspect-ratio"]{max-height:100%;}
 /* === Default card sizes inside slides (compact for fit-viewport) === */
-.slide .card{padding:10px 14px;}
-.slide .card h3{font-size:15px; line-height:1.35; letter-spacing:0.005em;}
-.slide .card .body, .slide .card p.body{font-size:12.5px; line-height:1.6; letter-spacing:0.005em;}
-.slide .card .small, .slide .card p.small{font-size:11px; line-height:1.55;}
-.slide .quote{padding:8px 14px 8px 22px;}
-.slide .quote-text{font-size:12.5px; line-height:1.55;}
-.slide .quote-author{font-size:10.5px; letter-spacing:1.2px;}
-.slide .subject-icon-xl{width:50px; height:50px;}
-.slide .subject-hero{gap:14px;}
-.slide .subject-hero h2.big{font-size:32px; letter-spacing:-0.5px;}
-.slide .kicker{font-size:11px; letter-spacing:2.4px;}
+.slide.card{padding:10px 14px;}
+.slide.card h3{font-size:15px; line-height:1.35; letter-spacing:0.005em;}
+.slide.card.body,.slide.card p.body{font-size:12.5px; line-height:1.6; letter-spacing:0.005em;}
+.slide.card.small,.slide.card p.small{font-size:11px; line-height:1.55;}
+.slide.quote{padding:8px 14px 8px 22px;}
+.slide.quote-text{font-size:12.5px; line-height:1.55;}
+.slide.quote-author{font-size:10.5px; letter-spacing:1.2px;}
+.slide.subject-icon-xl{width:50px; height:50px;}
+.slide.subject-hero{gap:14px;}
+.slide.subject-hero h2.big{font-size:32px; letter-spacing:-0.5px;}
+.slide.kicker{font-size:11px; letter-spacing:2.4px;}
 
 /* === Unified typography (consistent across 繁/簡/EN) === */
 .slide strong{font-weight:700;}
 .slide em{font-style:italic;}
 .slide table{font-feature-settings:"tnum" 1;}
-.slide .stat, .slide .stat-num{font-variant-numeric:tabular-nums; letter-spacing:-0.02em;}
-.slide [class*="card"] h3, .slide [class*="card"] h4{
-  letter-spacing:0.005em; font-weight:700;
+.slide.stat,.slide.stat-num{font-variant-numeric:tabular-nums; letter-spacing:-0.02em;}
+.slide [class*="card"] h3,.slide [class*="card"] h4{
+ letter-spacing:0.005em; font-weight:700;
 }
 .slide p + p{margin-top:6px;}
 .slide ul.bullet{padding-left:18px;}
@@ -141,45 +141,45 @@ body::after{
 @keyframes float{0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);}}
 @keyframes shimmerBg{0%{background-position:-200% 0;} 100%{background-position:200% 0;}}
 @keyframes breathBorder{
-  0%,100%{border-color:rgba(180,83,9,0.32);}
-  50%{border-color:rgba(204,120,92,0.55); box-shadow:0 0 22px rgba(204,120,92,0.12);}
+ 0%,100%{border-color:rgba(180,83,9,0.32);}
+ 50%{border-color:rgba(204,120,92,0.55); box-shadow:0 0 22px rgba(204,120,92,0.12);}
 }
 @keyframes shineSweep{0%{left:-50%;} 100%{left:130%;}}
 @keyframes underlineIn{from{transform:scaleX(0);} to{transform:scaleX(1);}}
 @keyframes orbPulse{0%,100%{transform:scale(1); opacity:0.55;} 50%{transform:scale(1.08); opacity:0.85;}}
 @keyframes gentlePop{0%{transform:scale(0.96); opacity:0;} 60%{transform:scale(1.02);} 100%{transform:scale(1); opacity:1;}}
 
-.slide.active .slide-inner > *{
-  animation:fadeUp .65s var(--ease-out) backwards;
+.slide.active.slide-inner > *{
+ animation:fadeUp.65s var(--ease-out) backwards;
 }
-.slide.active .slide-inner > *:nth-child(1){animation-delay:.05s;}
-.slide.active .slide-inner > *:nth-child(2){animation-delay:.15s;}
-.slide.active .slide-inner > *:nth-child(3){animation-delay:.25s;}
-.slide.active .slide-inner > *:nth-child(4){animation-delay:.35s;}
-.slide.active .slide-inner > *:nth-child(5){animation-delay:.45s;}
-.slide.active .slide-inner > *:nth-child(6){animation-delay:.55s;}
+.slide.active.slide-inner > *:nth-child(1){animation-delay:.05s;}
+.slide.active.slide-inner > *:nth-child(2){animation-delay:.15s;}
+.slide.active.slide-inner > *:nth-child(3){animation-delay:.25s;}
+.slide.active.slide-inner > *:nth-child(4){animation-delay:.35s;}
+.slide.active.slide-inner > *:nth-child(5){animation-delay:.45s;}
+.slide.active.slide-inner > *:nth-child(6){animation-delay:.55s;}
 
 /* === Typography === */
 .kicker{font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
-  letter-spacing:2.5px; text-transform:uppercase; color:var(--c-claude);
-  display:inline-flex; align-items:center; gap:9px;}
+ letter-spacing:2.5px; text-transform:uppercase; color:var(--c-claude);
+ display:inline-flex; align-items:center; gap:9px;}
 .kicker::before{content:''; width:28px; height:2px; background:var(--c-claude);
-  transform-origin:left; animation:underlineIn .6s var(--ease-out) .3s backwards;}
-.kicker.k-cyan{color:var(--c1);} .kicker.k-cyan::before{background:var(--c1);}
-.kicker.k-magenta{color:var(--c2);} .kicker.k-magenta::before{background:var(--c2);}
-.kicker.k-amber{color:var(--c3);} .kicker.k-amber::before{background:var(--c3);}
-.kicker.k-emerald{color:var(--c4);} .kicker.k-emerald::before{background:var(--c4);}
-.kicker.k-violet{color:var(--c5);} .kicker.k-violet::before{background:var(--c5);}
-.kicker.k-pain{color:var(--c-pain);} .kicker.k-pain::before{background:var(--c-pain);}
+ transform-origin:left; animation:underlineIn.6s var(--ease-out).3s backwards;}
+.kicker.k-cyan{color:var(--c1);}.kicker.k-cyan::before{background:var(--c1);}
+.kicker.k-magenta{color:var(--c2);}.kicker.k-magenta::before{background:var(--c2);}
+.kicker.k-amber{color:var(--c3);}.kicker.k-amber::before{background:var(--c3);}
+.kicker.k-emerald{color:var(--c4);}.kicker.k-emerald::before{background:var(--c4);}
+.kicker.k-violet{color:var(--c5);}.kicker.k-violet::before{background:var(--c5);}
+.kicker.k-pain{color:var(--c-pain);}.kicker.k-pain::before{background:var(--c-pain);}
 
 h1.mega{font-family:'Fraunces','Noto Serif TC','Noto Serif SC','Microsoft JhengHei','Microsoft YaHei',serif;
-  font-size:80px; font-weight:900; line-height:0.95; letter-spacing:-2.5px;}
+ font-size:80px; font-weight:900; line-height:0.95; letter-spacing:-2.5px;}
 h1.hero{font-family:'Fraunces','Noto Serif TC','Noto Serif SC','Microsoft JhengHei','Microsoft YaHei',serif;
-  font-size:54px; font-weight:900; line-height:1.0; letter-spacing:-1.8px;}
+ font-size:54px; font-weight:900; line-height:1.0; letter-spacing:-1.8px;}
 h2.big{font-family:'Fraunces','Noto Serif TC','Noto Serif SC','Microsoft JhengHei','Microsoft YaHei',serif;
-  font-size:42px; font-weight:900; line-height:1.1; letter-spacing:-1.3px;}
+ font-size:42px; font-weight:900; line-height:1.1; letter-spacing:-1.3px;}
 h2.med{font-family:'Fraunces','Noto Serif TC','Noto Serif SC','Microsoft JhengHei','Microsoft YaHei',serif;
-  font-size:30px; font-weight:900; line-height:1.15; letter-spacing:-0.8px;}
+ font-size:30px; font-weight:900; line-height:1.15; letter-spacing:-0.8px;}
 h3.lead{font-size:18px; font-weight:700; line-height:1.35;}
 h3.mid{font-size:15px; font-weight:700; line-height:1.4;}
 p.tagline{font-size:15px; line-height:1.5; color:var(--ink-2); font-weight:400;}
@@ -187,57 +187,57 @@ p.body{font-size:13px; line-height:1.5; color:var(--ink-2);}
 p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 
 .gradient-text{background:linear-gradient(135deg,var(--c-claude) 0%,var(--c2) 50%,var(--c3) 100%);
-  background-size:200% 200%;
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  animation:shimmerBg 6s ease-in-out infinite;}
+ background-size:200% 200%;
+ -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+ animation:shimmerBg 6s ease-in-out infinite;}
 .gradient-text-cool{background:linear-gradient(135deg,var(--c1),var(--c4));
-  background-size:200% 200%;
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  animation:shimmerBg 6s ease-in-out infinite;}
+ background-size:200% 200%;
+ -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+ animation:shimmerBg 6s ease-in-out infinite;}
 .gradient-text-warm{background:linear-gradient(135deg,var(--c3),var(--c-claude));
-  background-size:200% 200%;
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  animation:shimmerBg 6s ease-in-out infinite;}
+ background-size:200% 200%;
+ -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+ animation:shimmerBg 6s ease-in-out infinite;}
 
 /* === 16:9 photo placeholder === */
 .photo16{position:relative; width:100%; aspect-ratio:16/9;
-  background:linear-gradient(135deg,#fffaf3,#fff8f0);
-  border:2.5px dashed rgba(180,83,9,0.32); border-radius:18px;
-  display:flex; align-items:center; justify-content:center; flex-direction:column;
-  gap:10px; cursor:pointer; overflow:hidden;
-  box-shadow:0 6px 22px rgba(204,120,92,0.05);
-  transition:all .4s var(--ease-out);
-  animation:breathBorder 4.5s ease-in-out infinite;}
+ background:linear-gradient(135deg,#fffaf3,#fff8f0);
+ border:2.5px dashed rgba(180,83,9,0.32); border-radius:18px;
+ display:flex; align-items:center; justify-content:center; flex-direction:column;
+ gap:10px; cursor:pointer; overflow:hidden;
+ box-shadow:0 6px 22px rgba(204,120,92,0.05);
+ transition:all.4s var(--ease-out);
+ animation:breathBorder 4.5s ease-in-out infinite;}
 .photo16::before{content:'📷'; font-size:42px; opacity:0.32;
-  transition:transform .5s var(--ease-out), opacity .3s;}
+ transition:transform.5s var(--ease-out), opacity.3s;}
 .photo16::after{content:''; position:absolute; top:0; left:-50%;
-  width:40%; height:100%;
-  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,0.40) 50%,transparent 70%);
-  transform:skewX(-20deg); animation:shineSweep 5s ease-in-out infinite;
-  pointer-events:none;}
+ width:40%; height:100%;
+ background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,0.40) 50%,transparent 70%);
+ transform:skewX(-20deg); animation:shineSweep 5s ease-in-out infinite;
+ pointer-events:none;}
 .photo16:hover{border-color:var(--c-claude); transform:translateY(-3px);
-  box-shadow:0 16px 38px rgba(204,120,92,0.16); animation:none;}
+ box-shadow:0 16px 38px rgba(204,120,92,0.16); animation:none;}
 .photo16:hover::before{transform:scale(1.18) rotate(-4deg); opacity:0.55;}
-.photo16 .ph-id{font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
-  background:rgba(180,83,9,0.10); color:var(--c3); padding:5px 14px; border-radius:99px;
-  letter-spacing:1.5px;}
-.photo16 .ph-hint{font-size:13px; color:var(--ink-3); max-width:80%;
-  text-align:center; line-height:1.55;}
+.photo16.ph-id{font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
+ background:rgba(180,83,9,0.10); color:var(--c3); padding:5px 14px; border-radius:99px;
+ letter-spacing:1.5px;}
+.photo16.ph-hint{font-size:13px; color:var(--ink-3); max-width:80%;
+ text-align:center; line-height:1.55;}
 .photo16 img.real{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
 .photo16.has-image{border:none; animation:none; background:transparent;}
-.photo16.has-image::before, .photo16.has-image::after,
-.photo16.has-image .ph-id, .photo16.has-image .ph-hint{display:none;}
+.photo16.has-image::before,.photo16.has-image::after,
+.photo16.has-image.ph-id,.photo16.has-image.ph-hint{display:none;}
 
 /* === Cards === */
 .card{background:var(--bg-card); border:1px solid var(--border);
-  border-radius:14px; padding:14px 16px; box-shadow:var(--shadow-sm);
-  transition:all .35s var(--ease-out); position:relative; overflow:hidden;}
+ border-radius:14px; padding:14px 16px; box-shadow:var(--shadow-sm);
+ transition:all.35s var(--ease-out); position:relative; overflow:hidden;}
 .card:hover{transform:translateY(-3px); box-shadow:var(--shadow-lg);
-  border-color:rgba(204,120,92,0.25);}
+ border-color:rgba(204,120,92,0.25);}
 .card::before{content:''; position:absolute; top:0; left:-100%;
-  width:100%; height:2px;
-  background:linear-gradient(90deg,transparent,var(--c-claude),transparent);
-  transition:left .8s var(--ease-out);}
+ width:100%; height:2px;
+ background:linear-gradient(90deg,transparent,var(--c-claude),transparent);
+ transition:left.8s var(--ease-out);}
 .card:hover::before{left:100%;}
 .card-l-cyan{border-left:3px solid var(--c1);}
 .card-l-magenta{border-left:3px solid var(--c2);}
@@ -249,61 +249,61 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 
 /* === Stat numbers === */
 .stat-num{font-family:'Fraunces',serif;
-  font-size:48px; font-weight:900; line-height:0.95; letter-spacing:-1.5px;
-  background:linear-gradient(135deg,var(--c-claude),var(--c2));
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
+ font-size:48px; font-weight:900; line-height:0.95; letter-spacing:-1.5px;
+ background:linear-gradient(135deg,var(--c-claude),var(--c2));
+ -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
 .stat-label{font-size:10.5px; color:var(--ink-3); letter-spacing:2px;
-  text-transform:uppercase; margin-top:3px; font-family:'JetBrains Mono',monospace;
-  font-weight:700;}
+ text-transform:uppercase; margin-top:3px; font-family:'JetBrains Mono',monospace;
+ font-weight:700;}
 
 /* === Subject icon === */
 .subject-icon-xl{width:60px; height:60px; flex:none;
-  border-radius:12px; overflow:hidden;
-  box-shadow:0 6px 18px rgba(0,0,0,0.10);
-  animation:float 5s ease-in-out infinite;
-  transition:transform .4s var(--ease-out);}
+ border-radius:12px; overflow:hidden;
+ box-shadow:0 6px 18px rgba(0,0,0,0.10);
+ animation:float 5s ease-in-out infinite;
+ transition:transform.4s var(--ease-out);}
 .subject-icon-xl:hover{transform:scale(1.06);}
 .subject-icon-xl img{width:100%; height:100%; object-fit:cover; display:block;}
 .subject-icon-md{width:30px; height:30px; flex:none;
-  border-radius:7px; overflow:hidden;
-  box-shadow:0 3px 9px rgba(0,0,0,0.08);}
+ border-radius:7px; overflow:hidden;
+ box-shadow:0 3px 9px rgba(0,0,0,0.08);}
 .subject-icon-md img{width:100%; height:100%; object-fit:cover; display:block;}
 
 /* === Chips === */
 .chip{display:inline-flex; align-items:center; gap:5px;
-  padding:5px 13px; border-radius:99px;
-  font-size:12px; font-weight:600;
-  background:rgba(255,255,255,0.85); border:1.5px solid var(--border);
-  margin:2px; transition:all .3s var(--ease-out); cursor:default;}
+ padding:5px 13px; border-radius:99px;
+ font-size:12px; font-weight:600;
+ background:rgba(255,255,255,0.85); border:1.5px solid var(--border);
+ margin:2px; transition:all.3s var(--ease-out); cursor:default;}
 .chip:hover{transform:translateY(-2px); border-color:var(--c-claude);
-  box-shadow:0 6px 16px rgba(204,120,92,0.14);}
-.chip.c1{color:var(--c1);} .chip.c2{color:var(--c2);} .chip.c3{color:var(--c3);}
-.chip.c4{color:var(--c4);} .chip.c5{color:var(--c5);} .chip.cc{color:var(--c-claude);}
+ box-shadow:0 6px 16px rgba(204,120,92,0.14);}
+.chip.c1{color:var(--c1);}.chip.c2{color:var(--c2);}.chip.c3{color:var(--c3);}
+.chip.c4{color:var(--c4);}.chip.c5{color:var(--c5);}.chip.cc{color:var(--c-claude);}
 
 /* === CTA button === */
 .btn-cta{display:inline-flex; align-items:center; gap:10px;
-  padding:16px 36px; border-radius:99px;
-  background:linear-gradient(135deg,var(--c-claude),var(--c2));
-  color:#fff; font-weight:700; font-size:18px; cursor:pointer;
-  border:none; box-shadow:0 8px 24px rgba(204,120,92,0.36);
-  transition:all .35s var(--ease-out); position:relative; overflow:hidden;
-  letter-spacing:1.5px;}
+ padding:16px 36px; border-radius:99px;
+ background:linear-gradient(135deg,var(--c-claude),var(--c2));
+ color:#fff; font-weight:700; font-size:18px; cursor:pointer;
+ border:none; box-shadow:0 8px 24px rgba(204,120,92,0.36);
+ transition:all.35s var(--ease-out); position:relative; overflow:hidden;
+ letter-spacing:1.5px;}
 .btn-cta::after{content:''; position:absolute; inset:0;
-  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.4) 50%,transparent 100%);
-  transform:translateX(-100%); transition:transform .8s;}
+ background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.4) 50%,transparent 100%);
+ transform:translateX(-100%); transition:transform.8s;}
 .btn-cta:hover::after{transform:translateX(100%);}
 .btn-cta:hover{transform:translateY(-2px); box-shadow:0 14px 36px rgba(204,120,92,0.48);}
 
 /* === Quote === */
 .quote{position:relative; padding:14px 22px 14px 30px; border-radius:10px;
-  background:linear-gradient(135deg,#fff8f3,#fffefb);
-  border-left:3px solid var(--c-claude); box-shadow:var(--shadow-sm);}
+ background:linear-gradient(135deg,#fff8f3,#fffefb);
+ border-left:3px solid var(--c-claude); box-shadow:var(--shadow-sm);}
 .quote::before{content:'"'; position:absolute; left:10px; top:0;
-  font-family:'Fraunces',serif; font-size:64px; color:var(--c-claude);
-  opacity:0.30; line-height:0.7;}
+ font-family:'Fraunces',serif; font-size:64px; color:var(--c-claude);
+ opacity:0.30; line-height:0.7;}
 .quote-text{font-size:17px; color:var(--ink); font-weight:500; line-height:1.55;}
 .quote-author{font-size:12px; color:var(--c-claude); margin-top:6px;
-  font-family:'JetBrains Mono',monospace; letter-spacing:1.5px; font-weight:700;}
+ font-family:'JetBrains Mono',monospace; letter-spacing:1.5px; font-weight:700;}
 
 /* === Grid === */
 .g2{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
@@ -314,11 +314,11 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 
 /* === Cover === */
 .cover-stage{display:flex; flex-direction:column; align-items:center;
-  justify-content:center; text-align:center; height:100%; gap:22px;
-  position:relative;}
+ justify-content:center; text-align:center; height:100%; gap:22px;
+ position:relative;}
 .cover-orb{position:absolute; width:580px; height:580px; border-radius:50%;
-  background:radial-gradient(circle,rgba(204,120,92,0.18),transparent 65%);
-  z-index:-1; animation:orbPulse 7s ease-in-out infinite;}
+ background:radial-gradient(circle,rgba(204,120,92,0.18),transparent 65%);
+ z-index:-1; animation:orbPulse 7s ease-in-out infinite;}
 
 .subject-hero{display:flex; align-items:center; gap:18px; margin-bottom:0;}
 .subject-hero h2{flex:1;}
@@ -326,61 +326,61 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 
 /* === Research card === */
 .research-card{padding:22px 24px; background:#fff;
-  border-radius:18px; border:1px solid var(--border);
-  box-shadow:var(--shadow-sm); transition:all .35s var(--ease-out);
-  display:flex; flex-direction:column; gap:8px; height:100%;}
+ border-radius:18px; border:1px solid var(--border);
+ box-shadow:var(--shadow-sm); transition:all.35s var(--ease-out);
+ display:flex; flex-direction:column; gap:8px; height:100%;}
 .research-card:hover{transform:translateY(-4px); box-shadow:var(--shadow-lg);
-  border-color:rgba(204,120,92,0.28);}
-.research-card .src-tag{font-family:'JetBrains Mono',monospace; font-size:11px;
-  letter-spacing:1.5px; color:var(--c1); font-weight:700;
-  padding:4px 12px; background:rgba(8,145,178,0.08); border-radius:99px;
-  display:inline-block; align-self:flex-start; margin-bottom:6px;}
-.research-card .stat{font-family:'Fraunces',serif; font-size:48px; font-weight:900;
-  line-height:0.95; margin:4px 0;
-  background:linear-gradient(135deg,var(--c-claude),var(--c2));
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
-.research-card .stat .small-suffix{font-size:20px; -webkit-text-fill-color:var(--ink-3);
-  background:none; font-weight:700;}
+ border-color:rgba(204,120,92,0.28);}
+.research-card.src-tag{font-family:'JetBrains Mono',monospace; font-size:11px;
+ letter-spacing:1.5px; color:var(--c1); font-weight:700;
+ padding:4px 12px; background:rgba(8,145,178,0.08); border-radius:99px;
+ display:inline-block; align-self:flex-start; margin-bottom:6px;}
+.research-card.stat{font-family:'Fraunces',serif; font-size:48px; font-weight:900;
+ line-height:0.95; margin:4px 0;
+ background:linear-gradient(135deg,var(--c-claude),var(--c2));
+ -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
+.research-card.stat.small-suffix{font-size:20px; -webkit-text-fill-color:var(--ink-3);
+ background:none; font-weight:700;}
 .research-card{padding:13px 15px;}
 .research-card h4{font-size:16px; line-height:1.3; font-weight:800;}
-.research-card .desc{font-size:12px; line-height:1.5; color:var(--ink-2); font-weight:500;}
-.research-card .ref{font-size:10px; color:var(--ink-3); font-style:italic;
-  border-top:1px dashed var(--border); padding-top:6px; margin-top:auto;
-  font-family:'JetBrains Mono',monospace;}
-.research-card .stat{font-size:36px; line-height:0.95;}
-.research-card .stat .small-suffix{font-size:14px;}
+.research-card.desc{font-size:12px; line-height:1.5; color:var(--ink-2); font-weight:500;}
+.research-card.ref{font-size:10px; color:var(--ink-3); font-style:italic;
+ border-top:1px dashed var(--border); padding-top:6px; margin-top:auto;
+ font-family:'JetBrains Mono',monospace;}
+.research-card.stat{font-size:36px; line-height:0.95;}
+.research-card.stat.small-suffix{font-size:14px;}
 
-/* === Card with background image (generic, applies to .card and .research-card) === */
+/* === Card with background image (generic, applies to.card and.research-card) === */
 .with-bg{position:relative; overflow:hidden; z-index:0;}
 .with-bg::after{
-  content:''; position:absolute; inset:0; z-index:-1;
-  background-size:cover; background-position:center;
-  opacity:0.42; transition:opacity .4s var(--ease-out);
-  border-radius:inherit;
+ content:''; position:absolute; inset:0; z-index:-1;
+ background-size:cover; background-position:center;
+ opacity:0.42; transition:opacity.4s var(--ease-out);
+ border-radius:inherit;
 }
 .with-bg:hover::after{opacity:0.58;}
 .with-bg > *{position:relative; z-index:1;}
 /* 硬邊 1px outline 模擬 stroke - 文字邊緣 sharp 唔矇 */
-.with-bg h3, .with-bg h4, .with-bg .desc, .with-bg .body, .with-bg .ref, .with-bg .lead, .with-bg .mid, .with-bg p{
-  text-shadow:
-    1px 0 0 rgba(255,253,248,0.95),
-    -1px 0 0 rgba(255,253,248,0.95),
-    0 1px 0 rgba(255,253,248,0.95),
-    0 -1px 0 rgba(255,253,248,0.95);
+.with-bg h3,.with-bg h4,.with-bg.desc,.with-bg.body,.with-bg.ref,.with-bg.lead,.with-bg.mid,.with-bg p{
+ text-shadow:
+  1px 0 0 rgba(255,253,248,0.95),
+  -1px 0 0 rgba(255,253,248,0.95),
+  0 1px 0 rgba(255,253,248,0.95),
+  0 -1px 0 rgba(255,253,248,0.95);
 }
-.with-bg h3, .with-bg h4{
-  text-shadow:
-    1px 0 0 rgba(255,253,248,0.95),
-    -1px 0 0 rgba(255,253,248,0.95),
-    0 1px 0 rgba(255,253,248,0.95),
-    0 -1px 0 rgba(255,253,248,0.95),
-    1px 1px 0 rgba(255,253,248,0.85),
-    -1px -1px 0 rgba(255,253,248,0.85);
+.with-bg h3,.with-bg h4{
+ text-shadow:
+  1px 0 0 rgba(255,253,248,0.95),
+  -1px 0 0 rgba(255,253,248,0.95),
+  0 1px 0 rgba(255,253,248,0.95),
+  0 -1px 0 rgba(255,253,248,0.95),
+  1px 1px 0 rgba(255,253,248,0.85),
+  -1px -1px 0 rgba(255,253,248,0.85);
 }
-.with-bg .desc, .with-bg .body{font-weight:600;}
-.with-bg .stat{
-  filter:drop-shadow(0 1px 2px rgba(255,253,248,0.9))
-         drop-shadow(0 0 4px rgba(255,253,248,0.6));
+.with-bg.desc,.with-bg.body{font-weight:600;}
+.with-bg.stat{
+ filter:drop-shadow(0 1px 2px rgba(255,253,248,0.9))
+     drop-shadow(0 0 4px rgba(255,253,248,0.6));
 }
 /* 圖片背景對應檔名 */
 .with-bg.bg-lost::after{background-image:url('bg_p2_lost.jpg');}
@@ -398,58 +398,58 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 
 /* === Photo-mix layout (multiple photos in 16:9 region) === */
 .photo-mix{position:relative; width:100%; height:100%; min-height:0;
-  display:grid; grid-template-columns:1.5fr 1fr; gap:8px;
-  background:transparent; border:none; animation:none;}
-.photo-mix > img, .photo-mix > .stack > img{
-  width:100%; height:100%; object-fit:contain;
-  background:#fff8f0;
-  border-radius:14px; box-shadow:var(--shadow);
-  transition:transform .4s var(--ease-out);}
-.photo-mix > img:hover, .photo-mix > .stack > img:hover{transform:scale(1.02);}
-.photo-mix .stack{display:flex; flex-direction:column; gap:8px;}
-.photo-mix.three .stack{display:grid; grid-template-rows:1fr 1fr; gap:8px;}
+ display:grid; grid-template-columns:1.5fr 1fr; gap:8px;
+ background:transparent; border:none; animation:none;}
+.photo-mix > img,.photo-mix >.stack > img{
+ width:100%; height:100%; object-fit:contain;
+ background:#fff8f0;
+ border-radius:14px; box-shadow:var(--shadow);
+ transition:transform.4s var(--ease-out);}
+.photo-mix > img:hover,.photo-mix >.stack > img:hover{transform:scale(1.02);}
+.photo-mix.stack{display:flex; flex-direction:column; gap:8px;}
+.photo-mix.three.stack{display:grid; grid-template-rows:1fr 1fr; gap:8px;}
 .photo-mix.cards-row{grid-template-columns:1fr; gap:8px;}
-.photo-mix.cards-row .cards-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:6px;}
-.photo-mix.cards-row .cards-strip img{width:100%; height:100%; object-fit:contain;
-  border-radius:10px; box-shadow:var(--shadow-sm); background:#fffaf3;}
+.photo-mix.cards-row.cards-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:6px;}
+.photo-mix.cards-row.cards-strip img{width:100%; height:100%; object-fit:contain;
+ border-radius:10px; box-shadow:var(--shadow-sm); background:#fffaf3;}
 
 /* === Photo trio (3 photos) === */
 .photo-trio{position:relative; width:100%; height:100%; min-height:0;
-  display:grid; grid-template-columns:1.4fr 1fr; grid-template-rows:1fr 1fr; gap:8px;}
+ display:grid; grid-template-columns:1.4fr 1fr; grid-template-rows:1fr 1fr; gap:8px;}
 .photo-trio > img:nth-child(1){grid-row:1 / span 2;
-  width:100%; height:100%; object-fit:contain; background:#fff8f0;
-  border-radius:14px; box-shadow:var(--shadow);}
+ width:100%; height:100%; object-fit:contain; background:#fff8f0;
+ border-radius:14px; box-shadow:var(--shadow);}
 .photo-trio > img:nth-child(n+2){
-  width:100%; height:100%; object-fit:contain; background:#fff8f0;
-  border-radius:14px; box-shadow:var(--shadow);}
+ width:100%; height:100%; object-fit:contain; background:#fff8f0;
+ border-radius:14px; box-shadow:var(--shadow);}
 
 /* === Photo full (single photo, contain to show whole faces) === */
 .photo-full{position:relative; width:100%; height:100%; min-height:0;
-  display:flex; align-items:center; justify-content:center;
-  background:linear-gradient(135deg,#fff8f0,#fffaf3);
-  border-radius:18px; overflow:hidden;
-  box-shadow:var(--shadow); padding:0;}
+ display:flex; align-items:center; justify-content:center;
+ background:linear-gradient(135deg,#fff8f0,#fffaf3);
+ border-radius:18px; overflow:hidden;
+ box-shadow:var(--shadow); padding:0;}
 .photo-full img{width:100%; height:100%; object-fit:contain;
-  background:#fff8f0;
-  transition:transform .5s var(--ease-out);}
+ background:#fff8f0;
+ transition:transform.5s var(--ease-out);}
 .photo-full:hover img{transform:scale(1.02);}
 
 /* === Photo before/after (side-by-side) === */
 .photo-vs{position:relative; width:100%; height:100%; min-height:0;
-  display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch;}
+ display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch;}
 .photo-vs > div{position:relative; height:100%; border-radius:18px;
-  overflow:hidden; box-shadow:var(--shadow);
-  display:flex; align-items:center; justify-content:center;
-  background:#fff8f0;}
+ overflow:hidden; box-shadow:var(--shadow);
+ display:flex; align-items:center; justify-content:center;
+ background:#fff8f0;}
 .photo-vs img{width:100%; height:100%; object-fit:contain; padding:8px;}
-.photo-vs .label{position:absolute; bottom:10px; left:10px;
-  background:rgba(29,28,26,0.85); color:#fff;
-  padding:5px 14px; border-radius:99px;
-  font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:2px;
-  font-weight:700; backdrop-filter:blur(8px);}
+.photo-vs.label{position:absolute; bottom:10px; left:10px;
+ background:rgba(29,28,26,0.85); color:#fff;
+ padding:5px 14px; border-radius:99px;
+ font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:2px;
+ font-weight:700; backdrop-filter:blur(8px);}
 
 /* === Card content sizes when whole presentation feel — auto bigger === */
-.card .body, .card p.body{font-size:13.5px; line-height:1.55;}
+.card.body,.card p.body{font-size:13.5px; line-height:1.55;}
 .card h3{line-height:1.3;}
 .quote-text{font-size:14px; line-height:1.5;}
 .quote-author{font-size:11px;}
@@ -457,25 +457,25 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 .quote::before{font-size:48px;}
 
 .src-row{font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--ink-3);
-  margin-top:6px; line-height:1.5; letter-spacing:0.3px;}
+ margin-top:6px; line-height:1.5; letter-spacing:0.3px;}
 .src-row strong{color:var(--ink-2);}
 
 /* === Print to PDF === */
 @media print{
-  @page{size:1280px 720px; margin:0;}
-  html,body{width:1280px!important; height:auto!important; overflow:visible!important;
-    background:var(--bg)!important;}
-  body::before, body::after{display:none!important;}
-  #progress,#section-tag,#brand,#pageInfo,#hint,#dots{display:none!important;}
-  .slide{position:relative!important; inset:auto!important;
-    width:1280px!important; height:720px!important;
-    opacity:1!important; transform:none!important; transition:none!important;
-    pointer-events:auto!important; page-break-after:always; display:flex!important;
-    overflow:hidden!important; animation:none!important;}
-  .slide:last-child{page-break-after:auto;}
-  .slide-inner{width:100%!important; height:100%!important;}
-  .slide-inner > *{animation:none!important; opacity:1!important;}
-  *{-webkit-print-color-adjust:exact!important; print-color-adjust:exact!important;}
+ @page{size:1280px 720px; margin:0;}
+ html,body{width:1280px!important; height:auto!important; overflow:visible!important;
+  background:var(--bg)!important;}
+ body::before, body::after{display:none!important;}
+ #progress,#section-tag,#brand,#pageInfo,#hint,#dots{display:none!important;}
+.slide{position:relative!important; inset:auto!important;
+  width:1280px!important; height:720px!important;
+  opacity:1!important; transform:none!important; transition:none!important;
+  pointer-events:auto!important; page-break-after:always; display:flex!important;
+  overflow:hidden!important; animation:none!important;}
+.slide:last-child{page-break-after:auto;}
+.slide-inner{width:100%!important; height:100%!important;}
+.slide-inner > *{animation:none!important; opacity:1!important;}
+ *{-webkit-print-color-adjust:exact!important; print-color-adjust:exact!important;}
 }
 </style>
 </head>
@@ -492,7 +492,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <div id="pageInfo"><span id="pn">1</span><span class="total"> / 21</span></div>
 <div id="hint">← → Navigate · F Fullscreen</div>
 <div id="dots"></div>
-
 <section class="slide active" data-section="OPENING" data-slide="1">
 <div class="slide-inner cover-stage">
 <div class="cover-orb"></div>
@@ -524,7 +523,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 </div>
 </section>
-
 <section class="slide" data-section="RESEARCH · GLOBAL" data-slide="2">
 <div class="slide-inner">
 <div class="kicker k-cyan">Global Research · WEF 2023</div>
@@ -556,7 +554,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <p class="src-row"><strong>Source: </strong>World Economic Forum, <em>Future of Jobs Report 2023</em> (surveying 803 multinational firms, 27 industry clusters, 46 economies, 11.3 million employees).</p>
 </div>
 </section>
-
 <section class="slide" data-section="RESEARCH · CRITICAL SKILLS" data-slide="3">
 <div class="slide-inner">
 <div class="kicker k-cyan">Global Research · WEF 2023 + OECD 2030</div>
@@ -597,7 +594,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <p class="src-row"><strong>Source: </strong>WEF <em>Future of Jobs 2023</em>, pp. 38–43 "Skills Outlook" chapter; OECD <em>Future of Education and Skills 2030</em> framework (Learning Compass 2030).</p>
 </div>
 </section>
-
 <section class="slide" data-section="RESEARCH · HK ROLLOUT" data-slide="4">
 <div class="slide-inner">
 <div class="kicker k-amber">HK Local · EDB + HKU + District 70</div>
@@ -625,12 +621,11 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 <div class="card card-l-emerald" style="margin-top:6px; padding:16px;">
 <div class="kicker k-emerald">EARLY MOVER</div>
-<p class="body" style="margin-top:6px;">Our school has been a <strong style="color:var(--c4);">Jockey Club Cool Think@JC pilot school for years</strong>, not a newcomer to AI education — but one of HK's earliest practitioners. On this foundation, we continue to update tools and refine pedagogy.</p>
+<p class="body" style="margin-top:6px;">Our school has been a <strong style="color:var(--c4);">Jockey Club CoolThink@JC pilot school for years</strong>, not a newcomer to AI education — but one of HK's earliest practitioners. On this foundation, we continue to update tools and refine pedagogy.</p>
 </div>
-<p class="src-row"><strong>Source: </strong>HK EDB "Smart i-Learn" Programme (announced 2024); HKU Quality Education Fund QTN-DT Network list; Tencent Youth AI Education Platform partner-school records; Jockey Club Cool Think@JC pilot-school list.</p>
+<p class="src-row"><strong>Source: </strong>HK EDB "Smart i-Learn" Programme (announced 2024); HKU Quality Education Fund QTN-DT Network list; Tencent Youth AI Education Platform partner-school records; Jockey Club CoolThink@JC pilot-school list.</p>
 </div>
 </section>
-
 <section class="slide" data-section="MATRIX · TREND MAPPING" data-slide="5">
 <div class="slide-inner">
 <div class="kicker k-magenta">8 Subjects × Future Mapping</div>
@@ -645,20 +640,19 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </tr>
 </thead>
 <tbody>
-<tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c2);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_chinese.png"/></span>Chinese</span></td><td style="padding:11px 14px;">Cultural Heritage · AI Ethicsliteracy</td><td style="padding:11px 14px;">P4 Fox-Tiger Idiom Reimagined · Idiom Battle</td></tr>
-<tr style="border-bottom:1px solid var(--border); background:rgba(8,145,178,0.03);"><td style="padding:11px 14px; font-weight:700; color:var(--c1);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_english.png"/></span>English</span></td><td style="padding:11px 14px;">Learning Agency (OECD Agency) </td><td style="padding:11px 14px;">AI Dictation Assistant · Secondary Transition</td></tr>
-<tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c3);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_math.png"/></span>Math</span></td><td style="padding:11px 14px;">2 Sigma Personalisationbreakthrough</td><td style="padding:11px 14px;">Multiplication Master · Comic Generator · Socratic Questioning</td></tr>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c2);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_chinese.png"/></span>Chinese</span></td><td style="padding:11px 14px;">Cultural Heritage · AI Ethics</td><td style="padding:11px 14px;">P4 Fox-Tiger Idiom Reimagined · Idiom Battle</td></tr>
+<tr style="border-bottom:1px solid var(--border); background:rgba(8,145,178,0.03);"><td style="padding:11px 14px; font-weight:700; color:var(--c1);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_english.png"/></span>English</span></td><td style="padding:11px 14px;">Learning Agency (OECD) </td><td style="padding:11px 14px;">AI Dictation Assistant · Secondary Transition</td></tr>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c3);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_math.png"/></span>Math</span></td><td style="padding:11px 14px;">2 Sigma Personalised Breakthrough</td><td style="padding:11px 14px;">Multiplication Master · Comic Generator · Socratic Questioning</td></tr>
 <tr style="border-bottom:1px solid var(--border); background:rgba(190,24,93,0.03);"><td style="padding:11px 14px; font-weight:700; color:var(--c2);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_humanities.png"/></span>Humanities</span></td><td style="padding:11px 14px;">National Identity · Cross-Cultural</td><td style="padding:11px 14px;">Joyfully Chinese (3rd place) · Cultural Fitting Room</td></tr>
-<tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c4);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_science.jpg"/></span>Science</span></td><td style="padding:11px 14px;">Sensory Experience · STEM inquiry</td><td style="padding:11px 14px;">Plant ID Master · Conservation Day · National Treasure AI Steward</td></tr>
-<tr style="border-bottom:1px solid var(--border); background:rgba(180,83,9,0.03);"><td style="padding:11px 14px; font-weight:700; color:var(--c3);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_music.jpg"/></span>Music</span></td><td style="padding:11px 14px;">Aesthetics · AI Co-creation</td><td style="padding:11px 14px;">"Fruit Month"Family AI Songs (Suno) </td></tr>
-<tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c5);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_pe.jpg"/></span>PE</span></td><td style="padding:11px 14px;">Health Literacy · IoT Data Age</td><td style="padding:11px 14px;">AI National Guardian · AI SmartPESystem</td></tr>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c4);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_science.jpg"/></span>Science</span></td><td style="padding:11px 14px;">Sensory Experience · STEM Inquiry</td><td style="padding:11px 14px;">Plant ID Master · Conservation Day · National Treasure AI Steward</td></tr>
+<tr style="border-bottom:1px solid var(--border); background:rgba(180,83,9,0.03);"><td style="padding:11px 14px; font-weight:700; color:var(--c3);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_music.jpg"/></span>Music</span></td><td style="padding:11px 14px;">Aesthetics · AI Co-Creation</td><td style="padding:11px 14px;">"Fruit Month" Family AI Song (Suno) </td></tr>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c5);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_pe.jpg"/></span>PE</span></td><td style="padding:11px 14px;">Health Literacy · IoT Data Age</td><td style="padding:11px 14px;">AI National Guardian · AI Smart PE System</td></tr>
 <tr style="background:rgba(204,120,92,0.04);"><td style="padding:11px 14px; font-weight:700; color:var(--c-claude);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_va.jpg"/></span>Visual Arts</span></td><td style="padding:11px 14px;">Creativity · Heritage</td><td style="padding:11px 14px;">Modern Door Gods · Future Career APP</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </section>
-
 <section class="slide" data-section="Chinese · AI Idiom Battle" data-slide="6">
 <div class="slide-inner">
 <div class="subject-hero">
@@ -669,13 +663,10 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 </div>
 <div style="display:grid; grid-template-columns:1.5fr 1fr; gap:18px; flex:1; align-items:stretch; min-height:0;">
-
 <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0;">
 <img alt="4 Students playing Idiom Battle" src="photos/p6_chinese_battle.jpg" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;"/>
 </div>
-
 <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
-
 <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; flex:1; min-height:0;">
 <div style="border-radius:10px; overflow:hidden; box-shadow:var(--shadow-sm); background:#fffaf3;">
 <img alt="SSR General Card" src="photos/p6_general_ssr.png" style="width:100%; height:100%; object-fit:contain;"/>
@@ -684,10 +675,9 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <img alt="SR General Card" src="photos/p6_general_sr.png" style="width:100%; height:100%; object-fit:contain;"/>
 </div>
 </div>
-
 <div class="card card-l-magenta">
 <h3 class="lead" style="color:var(--c2); font-size:16px;">🎯 Gameplay</h3>
-<p class="body" style="font-size:12.5px; margin-top:4px;">Input idiom sentences → AI <strong>10-point scoring</strong> → Full marks 20% chance to draw <strong>a UR General Card</strong> (Yue Fei, Guan Yu, Li Jing).</p>
+<p class="body" style="font-size:12.5px; margin-top:4px;">Input idiom sentences → AI <strong>10-point scoring</strong> (20% chance) to draw <strong>a UR General Card</strong> (Yue Fei, Guan Yu, Li Jing).</p>
 </div>
 <div class="card card-l-magenta">
 <h3 class="lead" style="color:var(--c2); font-size:16px;">⚔️ Scoring Dimensions</h3>
@@ -700,7 +690,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 </div>
 </section>
-
 <section class="slide" data-section="AI Magic Dictation" data-slide="7">
 <div class="slide-inner">
 <div class="subject-hero">
@@ -711,14 +700,12 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 </div>
 <div style="display:grid; grid-template-columns:1.5fr 1fr; gap:28px; flex:1; align-items:stretch;">
-
 <div style="border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff;">
 <img alt="AI Magic Dictation web app interface" src="photos/p7_ai_dictation_app.jpg" style="width:100%; height:100%; object-fit:contain; background:#fff;"/>
 </div>
-
 <div style="display:flex; flex-direction:column; gap:14px;">
 <div class="card card-l-cyan">
-<h3 class="lead" style="color:var(--c1);">🤝 Teachers × Gemini · Co-creation</h3>
+<h3 class="lead" style="color:var(--c1);">🤝 Teachers × Gemini · Co-Creation</h3>
 <p class="body" style="font-size:17px; margin-top:8px; line-height:1.65;">Developed jointly by our teachers and Gemini using <strong style="color:var(--c1);">natural language</strong> — no coding experience required, turning teachers' pedagogical insight into ready-to-use tools.</p>
 </div>
 <div class="card card-l-cyan">
@@ -737,7 +724,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 </div>
 </section>
-
 <section class="slide" data-section="MATH" data-slide="8">
 <div class="slide-inner">
 <div class="subject-hero">
@@ -748,7 +734,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 </div>
 <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:28px; flex:1; align-items:stretch;">
-
 <div style="display:flex; flex-direction:column; gap:14px;">
 <div class="card card-l-amber">
 <h3 class="lead" style="color:var(--c3);">📐 P4 Curriculum: Multiplication Master</h3>
@@ -763,7 +748,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <p class="body" style="margin-top:8px; font-size:17px;">Students draw characters by hand → AI generates <strong>4-panel comic solutions</strong> → students explain and fact-check.<strong>Math × Chinese × Arts × Tech</strong> integration.</p>
 </div>
 </div>
-
 <div style="display:flex; flex-direction:column; gap:14px;">
 <div style="flex:0 0 auto; aspect-ratio:16/9; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
 <img alt="Multiplication Master class" src="photos/p8_math_class.jpg" style="width:100%; height:100%; object-fit:contain; object-position:center;"/>
@@ -776,7 +760,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <p class="src-row"><strong>Research basis: </strong>Bloom (1984) <em>The 2 Sigma Problem</em> — 1-on-1 tutoring lifts students from the 50th to 98th percentile.</p>
 </div>
 </section>
-
 <section class="slide" data-section="HUMANITIES · Joyfully Chinese" data-slide="9">
 <div class="slide-inner">
 <div class="subject-hero">
@@ -825,11 +808,10 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 <div class="quote" style="margin-top:6px;">
 <div class="quote-text">True cultural inheritance is not turning students into historical bystanders, but into culture's re-creators.</div>
-<div class="quote-author">Principal Hui · RTHK Interview</div>
+<div class="quote-author">Principal Ms Hui · RTHK Interview</div>
 </div>
 </div>
 </section>
-
 <section class="slide" data-section="HUMANITIES · AI Cultural Fitting Room" data-slide="9b">
 <div class="slide-inner">
 <div class="kicker k-magenta">HUMANITIES · AI Cultural Fitting Room</div>
@@ -857,7 +839,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 </div>
 </section>
-
 <section class="slide" data-section="SCIENCE" data-slide="10">
 <div class="slide-inner">
 <div class="subject-hero">
@@ -896,14 +877,13 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 </div>
 </section>
-
 <section class="slide" data-section="MUSIC" data-slide="11">
 <div class="slide-inner">
 <div class="subject-hero">
 <div class="subject-icon-xl"><img alt="Music" src="icon_music.jpg"/></div>
 <div style="flex:1;">
 <div class="kicker k-amber">MUSIC</div>
-<h2 class="big">From Music Theory to <span class="gradient-text">Family AI Co-creation</span></h2>
+<h2 class="big">From Music Theory to <span class="gradient-text">Family AI Co-Creation</span></h2>
 </div>
 </div>
 <div class="g-img-text" style="flex:1;">
@@ -932,7 +912,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 </div>
 </section>
-
 <section class="slide" data-section="PHYSICAL EDUCATION" data-slide="12">
 <div class="slide-inner">
 <div class="subject-hero">
@@ -968,7 +947,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 </div>
 </section>
-
 <section class="slide" data-section="VISUAL ARTS" data-slide="13">
 <div class="slide-inner">
 <div class="subject-hero">
@@ -1014,7 +992,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 </div>
 </section>
-
 <section class="slide" data-section="FLAGSHIP PROJECT" data-slide="14">
 <div class="slide-inner">
 <div class="kicker k-emerald">FLAGSHIP PROJECT</div>
@@ -1048,7 +1025,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <p class="src-row"><strong>School lead: </strong>Dean Siu, Mr Yeung · <strong>Partner: </strong>Yaoshan Lizard Conservation Society</p>
 </div>
 </section>
-
 <section class="slide" data-section="CURRICULUM · Spiral Pathway" data-slide="15">
 <div class="slide-inner">
 <div class="kicker k-cyan">CURRICULUM</div>
@@ -1061,11 +1037,11 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <div style="padding:20px 24px; display:flex; flex-direction:column; gap:10px; flex:1;">
 <div class="kicker k-emerald">Stage 1 · P1-P3 Foundation</div>
 <h2 class="med" style="color:var(--c4);">Computational Thinking + AI Intro</h2>
-<p class="body" style="font-size:17px;">Through gamified, hands-on operations (e. g. Matatalab tangible coding), cultivating foundational logical problem-solving.</p>
+<p class="body" style="font-size:17px;">Through gamified, hands-on operations (e.g. Matatalab tangible coding), cultivating foundational logical problem-solving.</p>
 <div style="display:flex; gap:6px; flex-wrap:wrap;">
 <span class="chip c4">Matatalab</span>
 <span class="chip c4">Scratch Jr.</span>
-<span class="chip c4">Code. org</span>
+<span class="chip c4">Code.org</span>
 </div>
 <p class="small" style="font-style:italic;">Generative AI is not yet introduced in P1-P3, protecting early cognitive development.</p>
 </div>
@@ -1092,13 +1068,11 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 </div>
 </section>
-
 <section class="slide" data-section="ETHICS + ASSESSMENT" data-slide="16">
 <div class="slide-inner">
 <div class="kicker k-pain">AI ETHICS · ASSESSMENT REFORM</div>
 <h2 class="big">Introducing AI <span style="color:var(--c-pain);">Requires Clear Boundaries</span></h2>
 <div style="display:grid; grid-template-columns:1fr 1.1fr; gap:28px; flex:1; align-items:stretch;">
-
 <div style="display:flex; flex-direction:column; gap:12px;">
 <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0;">
 <img alt="Student designing with AI on ThinkPad" src="photos/p17_cyber_game.jpg" style="width:100%; height:100%; object-fit:contain; object-position:center;"/>
@@ -1107,7 +1081,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <img alt="Student presenting Magnetic Car AI work" src="photos/p16_magnetic_car.jpg" style="width:100%; height:100%; object-fit:contain; object-position:center;"/>
 </div>
 </div>
-
 <div style="display:flex; flex-direction:column; gap:14px;">
 <div class="card card-l-pain">
 <h3 class="lead" style="color:var(--c-pain);">🚫 Red Line 1: Never replace human judgement</h3>
@@ -1123,13 +1096,12 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 <div class="quote">
 <div class="quote-text">Paper-pen isn't replaced, but no longer reflects true AI-era capability.</div>
-<div class="quote-author">Principal Hui · RTHK Interview</div>
+<div class="quote-author">Principal Ms Hui · RTHK Interview</div>
 </div>
 </div>
 </div>
 </div>
 </section>
-
 <section class="slide" data-section="AWARDS · COMPETITIONS" data-slide="17">
 <div class="slide-inner">
 <div class="kicker k-amber">ACHIEVEMENTS</div>
@@ -1157,13 +1129,12 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <div class="card card-l-cyan">
 <div class="kicker k-cyan">GLOBAL · Beyond HK</div>
 <h3 class="lead" style="margin-top:6px;">BETT London 2026</h3>
-<p class="body" style="margin-top:4px;">Our representatives at the London BETT Ed Tech Expo.</p>
+<p class="body" style="margin-top:4px;">Our representatives at the London BETT EdTech Expo.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-
 <section class="slide" data-section="ACTION · Workshop" data-slide="18">
 <div class="slide-inner">
 <div class="kicker">PARENT EMPOWERMENT · WORKSHOP</div>
@@ -1194,7 +1165,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 </div>
 </section>
-
 <section class="slide" data-section="FUTURE BLUEPRINT" data-slide="19">
 <div class="slide-inner">
 <div class="kicker k-emerald">FUTURE BLUEPRINT</div>
@@ -1230,7 +1200,6 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 </div>
 </div>
 </section>
-
 <section class="slide" data-section="CONCLUSION" data-slide="20">
 <div class="slide-inner cover-stage">
 <div class="cover-orb"></div>
@@ -1259,80 +1228,80 @@ const sectionTag = document.getElementById('section-tag');
 const total = slides.length;
 
 slides.forEach((s, i) => {
-  const dot = document.createElement('div');
-  dot.className = 'dot';
-  if (i === 0) dot.classList.add('active');
-  dot.addEventListener('click', () => goTo(i));
-  dots.appendChild(dot);
+ const dot = document.createElement('div');
+ dot.className = 'dot';
+ if (i === 0) dot.classList.add('active');
+ dot.addEventListener('click', () => goTo(i));
+ dots.appendChild(dot);
 });
 
 let current = 0;
 function goTo(idx) {
-  if (idx < 0 || idx >= total) return;
-  slides[current].classList.remove('active');
-  slides[idx].classList.add('active');
-  current = idx;
-  pn.textContent = idx + 1;
-  progress.style.width = `${((idx + 1) / total) * 100}%`;
-  sectionTag.textContent = slides[idx].dataset.section || '';
-  document.querySelectorAll('#dots .dot').forEach((d, i) => {
-    d.classList.toggle('active', i === idx);
-    d.classList.toggle('passed', i < idx);
-  });
-  slides[idx].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
+ if (idx < 0 || idx >= total) return;
+ slides[current].classList.remove('active');
+ slides[idx].classList.add('active');
+ current = idx;
+ pn.textContent = idx + 1;
+ progress.style.width = `${((idx + 1) / total) * 100}%`;
+ sectionTag.textContent = slides[idx].dataset.section || '';
+ document.querySelectorAll('#dots.dot').forEach((d, i) => {
+  d.classList.toggle('active', i === idx);
+  d.classList.toggle('passed', i < idx);
+ });
+ slides[idx].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
 }
 
 function animateCount(el) {
-  const target = parseInt(el.dataset.target);
-  if (isNaN(target)) return;
-  const dur = 1100;
-  const start = performance.now();
-  function frame(t) {
-    const p = Math.min(1, (t - start) / dur);
-    const eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = Math.floor(target * eased);
-    if (p < 1) requestAnimationFrame(frame); else el.textContent = target;
-  }
-  requestAnimationFrame(frame);
+ const target = parseInt(el.dataset.target);
+ if (isNaN(target)) return;
+ const dur = 1100;
+ const start = performance.now();
+ function frame(t) {
+  const p = Math.min(1, (t - start) / dur);
+  const eased = 1 - Math.pow(1 - p, 3);
+  el.textContent = Math.floor(target * eased);
+  if (p < 1) requestAnimationFrame(frame); else el.textContent = target;
+ }
+ requestAnimationFrame(frame);
 }
 
 // 3D card tilt（細幅度）
-document.querySelectorAll('.card, .research-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left - r.width / 2) / (r.width / 2);
-    const y = (e.clientY - r.top - r.height / 2) / (r.height / 2);
-    card.style.transform = `perspective(900px) rotateY(${x * 3}deg) rotateX(${-y * 3}deg) translateZ(4px)`;
-  });
-  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+document.querySelectorAll('.card,.research-card').forEach(card => {
+ card.addEventListener('mousemove', e => {
+  const r = card.getBoundingClientRect();
+  const x = (e.clientX - r.left - r.width / 2) / (r.width / 2);
+  const y = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+  card.style.transform = `perspective(900px) rotateY(${x * 3}deg) rotateX(${-y * 3}deg) translateZ(4px)`;
+ });
+ card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
 
 document.addEventListener('keydown', e => {
-  if (['ArrowRight', ' ', 'PageDown'].includes(e.key)) goTo(current + 1);
-  else if (['ArrowLeft', 'PageUp'].includes(e.key)) goTo(current - 1);
-  else if (e.key === 'Home') goTo(0);
-  else if (e.key === 'End') goTo(total - 1);
-  else if (e.key.toLowerCase() === 'f') {
-    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
-    else document.exitFullscreen();
-  }
+ if (['ArrowRight', ' ', 'PageDown'].includes(e.key)) goTo(current + 1);
+ else if (['ArrowLeft', 'PageUp'].includes(e.key)) goTo(current - 1);
+ else if (e.key === 'Home') goTo(0);
+ else if (e.key === 'End') goTo(total - 1);
+ else if (e.key.toLowerCase() === 'f') {
+  if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+  else document.exitFullscreen();
+ }
 });
 
 document.body.addEventListener('click', e => {
-  if (e.target.closest('.photo16, .card, .btn-cta, .chip, button, a, table, .research-card')) return;
-  const w = window.innerWidth;
-  if (e.clientX > w / 2) goTo(current + 1);
-  else goTo(current - 1);
+ if (e.target.closest('.photo16,.card,.btn-cta,.chip, button, a, table,.research-card')) return;
+ const w = window.innerWidth;
+ if (e.clientX > w / 2) goTo(current + 1);
+ else goTo(current - 1);
 });
 
 document.querySelectorAll('.photo16').forEach(ph => {
-  ph.addEventListener('click', e => {
-    e.stopPropagation();
-    if (ph.classList.contains('has-image')) return;
-    const id = ph.querySelector('.ph-id')?.textContent || '';
-    const hint = ph.querySelector('.ph-hint')?.textContent || '';
-    alert(`${id}\n\n${hint}\n\n用法：將相片放入此資料夾，HTML 中加：\n<img class="real" src="你的相片.jpg">\n+ 外層加 class="has-image"`);
-  });
+ ph.addEventListener('click', e => {
+  e.stopPropagation();
+  if (ph.classList.contains('has-image')) return;
+  const id = ph.querySelector('.ph-id')?.textContent || '';
+  const hint = ph.querySelector('.ph-hint')?.textContent || '';
+  alert(`${id}\n\n${hint}\n\n用法：將相片放入此資料夾，HTML 中加：\n<img class="real" src="你的相片.jpg">\n+ 外層加 class="has-image"`);
+ });
 });
 
 progress.style.width = `${(1 / total) * 100}%`;
@@ -1341,32 +1310,32 @@ slides[0].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
 
 // === 語言切換 (file-based, 跳到對應 file 同保留 slide #) ===
 (function() {
-  const fileMap = {
-    't': 'AI_INFINITY_精選_20頁_v3.html',
-    's': 'AI_INFINITY_精選_20頁_v3-cn.html',
-    'e': 'AI_INFINITY_精選_20頁_v3-en.html',
-  };
-  document.querySelectorAll('#lang-switch button').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.stopPropagation();
-      const lang = btn.dataset.lang;
-      const target = fileMap[lang];
-      if (!target) return;
-      // 同 current page 一樣就唔做嘢
-      const cur = location.pathname.split('/').pop();
-      if (decodeURIComponent(cur) === target) return;
-      // 保留 hash (slide #) 等用戶喺同一頁
-      const hash = '#' + (current + 1);
-      location.href = target + hash;
-    });
+ const fileMap = {
+  't': 'AI_INFINITY_精選_20頁_v3.html',
+  's': 'AI_INFINITY_精選_20頁_v3-cn.html',
+  'e': 'AI_INFINITY_精選_20頁_v3-en.html',
+ };
+ document.querySelectorAll('#lang-switch button').forEach(btn => {
+  btn.addEventListener('click', e => {
+   e.stopPropagation();
+   const lang = btn.dataset.lang;
+   const target = fileMap[lang];
+   if (!target) return;
+   // 同 current page 一樣就唔做嘢
+   const cur = location.pathname.split('/').pop();
+   if (decodeURIComponent(cur) === target) return;
+   // 保留 hash (slide #) 等用戶喺同一頁
+   const hash = '#' + (current + 1);
+   location.href = target + hash;
   });
-  // 開頁時讀 hash 跳對應 slide
-  if (location.hash) {
-    const n = parseInt(location.hash.replace('#', '')) - 1;
-    if (n >= 0 && n < total) {
-      setTimeout(() => goTo(n), 50);
-    }
+ });
+ // 開頁時讀 hash 跳對應 slide
+ if (location.hash) {
+  const n = parseInt(location.hash.replace('#', '')) - 1;
+  if (n >= 0 && n < total) {
+   setTimeout(() => goTo(n), 50);
   }
+ }
 })();
 </script>
 </body>

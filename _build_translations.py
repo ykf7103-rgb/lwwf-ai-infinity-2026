@@ -826,6 +826,69 @@ for node in text_nodes:
         node.replace_with(NavigableString(s))
 
 
+# === Native EN polish: fix specific awkward phrases ===
+NATIVE_POLISH = [
+    # Matrix table fixes
+    ("Cultural Heritage · AI Ethicsliteracy", "Cultural Heritage · AI Ethics"),
+    ("AI Ethicsliteracy", "AI Ethics"),
+    ("Learning Agency (OECD Agency)", "Learning Agency (OECD)"),
+    ("2 Sigma Personalisationbreakthrough", "2 Sigma Personalised Breakthrough"),
+    ("Personalisationbreakthrough", "Personalised Breakthrough"),
+    ("STEM inquiry", "STEM Inquiry"),
+    ("AI Co-creation", "AI Co-Creation"),
+    ("Co-creation", "Co-Creation"),
+    ("\"Fruit Month\"Family AI Songs", "\"Fruit Month\" Family AI Song"),
+    ("\"Fruit Month\"Family AI Song", "\"Fruit Month\" Family AI Song"),
+    ("AI SmartPESystem", "AI Smart PE System"),
+    ("SmartPESystem", "Smart PE System"),
+    ("AI National Guardian · AI SmartPESystem", "AI National Guardian · AI Smart PE System"),
+
+    # Punctuation / formatting
+    ("(e. g. ", "(e.g. "),
+    ("e. g. ", "e.g. "),
+    ("Code. org", "Code.org"),
+    ("Code.org", "Code.org"),  # idempotent
+
+    # Redundant repetition
+    ("Ed Tech Expo", "EdTech Expo"),
+    ("BETT Ed Tech", "BETT EdTech"),
+
+    # P6 awkward phrasing
+    ("Full marks 20% chance to draw", "20% chance to draw"),
+    ("Full marks 20%", "20%"),
+    ("→ Full marks 20%", "→ 20%"),
+    ("→ 20% chance to draw", "(20% chance) to draw"),
+
+    # P9 redundant "From Computer class" repetition
+    # The standalone "From Computer class →" near top is from a kicker, leave OK
+
+    # Cool Think glued
+    ("Jockey Club Cool Think@JC", "Jockey Club CoolThink@JC"),
+    ("Cool Think", "CoolThink"),
+
+    # Principal name consistency
+    ("Principal Hui ·", "Principal Ms Hui ·"),
+
+    # Common awkward connectors
+    ("Subjects ·", "Subjects ·"),  # OK
+    ("integration. ·", "integration. ·"),
+    ("integration.\n", "integration.\n"),
+
+    # "From X — students" → check if natural
+    # Already OK
+
+    # Final whitespace polish
+    ("  ", " "),
+    (" .", "."),
+    (" ,", ","),
+    (" ;", ";"),
+    (" :", ":"),
+]
+en_html_str = str(soup_en)
+for old, new in NATIVE_POLISH:
+    en_html_str = en_html_str.replace(old, new)
+soup_en = BeautifulSoup(en_html_str, 'html.parser')
+
 # Lang button labels (final pass on innerText)
 for btn in soup_en.find_all('button', attrs={'data-lang': True}):
     if btn['data-lang'] == 't':
