@@ -602,6 +602,131 @@ body::after{
   border-radius:99px;
   pointer-events:none;
 }
+
+/* ============================================================
+   V4 ENTRANCE ANIMATIONS — staggered reveal on slide activation
+   ============================================================ */
+@keyframes v4FadeUp{
+  from{opacity:0; transform:translateY(28px);}
+  to{opacity:1; transform:translateY(0);}
+}
+@keyframes v4FadeIn{
+  from{opacity:0;} to{opacity:1;}
+}
+@keyframes v4ZoomIn{
+  from{opacity:0; transform:scale(0.94);}
+  to{opacity:1; transform:scale(1);}
+}
+@keyframes v4SlideRight{
+  from{opacity:0; transform:translateX(-24px);}
+  to{opacity:1; transform:translateX(0);}
+}
+@keyframes v4LineExpand{
+  from{transform:scaleX(0); opacity:0;}
+  to{transform:scaleX(1); opacity:1;}
+}
+
+/* Enhanced staggered entrance (override v3 single fadeUp) */
+.slide.active .slide-inner > *{
+  animation:v4FadeUp .85s cubic-bezier(.22,1,.36,1) backwards !important;
+}
+.slide.active .slide-inner > *:nth-child(1){animation-delay:.05s !important;}
+.slide.active .slide-inner > *:nth-child(2){animation-delay:.18s !important;}
+.slide.active .slide-inner > *:nth-child(3){animation-delay:.30s !important;}
+.slide.active .slide-inner > *:nth-child(4){animation-delay:.42s !important;}
+.slide.active .slide-inner > *:nth-child(5){animation-delay:.54s !important;}
+.slide.active .slide-inner > *:nth-child(6){animation-delay:.65s !important;}
+.slide.active .slide-inner > *:nth-child(7){animation-delay:.75s !important;}
+
+/* Cards reveal with slight zoom */
+.slide.active .card{
+  animation:v4ZoomIn .7s cubic-bezier(.22,1,.36,1) backwards !important;
+}
+.slide.active .card:nth-of-type(1){animation-delay:.30s !important;}
+.slide.active .card:nth-of-type(2){animation-delay:.40s !important;}
+.slide.active .card:nth-of-type(3){animation-delay:.50s !important;}
+.slide.active .card:nth-of-type(4){animation-delay:.60s !important;}
+.slide.active .card:nth-of-type(5){animation-delay:.70s !important;}
+.slide.active .card:nth-of-type(6){animation-delay:.80s !important;}
+
+/* Photos fade-in with slight scale */
+.slide.active img, .slide.active video{
+  animation:v4ZoomIn .9s cubic-bezier(.22,1,.36,1) backwards;
+  animation-delay:.4s;
+}
+
+/* Kicker line expand */
+.slide.active .kicker::before{
+  animation:v4LineExpand .6s cubic-bezier(.22,1,.36,1) backwards !important;
+  animation-delay:.25s !important;
+}
+
+/* h1/h2 mega titles slide-in from left */
+.slide.active h1.mega,
+.slide.active h1.hero,
+.slide.active h2.big,
+.slide.active h2.med{
+  animation:v4SlideRight .9s cubic-bezier(.22,1,.36,1) backwards !important;
+  animation-delay:.15s !important;
+}
+
+/* Stat numbers count-up + scale */
+.slide.active .stat-num,
+.slide.active .research-card .stat{
+  animation:v4ZoomIn 1s cubic-bezier(.22,1,.36,1) backwards !important;
+  animation-delay:.5s !important;
+}
+
+/* Subject icon hero spin in */
+@keyframes v4IconReveal{
+  from{opacity:0; transform:scale(0.6) rotate(-12deg);}
+  to{opacity:1; transform:scale(1) rotate(0);}
+}
+.slide.active .subject-icon-xl{
+  animation:v4IconReveal 1s cubic-bezier(.34,1.56,.64,1) backwards !important;
+  animation-delay:.2s !important;
+}
+
+/* Quote elegant slide */
+.slide.active .quote{
+  animation:v4SlideRight .85s cubic-bezier(.22,1,.36,1) backwards !important;
+  animation-delay:.7s !important;
+}
+
+/* Hover micro-interactions enhanced */
+.slide .card{transition:all .35s cubic-bezier(.22,1,.36,1);}
+.slide .card:hover{
+  transform:translateY(-3px) scale(1.005);
+  box-shadow:0 2px 0 rgba(29,28,26,0.04), 0 18px 42px rgba(204,120,92,0.10) !important;
+}
+.slide .photo-mix > img:hover,
+.slide .photo-trio > img:hover,
+.slide [style*="border-radius:14px"][style*="overflow:hidden"]:hover img{
+  transform:scale(1.02);
+}
+
+/* Smooth photo container hover */
+.slide [style*="border-radius:14px"][style*="overflow:hidden"],
+.slide [style*="border-radius:18px"][style*="overflow:hidden"]{
+  transition:transform .4s cubic-bezier(.22,1,.36,1);
+}
+.slide [style*="border-radius:14px"][style*="overflow:hidden"]:hover,
+.slide [style*="border-radius:18px"][style*="overflow:hidden"]:hover{
+  transform:translateY(-2px);
+}
+
+/* Section tag pulse on slide change */
+@keyframes v4TagPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(204,120,92,0);}
+  50%{box-shadow:0 0 0 8px rgba(204,120,92,0.15);}
+}
+.slide.active ~ #section-tag,
+#section-tag{animation:v4TagPulse 2s ease-in-out infinite;}
+
+/* Reduce motion respect */
+@media (prefers-reduced-motion: reduce){
+  .slide.active *{animation-duration:0.01s !important;}
+}
 </style>
 </head>
 <body>

@@ -133,6 +133,131 @@ body::after{
   border-radius:99px;
   pointer-events:none;
 }
+
+/* ============================================================
+   V4 ENTRANCE ANIMATIONS — staggered reveal on slide activation
+   ============================================================ */
+@keyframes v4FadeUp{
+  from{opacity:0; transform:translateY(28px);}
+  to{opacity:1; transform:translateY(0);}
+}
+@keyframes v4FadeIn{
+  from{opacity:0;} to{opacity:1;}
+}
+@keyframes v4ZoomIn{
+  from{opacity:0; transform:scale(0.94);}
+  to{opacity:1; transform:scale(1);}
+}
+@keyframes v4SlideRight{
+  from{opacity:0; transform:translateX(-24px);}
+  to{opacity:1; transform:translateX(0);}
+}
+@keyframes v4LineExpand{
+  from{transform:scaleX(0); opacity:0;}
+  to{transform:scaleX(1); opacity:1;}
+}
+
+/* Enhanced staggered entrance (override v3 single fadeUp) */
+.slide.active .slide-inner > *{
+  animation:v4FadeUp .85s cubic-bezier(.22,1,.36,1) backwards !important;
+}
+.slide.active .slide-inner > *:nth-child(1){animation-delay:.05s !important;}
+.slide.active .slide-inner > *:nth-child(2){animation-delay:.18s !important;}
+.slide.active .slide-inner > *:nth-child(3){animation-delay:.30s !important;}
+.slide.active .slide-inner > *:nth-child(4){animation-delay:.42s !important;}
+.slide.active .slide-inner > *:nth-child(5){animation-delay:.54s !important;}
+.slide.active .slide-inner > *:nth-child(6){animation-delay:.65s !important;}
+.slide.active .slide-inner > *:nth-child(7){animation-delay:.75s !important;}
+
+/* Cards reveal with slight zoom */
+.slide.active .card{
+  animation:v4ZoomIn .7s cubic-bezier(.22,1,.36,1) backwards !important;
+}
+.slide.active .card:nth-of-type(1){animation-delay:.30s !important;}
+.slide.active .card:nth-of-type(2){animation-delay:.40s !important;}
+.slide.active .card:nth-of-type(3){animation-delay:.50s !important;}
+.slide.active .card:nth-of-type(4){animation-delay:.60s !important;}
+.slide.active .card:nth-of-type(5){animation-delay:.70s !important;}
+.slide.active .card:nth-of-type(6){animation-delay:.80s !important;}
+
+/* Photos fade-in with slight scale */
+.slide.active img, .slide.active video{
+  animation:v4ZoomIn .9s cubic-bezier(.22,1,.36,1) backwards;
+  animation-delay:.4s;
+}
+
+/* Kicker line expand */
+.slide.active .kicker::before{
+  animation:v4LineExpand .6s cubic-bezier(.22,1,.36,1) backwards !important;
+  animation-delay:.25s !important;
+}
+
+/* h1/h2 mega titles slide-in from left */
+.slide.active h1.mega,
+.slide.active h1.hero,
+.slide.active h2.big,
+.slide.active h2.med{
+  animation:v4SlideRight .9s cubic-bezier(.22,1,.36,1) backwards !important;
+  animation-delay:.15s !important;
+}
+
+/* Stat numbers count-up + scale */
+.slide.active .stat-num,
+.slide.active .research-card .stat{
+  animation:v4ZoomIn 1s cubic-bezier(.22,1,.36,1) backwards !important;
+  animation-delay:.5s !important;
+}
+
+/* Subject icon hero spin in */
+@keyframes v4IconReveal{
+  from{opacity:0; transform:scale(0.6) rotate(-12deg);}
+  to{opacity:1; transform:scale(1) rotate(0);}
+}
+.slide.active .subject-icon-xl{
+  animation:v4IconReveal 1s cubic-bezier(.34,1.56,.64,1) backwards !important;
+  animation-delay:.2s !important;
+}
+
+/* Quote elegant slide */
+.slide.active .quote{
+  animation:v4SlideRight .85s cubic-bezier(.22,1,.36,1) backwards !important;
+  animation-delay:.7s !important;
+}
+
+/* Hover micro-interactions enhanced */
+.slide .card{transition:all .35s cubic-bezier(.22,1,.36,1);}
+.slide .card:hover{
+  transform:translateY(-3px) scale(1.005);
+  box-shadow:0 2px 0 rgba(29,28,26,0.04), 0 18px 42px rgba(204,120,92,0.10) !important;
+}
+.slide .photo-mix > img:hover,
+.slide .photo-trio > img:hover,
+.slide [style*="border-radius:14px"][style*="overflow:hidden"]:hover img{
+  transform:scale(1.02);
+}
+
+/* Smooth photo container hover */
+.slide [style*="border-radius:14px"][style*="overflow:hidden"],
+.slide [style*="border-radius:18px"][style*="overflow:hidden"]{
+  transition:transform .4s cubic-bezier(.22,1,.36,1);
+}
+.slide [style*="border-radius:14px"][style*="overflow:hidden"]:hover,
+.slide [style*="border-radius:18px"][style*="overflow:hidden"]:hover{
+  transform:translateY(-2px);
+}
+
+/* Section tag pulse on slide change */
+@keyframes v4TagPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(204,120,92,0);}
+  50%{box-shadow:0 0 0 8px rgba(204,120,92,0.15);}
+}
+.slide.active ~ #section-tag,
+#section-tag{animation:v4TagPulse 2s ease-in-out infinite;}
+
+/* Reduce motion respect */
+@media (prefers-reduced-motion: reduce){
+  .slide.active *{animation-duration:0.01s !important;}
+}
 </style>
 <style>
 :root{
@@ -657,7 +782,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <section class="slide" data-slide="2" data-section="RESEARCH · 全球研究">
   <div class="slide-inner">
     <div class="kicker k-cyan">全球研究 · WEF 2023</div>
-    <h2 class="big">未來工作的<span class="gradient-text">劇變</span></h2>
+    <h2 class="big">未來工作的&nbsp;<span class="gradient-text">劇變</span></h2>
     <p class="tagline" style="max-width:1080px;">當孩子畢業時，世界已經不一樣。</p>
     <div class="g3" style="flex:1; gap:20px;">
       <div class="research-card with-bg bg-lost">
@@ -690,7 +815,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <section class="slide" data-slide="3" data-section="RESEARCH · 必備技能">
   <div class="slide-inner">
     <div class="kicker k-cyan">全球研究 · WEF 2023 + OECD 2030</div>
-    <h2 class="big">2027 年的<span class="gradient-text">必備技能</span></h2>
+    <h2 class="big">2027 年的&nbsp;<span class="gradient-text">必備技能</span></h2>
     <p class="tagline" style="max-width:1080px;">五項技能，全部都是 AI 時代教育的核心。</p>
     <div class="g3" style="flex:1; gap:14px;">
       <div class="card card-l-cyan with-bg bg-analytical">
@@ -732,7 +857,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <section class="slide" data-slide="4" data-section="RESEARCH · 香港落實">
   <div class="slide-inner">
     <div class="kicker k-amber">香港本地 · 教育局 + 港大 + 70 校網</div>
-    <h2 class="big">香港 AI 教育<span class="gradient-text-warm">已經啟動</span></h2>
+    <h2 class="big">香港 AI 教育&nbsp;<span class="gradient-text-warm">已經啟動</span></h2>
     <p class="tagline" style="max-width:1080px;">本校屬於最早的實踐者之一。</p>
     <div class="g3" style="flex:1; gap:18px;">
       <div class="card card-l-cyan with-bg bg-edb" style="display:flex; flex-direction:column;">
@@ -766,7 +891,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <section class="slide" data-slide="5" data-section="MATRIX · 趨向矩陣">
   <div class="slide-inner">
     <div class="kicker k-magenta">8 大科 × 未來對應</div>
-    <h2 class="big">每一科都有<span class="gradient-text">明確的未來定位</span></h2>
+    <h2 class="big">每一科都有&nbsp;<span class="gradient-text">明確的未來定位</span></h2>
     <div style="flex:1; overflow:auto; margin-top:4px;">
       <table style="width:100%; border-collapse:collapse; font-size:14px;">
         <thead>
@@ -829,6 +954,10 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
           <h3 class="lead" style="color:var(--c2); font-size:16px;">⚔️ 評分四維度</h3>
           <p class="body" style="font-size:12.5px; margin-top:4px;"><strong>語法 3</strong> + <strong>用詞 3</strong> + <strong>豐富度 2</strong> + <strong>創意 2</strong> = 10 分</p>
         </div>
+        <div class="card card-l-magenta">
+          <h3 class="lead" style="color:var(--c2); font-size:16px;">📚 配套程式　·　雙軌學習</h3>
+          <p class="body" style="font-size:12.5px; margin-top:4px;">配合 <strong>AI 魔法默書助手</strong> Web App，一個學中文、一個練生字——學生由「背誦默寫」走向「文化共創」。</p>
+        </div>
         <div style="padding:8px 12px; background:linear-gradient(135deg,#fef3c7,#fffaf3); border-radius:10px; border-left:3px solid var(--c3);">
           <p style="font-size:13px; font-weight:700; color:var(--c3); margin:0;">🏆 全港小學優異獎　·　103 件作品中獲選</p>
         </div>
@@ -847,11 +976,18 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
         <h2 class="big">老師 + Gemini　共同研發　<span class="gradient-text-cool">校本默書工具</span></h2>
       </div>
     </div>
-    <div style="display:grid; grid-template-columns:1.5fr 1fr; gap:28px; flex:1; align-items:stretch;">
-      <!-- 左:大圖 web app 截圖 -->
-      <div style="border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff;">
-        <img src="photos/p7_ai_dictation_app.jpg" alt="AI 魔法默書助手 web app 介面"
-             style="width:100%; height:100%; object-fit:contain; background:#fff;">
+    <div style="display:grid; grid-template-columns:1.5fr 1fr; gap:28px; flex:1; align-items:stretch; min-height:0;">
+      <!-- 左:web app 截圖 + 比賽頒獎 -->
+      <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
+        <div style="flex:1.4; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff;">
+          <img src="photos/p7_ai_dictation_app.jpg" alt="AI 魔法默書助手 web app 介面"
+               style="width:100%; height:100%; object-fit:contain; background:#fff;">
+        </div>
+        <div style="flex:1; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; position:relative;">
+          <img src="photos/p7_award_ceremony.jpg" alt="國民身份認同設計比賽 2025/26 頒獎典禮"
+               style="width:100%; height:100%; object-fit:cover; object-position:center;">
+          <span style="position:absolute; top:8px; left:8px; background:rgba(180,83,9,0.92); color:#fff; padding:4px 12px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:1.5px; font-weight:700;">🏆 比賽頒獎</span>
+        </div>
       </div>
       <!-- 右:介紹 -->
       <div style="display:flex; flex-direction:column; gap:14px;">
@@ -886,20 +1022,24 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
         <h2 class="big">破解 70 年難題　<span class="gradient-text-warm">2 Sigma 個人化</span></h2>
       </div>
     </div>
-    <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:28px; flex:1; align-items:stretch;">
-      <!-- 左:3 cards 文字 -->
-      <div style="display:flex; flex-direction:column; gap:14px;">
+    <div style="display:grid; grid-template-columns:1fr 1.1fr; gap:24px; flex:1; align-items:stretch; min-height:0;">
+      <!-- 左:文字 cards -->
+      <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
         <div class="card card-l-amber">
           <h3 class="lead" style="color:var(--c3);">📐 P4 課程：乘法大師</h3>
-          <p class="body" style="margin-top:8px; font-size:17px;"><strong>高年級學生寫 AI 程式</strong>，回饋低年級——P5/P6 學生親手做出乘法練習工具，俾 P2 同學使用。</p>
+          <p class="body" style="margin-top:6px;"><strong>高年級寫 AI 程式回饋低年級</strong>——P5/P6 親手做乘法工具俾 P2 用。</p>
         </div>
         <div class="card card-l-amber">
           <h3 class="lead" style="color:var(--c3);">🤖 蘇格拉底反問</h3>
-          <p class="body" style="margin-top:8px; font-size:17px;">AI 不直接給答案，而係反問：「點解咁諗？仲有其他方法嗎？」訓練批判思維。</p>
+          <p class="body" style="margin-top:6px;">AI 不直接給答案，而係反問：「點解咁諗？仲有其他方法嗎？」<strong>由「找答案」轉為「拆解問題」</strong>。</p>
         </div>
         <div class="card card-l-amber">
           <h3 class="lead" style="color:var(--c3);">🎨 數學漫畫變身器</h3>
-          <p class="body" style="margin-top:8px; font-size:17px;">學生親手畫角色 → AI 生成<strong>四格漫畫解題</strong> → 學生親自講解（fact-check）。<strong>數學 × 中文 × 視藝 × 科技</strong>融合。</p>
+          <p class="body" style="margin-top:6px;">學生親手畫角色 → AI 生成<strong>四格漫畫解題</strong> → 親自講解 fact-check。<strong>數×中×視藝×科技</strong>融合。</p>
+        </div>
+        <div class="card card-l-emerald">
+          <h3 class="lead" style="color:var(--c4);">💡 AI 數學教育的三層突破</h3>
+          <p class="body" style="margin-top:6px;"><strong>① 個人化進度：</strong>每位學生有自己的「卡關區」診斷　<strong>② 即時錯題分析：</strong>AI 識別概念漏洞　<strong>③ 跨齡互動：</strong>高年級設計、低年級使用、共同成長。</p>
         </div>
       </div>
       <!-- 右:2 圖 (上小張課堂 + 下大張漫畫完整顯示) -->
@@ -947,8 +1087,8 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       </div>
       <div class="card card-l-magenta" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
         <div style="aspect-ratio:4/3; overflow:hidden; background:#fff8f0;">
-          <img src="photos/p9_gen2_lokjoy.jpg" alt="第二代 樂在其「中」攤位"
-               style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <img src="photos/p9_gen2_evaluation.jpg" alt="第二代 樂在其「中」評審現場"
+               style="width:100%; height:100%; object-fit:cover; object-position:center;">
         </div>
         <div style="padding:18px 20px;">
           <div class="kicker k-magenta">第二代　·　全港季軍</div>
@@ -1234,13 +1374,20 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
         </div>
       </div>
       <div class="card card-l-cyan" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
-        <div style="aspect-ratio:16/9; overflow:hidden; background:#000; position:relative;">
-          <video autoplay muted loop playsinline preload="metadata"
-                 poster="photos/p15_huxia.jpg"
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; aspect-ratio:16/8; background:#000;">
+          <div style="overflow:hidden; position:relative;">
+            <video autoplay muted loop playsinline preload="metadata"
+                   poster="photos/p15_huxia.jpg"
+                   style="width:100%; height:100%; object-fit:cover; background:#000;">
+              <source src="photos/p15_translator.mp4" type="video/mp4">
+            </video>
+            <div style="position:absolute; top:6px; left:6px; background:rgba(8,145,178,0.92); color:#fff; padding:3px 10px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:1.5px; font-weight:700;">▶ AI 翻譯官</div>
+          </div>
+          <div style="overflow:hidden; background:#fff8f0; position:relative;">
+            <img src="photos/p15_snake_inquiry.jpg" alt="跨學科生態探究"
                  style="width:100%; height:100%; object-fit:cover;">
-            <source src="photos/p15_translator.mp4" type="video/mp4">
-          </video>
-          <div style="position:absolute; top:8px; left:8px; background:rgba(8,145,178,0.92); color:#fff; padding:4px 12px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px; font-weight:700;">▶ AI 翻譯官</div>
+            <div style="position:absolute; top:6px; left:6px; background:rgba(4,120,87,0.92); color:#fff; padding:3px 10px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:1.5px; font-weight:700;">🐍 生態探究</div>
+          </div>
         </div>
         <div style="padding:20px 24px; display:flex; flex-direction:column; gap:10px; flex:1;">
           <div class="kicker k-cyan">階段二　·　P4-P6 賦能期</div>
@@ -1420,6 +1567,23 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
     <p class="tagline" style="max-width:920px; line-height:1.7;">
       希望每位學生都能由「科技的消費者」<br>慢慢變成「能用科技解決真實問題的創造者」。
     </p>
+    <div class="g3" style="max-width:1080px; gap:14px; margin-top:8px;">
+      <div class="card card-l-magenta" style="text-align:center;">
+        <div class="kicker k-magenta" style="justify-content:center;">致 學 生</div>
+        <h3 class="mid" style="margin-top:6px; color:var(--c2);">勇於創造</h3>
+        <p class="body" style="font-size:12.5px; margin-top:4px;">每一次失敗都係下一次更好嘅起點。</p>
+      </div>
+      <div class="card card-l-cyan" style="text-align:center;">
+        <div class="kicker k-cyan" style="justify-content:center;">致 家 長</div>
+        <h3 class="mid" style="margin-top:6px; color:var(--c1);">攜手前行</h3>
+        <p class="body" style="font-size:12.5px; margin-top:4px;">由監督變共學，AI 是橋而非阻隔。</p>
+      </div>
+      <div class="card card-l-emerald" style="text-align:center;">
+        <div class="kicker k-emerald" style="justify-content:center;">致 教 育</div>
+        <h3 class="mid" style="margin-top:6px; color:var(--c4);">永續創新</h3>
+        <p class="body" style="font-size:12.5px; margin-top:4px;">學校與時並進，學生與世界共成長。</p>
+      </div>
+    </div>
     <div style="width:100%; max-width:880px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0;">
       <img src="photos/p20_cta_expo.jpg" alt="LWWF 學生 + 教師 + 教博合照"
            style="width:100%; height:100%; object-fit:contain;">
