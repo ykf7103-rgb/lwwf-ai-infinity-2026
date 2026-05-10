@@ -24,9 +24,9 @@ OUT_DIR = HERE / "_exports"
 OUT_DIR.mkdir(exist_ok=True)
 
 LANG_FILES = [
-    ("traditional", "繁體中文", "AI_INFINITY_精選_20頁_v3.html"),
-    ("simplified",  "簡體中文", "AI_INFINITY_精選_20頁_v3-cn.html"),
-    ("english",     "英文",     "AI_INFINITY_精選_20頁_v3-en.html"),
+    ("traditional", "繁體中文", "AI_INFINITY_精選_20頁_v4.html"),
+    ("simplified",  "簡體中文", "AI_INFINITY_精選_20頁_v4-cn.html"),
+    ("english",     "英文",     "AI_INFINITY_精選_20頁_v4-en.html"),
 ]
 
 WIDTH = 1920
