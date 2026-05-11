@@ -2321,6 +2321,184 @@ V5_NATIVE_REWRITES = {
     "係課餘自主探究": "are extracurricular and student-driven",
     "嘅啟潛": " Talent Programme",
 
+    # === BATCH 7 — sentences from synced v4 sections ===
+    "P1-P3 暫未引入生成式 AI，保護兒童早期認知發展.":
+        "We hold back generative AI in P1-P3 — protecting early cognitive development.",
+    "溫度、濕度、光照感應器實時上傳資料庫.":
+        "Temperature, humidity, and light sensors stream live to the database.",
+    "攝影機辨識日常行為，紀錄activities同健康狀況.":
+        "Cameras recognise daily behaviour, logging activities and health.",
+    "攝影機辨識日常行為，紀錄日常同健康狀況.":
+        "Cameras recognise daily behaviour, logging activities and health.",
+    "全面引入企業級 AI 工具，進行深度跨學科Performance.":
+        "Full enterprise-grade AI deployment, anchored in deep cross-disciplinary projects.",
+    "全面引入企業級 AI 工具，進行深度跨學科實作.":
+        "Full enterprise-grade AI deployment, anchored in deep cross-disciplinary projects.",
+    "AI 是輔助與啟發，老師與學生的judgement永遠優先.":
+        "AI assists and inspires. Teacher and student judgement always have the final word.",
+    "AI 是輔助與啟發，老師與學生的判斷永遠優先.":
+        "AI assists and inspires. Teacher and student judgement always have the final word.",
+    "系統地教 AI 素養——配合EDB《小學數字素養架構》.":
+        "Systematically teaches AI literacy — aligned with the EDB's Primary Digital Literacy Framework.",
+    "系統地教 AI 素養——配合教育局《小學數字素養架構》.":
+        "Systematically teaches AI literacy — aligned with the EDB's Primary Digital Literacy Framework.",
+    "乘法大師　·　漫畫變身器　·　蘇格拉底反問":
+        "Multiplication Master · Comic Transformer · Socratic Questioning",
+    "primary school——學生使用嘅工具，與業界企業同步.":
+        "primary school — students use the same tools as industry.",
+    "騰訊青少年人工智能教育平台":
+        "Tencent Youth AI Education Platform",
+    "Paper & Pen不會被取代，但已不足以反映 AI era的Real Ability.":
+        "Paper and pen won't disappear — but alone they no longer measure real ability in the AI era.",
+    "賽馬會 CoolThink@JC 運算思維教育的先導School":
+        "Jockey Club CoolThink@JC computational-thinking pilot school",
+    "識花君　·　生態保育日　·　國寶 AI 管家":
+        "Plant ID · Eco Conservation Day · National Treasure AI Steward",
+    "⚔️ 評分四維度　·　全方位中文能力":
+        "⚔️ Four-Dimension Scoring · All-Round Chinese Ability",
+    "P4 狐假虎威新編　·　成語攻防戰":
+        "P4 Idiom Reimagined · AI Idiom Battle",
+    "國民身份認同　·　跨文化理解":
+        "National Identity · Cross-Cultural Understanding",
+    "（岳飛、關羽、李靖等中華名將）.":
+        " (Yue Fei, Guan Yu, Li Jing and other Chinese generals).",
+    "= 10 分.AI 即時針對句子缺陷反饋.":
+        " = 10 points. AI provides instant, sentence-level feedback.",
+    "每位學生有專屬「卡關診斷」":
+        "every student gets a personalised \"sticking-point\" diagnosis",
+    "不寫心跳血氧、不點名比較":
+        "no heart-rate or oxygen logging, no public naming",
+    "🚫 red lines二：絕不輸出未驗證的事實":
+        "🚫 Red Line 2: No Unverified Facts",
+    "🚫 red lines一：絕不取代人的判斷":
+        "🚫 Red Line 1: AI Never Replaces Human Judgement",
+    "Our school代表將於倫敦 BETT 教育科技展.":
+        "Our representatives will attend the London BETT EdTech Expo.",
+    "Our school屬於最早的實踐者之一.":
+        "Our school is one of the very earliest practitioners.",
+    "📚 雙軌學習　·　配套 AI 魔法默書":
+        "📚 Twin-Track Learning · with AI Magic Dictation",
+    "School預設默書範圍自動填入":
+        "school-set dictation lists auto-fill",
+    "：AI 生成故事 + 圖卡輔助記憶":
+        ": AI-generated stories + image cards aid memorisation",
+    "由「找答案」轉為「拆解問題」":
+        "from \"finding answers\" to \"unpacking problems\"",
+    "② 即時錯題分析　③ 跨齡互動：":
+        "② Instant error analysis · ③ Cross-age interaction: ",
+    "融合 AI 重新詮釋中華文化.":
+        "Reinterpret Chinese culture with AI.",
+    "🌏 超越教科書嘅文化體驗":
+        "🌏 Cultural experience beyond textbooks",
+    "🤝 由觀察者　變成保育主角":
+        "🤝 From observer to conservation protagonist",
+    "中國國家一級保護動物（CITES Appendix I）":
+        "China Class-1 Protected Animal (CITES Appendix I)",
+    "3 種本土蝶類 · 數據實時上 dashboard":
+        "3 native butterfly species · live data on dashboard",
+    "five elements，喚醒每位學生獨特天賦.":
+        "Five elements awaken every student's unique gifts.",
+    "樂在其「中」（Third Place）　·　文化試身室":
+        "Joyfully Chinese (Third Place) · Cultural Fitting Room",
+    "AI 國寶守衛戰　·　AI 智能Sports系統":
+        "AI National Treasure Guardian Battle · AI Smart PE System",
+    "AI 國寶守衛戰　·　AI 智能體育系統":
+        "AI National Treasure Guardian Battle · AI Smart PE System",
+    "——P5/P6 親手做乘法工具俾 P2 用.":
+        " — P5/P6 students build multiplication tools for P2 classmates to use.",
+    "學生親手畫角色 → AI 生成":
+        "Students hand-draw characters → AI generates",
+    "識花君　·　畢業生涯規劃":
+        "Plant ID · Career Planning",
+    "20 件常設作品 · 開放Parents參觀":
+        "20 permanent exhibits · open to parent visits",
+    "20 件常設作品 · 開放家長參觀":
+        "20 permanent exhibits · open to parent visits",
+
+    # additional v4-era residuals
+    "現代門神　·　AI 翻譯官":
+        "Modern Door Gods · AI Translator",
+    "識花君　·　畢業生涯規劃":
+        "Plant ID · Career Planning",
+    "P5 STEAM 創意活動": "P5 STEAM Creative Activities",
+    "P6 升中面試活動": "P6 Secondary School Interview Practice",
+    "「水果月」親子 AI 歌曲（Suno）":
+        "\"Fruit Month\" Family AI Songs (Suno)",
+    "我看不見圖示": "Photo placeholder",
+    "嘅唯一保險": " — the only real insurance",
+    "嘅核心": " — the core",
+    "嘅最有效": " — the most effective",
+    "嘅最有效評估方式": " — the most effective form of assessment",
+    "嘅再思考": " — a rethink",
+    "嘅學科": " subjects",
+    "嘅前景": "'s future",
+    "嘅 EMI": " EMI",
+
+    # Mixed Chinese chars in synced sections
+    "騰訊": "Tencent",
+    "賽馬會": "Jockey Club",
+    "我們的責任": "Our responsibility",
+    "我們持續": "we continue to",
+    "嘅責任": "'s responsibility",
+    "持續更新工具、優化教法": "keep refining our tools and teaching",
+
+    # P9 樂在其中 missing words
+    "由電腦堂": "Starting from Computer class",
+    "P5/P6 親手做": "P5/P6 students build",
+    "「智」啟學教": "SmartLearn",
+
+    # P10 科學
+    "保育的旁觀者": "conservation bystanders",
+    "轉為實際參與者": "into participants",
+    "保育的旁觀者，轉為實際參與者":
+        "from conservation bystanders into participants",
+
+    # 8 大科 矩陣 table (Slide 8 in v5)
+    "中文 文化傳承　·　AI 倫理素養":
+        "Chinese — Cultural inheritance · AI ethical literacy",
+    "英文 學習能動性（OECD Agency）":
+        "English — Learning Agency (OECD)",
+    "對應未來趨向": "Aligned Future Trend",
+    "校本實踐": "School-Based Practice",
+    "AI 默書助手　·　升中銜接":
+        "AI Dictation · Secondary School Bridge",
+    "2 Sigma 個人化突破":
+        "2 Sigma Personalisation Breakthrough",
+    "美學素養　·　AI 共創":
+        "Aesthetic literacy · AI co-creation",
+    "創造力　·　文化保育":
+        "Creativity · Cultural conservation",
+    "健康素養　·　IoT 數據時代":
+        "Health literacy · IoT data era",
+    "五感體驗　·　STEM 探究":
+        "Five-senses experience · STEM inquiry",
+
+    # P9b cultural fitting room
+    "👘 即場試身　·　即場拍照":
+        "👘 Try-on the spot · Take photos there",
+    "🎯 教育意義": "🎯 Educational Significance",
+
+    # P15 螺旋
+    "Matatalab　·　Scratch Jr.　·　Code.org":
+        "Matatalab · Scratch Jr. · Code.org",
+    "階段一　·　P1-P3 奠基期": "Stage 1 · P1-P3 Foundation",
+    "階段二　·　P4-P6 賦能期": "Stage 2 · P4-P6 Empowerment",
+    "運算思維 + AI 啟蒙": "Computational Thinking + AI Foundations",
+    "企業 AI + 跨科 PBL": "Enterprise AI + Cross-Subject PBL",
+    "P5：現代門神　·　AI 翻譯官": "P5: Modern Door Gods · AI Translator",
+    "P6：識花君　·　畢業生涯規劃": "P6: Plant ID · Career Planning",
+    "P4：狐假虎威　·　乘法大師": "P4: Idiom Reimagined · Multiplication Master",
+    "P4：狐假虎威新編　·　乘法大師": "P4: Idiom Reimagined · Multiplication Master",
+    "學生組別 / 比賽作品（成語攻防戰、文化試身室、國寶 AI 管家等）係課餘自主探究.":
+        "Student-group and competition works (Idiom Battle, Cultural Fitting Room, National Treasure Steward) are extracurricular and student-driven.",
+
+    # Final cleanups
+    "5G IoT 感應園": "5G IoT Sensing Garden",
+    "蝴蝶生命週期": "butterfly life cycle",
+    "對接學界比賽": "feeds into inter-school competitions",
+    "兩個 20 分鐘小息": "Two 20-min breaks",
+    "嘅 dashboard": " dashboard",
+
     # === BATCH 6 — final residual fixes ===
     # P26-P28 English Elite full content
     "textbook、worksheets、評估全部英文": "Textbook, worksheets, and assessments are all in English",
@@ -2502,6 +2680,64 @@ else:
         v5_en = v5_en.replace(alt, '</section>\n\n' + qa_en + '\n<script>', 1)
     else:
         print("WARN: cannot find </section><script> boundary for Q&A injection")
+
+# ============================================================
+# SYNC v4-era updated sections from v5.html source
+# (v4-en has OLD versions; v5.html has UPDATED versions with new images/text)
+# Match by data-section attribute (unique discriminator, since data-slide is dup)
+# ============================================================
+SECTION_SYNC_MAP = {
+    # v5.html (TC) data-section value : v5-en data-section value
+    'RESEARCH · 香港落實': 'RESEARCH · HK ROLLOUT',
+    'MATRIX · 趨向矩陣': 'MATRIX · TREND MAPPING',
+    '中文 · AI 成語攻防戰': 'Chinese · AI Idiom Battle',
+    'AI 魔法默書助手': 'AI Magic Dictation',
+    '數學 · MATH': 'MATH',
+    '人文 · 樂在其「中」': 'HUMANITIES · Joyfully Chinese',
+    '人文 · AI 中華文化試身室': 'HUMANITIES · AI Cultural Fitting Room',
+    '科學 · SCIENCE': 'SCIENCE',
+    '音樂 · MUSIC': 'MUSIC',
+    '體育 · PE': 'PHYSICAL EDUCATION',
+    '視藝 · VISUAL ARTS': 'VISUAL ARTS',
+    'FLAGSHIP · 旗艦項目': 'FLAGSHIP PROJECT',
+    'CURRICULUM · 螺旋課程': 'CURRICULUM · Spiral Pathway',
+    'ETHICS · 倫理 + 評估': 'ETHICS + ASSESSMENT',
+    'ACHIEVEMENT · 比賽獎項': 'AWARDS · COMPETITIONS',
+    'ACTION · Workshop': 'ACTION · Workshop',
+    'FUTURE · 未來藍圖': 'FUTURE BLUEPRINT',
+    'CTA · 結語': 'CONCLUSION',
+}
+
+def extract_section_by_data_section(html, data_section_val):
+    """Extract <section ... data-section=VAL ...>...</section> from html."""
+    val_escaped = re.escape(data_section_val)
+    patterns = [
+        r'<section class="slide"[^>]*data-section="' + val_escaped + r'"[^>]*>[\s\S]*?</section>',
+    ]
+    for p in patterns:
+        m = re.search(p, html)
+        if m: return m.group(0)
+    return None
+
+# Re-sync each updated v4-era section from v5.html to v5-en
+sync_count = 0
+for tc_label, en_label in SECTION_SYNC_MAP.items():
+    src_section = extract_section_by_data_section(text, tc_label)
+    if not src_section:
+        continue
+    # Translate the section via V5_NATIVE_REWRITES
+    translated = translate_new_block(src_section, V5_NATIVE_REWRITES)
+    if not translated:
+        continue
+    # Update the data-section attribute to EN label
+    translated = translated.replace(f'data-section="{tc_label}"', f'data-section="{en_label}"', 1)
+    # Find existing EN section by EN label
+    existing = extract_section_by_data_section(v5_en, en_label)
+    if existing:
+        v5_en = v5_en.replace(existing, translated, 1)
+        sync_count += 1
+
+print(f"  Synced v4-era sections from v5.html: {sync_count}")
 
 # Apply v5 dict to ALL the content (so any string the v4 base didn't catch
 # but the v5 dict knows, gets translated globally)
