@@ -1244,6 +1244,41 @@ body html .slide .quote-author{
   font-size:clamp(13px, 1.1vw, 17px) !important;
   letter-spacing:2px !important;
 }
+
+/* ============================================================
+   🖥️ FIT-TO-SCREEN — 确保任何 desktop 尺寸都见到全部内容
+   ============================================================
+   策略：
+   - .slide-inner 固定 1600×900 reference frame (16:9)
+   - 用 JS 计算 scale 倍率，再透过 --slide-scale CSS 变数 transform:scale
+   - 小 monitor (1280x720, 1366x768) → scale ↓ 全 fit
+   - 大 monitor (1920x1080, 2560x1440) → scale ↑ 用尽空间
+   - 全部内容 100% 永远可见 */
+body .slide{
+  padding:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+}
+body .slide-inner{
+  width:1600px !important;
+  height:900px !important;
+  max-width:none !important;
+  min-width:0 !important;
+  flex:none !important;
+  flex-shrink:0 !important;
+  padding:48px 70px !important;  /* 重新加 padding (原 padding-top/bottom 90px 改 48px 因有 transform) */
+  padding-bottom:80px !important;  /* 留位俾 dots */
+  transform:scale(var(--slide-scale, 1));
+  transform-origin:center center;
+  transition:transform .25s ease-out;
+  box-sizing:border-box;
+}
+/* 大 monitor (≥1920) 用更多 padding */
+@media (min-width:1920px){
+  body .slide-inner{padding:60px 90px !important; padding-bottom:80px !important;}
+}
 </style>
 </head>
 <body>
@@ -3305,6 +3340,22 @@ body html .slide .quote-author{
 </section>
 
 <script>
+// 🖥️ FIT-TO-SCREEN: 计算 scale 令 1600×900 reference frame fit 任何 viewport
+(function fitToScreen(){
+  const REF_W = 1600, REF_H = 900;
+  function update(){
+    const scale = Math.min(window.innerWidth / REF_W, window.innerHeight / REF_H);
+    document.documentElement.style.setProperty('--slide-scale', scale.toFixed(4));
+  }
+  window.addEventListener('resize', update);
+  window.addEventListener('orientationchange', update);
+  update();
+  // Re-run after fonts load (avoid layout shift)
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(update);
+  }
+})();
+
 const slides = document.querySelectorAll('.slide');
 const dots = document.getElementById('dots');
 const pn = document.getElementById('pn');
