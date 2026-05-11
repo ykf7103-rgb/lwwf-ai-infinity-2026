@@ -8,6 +8,190 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&family=Noto+Serif+SC:wght@600;700;900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900;9..144,600..900&display=swap" rel="stylesheet">
 
+<!-- V5 FONT BOOST 2 — 字體再加大 + 全螢幕 fit (clamp + viewport) -->
+<style id="v5-font-boost-2">
+/* ========== 用 clamp() 令字體跟 viewport size 自動 scale ==========
+   1366px viewport (1vw≈13.66px) · 1920px (1vw≈19.2px)
+   formula: clamp(MIN, PREFERRED-VW, MAX) */
+
+/* Tagline (大標下面描述) */
+.slide p.tagline, .slide .tagline{
+  font-size:clamp(20px, 1.7vw, 28px) !important;
+  line-height:1.6 !important;}
+
+/* Body (普通內文) */
+.slide p.body, .slide .body{
+  font-size:clamp(17px, 1.4vw, 22px) !important;
+  line-height:1.7 !important;}
+
+/* Small (小標、註腳) */
+.slide p.small, .slide .small{
+  font-size:clamp(14.5px, 1.15vw, 18px) !important;
+  line-height:1.6 !important;}
+
+/* Lead (中標題) */
+.slide h3.lead{
+  font-size:clamp(24px, 2vw, 32px) !important;
+  line-height:1.3 !important;}
+
+/* Mid (細標題) */
+.slide h3.mid{
+  font-size:clamp(20px, 1.65vw, 26px) !important;
+  line-height:1.35 !important;}
+
+/* Big title */
+.slide h2.big{
+  font-size:clamp(48px, 4.2vw, 68px) !important;
+  letter-spacing:-1.5px !important;
+  line-height:1.05 !important;}
+
+.slide h2.med{
+  font-size:clamp(36px, 3vw, 50px) !important;}
+
+.slide h1.hero{
+  font-size:clamp(60px, 5.2vw, 88px) !important;
+  letter-spacing:-2px !important;}
+
+.slide h1.mega{
+  font-size:clamp(88px, 7.5vw, 130px) !important;
+  letter-spacing:-3.5px !important;}
+
+/* Kicker (small uppercase label) */
+.slide .kicker{
+  font-size:clamp(13px, 1.05vw, 17px) !important;
+  letter-spacing:3px !important;}
+
+/* ===== Card 內字體 ===== */
+.slide .card h3{
+  font-size:clamp(20px, 1.7vw, 26px) !important;
+  font-weight:700 !important;
+  line-height:1.3 !important;}
+.slide .card h4{
+  font-size:clamp(19px, 1.55vw, 24px) !important;}
+.slide .card .body, .slide .card p.body{
+  font-size:clamp(16px, 1.32vw, 21px) !important;
+  line-height:1.7 !important;}
+.slide .card .small, .slide .card p.small{
+  font-size:clamp(14px, 1.15vw, 18px) !important;
+  line-height:1.6 !important;}
+.slide .card .kicker{
+  font-size:clamp(12px, 0.95vw, 15px) !important;}
+
+/* ===== Bullet list ===== */
+.slide ul.bullet li{
+  font-size:clamp(16px, 1.32vw, 20px) !important;
+  line-height:1.7 !important;
+  margin-bottom:6px !important;}
+
+/* ===== Research card ===== */
+.slide .research-card h4{font-size:clamp(20px, 1.7vw, 26px) !important;}
+.slide .research-card .desc{font-size:clamp(15.5px, 1.3vw, 20px) !important; line-height:1.6 !important;}
+.slide .research-card .stat{font-size:clamp(56px, 4.8vw, 78px) !important;}
+.slide .research-card .stat .small-suffix{font-size:clamp(24px, 2vw, 34px) !important;}
+.slide .research-card .src-tag{font-size:clamp(12px, 0.95vw, 15px) !important;}
+.slide .research-card .ref{font-size:clamp(12px, 1vw, 15px) !important;}
+
+/* ===== Quote ===== */
+.slide .quote-text{
+  font-size:clamp(16.5px, 1.4vw, 22px) !important;
+  line-height:1.65 !important;}
+.slide .quote-author{
+  font-size:clamp(12.5px, 1.05vw, 16px) !important;
+  letter-spacing:2px !important;}
+
+/* ===== Subject hero ===== */
+.slide .subject-hero h2.big{font-size:clamp(40px, 3.5vw, 56px) !important;}
+.slide .subject-icon-xl{
+  width:clamp(56px, 4.5vw, 78px) !important;
+  height:clamp(56px, 4.5vw, 78px) !important;}
+
+/* ===== Stat numbers ===== */
+.slide .stat-num{font-size:clamp(38px, 3.2vw, 52px) !important;}
+.slide .stat-label{font-size:clamp(12px, 0.95vw, 15px) !important;}
+.slide .mega-stat{font-size:clamp(100px, 8vw, 140px) !important;}
+
+/* ===== Chip ===== */
+.slide .chip{font-size:clamp(14px, 1.15vw, 18px) !important; padding:7px 16px !important;}
+.slide .smart-chip{font-size:clamp(14px, 1.15vw, 18px) !important; padding:7px 16px !important;}
+
+/* ===== Table ===== */
+.slide table th{
+  font-size:clamp(13.5px, 1.1vw, 17px) !important;
+  padding:13px 14px !important;}
+.slide table td{
+  font-size:clamp(15px, 1.25vw, 19px) !important;
+  padding:13px 14px !important;
+  line-height:1.55 !important;}
+
+/* ===== Timeline row ===== */
+.slide .timeline-row .time-col{font-size:clamp(14.5px, 1.15vw, 18px) !important;}
+.slide .timeline-row .title-col{font-size:clamp(18px, 1.5vw, 24px) !important;}
+.slide .timeline-row .icon-col{font-size:clamp(14.5px, 1.15vw, 18px) !important;}
+.slide .timeline-row{padding:11px 18px !important; margin-bottom:9px !important;}
+
+/* ===== Activity tile ===== */
+.slide .act-tile .cat-name{font-size:clamp(18px, 1.5vw, 23px) !important;}
+.slide .act-tile .cat-count{font-size:clamp(12.5px, 1vw, 16px) !important;}
+.slide .act-tile .cat-list{font-size:clamp(14.5px, 1.2vw, 19px) !important; line-height:1.65 !important;}
+.slide .act-tile .cat-icon{font-size:clamp(40px, 3.3vw, 54px) !important;}
+
+/* ===== Class badge ===== */
+.slide .class-badge{
+  width:clamp(50px, 4vw, 70px) !important;
+  height:clamp(50px, 4vw, 70px) !important;
+  font-size:clamp(26px, 2.2vw, 36px) !important;}
+
+/* ========== Attribute selector — 覆蓋全部 inline font-size ========== */
+.slide [style*="font-size:9px"]{font-size:clamp(12px, 1vw, 15px) !important;}
+.slide [style*="font-size:9.5px"]{font-size:clamp(12.5px, 1vw, 15.5px) !important;}
+.slide [style*="font-size:10px"]{font-size:clamp(13px, 1.05vw, 16px) !important;}
+.slide [style*="font-size:10.5px"]{font-size:clamp(13.5px, 1.1vw, 16.5px) !important;}
+.slide [style*="font-size:11px"]{font-size:clamp(14.5px, 1.15vw, 18px) !important;}
+.slide [style*="font-size:11.5px"]{font-size:clamp(15px, 1.2vw, 18.5px) !important;}
+.slide [style*="font-size:12px"]{font-size:clamp(15.5px, 1.25vw, 19px) !important;}
+.slide [style*="font-size:12.5px"]{font-size:clamp(16px, 1.3vw, 19.5px) !important;}
+.slide [style*="font-size:12.8px"]{font-size:clamp(16.5px, 1.35vw, 20px) !important;}
+.slide [style*="font-size:13px"]{font-size:clamp(16.5px, 1.35vw, 20.5px) !important;}
+.slide [style*="font-size:13.5px"]{font-size:clamp(17px, 1.4vw, 21px) !important;}
+.slide [style*="font-size:14px"]{font-size:clamp(17.5px, 1.45vw, 22px) !important;}
+.slide [style*="font-size:14.5px"]{font-size:clamp(18px, 1.5vw, 22.5px) !important;}
+.slide [style*="font-size:15px"]{font-size:clamp(18.5px, 1.55vw, 23.5px) !important;}
+.slide [style*="font-size:15.5px"]{font-size:clamp(19px, 1.6vw, 24px) !important;}
+.slide [style*="font-size:16px"]{font-size:clamp(19.5px, 1.65vw, 25px) !important;}
+.slide [style*="font-size:17px"]{font-size:clamp(20.5px, 1.7vw, 26px) !important;}
+.slide [style*="font-size:18px"]{font-size:clamp(22px, 1.85vw, 28px) !important;}
+.slide [style*="font-size:20px"]{font-size:clamp(24px, 2vw, 30px) !important;}
+.slide [style*="font-size:22px"]{font-size:clamp(26px, 2.2vw, 33px) !important;}
+.slide [style*="font-size:24px"]{font-size:clamp(28px, 2.4vw, 36px) !important;}
+.slide [style*="font-size:30px"]{font-size:clamp(36px, 3vw, 46px) !important;}
+.slide [style*="font-size:32px"]{font-size:clamp(38px, 3.2vw, 48px) !important;}
+.slide [style*="font-size:36px"]{font-size:clamp(42px, 3.5vw, 54px) !important;}
+.slide [style*="font-size:38px"]{font-size:clamp(44px, 3.7vw, 56px) !important;}
+.slide [style*="font-size:42px"]{font-size:clamp(48px, 4vw, 60px) !important;}
+.slide [style*="font-size:48px"]{font-size:clamp(54px, 4.5vw, 68px) !important;}
+.slide [style*="font-size:54px"]{font-size:clamp(60px, 5vw, 76px) !important;}
+
+/* ========== Container spacing 細調 (大字後需要 less padding) ========== */
+.slide{padding:30px 50px !important;}
+.slide-inner{gap:13px !important; max-width:1450px !important;}
+.slide .card{padding:14px 18px !important;}
+
+/* ========== Subject hero 加大 ========== */
+.slide .subject-hero{gap:20px !important; padding-bottom:12px !important; margin-bottom:6px !important;}
+
+/* ========== Photos 容器加大 padding inset ========== */
+
+/* ========== 全螢幕模式 (≥1600px viewport) 額外 boost ========== */
+@media (min-width:1600px){
+  .slide{padding:40px 70px !important;}
+  .slide-inner{max-width:1620px !important; gap:16px !important;}
+}
+@media (min-width:1920px){
+  .slide{padding:50px 90px !important;}
+  .slide-inner{max-width:1820px !important; gap:18px !important;}
+}
+</style>
+
 <!-- V5 FONT BOOST — 全局字體加大層（最高優先級） -->
 <style id="v5-font-boost">
 /* ========== 全局字體放大（+25-35%）========== */
