@@ -1145,16 +1145,16 @@ body .slide-inner{
   min-width:0 !important;
   flex:none !important;
   flex-shrink:0 !important;
-  padding:48px 70px !important;  /* 重新加 padding (原 padding-top/bottom 90px 改 48px 因有 transform) */
-  padding-bottom:80px !important;  /* 留位俾 dots */
+  padding:48px 70px !important;
+  padding-bottom:120px !important;  /* 加大底部 reserve 避免 dots 截斷 footer */
   transform:scale(var(--slide-scale, 1));
   transform-origin:center center;
-  transition:transform .25s ease-out;
+  transition:none !important;  /* 移除 transition 解決 stuck CSS transition 問題 */
   box-sizing:border-box;
 }
 /* 大 monitor (≥1920) 用更多 padding */
 @media (min-width:1920px){
-  body .slide-inner{padding:60px 90px !important; padding-bottom:80px !important;}
+  body .slide-inner{padding:60px 90px !important; padding-bottom:120px !important;}
 }
 </style>
 </head>
@@ -1199,6 +1199,157 @@ body .slide-inner{
 <div class="stat-num" data-target="2025">2025</div>
 <div class="stat-label">Programme Launch</div>
 </div>
+</div>
+</div>
+</section>
+<!-- ===== P2 v5 講座流程概覽 (重寫，唔再用 timeline-row class) ===== -->
+<section class="slide" data-section="OPENING · AGENDA" data-slide="2">
+<div class="slide-inner">
+<div class="kicker">AGENDA · TODAY'S TALK</div>
+<h2 class="big">Today's　<span class="gradient-text">Programme</span>　·　7 Topics</h2>
+<p class="tagline" style="max-width:1180px;">From the opening school overview, through AI IN ALL SUBJECTS, next year's new P1 streams, our no-dictation policy, after-school support, and the Talent Programme — capped by an open Q&amp;A.</p>
+<div style="flex:1; display:flex; flex-direction:column; gap:10px; min-height:0; justify-content:center;">
+<div class="agenda-item" style="display:flex; align-items:center; gap:18px; padding:14px 22px; border-radius:12px; background:rgba(255,254,251,0.85); border-left:4px solid var(--c-claude); box-shadow:0 2px 8px rgba(29,28,26,0.04);">
+<div style="flex-shrink:0; width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--c-claude),#d99a82); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:24px; font-weight:900;">1</div>
+<div style="flex:1; font-size:22px; font-weight:700; color:var(--ink); line-height:1.35;">🎬 Programme Overview · School Snapshot</div>
+</div>
+<div class="agenda-item" style="display:flex; align-items:center; gap:18px; padding:14px 22px; border-radius:12px; background:rgba(255,254,251,0.85); border-left:4px solid var(--c2); box-shadow:0 2px 8px rgba(29,28,26,0.04);">
+<div style="flex-shrink:0; width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--c2),#d44a8a); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:24px; font-weight:900;">2</div>
+<div style="flex:1; font-size:22px; font-weight:700; color:var(--ink); line-height:1.35;">🤖 AI IN ALL SUBJECTS — AI Across 8 Subjects</div>
+</div>
+<div class="agenda-item" style="display:flex; align-items:center; gap:18px; padding:14px 22px; border-radius:12px; background:rgba(255,254,251,0.85); border-left:4px solid var(--c1); box-shadow:0 2px 8px rgba(29,28,26,0.04);">
+<div style="flex-shrink:0; width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--c1),#2ab5d8); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:24px; font-weight:900;">3</div>
+<div style="flex:1; font-size:22px; font-weight:700; color:var(--ink); line-height:1.35;">📚 English Elite Class English Elite　+　來年 P1 New Streams</div>
+</div>
+<div class="agenda-item" style="display:flex; align-items:center; gap:18px; padding:14px 22px; border-radius:12px; background:rgba(255,254,251,0.85); border-left:4px solid var(--c-pain); box-shadow:0 2px 8px rgba(29,28,26,0.04);">
+<div style="flex-shrink:0; width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--c-pain),#f97316); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:24px; font-weight:900;">4</div>
+<div style="flex:1; font-size:22px; font-weight:700; color:var(--ink); line-height:1.35;">✏️ Assessment &amp; No-Dictation Policy</div>
+</div>
+<div class="agenda-item" style="display:flex; align-items:center; gap:18px; padding:14px 22px; border-radius:12px; background:rgba(255,254,251,0.85); border-left:4px solid var(--c3); box-shadow:0 2px 8px rgba(29,28,26,0.04);">
+<div style="flex-shrink:0; width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--c3),#d99540); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:24px; font-weight:900;">5</div>
+<div style="flex:1; font-size:22px; font-weight:700; color:var(--ink); line-height:1.35;">🏫 Tutorial &amp; After-School Care</div>
+</div>
+<div class="agenda-item" style="display:flex; align-items:center; gap:18px; padding:14px 22px; border-radius:12px; background:rgba(255,254,251,0.85); border-left:4px solid var(--c4); box-shadow:0 2px 8px rgba(29,28,26,0.04);">
+<div style="flex-shrink:0; width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--c4),#2ab38e); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:24px; font-weight:900;">6</div>
+<div style="flex:1; font-size:22px; font-weight:700; color:var(--ink); line-height:1.35;">🎨 Talent Programme　+　Extra-curricular Activities　+　P1 Onboarding</div>
+</div>
+<div class="agenda-item" style="display:flex; align-items:center; gap:18px; padding:14px 22px; border-radius:12px; background:rgba(255,254,251,0.85); border-left:4px solid var(--c5); box-shadow:0 2px 8px rgba(29,28,26,0.04);">
+<div style="flex-shrink:0; width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--c5),#9252e8); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:24px; font-weight:900;">7</div>
+<div style="flex:1; font-size:22px; font-weight:700; color:var(--ink); line-height:1.35;">🎯 Wrap-Up &amp; Q&amp;A</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===== P3 v5 上下午課程編排 ===== -->
+<section class="slide" data-section="OPENING · DAILY RHYTHM" data-slide="3">
+<div class="slide-inner">
+<div class="kicker k-cyan">2025/26 Whole-Day Timetable</div>
+<h2 class="big">Whole-Day　<span class="gradient-text-cool">Two-Track Rhythm</span>　·　· Six-Day Cycle</h2>
+<p class="tagline" style="max-width:1180px;">Six core periods every morning (DAY 1-6 cycle) plus afternoon activities, tutorials, and the Talent Programme — solid academics, rich activities, and a steady daily rhythm.</p>
+<div style="display:grid; grid-template-columns:1.45fr 1fr; gap:18px; flex:1; align-items:stretch; min-height:0;">
+<!-- 左:真實時間表相 -->
+<div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
+<div style="flex:1; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff; display:flex; align-items:center; justify-content:center; position:relative;">
+<img alt="2025/26 年度全日制時間表" src="photos/p3_timetable.png" style="width:100%; height:100%; object-fit:contain; background:#fff;"/>
+<span style="position:absolute; top:8px; left:8px; background:rgba(8,145,178,0.92); color:#fff; padding:4px 12px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:1.5px; font-weight:700;">📅 Full Timetable</span>
+</div>
+<p class="small" style="text-align:center; color:var(--ink-3); font-style:italic;">DAY 1-6 cycle · six 35-minute periods each morning</p>
+</div>
+<!-- 右:雙軌說明 -->
+<div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
+<div class="card card-l-cyan" style="padding:13px 16px;">
+<div class="kicker k-cyan">☀️ MORNING 8:00-12:40 · Core Curriculum</div>
+<ul class="bullet" style="font-size:12.5px; line-height:1.75; margin-top:6px;">
+<li><strong>8:00-8:25: </strong>Homeroom / Morning Assembly</li>
+<li><strong>8:25-8:30: </strong>morning exercise</li>
+<li><strong>8:30-12:40: </strong>Periods 1-6 subject classes (Chinese ×2, English ×2)</li>
+<li><strong>Two 20-min breaks: </strong>9:40-10:00 · 11:10-11:30</li>
+</ul>
+</div>
+<div class="card card-l-magenta" style="padding:13px 16px;">
+<div class="kicker k-magenta">🍱 12:40-13:40 · Lunch + Break</div>
+<p class="body" style="font-size:12.5px; margin-top:5px; line-height:1.65;">A full hour — rest, playground time, and social space.</p>
+</div>
+<div class="card card-l-amber" style="padding:13px 16px;">
+<div class="kicker k-amber">🎨 AFTERNOON 13:40-15:00 · Activities</div>
+<p class="body" style="font-size:12px; margin-top:5px; line-height:1.7;">
+<strong>Monday：</strong>Class Camp/Growth + Tutorials<br/>
+<strong>Tuesday：</strong>Tutorials + Humanities / Civic Ed.<br/>
+<strong>Wednesday：</strong>Reading Class + Tutorial<br/>
+<strong>Thursday：</strong>Talent Programme<br/>
+<strong>Friday：</strong>13:30 dismissal · Teacher Professional Development
+          </p>
+</div>
+<div style="padding:8px 12px; background:linear-gradient(135deg,#fff8f0,#fffefb); border-radius:8px; border-left:3px solid var(--c-claude);">
+<p style="font-size:11.5px; font-weight:700; color:var(--c-claude); margin:0;">📖 Wednesday Reading led by NET teacher · Friday joint lesson planning · Students dismissed 13:30</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===== P4 v5 校本特色概覽 ===== -->
+<section class="slide" data-section="OPENING · SCHOOL DNA" data-slide="4">
+<div class="slide-inner">
+<div class="kicker k-amber">SCHOOL DNA · Three Pillars</div>
+<h2 class="big">LWWF's Three　<span class="gradient-text-warm">Core Pillars</span></h2>
+<p class="tagline" style="max-width:1180px;">The hidden curriculum beyond subjects — "<strong style="color:var(--c1);">Affective · Reading · Parenting</strong>" — three throughlines from P1 to P6, the foundation of whole-person growth.</p>
+<div class="g3" style="flex:1; gap:14px;">
+<!-- 情智教育 -->
+<div class="card card-l-cyan" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
+<div style="aspect-ratio:4/3; overflow:hidden; background:#fff8f0; display:flex; align-items:center; justify-content:center;">
+<img alt="5 學生持 Kimochis 情緒娃娃喺圖書館合照" src="photos/p4_kimochis_kids.jpeg" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;"/>
+</div>
+<div style="padding:14px 16px; display:flex; flex-direction:column; gap:6px; flex:1;">
+<div class="kicker k-cyan">Pillar 1 · Whole-Person Growth</div>
+<h3 class="lead" style="color:var(--c1); font-size:18px;">💙 Affective Education</h3>
+<p class="body" style="font-size:12.5px; line-height:1.65;">A weekly Affective class——使用<strong style="color:var(--c1);">Kimochis emotion dolls</strong>Helps junior students name feelings, express themselves, and build social skills. Led by class teachers and counsellors, it cultivates emotion regulation.</p>
+<ul class="bullet" style="font-size:11.5px; line-height:1.7;">
+<li>P1-P3: emotion recognition + expression</li>
+<li>P4-P6: conflict resolution + self-awareness</li>
+</ul>
+<p class="small" style="margin-top:auto; font-style:italic;">Aligned with the OECD Well-being framework</p>
+</div>
+</div>
+<!-- 閱讀課 -->
+<div class="card card-l-magenta" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
+<div style="aspect-ratio:4/3; overflow:hidden; background:#fff8f0; display:flex; align-items:center; justify-content:center;">
+<img alt="外籍英語老師生動講故事 · 學生互動" src="photos/p4_english_reading.jpg" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;"/>
+</div>
+<div style="padding:14px 16px; display:flex; flex-direction:column; gap:6px; flex:1;">
+<div class="kicker k-magenta">Pillar 2 · Global Perspective</div>
+<h3 class="lead" style="color:var(--c2); font-size:18px;">📖 Native-English Reading</h3>
+<p class="body" style="font-size:12.5px; line-height:1.65;"><strong style="color:var(--c2);">每週固定時段</strong> — our Native English Teacher (NET) tells stories in person with interactive delivery. Immersive language learning that builds an international outlook from P1 onward.</p>
+<ul class="bullet" style="font-size:11.5px; line-height:1.7;">
+<li>One period per week (Wednesday afternoon)</li>
+<li>Action, expression, and props throughout</li>
+<li>Held weekly from P1 through P6</li>
+</ul>
+<p class="small" style="margin-top:auto; font-style:italic;">Pairs with the English Elite immersion environment</p>
+</div>
+</div>
+<!-- 親職教育 -->
+<div class="card card-l-amber" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
+<div style="aspect-ratio:4/3; overflow:hidden; background:#fff8f0; display:flex; align-items:center; justify-content:center;">
+<img alt="家長 workshop 親職教育講座實況" src="photos/p4_parent_workshop.jpeg" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;"/>
+</div>
+<div style="padding:14px 16px; display:flex; flex-direction:column; gap:6px; flex:1;">
+<div class="kicker k-amber">Pillar 3 · Home-School Co-Learning</div>
+<h3 class="lead" style="color:var(--c3); font-size:18px;">🤝 Parent Education</h3>
+<p class="body" style="font-size:12.5px; line-height:1.65;"><strong style="color:var(--c3);">Every Wednesday afternoon</strong>Parent Education slot — regular workshops, parenting talks, and newsletters. Home and school in seamless co-learning.</p>
+<ul class="bullet" style="font-size:11.5px; line-height:1.7;">
+<li>AI Workshops (Gemini × Poe)</li>
+<li>Secondary / Primary transition talks</li>
+<li>Emotion management &amp; parenting skills</li>
+</ul>
+<p class="small" style="margin-top:auto; font-style:italic;">2-3 major sessions per term</p>
+</div>
+</div>
+</div>
+<div style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px; padding:10px 14px; background:linear-gradient(135deg,rgba(204,120,92,0.06),rgba(190,24,93,0.06)); border-radius:10px;">
+<div style="text-align:center;"><div class="stat-num" style="font-size:30px;">8</div><div class="stat-label" style="font-size:9px;">Subjects</div></div>
+<div style="text-align:center;"><div class="stat-num" style="font-size:30px;">3</div><div class="stat-label" style="font-size:9px;">Core Pillars</div></div>
+<div style="text-align:center;"><div class="stat-num" style="font-size:30px;">P1-P6</div><div class="stat-label" style="font-size:9px;">Six-Year Spiral</div></div>
+<div style="text-align:center;"><div class="stat-num" style="font-size:30px;">2026</div><div class="stat-label" style="font-size:9px;">New Streaming</div></div>
 </div>
 </div>
 </section>
@@ -2035,14 +2186,14 @@ body .slide-inner{
 <div class="card card-l-cyan" style="padding:13px 16px;">
 <h3 class="lead" style="color:var(--c1); font-size:15px;">📚 Three Pillars</h3>
 <p class="body" style="margin-top:5px; font-size:12.5px; line-height:1.7;">
-            ① <strong>Math (Mathematics)</strong> in English——textbook、worksheets、評估全英文<br/>
-            ② <strong>Science (Science)</strong> in English——實驗、報告、評估全英文<br/>
-            ③ Spring Talent Programme: <strong>English drama training</strong>——真實情境運用英語
+            ① <strong>Math (Mathematics)</strong> in English — textbook, worksheets, and assessments all in English<br/>
+            ② <strong>Science (Science)</strong> in English — experiments, reports, and assessments all in English<br/>
+            ③ Spring Talent Programme: <strong>English drama training</strong> — using English in real situations
           </p>
 </div>
 <div class="card card-l-emerald" style="padding:13px 16px;">
 <h3 class="lead" style="color:var(--c4); font-size:15px;">💡 Why English Elite?</h3>
-<p class="body" style="margin-top:5px; font-size:12.5px; line-height:1.65;">For students with <strong>a solid English foundation and a real interest in going deeper</strong> students——secondary school transition時 EMI（英文授課）中學<strong style="color:var(--c4);">銜接優勢明顯</strong>.學生畢業時已具備跨學科英語能力.</p>
+<p class="body" style="margin-top:5px; font-size:12.5px; line-height:1.65;">For students with <strong>a solid English foundation and a real interest in going deeper</strong> students——when transitioning to secondary school, EMI (English-medium) secondary schools<strong style="color:var(--c4);">銜接優勢明顯</strong>. Graduates already have cross-subject English ability.</p>
 </div>
 <div class="card card-l-magenta" style="padding:11px 16px;">
 <h3 class="mid" style="color:var(--c2); font-size:14px;">📋 Admission Process</h3>
@@ -2067,7 +2218,7 @@ body .slide-inner{
 <div style="padding:13px 16px; display:flex; flex-direction:column; gap:6px; flex:1;">
 <div class="kicker k-cyan">Pillar ① · Subject Immersion</div>
 <h3 class="lead" style="color:var(--c1); font-size:17px;">📐 Mathematics</h3>
-<p class="body" style="font-size:12.5px; line-height:1.65;">textbook、worksheets、評估<strong>全部英文</strong>——學生由認識數學概念開始，同時學會英文嘅<strong>academic vocabulary</strong>.</p>
+<p class="body" style="font-size:12.5px; line-height:1.65;">textbook、worksheets、評估<strong>全部英文</strong> — students learn math concepts while picking up the matching English <strong>academic vocabulary</strong>.</p>
 <p class="small" style="font-size:11px; line-height:1.65; color:var(--ink-2);">📚 Core vocabulary: addition · subtraction · equation · perimeter · fraction · decimal · word problem</p>
 <p class="small" style="color:var(--c1); font-weight:700; margin-top:auto;">📊 Smooth EMI secondary school transition</p>
 </div>
@@ -2080,7 +2231,7 @@ body .slide-inner{
 <div style="padding:13px 16px; display:flex; flex-direction:column; gap:6px; flex:1;">
 <div class="kicker k-cyan">Pillar ② · Inquiry-Based</div>
 <h3 class="lead" style="color:var(--c1); font-size:17px;">🧪 Science</h3>
-<p class="body" style="font-size:12.5px; line-height:1.65;">實驗單元嘅worksheets、評估都以<strong>英文進行</strong>——學生做實驗時自然吸收 <strong>scientific vocabulary</strong>.</p>
+<p class="body" style="font-size:12.5px; line-height:1.65;">Lab unit worksheets and assessments are in <strong>英文進行</strong> — students absorb naturally as they experiment, picking up  <strong>scientific vocabulary</strong>.</p>
 <p class="small" style="font-size:11px; line-height:1.65; color:var(--ink-2);">🔬 Core vocabulary: hypothesis · observation · experiment · conclusion · variable · measurement</p>
 <p class="small" style="color:var(--c1); font-weight:700; margin-top:auto;">🚀 Real projects: rockets, cardboard devices</p>
 </div>
@@ -2093,7 +2244,7 @@ body .slide-inner{
 <div style="padding:13px 16px; display:flex; flex-direction:column; gap:6px; flex:1;">
 <div class="kicker k-cyan">Pillar ③ · Real-World Use</div>
 <h3 class="lead" style="color:var(--c1); font-size:17px;">🎭 Routines + Drama</h3>
-<p class="body" style="font-size:12.5px; line-height:1.65;">Daily class routines are run in English — paired with <strong>the spring Talent Programme's drama training</strong>，學生由「會睇會聽」進化為「敢講敢演」.</p>
+<p class="body" style="font-size:12.5px; line-height:1.65;">Daily class routines are run in English — paired with <strong>the spring Talent Programme's drama training</strong>, students move from "can read and listen" to "dare to speak and perform".</p>
 <p class="small" style="font-size:11px; line-height:1.65; color:var(--ink-2);">🎤 Daily phrases: Good morning · May I... · Please pass me... · I would like to share...</p>
 <p class="small" style="color:var(--c1); font-weight:700; margin-top:auto;">🎬 Every spring: English drama showcase</p>
 </div>
@@ -2115,11 +2266,11 @@ body .slide-inner{
 <div class="card card-l-cyan" style="padding:14px 16px;">
 <div class="kicker k-cyan">📈 OUTCOMES</div>
 <ul class="bullet" style="font-size:12.5px; line-height:1.85; margin-top:6px;">
-<li><strong style="color:var(--c1);">English Confidence: </strong>students speak up in English without hesitation、解答問題</li>
-<li><strong style="color:var(--c1);">Academic English: </strong>掌握 200+ 數理科學專業詞彙</li>
-<li><strong style="color:var(--c1);">EMI Pathway: </strong>secondary school transition時順利適應英文授課中學</li>
-<li><strong style="color:var(--c1);">Drama Showcase: </strong>每年spring term匯演 · 全班參與</li>
-<li><strong style="color:var(--c1);">Self-directed Learning：</strong>用 AI 工具自學默書、writing</li>
+<li><strong style="color:var(--c1);">English Confidence: </strong>students speak up and answer questions in English without hesitation</li>
+<li><strong style="color:var(--c1);">Academic English: </strong>mastery of 200+ specialised math and science terms</li>
+<li><strong style="color:var(--c1);">EMI Pathway: </strong>smooth transition into English-medium secondary schools</li>
+<li><strong style="color:var(--c1);">Drama Showcase: </strong>spring term performance · whole class participates</li>
+<li><strong style="color:var(--c1);">Self-directed Learning：</strong>Use AI tools 自學默書、writing</li>
 </ul>
 </div>
 <div style="flex:1; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center; position:relative;">
@@ -2131,11 +2282,11 @@ body .slide-inner{
 <div style="display:flex; flex-direction:column; gap:8px;">
 <div class="card card-l-pain" style="padding:11px 14px;">
 <h3 class="mid" style="color:var(--c-pain); font-size:13.5px;">❓ My child's English isn't strong enough — will English Elite be too hard?</h3>
-<p class="small" style="margin-top:3px; line-height:1.65; font-size:11.5px;">Class A admissions emphasise <strong>learning interest</strong>rather than "current level". The June interview assesses adaptability. If students don't settle in, <strong>P.1 升 P.2 階段可以轉去 B/C 班</strong>，無壓力.</p>
+<p class="small" style="margin-top:3px; line-height:1.65; font-size:11.5px;">Class A admissions emphasise <strong>learning interest</strong>rather than "current level". The June interview assesses adaptability. If students don't settle in, <strong>students can transfer to Class B/C between P.1 and P.2</strong>，無壓力.</p>
 </div>
 <div class="card card-l-pain" style="padding:11px 14px;">
 <h3 class="mid" style="color:var(--c-pain); font-size:13.5px;">❓ Will Class B/C students get less English exposure?</h3>
-<p class="small" style="margin-top:3px; line-height:1.65; font-size:11.5px;">No. <strong>英文科本身全校統一教學時數同教材</strong>，B/C 班只係<strong>Math and Science</strong>are taught in Chinese. All classes still have NET reading lessons and daily English activities.</p>
+<p class="small" style="margin-top:3px; line-height:1.65; font-size:11.5px;">No. <strong>the English subject itself is identical school-wide (same hours, same materials)</strong>，B/C 班只係<strong>Math and Science</strong>are taught in Chinese. All classes still have NET reading lessons and daily English activities.</p>
 </div>
 <div class="card card-l-pain" style="padding:11px 14px;">
 <h3 class="mid" style="color:var(--c-pain); font-size:13.5px;">❓ Why can't students join English Elite after P.2 → P.3?</h3>
@@ -2143,7 +2294,7 @@ body .slide-inner{
 </div>
 <div class="card card-l-pain" style="padding:11px 14px;">
 <h3 class="mid" style="color:var(--c-pain); font-size:13.5px;">❓ Will teaching Math in English affect Chinese math concepts?</h3>
-<p class="small" style="margin-top:3px; line-height:1.65; font-size:11.5px;">No. 中文版同英文版worksheets<strong>內容完全一致</strong> (see the photo on the left); teachers switch between languages while teaching. Students master math concepts in both languages.</p>
+<p class="small" style="margin-top:3px; line-height:1.65; font-size:11.5px;">No. Chinese and English versions of the worksheets<strong>內容完全一致</strong> (see the photo on the left); teachers switch between languages while teaching. Students master math concepts in both languages.</p>
 </div>
 <div class="card card-l-emerald" style="padding:10px 14px;">
 <h3 class="mid" style="color:var(--c4); font-size:13px;">💡 Still have questions?</h3>
@@ -2158,7 +2309,7 @@ body .slide-inner{
 <div class="slide-inner">
 <div class="kicker k-pain">ASSESSMENT REFORM</div>
 <h2 class="big">Why LWWF　<span style="color:var(--c-pain);">Dropped Traditional Dictation</span></h2>
-<p class="tagline" style="max-width:1180px;">Moving from "memorisation testing" to "application testing" — answering what the AI era actually demands. LWWF has, since  <strong>2024-25 academic year</strong>逐步rolled out無考默政策，<strong>中文、英文科</strong>不再用傳統默書作為定期評估.</p>
+<p class="tagline" style="max-width:1180px;">Moving from "memorisation testing" to "application testing" — answering what the AI era actually demands. LWWF has, since  <strong>2024-25 academic year</strong>has gradually rolled out the no-dictation policy; <strong>中文、英文科</strong>no longer uses traditional dictation as a regular assessment.</p>
 <div style="display:grid; grid-template-columns:1fr 1.5fr; gap:18px; flex:1; align-items:stretch; min-height:0;">
 <!-- 左:大型聲明 + 統計 -->
 <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
@@ -2186,17 +2337,17 @@ body .slide-inner{
 <div class="card card-l-pain" style="padding:13px 16px;">
 <div class="kicker k-pain">Pillar 1</div>
 <h3 class="lead" style="color:var(--c-pain); font-size:15px; margin-top:3px;">🔄 Free Up Learning Space · Go Deeper</h3>
-<p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">將原本俾默書準備同測驗嘅時間，用於<strong>reading comprehension, writing, and discussion、speaking</strong> — building deeper language ability. The Hong Kong EDB endorsed this direction in 2025.</p>
+<p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">We redirect the time previously spent on dictation prep and tests into <strong>reading comprehension, writing, and discussion、speaking</strong> — building deeper language ability. The Hong Kong EDB endorsed this direction in 2025.</p>
 </div>
 <div class="card card-l-pain" style="padding:13px 16px;">
 <div class="kicker k-pain">Pillar 2</div>
 <h3 class="lead" style="color:var(--c-pain); font-size:15px; margin-top:3px;">💪 Lower Pressure · Protect Learning Interest</h3>
-<p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">Traditional dictation breeds <strong>resistance to Chinese and English</strong>——每週多次默書，分數低就被罰. Without it, students <strong>持續喜歡語文</strong> — the foundation of lifelong learning.</p>
+<p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">Traditional dictation breeds <strong>resistance to Chinese and English</strong> — multiple weekly dictations, with low scores punished. Without it, students  <strong>keep loving the language</strong> — the foundation of lifelong learning.</p>
 </div>
 <div class="card card-l-pain" style="padding:13px 16px;">
 <div class="kicker k-pain">Pillar 3</div>
 <h3 class="lead" style="color:var(--c-pain); font-size:15px; margin-top:3px;">🤖 The AI Era · Rethinking Assessment</h3>
-<p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">當 AI 可以即時提供答案、自動拼字、語音輸入，<strong>純粹「記得字點寫」嘅實際價值大幅下降</strong> — what truly matters is <strong>application, judgement, and creation</strong>同<strong>分辨 AI 對錯</strong>嘅能力.</p>
+<p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">When AI can answer instantly, autocomplete spelling, and transcribe speech, <strong>the practical value of "remembering how to write a character" collapses</strong> — what truly matters is <strong>application, judgement, and creation</strong>同<strong>分辨 AI 對錯</strong>嘅能力.</p>
 </div>
 <div class="card card-l-pain" style="padding:13px 16px;">
 <div class="kicker k-pain">Pillar 4</div>
@@ -2269,7 +2420,7 @@ body .slide-inner{
 <div style="flex:1;">
 <div class="kicker k-cyan">Track 1 · Knowledge Base</div>
 <h3 class="lead" style="color:var(--c1); font-size:16px; margin-top:3px;">Paper &amp; Pen</h3>
-<p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">傳統測驗、考試保留——測試<strong>基本知識掌握、運算技能、書寫能力</strong>.</p>
+<p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">Traditional tests and exams stay — covering <strong>core knowledge, computation, and writing</strong>.</p>
 <p class="small" style="margin-top:3px; font-size:10.5px;"><strong style="color:var(--c1);">Best for: </strong>core concepts · foundational skills · 30-40% weight</p>
 </div>
 </div>
@@ -2280,7 +2431,7 @@ body .slide-inner{
 <div style="flex:1;">
 <div class="kicker k-amber">Track 2 · Learning Process</div>
 <h3 class="lead" style="color:var(--c3); font-size:16px; margin-top:3px;">Process Portfolio</h3>
-<p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">收集整個term作品、反思、進度——記錄<strong>Learning Process</strong>, not just the result.包括drafts、revision history、self-assessmentpeer assessment.</p>
+<p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">Collects a term of work, reflections, and progress, capturing <strong>Learning Process</strong>, not just the result.Includes drafts, revisions, and self- and peer-assessment.</p>
 <p class="small" style="margin-top:3px; font-size:10.5px;"><strong style="color:var(--c3);">Best for: </strong>creative work · writing · PBL · 30-35% weight</p>
 </div>
 </div>
@@ -2337,7 +2488,7 @@ body .slide-inner{
 <div style="font-size:16px; font-weight:800; margin-top:2px;">📝 Tutorial</div>
 </div>
 <div style="padding:13px 12px; border-bottom:1px solid var(--border); font-size:12.5px;"><strong style="color:var(--c1);">3:00 – 4:30 PM</strong><br/><span style="font-size:10.5px; color:var(--ink-3);">90 minutes after dismissal</span></div>
-<div style="padding:13px 12px; border-bottom:1px solid var(--border); background:rgba(8,145,178,0.03); font-size:12px; line-height:1.55;">Helps students <strong>完成當日功課</strong>　·　老師即時解答疑難</div>
+<div style="padding:13px 12px; border-bottom:1px solid var(--border); background:rgba(8,145,178,0.03); font-size:12px; line-height:1.55;">Helps students <strong>完成當日功課</strong>　· teachers available for instant help</div>
 <div style="padding:13px 12px; border-bottom:1px solid var(--border); font-size:12.5px;"><span style="color:var(--c4); font-weight:700;">✅ Provided</span></div>
 <div style="padding:13px 12px; background:rgba(8,145,178,0.03); font-size:11.5px; line-height:1.55;">Students needing homework help but catching the school bus home</div>
 </div>
@@ -2365,7 +2516,7 @@ body .slide-inner{
 <div class="slide-inner">
 <div class="kicker k-violet">INVITATIONAL EDUCATION</div>
 <h2 class="big">五大元素　<span class="gradient-text">Talent Programme</span></h2>
-<p class="tagline" style="max-width:1180px;">Our Talent Programme is built on the international Invitational Education framework — with <strong>關懷 · 樂觀 · 尊重 · 信任 · 刻意安排</strong>五大元素，喚醒每位學生獨特天賦.</p>
+<p class="tagline" style="max-width:1180px;">Our Talent Programme is built on the international Invitational Education framework — with <strong>Care · Optimism · Respect · Trust · Intentionality</strong>five elements awaken every student's unique gifts.</p>
 <div style="display:grid; grid-template-columns:1fr 1.15fr; gap:20px; flex:1; align-items:stretch; min-height:0;">
 <!-- 左:5 元素框架圖 -->
 <div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
@@ -2395,7 +2546,7 @@ body .slide-inner{
 </div>
 <div class="card card-l-magenta" style="padding:11px 14px;">
 <h3 class="mid" style="color:var(--c2); font-size:14.5px;">🎯 INTENTIONALITY</h3>
-<p class="body" style="font-size:12px; margin-top:3px;">所有環境、activities、評估都<strong>刻意設計</strong> — never random, always systematically inviting each student's unique potential.</p>
+<p class="body" style="font-size:12px; margin-top:3px;">Every environment, activity, and assessment is <strong>刻意設計</strong> — never random, always systematically inviting each student's unique potential.</p>
 </div>
 </div>
 </div>
@@ -2410,7 +2561,7 @@ body .slide-inner{
 <div class="slide-inner">
 <div class="kicker k-violet">Talent · P1-P6 Spiral Roadmap</div>
 <h2 class="big">P.6　<span class="gradient-text">Roadmap</span>at a Glance</h2>
-<p class="tagline" style="max-width:1180px;">每位學生於 6 年內<strong>系統地</strong>Exploring all 8 intelligences — broad in early years, deep in upper years, and a smooth secondary-school transition.</p>
+<p class="tagline" style="max-width:1180px;">Every student, across six years,<strong>系統地</strong>Exploring all 8 intelligences — broad in early years, deep in upper years, and a smooth secondary-school transition.</p>
 <div style="display:grid; grid-template-columns:1.5fr 1fr; gap:18px; flex:1; align-items:stretch; min-height:0;">
 <!-- 左:6 年發展表 -->
 <div style="display:flex; flex-direction:column; min-height:0; border-radius:14px; box-shadow:var(--shadow); background:#fff; overflow:hidden;">
@@ -2473,9 +2624,9 @@ body .slide-inner{
 </div>
 </div>
 <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:9px 14px; background:linear-gradient(135deg,rgba(109,40,217,0.05),rgba(190,24,93,0.05)); border-radius:10px;">
-<div style="font-size:11.5px;"><strong style="color:var(--c5);">📊 P1-P3 廣泛探索：</strong>4 大智能輪流體驗，唔逼學生過早專注</div>
-<div style="font-size:11.5px;"><strong style="color:var(--c2);">🎯 P4 STEAM 啟蒙：</strong>加入跨域思維，自然 + 數理邏輯</div>
-<div style="font-size:11.5px;"><strong style="color:var(--c-claude);">🚀 P5-P6 secondary school transition：</strong>interview訓練 + 自選發展方向</div>
+<div style="font-size:11.5px;"><strong style="color:var(--c5);">📊 P1-P3 Broad Exploration: </strong>four intelligences rotate, with no rushed specialisation</div>
+<div style="font-size:11.5px;"><strong style="color:var(--c2);">🎯 P4 STEAM Foundation: </strong>cross-domain thinking enters — Naturalist + Logical-Math</div>
+<div style="font-size:11.5px;"><strong style="color:var(--c-claude);">🚀 P5-P6 Secondary Transition: </strong>interview practice + self-directed development</div>
 </div>
 </div>
 </section>
@@ -2588,7 +2739,7 @@ body .slide-inner{
 <div class="slide-inner">
 <div class="kicker k-emerald">P1 Onboarding · K2/K3 Adaptation Programme</div>
 <h2 class="big">From Kindergarten to<span class="gradient-text-cool">Primary One</span></h2>
-<p class="tagline" style="max-width:1180px;">梁校專為 K2/K3 學生設計嘅<strong>P1 onboarding curriculum</strong>——AI Sport + MATATALAB 實物Coding，無縫銜接 A/B/C 三班 STEAM 基礎.</p>
+<p class="tagline" style="max-width:1180px;">LWWF's exclusive curriculum for K2/K3 students — <strong>P1 onboarding curriculum</strong> — AI Sport + MATATALAB tangible coding, dovetailing seamlessly into the STEAM foundations of Streams A, B, and C.</p>
 <div style="display:grid; grid-template-columns:1fr 1.3fr; gap:18px; flex:1; align-items:stretch; min-height:0;">
 <!-- 左:K2/K3 適應課程 poster -->
 <div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
@@ -2606,15 +2757,15 @@ body .slide-inner{
 </div>
 <div class="card card-l-cyan" style="padding:13px 16px;">
 <h3 class="lead" style="color:var(--c1); font-size:16px;">🧱 MATATALAB Course</h3>
-<p class="body" style="font-size:12.5px; margin-top:5px; line-height:1.65;">學習使用 <strong>MATATALAB robot</strong>完成Coding任務——喺<strong>in competition完成各種挑戰</strong>.K2/K3 已開始接觸運算思維，銜接 P1 AI Innovation Class.</p>
+<p class="body" style="font-size:12.5px; margin-top:5px; line-height:1.65;">學習使用 <strong>MATATALAB robot</strong>complete coding tasks in<strong>complete challenges in a friendly competition</strong>. K2/K3 already encounter computational thinking, easing the path into the P1 AI Innovation Class.</p>
 </div>
 <div class="card card-l-amber" style="padding:13px 16px;">
 <h3 class="lead" style="color:var(--c3); font-size:16px;">📅 Programme Details</h3>
 <p class="body" style="font-size:12px; margin-top:5px; line-height:1.65;">
-<strong>日期：</strong>2026 年 1 月 24 日（星期六）<br/>
-<strong>時間：</strong>K3 上午 9:30-10:30 · K2 上午 11:00-中午 12:00<br/>
-<strong>地點：</strong>Lok Sin Tong Leung Wong Wai Fong Memorial School<br/>
-<strong>對象：</strong>2025-2026 年度 K2 及 K3 幼稚園學生
+<strong>Date: </strong>Saturday, 24 January 2026<br/>
+<strong>Time: </strong>K3: 9:30-10:30 AM · K2: 11:00 AM - 12:00 PM<br/>
+<strong>Venue: </strong>Lok Sin Tong Leung Wong Wai Fong Memorial School<br/>
+<strong>For: </strong>K2 and K3 kindergarten students in the 2025-2026 academic year
           </p>
 </div>
 <div style="padding:8px 12px; background:linear-gradient(135deg,rgba(4,120,87,0.06),rgba(8,145,178,0.06)); border-radius:8px; border-left:3px solid var(--c4);">
@@ -2627,7 +2778,7 @@ body .slide-inner{
 <!-- ===== P38 v5 升小適應 ② Matatalab 比賽 + 6 大支援 ===== -->
 <section class="slide" data-section="升小適應 · 6 大支援" data-slide="38">
 <div class="slide-inner">
-<div class="kicker k-emerald">P1 Onboarding · 入學後 6 大支援</div>
+<div class="kicker k-emerald">P1 Onboarding · 6 Support Pillars After Admission</div>
 <h2 class="big">LWWF's<span class="gradient-text-cool">P1 Onboarding —</span>　全方位支援</h2>
 <div style="display:grid; grid-template-columns:1fr 1.55fr; gap:18px; flex:1; align-items:stretch; min-height:0;">
 <!-- 左:Matatalab 比賽 poster -->
@@ -2733,7 +2884,7 @@ body .slide-inner{
 <section class="slide" data-section="Q&amp;A SESSION" data-slide="40">
 <div class="slide-inner">
 <div class="kicker">Q&amp;A SESSION</div>
-<h1 class="hero" style="font-size:64px;"><span class="gradient-text">Q&amp;A Time</span>　·　多謝您 your attendance</h1>
+<h1 class="hero" style="font-size:64px;"><span class="gradient-text">Q&amp;A Time</span>　· Thank You for Joining Us</h1>
 <p class="tagline" style="font-size:17px; max-width:1180px;">Take questions now — or reach out to the Principal and Curriculum Coordinator afterwards. LWWF welcomes parents to walk this journey with us.</p>
 <div style="display:grid; grid-template-columns:1.05fr 1.15fr 1fr; gap:14px; flex:1; align-items:stretch; min-height:0;">
 <!-- 左:校舍相 -->
@@ -2778,7 +2929,7 @@ body .slide-inner{
 <p class="small" style="font-size:11px; margin-top:4px; line-height:1.65;">
 <strong>Scan the QR code to message directly</strong><br/>
             wa.me/85224666712<br/>
-<strong>Siu Wai-YanDean：</strong>AI unit · 啟潛 · 英尖
+<strong>Dean Siu Wai-Yan：</strong>AI curriculum · Talent · English Elite
           </p>
 </div>
 </div>

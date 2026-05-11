@@ -1268,16 +1268,16 @@ body .slide-inner{
   min-width:0 !important;
   flex:none !important;
   flex-shrink:0 !important;
-  padding:48px 70px !important;  /* 重新加 padding (原 padding-top/bottom 90px 改 48px 因有 transform) */
-  padding-bottom:80px !important;  /* 留位俾 dots */
+  padding:48px 70px !important;
+  padding-bottom:120px !important;  /* 加大底部 reserve 避免 dots 截斷 footer */
   transform:scale(var(--slide-scale, 1));
   transform-origin:center center;
-  transition:transform .25s ease-out;
+  transition:none !important;  /* 移除 transition 解決 stuck CSS transition 問題 */
   box-sizing:border-box;
 }
 /* 大 monitor (≥1920) 用更多 padding */
 @media (min-width:1920px){
-  body .slide-inner{padding:60px 90px !important; padding-bottom:80px !important;}
+  body .slide-inner{padding:60px 90px !important; padding-bottom:120px !important;}
 }
 </style>
 </head>
@@ -1924,9 +1924,10 @@ body .slide-inner{
         </div>
       </div>
       <div style="display:flex; flex-direction:column; gap:10px; height:100%; min-height:0;">
-        <div style="flex:1.4; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#000; position:relative;">
-          <video autoplay muted loop playsinline preload="metadata"
-                 style="width:100%; height:100%; object-fit:contain; background:#000;">
+        <div style="flex:1.4; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; position:relative;">
+          <video autoplay muted loop playsinline preload="auto"
+                 poster="photos/p10_science_steward.jpg"
+                 style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
             <source src="photos/p10_plant_id.mp4" type="video/mp4">
           </video>
           <div style="position:absolute; top:8px; left:8px; background:rgba(204,120,92,0.92); color:#fff; padding:4px 12px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px; font-weight:700;">▶ 識花君影片</div>
@@ -2030,9 +2031,10 @@ body .slide-inner{
     </div>
     <div class="g-img-text" style="flex:1;">
       <div style="display:flex; flex-direction:column; gap:10px; height:100%; min-height:0;">
-        <div style="flex:2; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#000; position:relative;">
-          <video autoplay muted loop playsinline preload="metadata"
-                 style="width:100%; height:100%; object-fit:contain; background:#000;">
+        <div style="flex:2; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; position:relative;">
+          <video autoplay muted loop playsinline preload="auto"
+                 poster="photos/p13_va_ai.jpeg"
+                 style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
             <source src="photos/p13_doorgod.mp4" type="video/mp4">
           </video>
           <div style="position:absolute; top:8px; left:8px; background:rgba(204,120,92,0.92); color:#fff; padding:4px 12px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px; font-weight:700;">▶ 現代門神影片</div>
@@ -3463,13 +3465,17 @@ slides[0].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
       location.href = target + hash;
     });
   });
-  // 開頁時讀 hash 跳對應 slide
-  if (location.hash) {
+  // 開頁時讀 hash + listen hash change 跳對應 slide
+  function jumpByHash() {
+    if (!location.hash) return;
     const n = parseInt(location.hash.replace('#', '')) - 1;
-    if (n >= 0 && n < total) {
-      setTimeout(() => goTo(n), 50);
+    if (n >= 0 && n < total && n !== current) {
+      goTo(n);
     }
   }
+  window.addEventListener('hashchange', jumpByHash);
+  // 初次 load 等 DOM 設定好先跳
+  setTimeout(jumpByHash, 50);
 })();
 </script>
 </body>

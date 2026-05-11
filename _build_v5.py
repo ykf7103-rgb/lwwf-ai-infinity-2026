@@ -167,9 +167,17 @@ def extract_section(html, start_marker, end_marker):
     return html[start:end]
 
 # All NEW pages: P2-P4 (opening) and P24-P40 (校本特色 + Q&A)
-opening_block = extract_section(text,
-    '<!-- ===== P2 v5 講座流程概覽 ===== -->',
-    '<!-- ===== P2 全球研究：未來工作劇變 ===== -->')
+# Use regex to handle comment variations (e.g. "P2 v5 講座流程概覽 (重寫...) ")
+import re as _re
+def extract_section_regex(html, start_pattern, end_pattern):
+    start_m = _re.search(start_pattern, html)
+    end_m = _re.search(end_pattern, html)
+    if not start_m or not end_m: return None
+    return html[start_m.start():end_m.start()]
+
+opening_block = extract_section_regex(text,
+    r'<!-- ===== P2 v5 講座流程概覽[^>]*-->',
+    r'<!-- ===== P2 全球研究：未來工作劇變 ===== -->')
 
 new_pages_block = extract_section(text,
     '<!-- ===== P24 v5 來年 P1 三班別概覽 ===== -->',
@@ -2104,6 +2112,175 @@ V5_NATIVE_REWRITES = {
     "等真實情境": " — in real-world contexts",
     "嘅 ": " ",
     "係 ": "is ",
+
+    # === BATCH 5 — remaining fragments after batch 4 ===
+    "——學生由認識數學概念開始，同時學會英文嘅":
+        " — students learn math concepts while picking up the matching English ",
+    "當 AI 可以即時提供答案、自動拼字、語音輸入，":
+        "When AI can answer instantly, autocomplete spelling, and transcribe speech, ",
+    "英文科本身全校統一教學時數同教材":
+        "the English subject itself is identical school-wide (same hours, same materials)",
+    "將原本俾默書準備同測驗嘅時間，用於":
+        "We redirect the time previously spent on dictation prep and tests into ",
+    "純粹「記得字點寫」嘅實際價值大幅下降":
+        "the practical value of \"remembering how to write a character\" collapses",
+    ".學生畢業時已具備跨學科英語能力.":
+        ". Graduates already have cross-subject English ability.",
+    "4 大智能輪流體驗，唔逼學生過早專注":
+        "four intelligences rotate, with no rushed specialisation",
+    "，學生由「會睇會聽」進化為「敢講敢演」.":
+        ", students move from \"can read and listen\" to \"dare to speak and perform\".",
+    "基本知識掌握、運算技能、書寫能力":
+        "core knowledge, computation, and writing",
+    "五大元素，喚醒每位學生獨特天賦.":
+        "five elements awaken every student's unique gifts.",
+    "不再用傳統默書作為定期評估.":
+        "no longer uses traditional dictation as a regular assessment.",
+    "——每週多次默書，分數低就被罰. Without it, students":
+        " — multiple weekly dictations, with low scores punished. Without it, students ",
+    "持續喜歡語文":
+        "keep loving the language",
+    "收集整個term作品、反思、進度——記錄":
+        "Collects a term of work, reflections, and progress, capturing ",
+    ", not just the result. 包括drafts、revision history、self-assessmentpeer assessment.":
+        ", not just the result. Includes drafts, revisions, and self- and peer-assessment.",
+    "包括drafts、revision history、self-assessmentpeer assessment.":
+        "Includes drafts, revisions, and self- and peer-assessment.",
+    "關懷 · 樂觀 · 尊重 · 信任 · 刻意安排":
+        "Care · Optimism · Respect · Trust · Intentionality",
+    "加入跨域思維，自然 + 數理邏輯":
+        "cross-domain thinking enters — Naturalist + Logical-Math",
+    "secondary school transition時順利適應英文授課中學":
+        "smooth transition into English-medium secondary schools",
+    ".K2/K3 已開始接觸運算思維，銜接 P1 AI Innovation Class.":
+        ". K2/K3 already encounter computational thinking, easing the path into the P1 AI Innovation Class.",
+    "——學生做實驗時自然吸收":
+        " — students absorb naturally as they experiment, picking up ",
+    "掌握 200+ 數理科學專業詞彙":
+        "mastery of 200+ specialised math and science terms",
+    "傳統測驗、考試保留——測試":
+        "Traditional tests and exams stay — covering ",
+    "——AI Sport + MATATALAB 實物Coding，無縫銜接 A/B/C 三班 STEAM 基礎.":
+        " — AI Sport + MATATALAB tangible coding, dovetailing seamlessly into the STEAM foundations of Streams A, B, and C.",
+    "學科以外的隱性課程——「":
+        "The hidden curriculum beyond subjects — \"",
+    "in English——實驗、報告、評估全英文":
+        "in English — experiments, reports, and assessments all in English",
+    "in English——textbook、worksheets、評估全英文":
+        "in English — textbook, worksheets, and assessments all in English",
+    "實驗單元嘅worksheets、評估都以":
+        "Lab unit worksheets and assessments are in ",
+    "梁校專為 K2/K3 學生設計嘅":
+        "LWWF's exclusive curriculum for K2/K3 students — ",
+    "——真實情境運用英語":
+        " — using English in real situations",
+    "每年spring term匯演 · 全班參與":
+        "spring term performance · whole class participates",
+    "P.1 升 P.2 階段可以轉去 B/C 班":
+        "students can transfer to Class B/C between P.1 and P.2",
+    "·　老師即時解答疑難":
+        "· teachers available for instant help",
+    "interview訓練 + 自選發展方向":
+        "interview practice + self-directed development",
+    "2025-2026 年度 K2 及 K3 幼稚園學生":
+        "K2 and K3 kindergarten students in the 2025-2026 academic year",
+    "students——secondary school transition時 EMI（英文授課）中學":
+        "students — when transitioning into EMI (English-medium) secondary schools, the path is",
+    "用 AI 工具自學默書、writing":
+        "Use AI tools for self-study in dictation and writing",
+    "No. 中文版同英文版worksheets":
+        "No. Chinese and English versions of the worksheets",
+    "逐步rolled out無考默政策，":
+        "has gradually rolled out the no-dictation policy; ",
+    "所有環境、activities、評估都":
+        "Every environment, activity, and assessment is ",
+    "每位學生於 6 年內":
+        "Every student, across six years,",
+    "🎬 Programme概覽　·　校情速覽":
+        "🎬 Programme Overview · School Snapshot",
+    "in competition完成各種挑戰":
+        "complete challenges in a friendly competition",
+    "2026 年 1 月 24 日（星期六）":
+        "Saturday, 24 January 2026",
+    "K3 上午 9:30-10:30 · K2 上午 11:00-中午 12:00":
+        "K3: 9:30-10:30 AM · K2: 11:00 AM - 12:00 PM",
+    "P1 Onboarding · 入學後 6 大支援":
+        "P1 Onboarding · 6 Support Pillars After Admission",
+    "完成Coding任務——喺":
+        "complete coding tasks in",
+    "🤖 AI IN ALL SUBJECTS　—　8 大科 AI 教育":
+        "🤖 AI IN ALL SUBJECTS — AI Across 8 Subjects",
+    "students speak up in English without hesitation、解答問題":
+        "students speak up and answer questions in English without hesitation",
+    "📊 P1-P3 廣泛探索：":
+        "📊 P1-P3 Broad Exploration: ",
+    "🎯 P4 STEAM 啟蒙：":
+        "🎯 P4 STEAM Foundation: ",
+    "🚀 P5-P6 secondary school transition：":
+        "🚀 P5-P6 Secondary Transition: ",
+    "AI unit · 啟潛 · 英尖":
+        "AI curriculum · Talent · English Elite",
+    "」three throughlines，由 P1 行到 P6，Whole-Person Growth, the foundation.":
+        "\" — three throughlines from P1 to P6, the foundation of whole-person growth.",
+    "·　多謝您 your attendance":
+        "· Thank You for Joining Us",
+    "🎯 P4 STEAM 啟蒙：加入跨域思維，自然 + 數理邏輯":
+        "🎯 P4 STEAM Foundation: cross-domain thinking enters — Naturalist + Logical-Math",
+    "📊 P1-P3 廣泛探索：4 大智能輪流體驗，唔逼學生過早專注":
+        "📊 P1-P3 Broad Exploration: four intelligences rotate — no rushed specialisation",
+
+    # Title spacing fixes (commonly stuck-together words)
+    "English-ImmersiveLearning": "English-Immersive Learning",
+    "Roadmapat a Glance": "Roadmap at a Glance",
+    "P.6 Roadmapat": "P.6 Roadmap at",
+    "toPrimary One": "to Primary One",
+    "self-assessmentpeer": "self- and peer-",
+    "Siu Wai-YanDean": "Dean Siu Wai-Yan",
+    "Wai-YanDean": "Wai-Yan, Dean",
+    "BBC": "Best for ",
+    "byteacher": "by teacher",
+    "嘅academic vocabulary": " academic vocabulary",
+    "嘅 academic": " academic",
+    "嘅scientific vocabulary": " scientific vocabulary",
+    "嘅 scientific": " scientific",
+    "academic vocabulary.": "academic vocabulary.",
+    "scientific vocabulary.": "scientific vocabulary.",
+    "嘅 word": " word",
+    "嘅 English": " English",
+    "嘅 Spring": " spring",
+    "嘅 hours": " hours",
+    "嘅 ability": " ability",
+    "嘅 students": " students",
+    "嘅 (NET)": " (NET)",
+
+    # English Elite specific
+    "EMI（英文授課）": "EMI (English-medium)",
+    "（英文授課）": " (English-medium)",
+    "EMI（英文授課）中學": "EMI (English-medium) secondary schools",
+    "secondary school transition時": "when transitioning to secondary school,",
+    "secondary school transition時順利": "smooth transition into",
+    "嘅 academic vocabulary": " academic vocabulary",
+    "用 AI 工具": "Use AI tools ",
+
+    # Date / Schedule
+    "日期：": "Date: ",
+    "時間：": "Time: ",
+    "地點：": "Venue: ",
+    "對象：": "For: ",
+    "中午": "noon",
+    "（星期六）": "(Saturday)",
+
+    # General Cantonese particle cleanup (only in safe contexts)
+    "唔再": "no longer",
+    "唔再用": "no longer use",
+    "唔逼": "without forcing",
+    "嘅Programme": " Programme",
+    "嘅 Programme": " Programme",
+    "嘅activities": " activities",
+    "嘅 activities": " activities",
+    "唔強迫": "no longer force",
+    "係課餘自主探究": "are extracurricular and student-driven",
+    "嘅啟潛": " Talent Programme",
 }
 
 
