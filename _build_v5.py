@@ -92,6 +92,18 @@ if m:
         1
     )
 
+# Extract v5-font-boost style block (entire <style id="v5-font-boost">...</style>) and inject at top
+m_boost = re.search(r'<style id="v5-font-boost">[\s\S]*?</style>', text)
+if m_boost:
+    font_boost = m_boost.group(0)
+    # Inject right after <head>'s preconnect/link block — find <link ... fonts/css2 ...> and insert after
+    if 'id="v5-font-boost"' not in v5_en:
+        v5_en = re.sub(
+            r'(<link[^>]+fonts\.googleapis[^>]+>\s*)',
+            r'\1\n' + font_boost + '\n',
+            v5_en, count=1
+        )
+
 # Now insert the NEW v5 pages by extracting them from source v5.html and
 # applying the EN translation dictionary.
 

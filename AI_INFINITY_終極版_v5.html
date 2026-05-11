@@ -8,6 +8,117 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&family=Noto+Serif+SC:wght@600;700;900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900;9..144,600..900&display=swap" rel="stylesheet">
 
+<!-- V5 FONT BOOST — 全局字體加大層（最高優先級） -->
+<style id="v5-font-boost">
+/* ========== 全局字體放大（+25-35%）========== */
+/* Tagline (大標下面嘅描述句) */
+.slide p.tagline, .slide .tagline{font-size:19px !important; line-height:1.62 !important;}
+/* Body (普通內文) */
+.slide p.body, .slide .body{font-size:16px !important; line-height:1.72 !important;}
+/* Small (小標、註腳) */
+.slide p.small, .slide .small{font-size:13.5px !important; line-height:1.65 !important;}
+/* Lead (中標題) */
+.slide h3.lead{font-size:22px !important; line-height:1.35 !important;}
+/* Mid (細標題) */
+.slide h3.mid{font-size:18px !important; line-height:1.4 !important;}
+/* Big title */
+.slide h2.big{font-size:50px !important; letter-spacing:-1.2px !important; line-height:1.1 !important;}
+.slide h2.med{font-size:36px !important;}
+.slide h1.hero{font-size:64px !important;}
+.slide h1.mega{font-size:96px !important;}
+/* Kicker */
+.slide .kicker{font-size:12px !important; letter-spacing:2.8px !important;}
+
+/* ===== Card 內字體放大 ===== */
+.slide .card h3{font-size:18px !important; font-weight:700 !important;}
+.slide .card h4{font-size:17px !important;}
+.slide .card .body, .slide .card p.body{font-size:14.5px !important; line-height:1.7 !important;}
+.slide .card .small, .slide .card p.small{font-size:12.8px !important; line-height:1.65 !important;}
+.slide .card .kicker{font-size:11px !important;}
+
+/* ===== Bullet list 放大 ===== */
+.slide ul.bullet li{font-size:14.5px !important; line-height:1.75 !important; margin-bottom:5px !important;}
+
+/* ===== Research card 放大 ===== */
+.slide .research-card h4{font-size:19px !important;}
+.slide .research-card .desc{font-size:14.5px !important; line-height:1.65 !important;}
+.slide .research-card .stat{font-size:54px !important;}
+.slide .research-card .stat .small-suffix{font-size:24px !important;}
+.slide .research-card .src-tag{font-size:11.5px !important;}
+.slide .research-card .ref{font-size:11.5px !important;}
+
+/* ===== Quote 放大 ===== */
+.slide .quote-text{font-size:15px !important; line-height:1.7 !important;}
+.slide .quote-author{font-size:11.5px !important; letter-spacing:2px !important;}
+
+/* ===== Subject hero 放大 ===== */
+.slide .subject-hero h2.big{font-size:42px !important;}
+.slide .subject-icon-xl{width:60px !important; height:60px !important;}
+
+/* ===== Stat numbers (mega 大數字) 放大 ===== */
+.slide .stat-num{font-size:38px !important;}
+.slide .stat-label{font-size:11.5px !important;}
+.slide .mega-stat{font-size:96px !important;}
+
+/* ===== Chip 放大 ===== */
+.slide .chip{font-size:13.5px !important; padding:6px 14px !important;}
+.slide .smart-chip{font-size:13.5px !important; padding:6px 14px !important;}
+
+/* ===== Table 放大 ===== */
+.slide table th{font-size:12.5px !important; padding:12px 14px !important;}
+.slide table td{font-size:13.5px !important; padding:12px 14px !important; line-height:1.55 !important;}
+
+/* ===== Timeline row 放大 ===== */
+.slide .timeline-row .time-col{font-size:13px !important;}
+.slide .timeline-row .title-col{font-size:16px !important;}
+.slide .timeline-row .icon-col{font-size:13px !important;}
+.slide .timeline-row{padding:10px 16px !important; margin-bottom:8px !important;}
+
+/* ===== Activity tile 放大 ===== */
+.slide .act-tile .cat-name{font-size:16px !important;}
+.slide .act-tile .cat-count{font-size:11.5px !important;}
+.slide .act-tile .cat-list{font-size:13px !important; line-height:1.7 !important;}
+.slide .act-tile .cat-icon{font-size:36px !important;}
+
+/* ===== Class badge (P24 A/B/C) 放大 ===== */
+.slide .class-badge{width:54px !important; height:54px !important; font-size:26px !important;}
+
+/* ========== 用 attribute selector 覆蓋 inline font-size ========== */
+/* 將原本太細嘅 inline font-size 自動 bump 大 */
+.slide [style*="font-size:11px"]{font-size:13.5px !important;}
+.slide [style*="font-size:11.5px"]{font-size:14px !important;}
+.slide [style*="font-size:12px"]{font-size:14.5px !important;}
+.slide [style*="font-size:12.5px"]{font-size:15px !important;}
+.slide [style*="font-size:12.8px"]{font-size:15px !important;}
+.slide [style*="font-size:13px"]{font-size:15.5px !important;}
+.slide [style*="font-size:13.5px"]{font-size:16px !important;}
+.slide [style*="font-size:14px"]{font-size:16.5px !important;}
+.slide [style*="font-size:14.5px"]{font-size:17px !important;}
+.slide [style*="font-size:15px"]{font-size:17.5px !important;}
+.slide [style*="font-size:15.5px"]{font-size:18px !important;}
+.slide [style*="font-size:16px"]{font-size:18.5px !important;}
+.slide [style*="font-size:17px"]{font-size:19.5px !important;}
+
+/* 9px / 9.5px / 10px / 10.5px (kicker / chip / label) 維持稍細但加返少少 */
+.slide [style*="font-size:9px"]{font-size:11px !important;}
+.slide [style*="font-size:9.5px"]{font-size:11.5px !important;}
+.slide [style*="font-size:10px"]{font-size:12px !important;}
+.slide [style*="font-size:10.5px"]{font-size:12.5px !important;}
+
+/* 大字 (h1/h2/stat) 保護唔過度放大 */
+.slide [style*="font-size:18px"]{font-size:20.5px !important;}
+.slide [style*="font-size:20px"]{font-size:22.5px !important;}
+.slide [style*="font-size:22px"]{font-size:24.5px !important;}
+.slide [style*="font-size:24px"]{font-size:27px !important;}
+.slide [style*="font-size:30px"]{font-size:34px !important;}
+.slide [style*="font-size:32px"]{font-size:36px !important;}
+.slide [style*="font-size:38px"]{font-size:42px !important;}
+
+/* ========== 容器 spacing 微調以配合更大字體 ========== */
+.slide .card{padding:14px 16px !important;}
+.slide .slide-inner{gap:11px !important;}
+</style>
+
 <!-- V4 Editorial Polish CSS Layer (overrides v3) -->
 <style id="v4-editorial-polish">
 /* === V5: 死規則 — 所有 slide 內 <img> + <video> 必須完整顯示（contain）=== */
