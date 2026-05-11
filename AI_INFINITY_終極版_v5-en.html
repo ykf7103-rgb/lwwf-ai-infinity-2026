@@ -1093,9 +1093,34 @@ body .slide .quote-author{font-size:clamp(13px, 1.05vw, 16.5px) !important;}
 .slide[data-slide="29"] .card h3.lead{font-size:clamp(15.5px, 1.3vw, 19.5px) !important; line-height:1.3 !important;}
 .slide[data-slide="29"] .card .body{font-size:clamp(13.5px, 1.13vw, 17px) !important; line-height:1.55 !important;}
 
-/* 🎯 P19 (Slide 19) curriculum P5/P6 fix — 縮細 list 字體避免 overflow */
-.slide[data-slide="15"] .card .body{font-size:clamp(14px, 1.18vw, 17.5px) !important; line-height:1.65 !important;}
-.slide[data-slide="15"] p[style*="line-height:1.85"]{line-height:1.6 !important;}
+/* 🎯 P19 (Slide 19 / data-slide=15) curriculum P5/P6 — 進一步壓縮以 fit 1080×688 viewport */
+.slide[data-slide="15"] .card{padding:0 !important; overflow:hidden;}
+.slide[data-slide="15"] .card > div:first-child{aspect-ratio:16/8 !important;}
+.slide[data-slide="15"] .card > div:last-child{padding:14px 18px !important; gap:6px !important;}
+.slide[data-slide="15"] .card h2.med{font-size:clamp(22px, 1.85vw, 28px) !important; line-height:1.15 !important; margin:0 !important;}
+.slide[data-slide="15"] .card .kicker{font-size:clamp(11px, 0.9vw, 14px) !important;}
+.slide[data-slide="15"] .card .body{font-size:clamp(13px, 1.05vw, 16px) !important; line-height:1.55 !important;}
+.slide[data-slide="15"] .card .body strong{display:inline;}
+.slide[data-slide="15"] .card p.small{font-size:clamp(11px, 0.95vw, 13.5px) !important; line-height:1.5 !important;}
+.slide[data-slide="15"] .chip{font-size:clamp(11px, 0.95vw, 13.5px) !important; padding:4px 10px !important;}
+
+/* 🎯 Slide 8 (data-slide=5 矩陣) — 縮 table cell padding */
+.slide[data-slide="5"] table th,
+.slide[data-slide="5"] table td{padding:8px 12px !important; font-size:clamp(13px, 1.1vw, 16px) !important;}
+
+/* 🎯 Slide 2 (講座流程) — 縮 timeline row */
+.slide[data-slide="2"] .timeline-row{padding:8px 16px !important; margin-bottom:5px !important;}
+.slide[data-slide="2"] .timeline-row .title-col{font-size:clamp(15.5px, 1.32vw, 20px) !important;}
+
+/* 🎯 Slide 23 (data-slide=19, 未來藍圖) — 縮 card padding-bottom */
+.slide[data-slide="19"] .card{padding-bottom:10px !important;}
+.slide[data-slide="19"] .card .body{font-size:clamp(13px, 1.1vw, 16.5px) !important; line-height:1.55 !important;}
+
+/* 🎯 .quote-author 全局再加強 specificity (slide 5 outlier) */
+body html .slide .quote-author{
+  font-size:clamp(13px, 1.1vw, 17px) !important;
+  letter-spacing:2px !important;
+}
 </style>
 </head>
 <body>
