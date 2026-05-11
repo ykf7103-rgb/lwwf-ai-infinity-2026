@@ -10,6 +10,21 @@
 
 <!-- V4 Editorial Polish CSS Layer (overrides v3) -->
 <style id="v4-editorial-polish">
+/* === V5: 死規則 — 所有 slide 內 <img> + <video> 必須完整顯示（contain）=== */
+/* Logo / icon 例外：subject-icon-xl/md 內嘅圓 logo 保留 cover */
+.slide img:not(.subject-icon-xl img):not(.subject-icon-md img),
+.slide video{
+  object-fit:contain !important;
+  background:#fff8f0;
+}
+.slide video{background:#000 !important;}
+/* === V5: 統一相片容器最低高度，避免 contain 後縮太細 === */
+.slide [style*="border-radius:14px"][style*="overflow:hidden"],
+.slide [style*="border-radius:18px"][style*="overflow:hidden"],
+.slide [style*="border-radius:10px"][style*="overflow:hidden"]{
+  background:#fff8f0;
+}
+
 /* === V4: More breathing room === */
 .slide{padding:36px 56px !important;}
 .slide-inner{gap:14px !important; max-width:1320px !important;}
@@ -474,7 +489,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   letter-spacing:1.5px;}
 .photo16 .ph-hint{font-size:13px; color:var(--ink-3); max-width:80%;
   text-align:center; line-height:1.55;}
-.photo16 img.real{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+.photo16 img.real{position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:#fff8f0;}
 .photo16.has-image{border:none; animation:none; background:transparent;}
 .photo16.has-image::before, .photo16.has-image::after,
 .photo16.has-image .ph-id, .photo16.has-image .ph-hint{display:none;}
@@ -926,42 +941,48 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
         <h2 class="big">將學中文　變成　<span class="gradient-text">卡牌對戰</span></h2>
       </div>
     </div>
-    <div style="display:grid; grid-template-columns:1.5fr 1fr; gap:18px; flex:1; align-items:stretch; min-height:0;">
-      <!-- 左:學生玩攻防戰大圖 (加大) -->
-      <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0;">
+    <!-- 上半:左大相 + 右文字 (60% 高度) -->
+    <div style="display:grid; grid-template-columns:1.05fr 1fr; gap:16px; flex:1.6; align-items:stretch; min-height:0;">
+      <!-- 左:學生玩攻防戰大圖 -->
+      <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
         <img src="photos/p6_chinese_battle.jpg" alt="4 學生玩成語攻防戰桌遊"
              style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
       </div>
-      <!-- 右上:2 卡並排 + 下:玩法 + 獎項 -->
-      <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
-        <!-- 2 卡並排 (上半部) -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; flex:1; min-height:0;">
-          <div style="border-radius:10px; overflow:hidden; box-shadow:var(--shadow-sm); background:#fffaf3;">
-            <img src="photos/p6_general_ssr.png" alt="SSR 將軍卡"
-                 style="width:100%; height:100%; object-fit:contain;">
-          </div>
-          <div style="border-radius:10px; overflow:hidden; box-shadow:var(--shadow-sm); background:#fffaf3;">
-            <img src="photos/p6_general_sr.png" alt="SR 將軍卡"
-                 style="width:100%; height:100%; object-fit:contain;">
-          </div>
-        </div>
-        <!-- 玩法 + 評分 + 獎項 (下半部) -->
+      <!-- 右:5 段文字 cards -->
+      <div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
         <div class="card card-l-magenta">
-          <h3 class="lead" style="color:var(--c2); font-size:16px;">🎯 玩法</h3>
-          <p class="body" style="font-size:12.5px; margin-top:4px;">輸入成語造句 → AI <strong>10 分制評分</strong> → 滿分 20% 機率抽 <strong>UR 將軍卡</strong>（岳飛、關羽、李靖）。</p>
+          <h3 class="lead" style="color:var(--c2); font-size:14.5px;">🎯 玩法　·　學生造句　AI 評分</h3>
+          <p class="body" style="font-size:12px; margin-top:3px;">輸入成語造句 → AI <strong>10 分制評分</strong> → 滿分 20% 機率抽 <strong>UR 武將卡</strong>（岳飛、關羽、李靖等中華名將）。</p>
         </div>
         <div class="card card-l-magenta">
-          <h3 class="lead" style="color:var(--c2); font-size:16px;">⚔️ 評分四維度</h3>
-          <p class="body" style="font-size:12.5px; margin-top:4px;"><strong>語法 3</strong> + <strong>用詞 3</strong> + <strong>豐富度 2</strong> + <strong>創意 2</strong> = 10 分</p>
+          <h3 class="lead" style="color:var(--c2); font-size:14.5px;">⚔️ 評分四維度　·　全方位中文能力</h3>
+          <p class="body" style="font-size:12px; margin-top:3px;"><strong>語法 3</strong> + <strong>用詞 3</strong> + <strong>豐富度 2</strong> + <strong>創意 2</strong> = 10 分。AI 即時針對句子缺陷反饋。</p>
         </div>
         <div class="card card-l-magenta">
-          <h3 class="lead" style="color:var(--c2); font-size:16px;">📚 配套程式　·　雙軌學習</h3>
-          <p class="body" style="font-size:12.5px; margin-top:4px;">配合 <strong>AI 魔法默書助手</strong> Web App，一個學中文、一個練生字——學生由「背誦默寫」走向「文化共創」。</p>
+          <h3 class="lead" style="color:var(--c2); font-size:14.5px;">🃏 三層稀有度　·　集卡機制</h3>
+          <p class="body" style="font-size:12px; margin-top:3px;"><strong>UR / SSR / SR</strong> 三層武將稀有度，學生越用心造句、越有機會抽到稀有卡——將學中文變成可儲存、可炫耀嘅成果。</p>
         </div>
-        <div style="padding:8px 12px; background:linear-gradient(135deg,#fef3c7,#fffaf3); border-radius:10px; border-left:3px solid var(--c3);">
-          <p style="font-size:13px; font-weight:700; color:var(--c3); margin:0;">🏆 全港小學優異獎　·　103 件作品中獲選</p>
+        <div class="card card-l-magenta">
+          <h3 class="lead" style="color:var(--c2); font-size:14.5px;">📚 雙軌學習　·　配套 AI 魔法默書</h3>
+          <p class="body" style="font-size:12px; margin-top:3px;">配合 <strong>AI 魔法默書助手</strong> Web App，一個學中文、一個練生字——學生由「背誦默寫」走向「文化共創」。</p>
+        </div>
+        <div class="card card-l-magenta">
+          <h3 class="lead" style="color:var(--c2); font-size:14.5px;">🌏 文化傳承　·　對應教育局架構</h3>
+          <p class="body" style="font-size:12px; margin-top:3px;">將中華成語、武將典故、文化內涵融入遊戲機制——對應教育局《價值觀教育架構》之國民身份認同主軸。</p>
+        </div>
+        <div style="padding:6px 11px; background:linear-gradient(135deg,#fef3c7,#fffaf3); border-radius:8px; border-left:3px solid var(--c3);">
+          <p style="font-size:12px; font-weight:700; color:var(--c3); margin:0;">🏆 全港小學優異獎　·　103 件作品中獲選　·　國民身份認同設計比賽 2025/26</p>
         </div>
       </div>
+    </div>
+    <!-- 下半:P6_3 全套 8 張武將卡牌作品集 -->
+    <div style="flex:1; display:flex; flex-direction:column; gap:5px; min-height:0;">
+      <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; flex:1; display:flex; align-items:center; justify-content:center; position:relative;">
+        <img src="photos/p6_3_card_collection.png" alt="學生 AI 生成嘅 8 張武將卡牌作品集 — UR / SSR / SR 三層稀有度"
+             style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+        <span style="position:absolute; top:8px; left:8px; background:rgba(190,24,93,0.92); color:#fff; padding:4px 12px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:1.5px; font-weight:700;">🃏 學生 AI 武將卡作品集</span>
+      </div>
+      <p style="font-size:11px; color:var(--ink-3); text-align:center; font-style:italic;">八位中華武將：UR 岳飛、UR 關羽、UR 李靖　·　SSR 三將　·　SR 兩將　·　全部由學生造句 + AI 視覺生成</p>
     </div>
   </div>
 </section>
@@ -985,7 +1006,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
         </div>
         <div style="flex:1; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; position:relative;">
           <img src="photos/p7_award_ceremony.jpg" alt="國民身份認同設計比賽 2025/26 頒獎典禮"
-               style="width:100%; height:100%; object-fit:cover; object-position:center;">
+               style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
           <span style="position:absolute; top:8px; left:8px; background:rgba(180,83,9,0.92); color:#fff; padding:4px 12px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:1.5px; font-weight:700;">🏆 比賽頒獎</span>
         </div>
       </div>
@@ -1022,35 +1043,39 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
         <h2 class="big">破解 70 年難題　<span class="gradient-text-warm">2 Sigma 個人化</span></h2>
       </div>
     </div>
-    <div style="display:grid; grid-template-columns:1fr 1.1fr; gap:24px; flex:1; align-items:stretch; min-height:0;">
-      <!-- 左:文字 cards -->
-      <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
+    <div style="display:grid; grid-template-columns:0.85fr 1.15fr; gap:20px; flex:1; align-items:stretch; min-height:0;">
+      <!-- 左:文字 cards (壓縮) -->
+      <div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
         <div class="card card-l-amber">
-          <h3 class="lead" style="color:var(--c3);">📐 P4 課程：乘法大師</h3>
-          <p class="body" style="margin-top:6px;"><strong>高年級寫 AI 程式回饋低年級</strong>——P5/P6 親手做乘法工具俾 P2 用。</p>
+          <h3 class="lead" style="color:var(--c3); font-size:15px;">📐 P4 課程：乘法大師</h3>
+          <p class="body" style="margin-top:4px; font-size:12.5px;"><strong>高年級寫 AI 程式回饋低年級</strong>——P5/P6 親手做乘法工具俾 P2 用。</p>
         </div>
         <div class="card card-l-amber">
-          <h3 class="lead" style="color:var(--c3);">🤖 蘇格拉底反問</h3>
-          <p class="body" style="margin-top:6px;">AI 不直接給答案，而係反問：「點解咁諗？仲有其他方法嗎？」<strong>由「找答案」轉為「拆解問題」</strong>。</p>
+          <h3 class="lead" style="color:var(--c3); font-size:15px;">🤖 蘇格拉底反問</h3>
+          <p class="body" style="margin-top:4px; font-size:12.5px;">AI 不直接給答案，而係反問：「點解咁諗？仲有其他方法嗎？」<strong>由「找答案」轉為「拆解問題」</strong>。</p>
         </div>
         <div class="card card-l-amber">
-          <h3 class="lead" style="color:var(--c3);">🎨 數學漫畫變身器</h3>
-          <p class="body" style="margin-top:6px;">學生親手畫角色 → AI 生成<strong>四格漫畫解題</strong> → 親自講解 fact-check。<strong>數×中×視藝×科技</strong>融合。</p>
+          <h3 class="lead" style="color:var(--c3); font-size:15px;">🎨 數學漫畫變身器</h3>
+          <p class="body" style="margin-top:4px; font-size:12.5px;">學生親手畫角色 → AI 生成<strong>四格漫畫解題</strong> → 親自講解 fact-check。<strong>數×中×視藝×科技</strong>融合。</p>
         </div>
         <div class="card card-l-emerald">
-          <h3 class="lead" style="color:var(--c4);">💡 AI 數學教育的三層突破</h3>
-          <p class="body" style="margin-top:6px;"><strong>① 個人化進度：</strong>每位學生有自己的「卡關區」診斷　<strong>② 即時錯題分析：</strong>AI 識別概念漏洞　<strong>③ 跨齡互動：</strong>高年級設計、低年級使用、共同成長。</p>
+          <h3 class="lead" style="color:var(--c4); font-size:15px;">💡 三層突破</h3>
+          <p class="body" style="margin-top:4px; font-size:12.5px;"><strong>① 個人化進度：</strong>每位學生有專屬「卡關診斷」　<strong>② 即時錯題分析　③ 跨齡互動：</strong>高年級設計、低年級使用。</p>
         </div>
       </div>
-      <!-- 右:2 圖 (上小張課堂 + 下大張漫畫完整顯示) -->
-      <div style="display:flex; flex-direction:column; gap:14px;">
-        <div style="flex:0 0 auto; aspect-ratio:16/9; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+      <!-- 右:2 圖 (上下兩張全部加大、完整顯示) -->
+      <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
+        <!-- 上:課堂相 (35% 高度) -->
+        <div style="flex:0.85; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center; position:relative;">
           <img src="photos/p8_math_class.jpg" alt="乘法大師課堂"
-               style="width:100%; height:100%; object-fit:contain; object-position:center;">
-        </div>
-        <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; padding:8px;">
-          <img src="photos/p8_math_comic.jpg" alt="數學漫畫變身器作品"
                style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <span style="position:absolute; top:8px; left:8px; background:rgba(180,83,9,0.92); color:#fff; padding:4px 12px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:1.5px; font-weight:700;">📐 乘法大師課堂</span>
+        </div>
+        <!-- 下:漫畫作品 (65% 高度，加大) -->
+        <div style="flex:1.65; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; display:flex; align-items:center; justify-content:center; position:relative;">
+          <img src="photos/p8_math_comic.jpg" alt="數學漫畫變身器作品 — 四格 AI 漫畫解題"
+               style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <span style="position:absolute; top:8px; left:8px; background:rgba(204,120,92,0.92); color:#fff; padding:4px 12px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:1.5px; font-weight:700;">🎨 學生 AI 漫畫作品</span>
         </div>
       </div>
     </div>
@@ -1088,7 +1113,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
       <div class="card card-l-magenta" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
         <div style="aspect-ratio:4/3; overflow:hidden; background:#fff8f0;">
           <img src="photos/p9_gen2_evaluation.jpg" alt="第二代 樂在其「中」評審現場"
-               style="width:100%; height:100%; object-fit:cover; object-position:center;">
+               style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
         <div style="padding:18px 20px;">
           <div class="kicker k-magenta">第二代　·　全港季軍</div>
@@ -1320,33 +1345,52 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   <div class="slide-inner">
     <div class="kicker k-emerald">旗艦項目 · FLAGSHIP</div>
     <h2 class="big">國寶 AI 管家　<span class="gradient-text">瑤山鱷蜥</span></h2>
-    <div class="g-img-text" style="flex:1;">
-      <div class="photo-full">
-        <img src="photos/p14_flagship_booth.jpg" alt="國寶 AI 管家攤位 + 5 學生 + 鱷蜥盒 + 大電視">
+    <p class="tagline" style="font-size:17px; max-width:1180px;">中國一級保護動物　·　全球瀕危品種　·　跨學科 IoT + AI 智能監測</p>
+    <div style="display:grid; grid-template-columns:1.1fr 1fr; gap:20px; flex:1; align-items:stretch; min-height:0;">
+      <!-- 左:2 張相片堆疊 -->
+      <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
+        <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; display:flex; align-items:center; justify-content:center; position:relative;">
+          <img src="photos/p14_flagship_booth.jpg" alt="國寶 AI 管家攤位 + 學生 + 鱷蜥盒 + 大電視"
+               style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <span style="position:absolute; top:8px; left:8px; background:rgba(4,120,87,0.92); color:#fff; padding:4px 12px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:1.5px; font-weight:700;">🦎 國寶 AI 管家攤位</span>
+        </div>
+        <div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; display:flex; align-items:center; justify-content:center; position:relative;">
+          <img src="photos/p15_3_flagship_snake.jpg" alt="學生親身接觸活生生爬蟲 — 生態保育體驗日"
+               style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <span style="position:absolute; top:8px; left:8px; background:rgba(204,120,92,0.92); color:#fff; padding:4px 12px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:1.5px; font-weight:700;">🐍 親身接觸活體爬蟲</span>
+        </div>
       </div>
-      <div style="display:flex; flex-direction:column; gap:14px;">
-        <p class="tagline" style="font-size:20px;">中國一級保護動物　·　全球瀕危品種</p>
-        <div class="g2" style="gap:12px;">
-          <div class="card card-l-emerald" style="padding:16px;">
-            <h3 class="mid" style="color:var(--c4);">🦎 真實國寶</h3>
-            <p class="small" style="margin-top:4px;">本校為香港少數獲准合法領養的小學。</p>
+      <!-- 右:文字 + 4 cards -->
+      <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
+        <div class="g2" style="gap:10px;">
+          <div class="card card-l-emerald" style="padding:13px 15px;">
+            <h3 class="mid" style="color:var(--c4); font-size:14.5px;">🦎 真實國寶</h3>
+            <p class="small" style="margin-top:4px; font-size:11.5px;">本校為香港少數獲准合法領養瑤山鱷蜥嘅小學。</p>
           </div>
-          <div class="card card-l-cyan" style="padding:16px;">
-            <h3 class="mid" style="color:var(--c1);">📡 IoT 智能監測</h3>
-            <p class="small" style="margin-top:4px;">溫度、濕度、光照感應器實時上傳。</p>
+          <div class="card card-l-cyan" style="padding:13px 15px;">
+            <h3 class="mid" style="color:var(--c1); font-size:14.5px;">📡 IoT 智能監測</h3>
+            <p class="small" style="margin-top:4px; font-size:11.5px;">溫度、濕度、光照感應器實時上傳資料庫。</p>
           </div>
-          <div class="card card-l-amber" style="padding:16px;">
-            <h3 class="mid" style="color:var(--c3);">🔬 AI 行為辨識</h3>
-            <p class="small" style="margin-top:4px;">攝影機辨識日常行為，記錄健康狀況。</p>
+          <div class="card card-l-amber" style="padding:13px 15px;">
+            <h3 class="mid" style="color:var(--c3); font-size:14.5px;">🔬 AI 行為辨識</h3>
+            <p class="small" style="margin-top:4px; font-size:11.5px;">攝影機辨識日常行為，紀錄活動同健康狀況。</p>
           </div>
-          <div class="card card-l-violet" style="padding:16px;">
-            <h3 class="mid" style="color:var(--c5);">🌍 跨學科融合</h3>
-            <p class="small" style="margin-top:4px;">科學 + STEAM + 人文 + 資訊科技。</p>
+          <div class="card card-l-violet" style="padding:13px 15px;">
+            <h3 class="mid" style="color:var(--c5); font-size:14.5px;">🌍 跨學科融合</h3>
+            <p class="small" style="margin-top:4px; font-size:11.5px;">科學 + STEAM + 人文 + 資訊科技 + 生命教育。</p>
           </div>
+        </div>
+        <div class="card card-l-claude" style="padding:13px 15px;">
+          <h3 class="mid" style="color:var(--c-claude); font-size:14.5px;">🤝 由觀察者　變成保育主角</h3>
+          <p class="small" style="margin-top:4px; font-size:11.5px;">學生由「課本看圖認識瀕危動物」轉為「日日 IoT 監察、親身餵養、AI 行為解讀」——真實生命教育，配合中華文化中嘅萬物共生觀。</p>
+        </div>
+        <div class="quote" style="padding:8px 14px 8px 22px;">
+          <div class="quote-text" style="font-size:12px;">當孩子親手照顧一隻國寶，保育就唔再係教科書嘅口號，而係佢哋自己嘅承諾。</div>
+          <div class="quote-author" style="font-size:10px;">蕭蕙欣主任 · 旗艦項目主理</div>
         </div>
       </div>
     </div>
-    <p class="src-row"><strong>校內主理：</strong>蕭蕙欣主任、楊錦鋒老師　·　<strong>合作單位：</strong>瑤山鱷蜥保育協會</p>
+    <p class="src-row"><strong>校內主理：</strong>蕭蕙欣主任、楊錦鋒老師　·　<strong>合作單位：</strong>瑤山鱷蜥保育協會　·　<strong>動物身份：</strong>中國國家一級保護動物（CITES Appendix I）</p>
   </div>
 </section>
 
@@ -1378,14 +1422,14 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
           <div style="overflow:hidden; position:relative;">
             <video autoplay muted loop playsinline preload="metadata"
                    poster="photos/p15_huxia.jpg"
-                   style="width:100%; height:100%; object-fit:cover; background:#000;">
+                   style="width:100%; height:100%; object-fit:contain; background:#000;">
               <source src="photos/p15_translator.mp4" type="video/mp4">
             </video>
             <div style="position:absolute; top:6px; left:6px; background:rgba(8,145,178,0.92); color:#fff; padding:3px 10px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:1.5px; font-weight:700;">▶ AI 翻譯官</div>
           </div>
           <div style="overflow:hidden; background:#fff8f0; position:relative;">
             <img src="photos/p15_snake_inquiry.jpg" alt="跨學科生態探究"
-                 style="width:100%; height:100%; object-fit:cover;">
+                 style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
             <div style="position:absolute; top:6px; left:6px; background:rgba(4,120,87,0.92); color:#fff; padding:3px 10px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:1.5px; font-weight:700;">🐍 生態探究</div>
           </div>
         </div>
@@ -1521,77 +1565,97 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   <div class="slide-inner">
     <div class="kicker k-emerald">未來藍圖 · FUTURE</div>
     <h2 class="big">下一步　<span class="gradient-text-cool">三大計劃</span></h2>
-    <div class="g3" style="flex:1; gap:18px;">
-      <div style="display:flex; flex-direction:column; gap:12px;">
-        <div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+    <p class="tagline" style="max-width:1180px;">由實驗階段　走向　校本常設——將過去三年嘅 AI 教育成果，沉澱為持續可運作嘅平台、空間與機制。</p>
+    <div class="g3" style="flex:1; gap:14px; min-height:0;">
+      <div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
+        <div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
           <img src="photos/p19_ai_garden.jpg" alt="AI Garden 學生作品"
-               style="width:100%; height:100%; object-fit:contain;">
+               style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
-        <div class="card card-l-emerald" style="padding:18px;">
-          <h3 class="mid" style="color:var(--c4);">🌿 AI Garden</h3>
-          <p class="body" style="margin-top:6px; font-size:15px;">校園常設展示空間，匯集歷屆學生 AI 作品——由概念漫畫到完整應用。</p>
+        <div class="card card-l-emerald" style="padding:13px 15px; flex:1;">
+          <div class="kicker k-emerald" style="font-size:9px;">計劃 ① · 校園展示</div>
+          <h3 class="mid" style="color:var(--c4); margin-top:4px; font-size:15px;">🌿 AI Garden</h3>
+          <p class="body" style="margin-top:5px; font-size:12.5px;">校園常設 AI 作品展示空間，匯集歷屆 P1–P6 學生作品——由概念漫畫、AI 卡牌、互動 App 到 IoT 裝置。每月主題輪換。</p>
+          <p class="body" style="margin-top:4px; font-size:11.5px; color:var(--c4);"><strong>2026 目標：</strong>20 件常設作品 · 開放家長參觀</p>
         </div>
       </div>
-      <div style="display:flex; flex-direction:column; gap:12px;">
-        <div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+      <div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
+        <div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
           <img src="photos/p19_5g_butterfly.jpg" alt="5G 智慧蝴蝶園"
-               style="width:100%; height:100%; object-fit:contain;">
+               style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
-        <div class="card card-l-cyan" style="padding:18px;">
-          <h3 class="mid" style="color:var(--c1);">🦋 5G 智慧蝴蝶園</h3>
-          <p class="body" style="margin-top:6px; font-size:15px;">5G IoT 感應園，學生實時觀察生態數據——溫度、濕度、物種辨識實時上載。</p>
+        <div class="card card-l-cyan" style="padding:13px 15px; flex:1;">
+          <div class="kicker k-cyan" style="font-size:9px;">計劃 ② · 生態 IoT</div>
+          <h3 class="mid" style="color:var(--c1); margin-top:4px; font-size:15px;">🦋 5G 智慧蝴蝶園</h3>
+          <p class="body" style="margin-top:5px; font-size:12.5px;">5G IoT 感應園，學生實時觀察生態數據——溫度、濕度、物種辨識、蝴蝶生命週期。配合科學科 P5–P6 課程。</p>
+          <p class="body" style="margin-top:4px; font-size:11.5px; color:var(--c1);"><strong>2026 目標：</strong>3 種本土蝶類 · 數據實時上 dashboard</p>
         </div>
       </div>
-      <div style="display:flex; flex-direction:column; gap:12px;">
-        <div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+      <div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
+        <div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
           <img src="photos/p18_workshop_ppt.jpeg" alt="AI 時代超級家長 Gemini × Poe 工作坊"
-               style="width:100%; height:100%; object-fit:contain;">
+               style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
-        <div class="card card-l-claude" style="padding:14px;">
-          <h3 class="mid" style="color:var(--c-claude);">👨‍👩‍👧 家長賦能 2.0</h3>
-          <p class="body" style="margin-top:6px; font-size:13px;">由「會用 AI」昇華為「會教 AI」——家長與學生共同學習，建立深度連結。</p>
+        <div class="card card-l-claude" style="padding:13px 15px; flex:1;">
+          <div class="kicker" style="font-size:9px;">計劃 ③ · 家校共學</div>
+          <h3 class="mid" style="color:var(--c-claude); margin-top:4px; font-size:15px;">👨‍👩‍👧 家長賦能 2.0</h3>
+          <p class="body" style="margin-top:5px; font-size:12.5px;">由「會用 AI」昇華為「會教 AI」——家長與學生共同創作 AI 工具，將學校經驗延續至家庭。</p>
+          <p class="body" style="margin-top:4px; font-size:11.5px; color:var(--c-claude);"><strong>2026 目標：</strong>每學期 4 場 workshop · 親子共創成品 50 件</p>
         </div>
       </div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:10px 14px; background:linear-gradient(135deg,rgba(4,120,87,0.06),rgba(204,120,92,0.06)); border-radius:10px; border-left:3px solid var(--c4);">
+      <div style="font-size:11.5px;"><strong style="color:var(--c4);">📐 共通基礎：</strong>對應教育局《數字素養架構》</div>
+      <div style="font-size:11.5px;"><strong style="color:var(--c1);">🌐 走向世界：</strong>申請 BETT London / 國際教育論壇</div>
+      <div style="font-size:11.5px;"><strong style="color:var(--c-claude);">🤝 持續優化：</strong>每年家長問卷 + 教師迭代</div>
     </div>
   </div>
 </section>
 
 <!-- ===== P20 CTA 結語 ===== -->
 <section class="slide" data-slide="20" data-section="CTA · 結語">
-  <div class="slide-inner cover-stage">
-    <div class="cover-orb"></div>
+  <div class="slide-inner" style="justify-content:flex-start;">
     <div class="kicker">結語 · CTA</div>
-    <h1 class="hero" style="font-size:72px; max-width:1180px;">
-      由科技的消費者　<br><span class="gradient-text">轉為真實世界的創造者</span>
+    <h1 class="hero" style="font-size:54px; max-width:1240px; line-height:1.05;">
+      由科技的消費者　<span class="gradient-text">轉為真實世界的創造者</span>
     </h1>
-    <p class="tagline" style="max-width:920px; line-height:1.7;">
-      希望每位學生都能由「科技的消費者」<br>慢慢變成「能用科技解決真實問題的創造者」。
-    </p>
-    <div class="g3" style="max-width:1080px; gap:14px; margin-top:8px;">
-      <div class="card card-l-magenta" style="text-align:center;">
-        <div class="kicker k-magenta" style="justify-content:center;">致 學 生</div>
-        <h3 class="mid" style="margin-top:6px; color:var(--c2);">勇於創造</h3>
-        <p class="body" style="font-size:12.5px; margin-top:4px;">每一次失敗都係下一次更好嘅起點。</p>
+    <!-- 主體:2 欄 (左文 + 右相) -->
+    <div style="display:grid; grid-template-columns:1.05fr 1fr; gap:24px; flex:1; align-items:stretch; min-height:0;">
+      <!-- 左:tagline + 3 cards -->
+      <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
+        <p class="tagline" style="font-size:14.5px; line-height:1.65;">
+          希望每位學生都能由「科技的消費者」，慢慢變成「能用科技解決真實問題的創造者」——而呢條路，學校、家長、學生一齊行。
+        </p>
+        <div class="card card-l-magenta" style="padding:11px 14px;">
+          <div class="kicker k-magenta" style="font-size:9.5px;">致 學 生</div>
+          <h3 class="mid" style="margin-top:3px; color:var(--c2); font-size:14.5px;">勇於創造</h3>
+          <p class="body" style="font-size:12px; margin-top:3px;">每一次失敗都係下一次更好嘅起點。AI 唔係取代你，而係令你嘅諗法可以飛得更遠。</p>
+        </div>
+        <div class="card card-l-cyan" style="padding:11px 14px;">
+          <div class="kicker k-cyan" style="font-size:9.5px;">致 家 長</div>
+          <h3 class="mid" style="margin-top:3px; color:var(--c1); font-size:14.5px;">攜手前行</h3>
+          <p class="body" style="font-size:12px; margin-top:3px;">由監督變共學，AI 是橋而非阻隔。歡迎參加每學期家長 workshop，與孩子並肩學習。</p>
+        </div>
+        <div class="card card-l-emerald" style="padding:11px 14px;">
+          <div class="kicker k-emerald" style="font-size:9.5px;">致 教 育</div>
+          <h3 class="mid" style="margin-top:3px; color:var(--c4); font-size:14.5px;">永續創新</h3>
+          <p class="body" style="font-size:12px; margin-top:3px;">學校與時並進，學生與世界共成長。我們承諾：每年迭代、每學期回應家長意見。</p>
+        </div>
       </div>
-      <div class="card card-l-cyan" style="text-align:center;">
-        <div class="kicker k-cyan" style="justify-content:center;">致 家 長</div>
-        <h3 class="mid" style="margin-top:6px; color:var(--c1);">攜手前行</h3>
-        <p class="body" style="font-size:12.5px; margin-top:4px;">由監督變共學，AI 是橋而非阻隔。</p>
-      </div>
-      <div class="card card-l-emerald" style="text-align:center;">
-        <div class="kicker k-emerald" style="justify-content:center;">致 教 育</div>
-        <h3 class="mid" style="margin-top:6px; color:var(--c4);">永續創新</h3>
-        <p class="body" style="font-size:12.5px; margin-top:4px;">學校與時並進，學生與世界共成長。</p>
+      <!-- 右:大相 + CTA -->
+      <div style="display:flex; flex-direction:column; gap:12px; min-height:0;">
+        <div style="flex:1; min-height:0; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
+          <img src="photos/p20_cta_expo.jpg" alt="LWWF 學生 + 教師 + 教博合照"
+               style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:8px; padding-top:4px;">
+          <button class="btn-cta" style="padding:13px 30px; font-size:16px;">多謝您今日的出席</button>
+          <p class="small" style="font-family:'JetBrains Mono',monospace; letter-spacing:3px; color:var(--ink-4); font-size:10.5px;">
+            LWWF · 樂善堂梁黃蕙芳紀念學校 · 2026
+          </p>
+        </div>
       </div>
     </div>
-    <div style="width:100%; max-width:880px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0;">
-      <img src="photos/p20_cta_expo.jpg" alt="LWWF 學生 + 教師 + 教博合照"
-           style="width:100%; height:100%; object-fit:contain;">
-    </div>
-    <button class="btn-cta">多謝您今日的出席</button>
-    <p class="small" style="font-family:'JetBrains Mono',monospace; letter-spacing:3px; color:var(--ink-4);">
-      LWWF · 樂善堂梁黃蕙芳紀念學校
-    </p>
   </div>
 </section>
 

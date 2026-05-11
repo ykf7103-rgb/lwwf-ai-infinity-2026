@@ -479,6 +479,21 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 }
 </style>
 <style id="v4-editorial-polish">
+/* === V5: 死規則 — 所有 slide 內 <img> + <video> 必須完整顯示（contain）=== */
+/* Logo / icon 例外：subject-icon-xl/md 內嘅圓 logo 保留 cover */
+.slide img:not(.subject-icon-xl img):not(.subject-icon-md img),
+.slide video{
+  object-fit:contain !important;
+  background:#fff8f0;
+}
+.slide video{background:#000 !important;}
+/* === V5: 統一相片容器最低高度，避免 contain 後縮太細 === */
+.slide [style*="border-radius:14px"][style*="overflow:hidden"],
+.slide [style*="border-radius:18px"][style*="overflow:hidden"],
+.slide [style*="border-radius:10px"][style*="overflow:hidden"]{
+  background:#fff8f0;
+}
+
 /* === V4: More breathing room === */
 .slide{padding:36px 56px !important;}
 .slide-inner{gap:14px !important; max-width:1320px !important;}
@@ -776,7 +791,7 @@ body::after{
 <section class="slide" data-section="RESEARCH · GLOBAL" data-slide="2">
 <div class="slide-inner">
 <div class="kicker k-cyan">Global Research · WEF 2023</div>
-<h2 class="big">The Coming<span class="gradient-text">Disruption</span></h2>
+<h2 class="big">The Coming&nbsp;<span class="gradient-text">Disruption</span></h2>
 <p class="tagline" style="max-width:1080px;">By the time today's children graduate, the world they enter will look nothing like ours.</p>
 <div class="g3" style="flex:1; gap:20px;">
 <div class="research-card with-bg bg-lost">
@@ -807,7 +822,7 @@ body::after{
 <section class="slide" data-section="RESEARCH · CRITICAL SKILLS" data-slide="3">
 <div class="slide-inner">
 <div class="kicker k-cyan">Global Research · WEF 2023 + OECD 2030</div>
-<h2 class="big">2027 <span class="gradient-text">Critical Skills</span></h2>
+<h2 class="big">2027&nbsp;<span class="gradient-text">Critical Skills</span></h2>
 <p class="tagline" style="max-width:1080px;">Five skills. Each one sits at the heart of AI-era education.</p>
 <div class="g3" style="flex:1; gap:14px;">
 <div class="card card-l-cyan with-bg bg-analytical">
@@ -847,7 +862,7 @@ body::after{
 <section class="slide" data-section="RESEARCH · HK ROLLOUT" data-slide="4">
 <div class="slide-inner">
 <div class="kicker k-amber">HK Local · EDB + HKU + District 70</div>
-<h2 class="big">Hong Kong's AI Education<span class="gradient-text-warm">Is Already Underway</span></h2>
+<h2 class="big">Hong Kong's AI Education&nbsp;<span class="gradient-text-warm">Is Already Underway</span></h2>
 <p class="tagline" style="max-width:1080px;">Our school is among the very first to put it into practice.</p>
 <div class="g3" style="flex:1; gap:18px;">
 <div class="card card-l-cyan with-bg bg-edb" style="display:flex; flex-direction:column;">
@@ -879,7 +894,7 @@ body::after{
 <section class="slide" data-section="MATRIX · TREND MAPPING" data-slide="5">
 <div class="slide-inner">
 <div class="kicker k-magenta">8 Subjects × Future Mapping</div>
-<h2 class="big">Every subject has<span class="gradient-text">a clear future direction</span></h2>
+<h2 class="big">Every subject has&nbsp;<span class="gradient-text">a clear future direction</span></h2>
 <div style="flex:1; overflow:auto; margin-top:4px;">
 <table style="width:100%; border-collapse:collapse; font-size:14px;">
 <thead>
