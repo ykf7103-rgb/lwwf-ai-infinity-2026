@@ -1783,6 +1783,327 @@ V5_NATIVE_REWRITES = {
     "歡迎提問": "Questions Welcome",
     "THANK YOU · 多謝　·　LWWF · 2025-26 家長講座":
         "THANK YOU · 多謝 · LWWF · 2025-26 Parent Talk",
+
+    # === BIG BATCH — comprehensive sentence translations (round 4) ===
+    "香港教育局「智啟學教」計劃（2024 年公布）；香港大學優質教育基金 QTN-DT 網絡計劃名單；騰訊青少年人工智能教育平台合作學校紀錄；賽馬會 CoolThink@JC 先導學校歷年名單。":
+        "Sources: HK EDB \"SmartLearn\" Programme (announced 2024); HKU Quality Education Fund QTN-DT network programme; Tencent Youth AI Education Platform partner schools; Jockey Club CoolThink@JC pilot schools.",
+    "學生先以傳統水墨手繪稿構思角色，再使用 AI 工具將其轉化為動態作品——傳統與創新並非對立，而係互相成就。對應 21 世紀 4C 核心技能。":
+        "Students first draft characters in traditional ink, then bring them alive as dynamic works with AI. Tradition and innovation aren't enemies — they complete each other. (Aligned with 21st-Century 4C skills.)",
+    "家長與學生使用 Suno AI 共創粵語歌曲，主題以水果與生活營養為核心。學習成果上載 Padlet 平台與全校分享——家長由「監督者」轉為「共學夥伴」。":
+        "Parents and children co-write Cantonese songs in Suno AI, themed around fruit and nutrition. The results land on Padlet for the whole school. Parents stop being supervisors and become co-learning partners.",
+    "學生跳繩動作觸發 AI 視覺辨識，跳繩次數轉化為「清潔氣流大砲」嘅能量，擊退污染怪獸——將枯燥嘅體能訓練變成國寶守衛任務。":
+        "Rope-skipping triggers AI vision recognition. Each jump powers a \"clean-air cannon\" that defeats a pollution monster — turning a fitness drill into a mission to guard a national treasure.",
+    "資料輸入、傳統文書、簡單客服——所有「重複性、規則明確」的工作，AI 完全取代。家長現時鼓勵的「穩定文職」前景，五年內或不存在。":
+        "Data entry. Routine paperwork. Basic customer service. Every \"repetitive, rule-based\" role will be fully replaced by AI. The \"stable desk job\" we encourage today may not exist five years from now.",
+    "當學生發現自己「會作歌」，對音樂的熱情會由被動變為主動。AI 並非取代創作，而是降低創作的門檻——對應 UNESCO 創意表達框架。":
+        "The moment students realise they can compose, their relationship with music flips from passive to active. AI isn't replacing creation — it's lowering the barrier (in the spirit of UNESCO's creative expression framework).",
+    "學生由「課本看圖認識瀕危動物」轉為「日日 IoT 監察、親身餵養、AI 行為解讀」——真實生命教育，配合中華文化中嘅萬物共生觀。":
+        "Students move from \"reading about endangered animals in a textbook\" to \"daily IoT monitoring, hands-on feeding, and AI behaviour analysis\" — real life education, in line with the Chinese cultural value of co-existence with nature.",
+    "希望每位學生都能由「科技的消費者」，慢慢變成「能用科技解決真實問題的創造者」——而呢條路，學校、家長、學生一齊行。":
+        "We hope every student moves from being a \"consumer of technology\" to a creator who uses technology to solve real-world problems — and we walk this road together: school, parents, and students.",
+    "AI 攝影機 + 大電視介面，學生站到鏡頭前——AI 即時將學生「換上」民族服飾（藏族、苗族、蒙古族）背景，化身古代人物。":
+        "An AI camera and a large screen. The student stands in front, and AI instantly dresses them in Tibetan, Miao, or Mongolian costumes — placed against the appropriate cultural backdrop.",
+    "於體育館設置大電視 AI 視覺辨識，可實時計算跳繩次數、跳遠距離——對應 WHO 兒童活動指引嘅數據素養要求。":
+        "Big-screen AI vision in the gym counts rope-skips and long-jump distances live — meeting WHO children-activity data-literacy guidelines.",
+    "將中華成語、武將典故、文化內涵融入遊戲機制——對應教育局《價值觀教育架構》之國民身份認同主軸。":
+        "Chinese idioms, generals' tales, and cultural depth woven into game mechanics — aligned with the EDB Values Education Framework's national-identity strand.",
+    "AI 不會取代畫筆，但會擴闊學生對「創作」的想像。我們的責任，是教他們判斷哪個版本最有自己的靈魂。":
+        "AI doesn't replace the brush. It widens what \"creation\" can mean. Our job: to help students recognise which version still has their own soul in it.",
+    "由「閱讀文化」轉為「親身穿戴」——對應教育局《價值觀教育架構》。學生帶走自己嘅試身相，回家延續分享。":
+        "From reading about culture to wearing it. Aligned with the EDB Values Education Framework — and students take their try-on photos home to keep the conversation going.",
+    "，並非 AI 教育的新手——而是香港 AI 教育最早期的實踐者。在這個基礎上，我們持續更新工具、優化教法。":
+        ". We're not newcomers to AI education — we're among Hong Kong's earliest practitioners. On that foundation, we keep refining our tools and our teaching.",
+    "三層武將稀有度，學生越用心造句、越有機會抽到稀有卡——將學中文變成可儲存、可炫耀嘅成果。":
+        "Three rarity tiers for generals — the more carefully you compose, the better your chance of drawing a rare card. Learning Chinese becomes a collectible, shareable achievement.",
+    "AI 並非取代真實服飾體驗，而係降低門檻——令每位學生都能跨越時空，與多元文化產生個人連結。":
+        "AI doesn't replace authentic dress-up — it lowers the barrier so every student can bridge time and connect personally with diverse cultures.",
+    "由實驗階段　走向　校本常設——將過去三年嘅 AI 教育成果，沉澱為持續可運作嘅平台、空間與機制。":
+        "From pilot phase to permanent fixture — three years of AI-education work, distilled into platforms, spaces, and systems that keep running.",
+    "，將英語由「一個科目」轉化為「學習工具」——讓學生喺數學、科學等真實情境中運用英文，全面提升":
+        ", English shifts from \"just a subject\" to \"a learning tool\" — students use it in real Math and Science contexts to lift all four skills: ",
+    "🎯 我們嘅承諾：每位 P1 新生都會喺 8 月開學前收到「升小適應錦囊」 · 9 月有家長日同學長學姐見面會":
+        "🎯 Our commitment: every P1 family receives the P1 Onboarding Kit before August · September brings Parent Day and the Big Buddies meet-up",
+    "歡迎現場提問　·　亦可會後聯絡校長 / 課程統籌主任繼續討論——梁校歡迎家長與我們同心同行。":
+        "Take questions now — or reach out to the Principal and Curriculum Coordinator afterwards. LWWF welcomes parents to walk this journey with us.",
+    "透過親身接觸阿達伯拉象龜，配合 AI 物種辨識工具——學生由保育的旁觀者，轉為實際參與者。":
+        "A hands-on encounter with the Aldabra giant tortoise, paired with AI species identification. Students stop being conservation spectators — they become participants.",
+    "系統強調個人改善，而非全班排名——避免學生因比較而產生運動焦慮。資料只供個人參考，":
+        "The focus is on personal improvement, not class rankings — to avoid peer-comparison anxiety. Data stays personal,",
+    "「Gemini × Poe 實戰工作坊」——輕鬆引導孩子自主學習。家長由零編程基礎開始，30 分鐘做出自己孩子嘅 AI 默書 App。":
+        "Our \"Gemini × Poe Hands-On Workshop\" shows parents how to guide self-learning at home. From zero coding experience to a working AI dictation app — built for your own child, in 30 minutes.",
+    "校園常設 AI 作品展示空間，匯集歷屆 P1–P6 學生作品——由概念漫畫、AI 卡牌、互動 App 到 IoT 裝置。每月主題輪換。":
+        "A permanent campus exhibit gathering AI works across P1–P6 — from concept comics and AI cards to interactive apps and IoT installations. Monthly rotating themes.",
+    "教育並不是裝滿一桶水，而是點燃一把火——啟發潛能，就係幫每個學生搵到屬於佢嘅火種。":
+        "Education isn't filling a bucket — it's lighting a fire. The Talent Programme helps every student find their spark.",
+    "由開場校情速覽，到 AI IN ALL SUBJECTS、來年 P1 新分班、無考默政策、放學後支援、啟發潛能課，最後設問答環節。":
+        "From the opening school overview, through AI IN ALL SUBJECTS, next year's new P1 streams, our no-dictation policy, after-school support, and the Talent Programme — capped by an open Q&A.",
+    "本校 AI INFINITY 戰略，正是針對這五項技能逐一設計課程——並非趨勢追隨，而是基於 WEF 與 OECD 的研究依據。":
+        "Our AI INFINITY strategy designs curriculum around these five skills — not because they're trendy, but because WEF and OECD research demands it.",
+    "幫低年級識別情緒、表達感受、學習人際相處。班主任及輔導老師帶領，培養情緒管理。":
+        "Helps junior students name feelings, express themselves, and build social skills. Led by class teachers and counsellors, it cultivates emotion regulation.",
+    "AI 永遠取代不了的人類核心特質。好奇心驅動終身學習，是面對 44% 技能過時的唯一保險。":
+        "Curiosity is the one human trait AI will never replace. It powers lifelong learning — the only real insurance against forty-four percent skill obsolescence.",
+    "真正的文化傳承，並非令學生變成歷史的旁觀者，而是令他們成為文化的再創造者。":
+        "Real cultural inheritance isn't about turning students into bystanders of history — it's about turning them into culture's re-creators.",
+    "畢業生涯規劃融入視藝——學生為自己嘅未來職業設計 APP 介面草圖，再用 AI 完善視覺呈現。":
+        "Graduation career planning meets visual arts. Students draft APP interfaces for the careers they imagine — then refine the visuals with AI.",
+    "5G IoT 感應園，學生實時觀察生態數據——溫度、濕度、物種辨識、蝴蝶生命週期。配合科學科 P5–P6 課程。":
+        "A 5G IoT sensing garden streaming live ecological data — temperature, humidity, species ID, and butterfly life cycle. Integrated with the P5-P6 Science curriculum.",
+    "公帑資助學校嘅一筆過撥款，推動「AI for ALL Subjects」全科應用，配合教育局《數字素養架構》校本實踐。":
+        "A one-off government grant supporting an \"AI for ALL Subjects\" rollout, aligned with the EDB's Digital Literacy Framework as school-based practice.",
+    "學生於校園花圃使用 AI 植物識別 App，整合即場觀察、AI 工具、分類學知識——對應 Hattie d=0.50 探究式學習。":
+        "In the school garden, students use an AI plant-ID app — combining live observation, AI tools, and taxonomy. (Hattie d=0.50 inquiry learning.)",
+    "並非取消評估——而係由「單一紙筆」轉為「三軌並行」，避免 AI 代寫盲點，真正反映學生能力。":
+        "Not abandoning assessment — moving from paper-and-pen alone to three parallel tracks. This closes the AI-ghostwriting blind spot and truly reflects ability.",
+    "紙筆不會被取代，但已不足以反映 AI 時代的真實能力。三軌並行，先見學生真正成長。":
+        "Paper and pen aren't replaced — but alone they no longer measure real ability in the AI era. Three tracks together — that's where you see a student actually grow.",
+    "P3-6 · 每年校內公開演出 · 培育學生音樂修養 + 團體合作精神 · 配合 6 大音樂活動同步發展。":
+        "P3-6 · annual public performance · nurtures musical skill and team spirit · pairs with all 6 music activities.",
+    "——數據即時回饋，齊齊體驗運動競技嘅樂趣！結合科技 + 體育，啟發 K3 學生對運動嘅興趣。":
+        " — live data feedback, the joy of friendly competition. Technology meets PE to spark K3 students' interest in sports.",
+    "每一次失敗都係下一次更好嘅起點。AI 唔係取代你，而係令你嘅諗法可以飛得更遠。":
+        "Every failure is the start of a better next step. AI isn't here to replace you — it's here to let your ideas fly further.",
+    "AI 訓練師、Prompt 工程師、人機協作專家、AI 倫理師——新崗位的共通點：需要與 AI 合作、判斷、再創造。":
+        "AI trainers. Prompt engineers. Human-AI collaboration specialists. AI ethicists. What unites them: working alongside AI to judge, refine, and create anew.",
+    "AI 不懂挫折，學生在失敗中迭代成主角。能在不確定中前進，是 AI 時代最稀缺的特質。":
+        "AI never knows defeat. Students who can iterate through failure become the protagonists of their own stories. The ability to keep moving through uncertainty is the rarest trait of all.",
+    "當孩子親手照顧一隻國寶，保育就唔再係教科書嘅口號，而係佢哋自己嘅承諾。":
+        "When children personally care for a national treasure, conservation stops being a slogan in a textbook — it becomes their own commitment.",
+    "以學生為本，啟發潛能，打造梁校特色課程——除英尖班外，配合時代發展培育 AI 人才。":
+        "Student-centred and talent-driven — LWWF's signature curriculum. Alongside English Elite, we're raising AI talent for the years ahead.",
+    "取消傳統考默，並非「家長不用管」——而係家校角色轉變，由「監督背誦」走向「共讀共學」。":
+        "Dropping dictation doesn't mean parents step back — it means roles shift. From supervising memorisation to reading and learning together.",
+    "每位學生都應該被看見、被聽見、被理解——老師關懷學生獨特性，建立心理安全感。":
+        "Every student deserves to be seen, heard, and understood — teachers honour individuality and build psychological safety.",
+    "課餘時間嘅多元選擇——音樂、體育、視藝、STEAM、語言、服務及多元——總有一項適合你嘅孩子。":
+        "Diverse after-school options — Music, Sports, Visual Arts, STEAM, Languages, and Service & Beyond — there's something for every child.",
+    "💡 課外活動報名安排：每學期初發放活動 menu 通告 · 家長可揀 2-3 項 · 部分活動需面試挑選":
+        "💡 Registration: an activity menu goes out at the start of each term · parents choose 2-3 activities · some require an interview",
+    "——外籍英語老師（NET）親身講故事、互動演繹。語境式英語學習，由 P1 開始建立國際視野。":
+        " — our Native English Teacher (NET) tells stories in person with interactive delivery. Immersive language learning that builds an international outlook from P1 onward.",
+    "由「背誦能力」評估　轉為「應用能力」評估——回應 AI 時代真正需要嘅學習能力。梁校自":
+        "Moving from \"memorisation testing\" to \"application testing\" — answering what the AI era actually demands. LWWF has, since ",
+    "學生仍然要學中文字、識生字、會運用——但唔再用機械式默寫測驗去量度成效。":
+        "Students still learn characters, know vocabulary, and use it — we just stop using rote dictation tests to measure progress.",
+    "P3-6 · 幼童軍、小女童軍、公益少年團 · 培育服務精神同團體紀律 · 每年區域聯校活動。":
+        "P3-6 · Cub Scouts, Brownies, Community Youth Club · service spirit and discipline · annual inter-school activities.",
+    "學校與時並進，學生與世界共成長。我們承諾：每年迭代、每學期回應家長意見。":
+        "The school evolves with the times; students grow with the world. We commit: yearly iteration, term-by-term response to parent feedback.",
+    "上午 6 節正規課（DAY 1-6 循環） + 下午活動 / 導修 / 啟潛——學科紥實，活動豐富，每日節奏穩定。":
+        "Six core periods every morning (DAY 1-6 cycle) plus afternoon activities, tutorials, and the Talent Programme — solid academics, rich activities, and a steady daily rhythm.",
+    "📖 星期三閱讀課由外籍英語老師主講故事 · 星期五教師共同備課 · 學生 13:30 放學":
+        "📖 Wednesday Reading led by NET teacher · Friday joint lesson planning · Students dismissed 13:30",
+    "AI 隨便寫都有 80 分——人類的「品味」與「獨特觀點」是決勝點。創意 = AI 不可取代的稀缺品。":
+        "AI scores eighty percent on autopilot. What separates the great from the merely good is human taste — a point of view AI cannot copy. Creativity becomes the rarest currency.",
+    "由電腦堂起步——學生用 MIT App Inventor 圖像化編程砌出初代文化遊戲。奠基期嘅編程訓練。":
+        "It began in Computer class. Students used MIT App Inventor's visual blocks to build the first generation of cultural games — the foundational coding work that started it all.",
+    "校內領養瑤山鱷蜥（中國一級保護動物，全球瀕危）。配合 IoT 感應器與 AI 監測系統。":
+        "We've adopted a Yaoshan crocodile lizard (China's Class-1 protected, globally endangered) — paired with IoT sensors and an AI monitoring system.",
+    "音樂科以前係欣賞與演唱為主，難以讓學生親身體驗創作。Suno 改變了這一切。":
+        "Music class used to be about appreciation and singing. Real creation was out of reach. Suno changes that overnight.",
+    "學生組別 / 比賽作品（成語攻防戰、文化試身室、國寶 AI 管家等）係課餘自主探究。":
+        "Student-group and competition works (Idiom Battle, Cultural Fitting Room, National Treasure Steward) are extracurricular — driven by the students themselves.",
+    "相信每位學生都有無限可能——失敗只係下一步成功嘅起點，永遠保持希望。":
+        "We believe every student has unlimited potential — failure is the next step toward success. Hope, always.",
+    "P3-6 · 由專業導師教授 · 沙畫、書法、馬賽克、創意繪畫 4 線並進 · 配合視藝科融合 AI 創作。":
+        "P3-6 · led by specialist coaches · sand art, calligraphy, mosaic, and creative drawing developing in parallel · integrated with Visual Arts and AI creation.",
+    "透過遊戲化、具象化操作（如 Matatalab 實物編程），培養學生最底層的邏輯解難能力。":
+        "Through gamified, hands-on play — Matatalab tangible coding, for example — students build the foundational logic they'll need for everything else.",
+    "由「會用 AI」昇華為「會教 AI」——家長與學生共同創作 AI 工具，將學校經驗延續至家庭。":
+        "From using AI to teaching AI. Parents and children co-create AI tools, extending what we do at school into the home.",
+    "尊重學生嘅選擇、興趣、節奏——唔強迫所有學生喺同一時間掌握同一技能。":
+        "We respect each student's choices, interests, and pace — never forcing everyone to master the same skill at the same time.",
+    "體驗 8 大多元智能——由低年級廣泛探索，到高年級深入發展，最後升中銜接。":
+        "Exploring all 8 intelligences — broad in early years, deep in upper years, and a smooth secondary-school transition.",
+    "嘅親職教育時段——定期家長 workshop、親職講座、家校通訊。家庭與學校無縫共學。":
+        "Parent Education slot — regular workshops, parenting talks, and newsletters. Home and school in seamless co-learning.",
+    "即孩子未畢業，技能已過時。傳統「考試取分」的訓練再無意義——唯一出路：":
+        "Children's skills will be obsolete before they graduate. Exam-driven cramming loses its meaning. There is only one viable path forward: ",
+    "問對問題、拆解複雜情境。AI 給的是答案，但決定問甚麼問題的，仍然是人。":
+        "Knowing what to ask. Knowing how to break a tangled problem apart. AI hands us answers — but only humans decide which questions are worth asking.",
+    "尊重家長選擇，並設清晰嘅入學同轉班規則——配合學生實際發展調整。":
+        "Parents' choice is respected. Clear admission and transfer rules adapt to each student's actual development.",
+    "由監督變共學，AI 是橋而非阻隔。歡迎參加每學期家長 workshop，與孩子並肩學習。":
+        "From supervisor to co-learner. AI is a bridge, not a barrier. Join our termly parent workshops and learn alongside your child.",
+    "由 App 升級為實體 + AI 卡牌系統——學生輸入成語造句，AI 即場評分抽出 SSR / SR 武將卡。":
+        "The App grew into a physical + AI card system. Students enter idiom sentences, AI scores them live, and SSR / SR General cards are drawn on the spot.",
+    "每學期最少兩次，配合學生課程進度——確保家長嘅 AI 知識同學校同步。":
+        "Held at least twice each term, in lockstep with the student curriculum — so parents stay current with what the school is doing.",
+    "分班並非「能力分流」，而係「興趣定位」——每位學生都有適合發展嘅班別。":
+        "Streams are about interest, not ability sorting — every student has a stream that suits them.",
+    "數學、科學、班務常規——三條主線同步推進，建構完整嘅英語學習生態。":
+        "Math, Science, and class routines — three threads moving in step to build a complete English-learning ecology.",
+    "🌐 學年延展：P.4 開始加入英語跨學科 PBL（Project-Based Learning），預備升中銜接 · P.5-P.6 升中面試模擬訓練":
+        "🌐 As they progress: English cross-subject PBL begins in P.4 to prepare for secondary school · P.5-P.6 includes interview practice",
+    "而非「現有水平」——6 月面試會評估學生適應能力。如果中途發現不適應，":
+        "rather than \"current level\". The June interview assesses adaptability. If students don't settle in, ",
+    "等多元方法評估——更貼近真實語言運用能力。配合 P31 評估三軌進階版。":
+        " — diverse methods that align with real language use. Paired with the Three-Track Assessment.",
+    "📋 報名安排：每學年開學前發放報名通告　·　名額有限以先到先得處理":
+        "📋 Registration: a notice is sent before each school year · places are limited and first-come first-served",
+    "老師信任學生有自我成長嘅能力——放手讓學生自主探索、自己決定。":
+        "Teachers trust students with self-growth — letting go so they can explore and decide for themselves.",
+    "每類選 1 項代表性活動深入介紹——學生熱門、家長關注、學校重點栽培。":
+        "One marquee activity per category — student favourites, parent-watched, school-championed.",
+    "📝 報名截止：2026/1/16（額滿即止） · 學校會喺活動期間進行拍攝，作活動宣傳之用":
+        "📝 Registration closes 2026/1/16 (or until full) · we may photograph during the event for promotional use",
+    "會用 AI、會質疑 AI、會與 AI 協作。並非「會聊天」，而是能判斷 AI 何時錯、何時可信。":
+        "Use AI. Question AI. Collaborate with AI. The skill isn't \"chatting\" — it's knowing when AI is wrong, and when its answers can be trusted.",
+    "港大統籌嘅優質教育基金網絡計劃，研究 AI 時代嘅自主學習模式。":
+        "An HKU-led Quality Education Fund network programme studying self-directed learning in the AI era.",
+    "家長親手做過先理解 AI 唔係魔法。家中嘅 AI 對話從此有質素、有界線。":
+        "Once parents have built something themselves, they understand: AI isn't magic. Conversations about AI at home suddenly have substance — and limits.",
+    "（見左圖），老師教課時雙語切換。學生兩種語言嘅數學概念都熟練。":
+        " (see the photo on the left); teachers switch between languages while teaching. Students master math concepts in both languages.",
+    "兩種放學後支援　·　不同時間 / 服務 / 校車安排——家長按需要自由選擇。":
+        "Two after-school options · different hours, services, and school-bus arrangements — choose what fits your family.",
+    "開發——無需編程經驗，將老師對教學的理解，變成可即用的工具。":
+        "developed — no coding experience needed. We turned teachers' classroom instinct into a tool students can use today.",
+    "用中文教。所有班別都有外籍英語老師閱讀課、英語日常活動。":
+        "are taught in Chinese. All classes still have NET reading lessons and daily English activities.",
+    "歡迎喺問答環節提出 · 6 月面試前可聯絡課程組蕭主任詳談。":
+        "Bring them to the Q&A — or contact Dean Siu in the Curriculum Office before the June interview.",
+    "——培養更深層次嘅語文能力。香港 2025 年教育局已認可呢個方向。":
+        " — building deeper language ability. The Hong Kong EDB endorsed this direction in 2025.",
+    "劍橋英語 · 英語話劇 · 英語集誦 · 普通話集誦 · 數遊／奧數／珠心算":
+        "Cambridge English · English Drama · English Choral Speaking · Putonghua Recitation · Math Games / Olympiad / Mental Arithmetic",
+    "開學首兩週減慢進度——熟悉校園、認識老師、適應全日制節奏。":
+        "The first two weeks run at a gentler pace — students learn the campus, meet teachers, and ease into the whole-day rhythm.",
+    "Web App，一個學中文、一個練生字——學生由「背誦默寫」走向「文化共創」。":
+        "Web App — one learns Chinese, the other practices characters — students move from \"rote dictation\" to \"cultural co-creation\".",
+    "🏆 全港小學優異獎　·　103 件作品中獲選　·　國民身份認同設計比賽 2025/26":
+        "🏆 HK Primary Merit Award · selected from 103 entries · National Identity Design Competition 2025/26",
+    "家長 6 月份報名 → 學校面試（評估興趣同適應力）→ 8 月入學公布":
+        "Parents register in June → school interview (assesses interest and adaptability) → August admissions announcement",
+    "已經唔少（數學 word problems、科學實驗報告）。中途插入會令學生壓力大。":
+        "is substantial (math word problems, lab reports). Joining mid-stream creates too much pressure.",
+    "嘅最有效評估。老師可以即場追問點解咁設計、點解咁諗。":
+        "is our strongest defence. Teachers can probe their design decisions on the spot.",
+    "實物編程切入——遊戲方式啟發運算思維，建立學習好奇心。":
+        "Tangible coding through play — sparks computational thinking and curiosity.",
+    "（調查 803 間跨國企業，覆蓋 27 個產業群、46 個經濟體，共 1,130 萬名員工）。":
+        " (a survey of 803 multinational firms across 27 industries, 46 economies, and 11.3 million employees).",
+    "八位中華武將：UR 岳飛 · 關羽 · 李靖（左圖全套）　·　右為 SSR / SR 單卡細節":
+        "Eight Chinese generals: UR Yue Fei, Guan Yu, Li Jing (full set on left) · SSR / SR individual cards on the right",
+    "家長唔再需要逐字讀默——AI 永不疲倦、隨時聽寫、永遠耐心。":
+        "Parents no longer have to read words aloud. AI never tires, never loses patience, and is always ready.",
+    "同一概念，雙語對照——數學概念優先，英語術語同步建立。":
+        "Same concept, bilingual side by side — math concepts first, English vocabulary built in step.",
+    "公益少年團 · 幼童軍 · 小女童軍 · 讀書會 · Kids for Kids · 魔術 · 街舞 · 爵士舞":
+        "Community Youth Club · Cub Scouts · Brownies · Book Club · Kids for Kids · Magic · Hip-Hop · Jazz Dance",
+    "。學生自行選範圍、由 AI 朗讀、即時批改——讓孩子在家也能":
+        ". Students choose their scope, AI reads it aloud, marks them on the spot — so children can ",
+    "AI 不直接給答案，而係反問：「點解咁諗？仲有其他方法嗎？」":
+        "AI refuses to hand over the answer. Instead it asks back: \"Why that approach? What else could you try?\"",
+    "中國一級保護動物　·　全球瀕危品種　·　跨學科 IoT + AI 智能監測":
+        "China's Class-1 Protected · Globally Endangered · Cross-Subject IoT + AI Monitoring",
+    "學生必須學會 fact-check，事實準確性的最終責任在作者本人。":
+        "Students must learn to fact-check; ultimate accuracy rests with the author themselves.",
+    "梁校嘅啟潛理念建基於國際「啟發潛能教育」框架——以":
+        "Our Talent Programme is built on the international Invitational Education framework — with ",
+    "——並非隨機，而係有系統咁啟發每位學生獨有嘅潛能。":
+        " — never random, always systematically inviting each student's unique potential.",
+    "創意繪畫（初高體驗班） · 沙畫 · 書法及書畫 · 校園小畫家":
+        "Creative Drawing (3 levels) · Sand Art · Calligraphy & Ink Painting · Junior Artists Club",
+    "P4-6 · 喺 AI LAB 進行 · 對接學界比賽（FUN 享 STEAM、創客大賽）· 培育未來 AI 創新者。":
+        "P4-6 · based in the AI LAB · feeds into inter-school competitions (FUN-Joy STEAM, Maker Showcase) · cultivating future AI innovators.",
+    "P5-P6 學長學姐配對 P1 新生——小息陪伴、解答疑問、建立歸屬感。":
+        "P5-P6 mentors pair with P1 newcomers — recess company, answers to questions, and a sense of belonging.",
+    "每週情智課堂——學會表達情緒、與同學相處、自我認識。":
+        "Weekly Affective Education — expressing emotions, getting along with peers, and self-awareness.",
+    "——一對一導師可令學生表現由 50 百分位升至 98 百分位。":
+        " — one-on-one tutoring lifts students from the 50th to the 98th percentile.",
+    "本校為香港少數獲准合法領養瑤山鱷蜥嘅小學。":
+        "We are one of the few HK primary schools legally permitted to adopt one.",
+    "全港小學中華文化教育比賽　·　500 隊參賽中榮獲季軍。":
+        "HK Primary Chinese Culture Education Competition · third place from 500 teams.",
+    "國民身份認同應用程式設計比賽　·　103 件作品中獲選。":
+        "National Identity App Design Competition · selected from 103 entries.",
+    "P1 學生未能讀寫指令——MATATALAB 用實物方塊代替程式碼，學生用手砌出方向、循環、條件——具象化嘅運算思維啟蒙。":
+        "P1 students can't yet read or write commands — MATATALAB swaps code for physical blocks. Students assemble direction, loops, and conditions by hand — making computational thinking tangible from day one.",
+    "由實物編程方塊出發——學生未識字之前已經可以「砌出邏輯」，建立 AI 時代必備嘅運算思維。":
+        "Starting with tangible coding blocks — before students can read, they're already \"building logic with their hands\", developing the computational thinking the AI era requires.",
+    "🛡️ AI 智能體育系統（試行）":
+        "🛡️ AI Smart PE System (Pilot)",
+    "歡迎現場提問": "We welcome questions on the spot",
+    "歡迎家長": "Parents are welcome",
+    "嘅學生": " students",
+    "嘅基石": ", the foundation",
+    "嘅樂趣": " — for the joy of it",
+    "嘅小學": " primary school",
+    "嘅承諾": "'s commitment",
+    "嘅興趣": "'s interest",
+    "嘅能量": "'s energy",
+    "嘅成果": "'s outcomes",
+    "嘅國際視野": "an international outlook",
+    "嘅班別": " stream",
+    "嘅承諾。": "'s own commitment.",
+    "嘅一筆過撥款": ", a one-off grant",
+    "嘅出席": " your attendance",
+    "嘅貢獻": "'s contribution",
+    "嘅獨特天賦": " their unique gifts",
+    "嘅 AI 對話": "'s AI conversations",
+    "嘅自主學習": " self-directed learning",
+    "嘅 AI 教育": " AI education",
+    "嘅 AI 工具": " AI tools",
+    "嘅多元選擇": " diverse choices",
+    "嘅五大元素": " five elements",
+    "嘅人文": " 's humanities",
+    "嘅啟潛理念": "'s Talent Programme philosophy",
+    "嘅萬物共生觀": " co-existence with nature",
+    "校長許敏詩 · RTHK 訪問": "— Principal Hui · RTHK interview",
+    "Principal許敏詩 · RTHK 訪問": "— Principal Hui · RTHK interview",
+    "校長許敏詩": "Principal Hui",
+    "許敏詩": "Hui Man-Sze (Carmen)",
+    "蕭蕙欣": "Siu Wai-Yan",
+    "楊錦鋒": "Yeung Kam-Fung",
+    "張楚雯": "Cheung Cho-Man",
+    "音樂科組": "Music Department",
+    "蕭蕙欣主任 · 旗艦項目主理": "Dean Siu · Flagship Project Lead",
+    "張楚雯老師 · 視藝科": "Ms Cheung · Visual Arts",
+    "校長許敏詩": "Principal Hui",
+    "嘅 AI 創作": " AI creation",
+    "嘅體能訓練": " fitness training",
+    "嘅多元活動": " diverse activities",
+    "嘅教學": " teaching",
+    "嘅教材": " materials",
+    "嘅 8 大智能": " all 8 intelligences",
+    "嘅作品": "'s work",
+    "嘅活動": " activities",
+    "嘅校本實踐": " school-based practice",
+    "嘅校本特色": " core pillars",
+    "嘅升小適應課程": "'s P1 Onboarding curriculum",
+    "嘅試身相": "'s try-on photos",
+    "嘅旁觀者": "'s bystander",
+    "嘅再創造者": "'s re-creator",
+    "嘅體育活動": " PE activities",
+    "嘅教育成果": " education achievements",
+    "嘅 IoT 監察": " IoT monitoring",
+    "校內主理：蕭蕙欣主任、楊錦鋒老師　·　合作單位：瑤山鱷蜥保育協會　·　動物身份：中國國家一級保護動物（CITES Appendix I）":
+        "School leads: Dean Siu, Mr Yeung · Partner: Yaoshan Crocodile Lizard Conservation Society · Species: China Class-1 Protected (CITES Appendix I)",
+    "校內主理：蕭蕙欣主任、楊錦鋒老師": "School leads: Dean Siu, Mr Yeung",
+    "合作單位：瑤山鱷蜥保育協會": "Partner: Yaoshan Crocodile Lizard Conservation Society",
+    "動物身份：中國國家一級保護動物（CITES Appendix I）":
+        "Species status: China Class-1 Protected (CITES Appendix I)",
+    "資料來源：": "Source: ",
+    "研究依據：": "Research basis: ",
+    "提醒：": "Note: ",
+    "核心原則：": "Core principle: ",
+    "嘅 AI 課程": " AI curriculum",
+    "嘅 AI 答案": "'s AI answers",
+    "—— 學生分享": " — Student",
+    "「不再害怕默書日 · 反而期待中文堂」 — 學生分享":
+        "\"I no longer dread dictation days — I actually look forward to Chinese class.\" — Student",
+    "家長配合越深入　·　學生收穫越大。":
+        "The deeper parents engage, the more students gain.",
+    "音樂科組": "— Music Department",
+    "音樂科以前係欣賞與演唱為主，難以讓學生親身體驗創作。Suno 改變了這一切。":
+        "Music class used to be about appreciation and singing. Real creation was out of reach. Suno changes that overnight.",
+
+    # Common Cantonese-particle phrase patterns
+    "等真實情境": " — in real-world contexts",
+    "嘅 ": " ",
+    "係 ": "is ",
 }
 
 
