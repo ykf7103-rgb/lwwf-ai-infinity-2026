@@ -1155,6 +1155,71 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   *{-webkit-print-color-adjust:exact!important; print-color-adjust:exact!important;}
 }
 </style>
+
+<!-- ===== V5 FINAL OVERRIDES (highest priority — wins all specificity battles) ===== -->
+<style id="v5-final-overrides">
+/* 🎯 Subject hero 标题：v4-editorial-polish 将 .subject-hero h2.big 锁死 36px
+   呢度用更高 specificity (body .slide ...) 覆盖 */
+body .slide .subject-hero h2.big{
+  font-size:clamp(46px, 3.8vw, 62px) !important;
+  letter-spacing:-1.4px !important;
+  line-height:1.08 !important;
+}
+
+/* 🎯 加埋 .subject-hero 整体 spacing */
+body .slide .subject-hero{
+  gap:18px !important;
+  padding-bottom:14px !important;
+  margin-bottom:8px !important;
+  border-bottom:1px dashed rgba(29,28,26,0.08) !important;
+}
+
+/* 🛡️ BOTTOM SAFE AREA — 避开 progress dots (z-index:50, bottom:50px) */
+/* Dots 喺 bottom:50px，高度约 30-50px，所以底部 reserve 100px */
+body .slide-inner{
+  padding-bottom:90px !important;
+}
+
+/* 🛡️ Top safe area — 避开 section-tag / brand 同 progress bar */
+body .slide-inner{
+  padding-top:18px !important;
+}
+
+/* 🎯 加大细字 footer（agent 报告 10-11px 太细） */
+body .slide .src-row{font-size:clamp(13px, 1.05vw, 16.5px) !important; line-height:1.6 !important;}
+body .slide .quote-author{font-size:clamp(13px, 1.05vw, 16.5px) !important;}
+
+/* 🛡️ 确保 progress dots / section-tag 唔被 slide 内容覆盖 (raise z-index) */
+#dots, #section-tag, #brand, #pageInfo, #hint, #progress, #lang-switch{
+  z-index:200 !important;
+}
+
+/* 🎨 progress dots 加 backdrop 令底部 reserve area 更明显 */
+#dots{
+  background:rgba(255,255,255,0.96) !important;
+  box-shadow:0 4px 20px rgba(0,0,0,0.10) !important;
+}
+
+/* 🛡️ V5 ULTIMATE 角落 badge 唔好同内容重叠 */
+.slide-inner::after{
+  top:-12px !important;
+  right:-12px !important;
+}
+
+/* 🎯 P9 (Slide 9) 中文成语攻防战 — 紧凑 layout 防止叠位 */
+.slide[data-slide="6"] .card{padding:10px 13px !important;}
+.slide[data-slide="6"] .card h3.lead{font-size:clamp(15px, 1.25vw, 19px) !important;}
+.slide[data-slide="6"] .card .body{font-size:clamp(14px, 1.15vw, 17.5px) !important; line-height:1.55 !important;}
+
+/* 🎯 P29 (无考默) — 4 支柱 box 加 spacing */
+.slide[data-slide="29"] .card{padding:11px 14px !important; margin-bottom:2px;}
+.slide[data-slide="29"] .card h3.lead{font-size:clamp(15.5px, 1.3vw, 19.5px) !important; line-height:1.3 !important;}
+.slide[data-slide="29"] .card .body{font-size:clamp(13.5px, 1.13vw, 17px) !important; line-height:1.55 !important;}
+
+/* 🎯 P19 (Slide 19) curriculum P5/P6 fix — 缩细 list 字体避免 overflow */
+.slide[data-slide="15"] .card .body{font-size:clamp(14px, 1.18vw, 17.5px) !important; line-height:1.65 !important;}
+.slide[data-slide="15"] p[style*="line-height:1.85"]{line-height:1.6 !important;}
+</style>
 </head>
 <body>
 

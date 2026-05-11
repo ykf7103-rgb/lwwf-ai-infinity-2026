@@ -104,6 +104,13 @@ for boost_id in ['v5-font-boost-2', 'v5-font-boost']:
                 v5_en, count=1
             )
 
+# Extract v5-final-overrides (must be LAST style block — wins all specificity) inject before </head>
+m_final = re.search(r'<style id="v5-final-overrides">[\s\S]*?</style>', text)
+if m_final:
+    final_css = m_final.group(0)
+    if 'id="v5-final-overrides"' not in v5_en:
+        v5_en = v5_en.replace('</head>', final_css + '\n</head>', 1)
+
 # Now insert the NEW v5 pages by extracting them from source v5.html and
 # applying the EN translation dictionary.
 
