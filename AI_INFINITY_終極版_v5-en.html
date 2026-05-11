@@ -1,0 +1,2481 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI INFINITY · LWWF · Ultimate Edition v5 — Parent Briefing</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&amp;family=Noto+Serif+TC:wght@600;700;900&amp;family=JetBrains+Mono:wght@400;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+ --bg:#faf9f5;
+ --bg-card:#ffffff;
+ --ink:#1d1c1a; --ink-2:#3d3a35; --ink-3:#6b675f; --ink-4:#9a948a;
+ --border:rgba(29,28,26,0.08);
+ --c1:#0891b2; --c2:#be185d; --c3:#b45309; --c4:#047857; --c5:#6d28d9;
+ --c-claude:#cc785c; --c-pain:#dc2626;
+ --shadow-sm:0 2px 8px rgba(29,28,26,0.06);
+ --shadow:0 8px 28px rgba(29,28,26,0.08);
+ --shadow-lg:0 18px 44px rgba(29,28,26,0.10);
+ --ease-out:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;}
+body{
+ font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC','PMingLiU',sans-serif;
+ background:var(--bg); color:var(--ink);
+ -webkit-font-smoothing:antialiased; position:relative;
+}
+body::before{
+ content:''; position:fixed; inset:0; z-index:0;
+ background-image:url('bg_main.png');
+ background-size:cover; background-position:center; opacity:0.10;
+ pointer-events:none;
+}
+body::after{
+ content:''; position:fixed; inset:0; z-index:1;
+ background:
+  radial-gradient(ellipse at 15% 0%,rgba(204,120,92,0.10),transparent 55%),
+  radial-gradient(ellipse at 85% 100%,rgba(212,163,115,0.10),transparent 55%);
+ pointer-events:none;
+}
+.slide,#progress,#section-tag,#brand,#pageInfo,#hint,#dots{z-index:10;}
+
+#progress{position:fixed; top:0; left:0; height:3px;
+ background:linear-gradient(90deg,var(--c-claude),var(--c2),var(--c3));
+ width:5%; transition:width.8s var(--ease-out);
+ z-index:100; box-shadow:0 0 18px rgba(204,120,92,0.45);}
+#section-tag{position:fixed; top:18px; left:32px; z-index:50;
+ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-3);
+ letter-spacing:3px; text-transform:uppercase; padding:6px 14px;
+ background:rgba(255,255,255,0.85); border:1px solid var(--border);
+ border-radius:99px; backdrop-filter:blur(10px); box-shadow:var(--shadow-sm);}
+
+/* === 語言切換按鈕 === */
+#lang-switch{position:fixed; top:14px; left:50%; transform:translateX(-50%);
+ z-index:80; display:flex; gap:4px;
+ background:rgba(255,255,255,0.92); border:1px solid var(--border);
+ border-radius:99px; padding:4px; box-shadow:var(--shadow);
+ backdrop-filter:blur(12px);}
+#lang-switch button{
+ padding:6px 16px; border:none; background:transparent;
+ font-family:'JetBrains Mono','Noto Sans TC',sans-serif;
+ font-size:12px; font-weight:700;
+ color:var(--ink-3); border-radius:99px; cursor:pointer;
+ transition:all.25s var(--ease-out); letter-spacing:1px;
+ min-width:42px;}
+#lang-switch button:hover{color:var(--ink); background:rgba(204,120,92,0.08);}
+#lang-switch button.active{
+ background:linear-gradient(135deg,var(--c-claude),var(--c2));
+ color:#fff; box-shadow:0 4px 12px rgba(204,120,92,0.30);}
+#lang-loading{position:fixed; top:60px; left:50%; transform:translateX(-50%);
+ z-index:80; padding:6px 16px; background:rgba(0,0,0,0.85); color:#fff;
+ border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:11px;
+ letter-spacing:1.5px; opacity:0; transition:opacity.3s; pointer-events:none;}
+#lang-loading.show{opacity:1;}
+#brand{position:fixed; top:18px; right:32px; z-index:50;
+ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-4); letter-spacing:2px;}
+#pageInfo{position:fixed; bottom:18px; right:32px; z-index:50;
+ font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:700;
+ color:var(--ink-2);}
+#pageInfo.total{color:var(--ink-4); font-weight:400;}
+#hint{position:fixed; bottom:18px; left:32px; z-index:50;
+ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-4); letter-spacing:1px;}
+#dots{position:fixed; bottom:50px; left:50%; transform:translateX(-50%);
+ z-index:50; display:flex; gap:4px; padding:7px 14px;
+ background:rgba(255,255,255,0.85); border-radius:99px;
+ backdrop-filter:blur(12px); border:1px solid var(--border);
+ box-shadow:var(--shadow-sm); max-width:90vw; flex-wrap:wrap;}
+#dots.dot{width:6px; height:6px; border-radius:50%;
+ background:rgba(29,28,26,0.18); transition:all.35s; cursor:pointer;}
+#dots.dot.active{background:var(--c-claude); width:22px; border-radius:99px;
+ box-shadow:0 0 12px rgba(204,120,92,0.55);}
+#dots.dot.passed{background:rgba(29,28,26,0.36);}
+
+.slide{position:absolute; inset:0;
+ display:flex; align-items:center; justify-content:center;
+ padding:24px 36px; opacity:0; pointer-events:none;
+ transition:opacity.6s var(--ease-out), transform.6s var(--ease-out);
+ transform:translateY(20px); overflow:hidden;}
+.slide.active{opacity:1; pointer-events:auto; transform:translateY(0);}
+.slide-inner{width:100%; max-width:1380px; height:100%; min-height:0;
+ display:flex; flex-direction:column; justify-content:center; gap:10px;
+ overflow:hidden;}
+.slide-inner > *{min-height:0; min-width:0; flex-shrink:1;}
+/* === Force grid items to shrink (default min-content can overflow) === */
+.g2 > *,.g3 > *,.g4 > *,.g-img-text > *,.g-text-img > *,
+.slide-inner [style*="grid-template"] > *{
+ min-height:0; min-width:0;
+}
+/* === Cap aspect-ratio containers so they never overflow viewport === */
+.slide-inner [style*="aspect-ratio"]{max-height:100%;}
+/* === Default card sizes inside slides (compact for fit-viewport) === */
+.slide.card{padding:10px 14px;}
+.slide.card h3{font-size:15px; line-height:1.35; letter-spacing:0.005em;}
+.slide.card.body,.slide.card p.body{font-size:12.5px; line-height:1.6; letter-spacing:0.005em;}
+.slide.card.small,.slide.card p.small{font-size:11px; line-height:1.55;}
+.slide.quote{padding:8px 14px 8px 22px;}
+.slide.quote-text{font-size:12.5px; line-height:1.55;}
+.slide.quote-author{font-size:10.5px; letter-spacing:1.2px;}
+.slide.subject-icon-xl{width:50px; height:50px;}
+.slide.subject-hero{gap:14px;}
+.slide.subject-hero h2.big{font-size:32px; letter-spacing:-0.5px;}
+.slide.kicker{font-size:11px; letter-spacing:2.4px;}
+
+/* === Unified typography (consistent across 繁/簡/EN) === */
+.slide strong{font-weight:700;}
+.slide em{font-style:italic;}
+.slide table{font-feature-settings:"tnum" 1;}
+.slide.stat,.slide.stat-num{font-variant-numeric:tabular-nums; letter-spacing:-0.02em;}
+.slide [class*="card"] h3,.slide [class*="card"] h4{
+ letter-spacing:0.005em; font-weight:700;
+}
+.slide p + p{margin-top:6px;}
+.slide ul.bullet{padding-left:18px;}
+.slide ul.bullet li{margin-bottom:4px; line-height:1.55;}
+
+/* === 適度動畫 === */
+@keyframes fadeUp{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+@keyframes float{0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);}}
+@keyframes shimmerBg{0%{background-position:-200% 0;} 100%{background-position:200% 0;}}
+@keyframes breathBorder{
+ 0%,100%{border-color:rgba(180,83,9,0.32);}
+ 50%{border-color:rgba(204,120,92,0.55); box-shadow:0 0 22px rgba(204,120,92,0.12);}
+}
+@keyframes shineSweep{0%{left:-50%;} 100%{left:130%;}}
+@keyframes underlineIn{from{transform:scaleX(0);} to{transform:scaleX(1);}}
+@keyframes orbPulse{0%,100%{transform:scale(1); opacity:0.55;} 50%{transform:scale(1.08); opacity:0.85;}}
+@keyframes gentlePop{0%{transform:scale(0.96); opacity:0;} 60%{transform:scale(1.02);} 100%{transform:scale(1); opacity:1;}}
+
+.slide.active.slide-inner > *{
+ animation:fadeUp.65s var(--ease-out) backwards;
+}
+.slide.active.slide-inner > *:nth-child(1){animation-delay:.05s;}
+.slide.active.slide-inner > *:nth-child(2){animation-delay:.15s;}
+.slide.active.slide-inner > *:nth-child(3){animation-delay:.25s;}
+.slide.active.slide-inner > *:nth-child(4){animation-delay:.35s;}
+.slide.active.slide-inner > *:nth-child(5){animation-delay:.45s;}
+.slide.active.slide-inner > *:nth-child(6){animation-delay:.55s;}
+
+/* === Typography === */
+.kicker{font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
+ letter-spacing:2.5px; text-transform:uppercase; color:var(--c-claude);
+ display:inline-flex; align-items:center; gap:9px;}
+.kicker::before{content:''; width:28px; height:2px; background:var(--c-claude);
+ transform-origin:left; animation:underlineIn.6s var(--ease-out).3s backwards;}
+.kicker.k-cyan{color:var(--c1);}.kicker.k-cyan::before{background:var(--c1);}
+.kicker.k-magenta{color:var(--c2);}.kicker.k-magenta::before{background:var(--c2);}
+.kicker.k-amber{color:var(--c3);}.kicker.k-amber::before{background:var(--c3);}
+.kicker.k-emerald{color:var(--c4);}.kicker.k-emerald::before{background:var(--c4);}
+.kicker.k-violet{color:var(--c5);}.kicker.k-violet::before{background:var(--c5);}
+.kicker.k-pain{color:var(--c-pain);}.kicker.k-pain::before{background:var(--c-pain);}
+
+h1.mega{font-family:'Fraunces','Noto Serif TC','Noto Serif SC','Microsoft JhengHei','Microsoft YaHei',serif;
+ font-size:80px; font-weight:900; line-height:0.95; letter-spacing:-2.5px;}
+h1.hero{font-family:'Fraunces','Noto Serif TC','Noto Serif SC','Microsoft JhengHei','Microsoft YaHei',serif;
+ font-size:54px; font-weight:900; line-height:1.0; letter-spacing:-1.8px;}
+h2.big{font-family:'Fraunces','Noto Serif TC','Noto Serif SC','Microsoft JhengHei','Microsoft YaHei',serif;
+ font-size:42px; font-weight:900; line-height:1.1; letter-spacing:-1.3px;}
+h2.med{font-family:'Fraunces','Noto Serif TC','Noto Serif SC','Microsoft JhengHei','Microsoft YaHei',serif;
+ font-size:30px; font-weight:900; line-height:1.15; letter-spacing:-0.8px;}
+h3.lead{font-size:18px; font-weight:700; line-height:1.35;}
+h3.mid{font-size:15px; font-weight:700; line-height:1.4;}
+p.tagline{font-size:15px; line-height:1.5; color:var(--ink-2); font-weight:400;}
+p.body{font-size:13px; line-height:1.5; color:var(--ink-2);}
+p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
+
+.gradient-text{background:linear-gradient(135deg,var(--c-claude) 0%,var(--c2) 50%,var(--c3) 100%);
+ background-size:200% 200%;
+ -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+ animation:shimmerBg 6s ease-in-out infinite;}
+.gradient-text-cool{background:linear-gradient(135deg,var(--c1),var(--c4));
+ background-size:200% 200%;
+ -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+ animation:shimmerBg 6s ease-in-out infinite;}
+.gradient-text-warm{background:linear-gradient(135deg,var(--c3),var(--c-claude));
+ background-size:200% 200%;
+ -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+ animation:shimmerBg 6s ease-in-out infinite;}
+
+/* === 16:9 photo placeholder === */
+.photo16{position:relative; width:100%; aspect-ratio:16/9;
+ background:linear-gradient(135deg,#fffaf3,#fff8f0);
+ border:2.5px dashed rgba(180,83,9,0.32); border-radius:18px;
+ display:flex; align-items:center; justify-content:center; flex-direction:column;
+ gap:10px; cursor:pointer; overflow:hidden;
+ box-shadow:0 6px 22px rgba(204,120,92,0.05);
+ transition:all.4s var(--ease-out);
+ animation:breathBorder 4.5s ease-in-out infinite;}
+.photo16::before{content:'📷'; font-size:42px; opacity:0.32;
+ transition:transform.5s var(--ease-out), opacity.3s;}
+.photo16::after{content:''; position:absolute; top:0; left:-50%;
+ width:40%; height:100%;
+ background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,0.40) 50%,transparent 70%);
+ transform:skewX(-20deg); animation:shineSweep 5s ease-in-out infinite;
+ pointer-events:none;}
+.photo16:hover{border-color:var(--c-claude); transform:translateY(-3px);
+ box-shadow:0 16px 38px rgba(204,120,92,0.16); animation:none;}
+.photo16:hover::before{transform:scale(1.18) rotate(-4deg); opacity:0.55;}
+.photo16.ph-id{font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
+ background:rgba(180,83,9,0.10); color:var(--c3); padding:5px 14px; border-radius:99px;
+ letter-spacing:1.5px;}
+.photo16.ph-hint{font-size:13px; color:var(--ink-3); max-width:80%;
+ text-align:center; line-height:1.55;}
+.photo16 img.real{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+.photo16.has-image{border:none; animation:none; background:transparent;}
+.photo16.has-image::before,.photo16.has-image::after,
+.photo16.has-image.ph-id,.photo16.has-image.ph-hint{display:none;}
+
+/* === Cards === */
+.card{background:var(--bg-card); border:1px solid var(--border);
+ border-radius:14px; padding:14px 16px; box-shadow:var(--shadow-sm);
+ transition:all.35s var(--ease-out); position:relative; overflow:hidden;}
+.card:hover{transform:translateY(-3px); box-shadow:var(--shadow-lg);
+ border-color:rgba(204,120,92,0.25);}
+.card::before{content:''; position:absolute; top:0; left:-100%;
+ width:100%; height:2px;
+ background:linear-gradient(90deg,transparent,var(--c-claude),transparent);
+ transition:left.8s var(--ease-out);}
+.card:hover::before{left:100%;}
+.card-l-cyan{border-left:3px solid var(--c1);}
+.card-l-magenta{border-left:3px solid var(--c2);}
+.card-l-amber{border-left:3px solid var(--c3);}
+.card-l-emerald{border-left:3px solid var(--c4);}
+.card-l-violet{border-left:3px solid var(--c5);}
+.card-l-claude{border-left:3px solid var(--c-claude);}
+.card-l-pain{border-left:3px solid var(--c-pain);}
+
+/* === Stat numbers === */
+.stat-num{font-family:'Fraunces',serif;
+ font-size:48px; font-weight:900; line-height:0.95; letter-spacing:-1.5px;
+ background:linear-gradient(135deg,var(--c-claude),var(--c2));
+ -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
+.stat-label{font-size:10.5px; color:var(--ink-3); letter-spacing:2px;
+ text-transform:uppercase; margin-top:3px; font-family:'JetBrains Mono',monospace;
+ font-weight:700;}
+
+/* === Subject icon === */
+.subject-icon-xl{width:60px; height:60px; flex:none;
+ border-radius:12px; overflow:hidden;
+ box-shadow:0 6px 18px rgba(0,0,0,0.10);
+ animation:float 5s ease-in-out infinite;
+ transition:transform.4s var(--ease-out);}
+.subject-icon-xl:hover{transform:scale(1.06);}
+.subject-icon-xl img{width:100%; height:100%; object-fit:cover; display:block;}
+.subject-icon-md{width:30px; height:30px; flex:none;
+ border-radius:7px; overflow:hidden;
+ box-shadow:0 3px 9px rgba(0,0,0,0.08);}
+.subject-icon-md img{width:100%; height:100%; object-fit:cover; display:block;}
+
+/* === Chips === */
+.chip{display:inline-flex; align-items:center; gap:5px;
+ padding:5px 13px; border-radius:99px;
+ font-size:12px; font-weight:600;
+ background:rgba(255,255,255,0.85); border:1.5px solid var(--border);
+ margin:2px; transition:all.3s var(--ease-out); cursor:default;}
+.chip:hover{transform:translateY(-2px); border-color:var(--c-claude);
+ box-shadow:0 6px 16px rgba(204,120,92,0.14);}
+.chip.c1{color:var(--c1);}.chip.c2{color:var(--c2);}.chip.c3{color:var(--c3);}
+.chip.c4{color:var(--c4);}.chip.c5{color:var(--c5);}.chip.cc{color:var(--c-claude);}
+
+/* === CTA button === */
+.btn-cta{display:inline-flex; align-items:center; gap:10px;
+ padding:16px 36px; border-radius:99px;
+ background:linear-gradient(135deg,var(--c-claude),var(--c2));
+ color:#fff; font-weight:700; font-size:18px; cursor:pointer;
+ border:none; box-shadow:0 8px 24px rgba(204,120,92,0.36);
+ transition:all.35s var(--ease-out); position:relative; overflow:hidden;
+ letter-spacing:1.5px;}
+.btn-cta::after{content:''; position:absolute; inset:0;
+ background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.4) 50%,transparent 100%);
+ transform:translateX(-100%); transition:transform.8s;}
+.btn-cta:hover::after{transform:translateX(100%);}
+.btn-cta:hover{transform:translateY(-2px); box-shadow:0 14px 36px rgba(204,120,92,0.48);}
+
+/* === Quote === */
+.quote{position:relative; padding:14px 22px 14px 30px; border-radius:10px;
+ background:linear-gradient(135deg,#fff8f3,#fffefb);
+ border-left:3px solid var(--c-claude); box-shadow:var(--shadow-sm);}
+.quote::before{content:'"'; position:absolute; left:10px; top:0;
+ font-family:'Fraunces',serif; font-size:64px; color:var(--c-claude);
+ opacity:0.30; line-height:0.7;}
+.quote-text{font-size:17px; color:var(--ink); font-weight:500; line-height:1.55;}
+.quote-author{font-size:12px; color:var(--c-claude); margin-top:6px;
+ font-family:'JetBrains Mono',monospace; letter-spacing:1.5px; font-weight:700;}
+
+/* === Grid === */
+.g2{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+.g3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+.g4{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+.g-img-text{display:grid; grid-template-columns:7fr 5fr; gap:36px; align-items:center;}
+.g-text-img{display:grid; grid-template-columns:5fr 7fr; gap:36px; align-items:center;}
+
+/* === Cover === */
+.cover-stage{display:flex; flex-direction:column; align-items:center;
+ justify-content:center; text-align:center; height:100%; gap:22px;
+ position:relative;}
+.cover-orb{position:absolute; width:580px; height:580px; border-radius:50%;
+ background:radial-gradient(circle,rgba(204,120,92,0.18),transparent 65%);
+ z-index:-1; animation:orbPulse 7s ease-in-out infinite;}
+
+.subject-hero{display:flex; align-items:center; gap:18px; margin-bottom:0;}
+.subject-hero h2{flex:1;}
+.subject-hero h2.big{font-size:38px; line-height:1.1;}
+
+/* === Research card === */
+.research-card{padding:22px 24px; background:#fff;
+ border-radius:18px; border:1px solid var(--border);
+ box-shadow:var(--shadow-sm); transition:all.35s var(--ease-out);
+ display:flex; flex-direction:column; gap:8px; height:100%;}
+.research-card:hover{transform:translateY(-4px); box-shadow:var(--shadow-lg);
+ border-color:rgba(204,120,92,0.28);}
+.research-card.src-tag{font-family:'JetBrains Mono',monospace; font-size:11px;
+ letter-spacing:1.5px; color:var(--c1); font-weight:700;
+ padding:4px 12px; background:rgba(8,145,178,0.08); border-radius:99px;
+ display:inline-block; align-self:flex-start; margin-bottom:6px;}
+.research-card.stat{font-family:'Fraunces',serif; font-size:48px; font-weight:900;
+ line-height:0.95; margin:4px 0;
+ background:linear-gradient(135deg,var(--c-claude),var(--c2));
+ -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
+.research-card.stat.small-suffix{font-size:20px; -webkit-text-fill-color:var(--ink-3);
+ background:none; font-weight:700;}
+.research-card{padding:13px 15px;}
+.research-card h4{font-size:16px; line-height:1.3; font-weight:800;}
+.research-card.desc{font-size:12px; line-height:1.5; color:var(--ink-2); font-weight:500;}
+.research-card.ref{font-size:10px; color:var(--ink-3); font-style:italic;
+ border-top:1px dashed var(--border); padding-top:6px; margin-top:auto;
+ font-family:'JetBrains Mono',monospace;}
+.research-card.stat{font-size:36px; line-height:0.95;}
+.research-card.stat.small-suffix{font-size:14px;}
+
+/* === Card with background image (generic, applies to.card and.research-card) === */
+.with-bg{position:relative; overflow:hidden; z-index:0;}
+.with-bg::after{
+ content:''; position:absolute; inset:0; z-index:-1;
+ background-size:cover; background-position:center;
+ opacity:0.42; transition:opacity.4s var(--ease-out);
+ border-radius:inherit;
+}
+.with-bg:hover::after{opacity:0.58;}
+.with-bg > *{position:relative; z-index:1;}
+/* 硬邊 1px outline 模擬 stroke - 文字邊緣 sharp 唔矇 */
+.with-bg h3,.with-bg h4,.with-bg.desc,.with-bg.body,.with-bg.ref,.with-bg.lead,.with-bg.mid,.with-bg p{
+ text-shadow:
+  1px 0 0 rgba(255,253,248,0.95),
+  -1px 0 0 rgba(255,253,248,0.95),
+  0 1px 0 rgba(255,253,248,0.95),
+  0 -1px 0 rgba(255,253,248,0.95);
+}
+.with-bg h3,.with-bg h4{
+ text-shadow:
+  1px 0 0 rgba(255,253,248,0.95),
+  -1px 0 0 rgba(255,253,248,0.95),
+  0 1px 0 rgba(255,253,248,0.95),
+  0 -1px 0 rgba(255,253,248,0.95),
+  1px 1px 0 rgba(255,253,248,0.85),
+  -1px -1px 0 rgba(255,253,248,0.85);
+}
+.with-bg.desc,.with-bg.body{font-weight:600;}
+.with-bg.stat{
+ filter:drop-shadow(0 1px 2px rgba(255,253,248,0.9))
+     drop-shadow(0 0 4px rgba(255,253,248,0.6));
+}
+/* 圖片背景對應檔名 */
+.with-bg.bg-lost::after{background-image:url('bg_p2_lost.jpg');}
+.with-bg.bg-new::after{background-image:url('bg_p2_new.jpg');}
+.with-bg.bg-skill::after{background-image:url('bg_p2_skill.jpg');}
+.with-bg.bg-analytical::after{background-image:url('bg_p3_analytical.jpg');}
+.with-bg.bg-creative::after{background-image:url('bg_p3_creative.jpg');}
+.with-bg.bg-ai::after{background-image:url('bg_p3_ai.jpg');}
+.with-bg.bg-resilience::after{background-image:url('bg_p3_resilience.jpg');}
+.with-bg.bg-curiosity::after{background-image:url('bg_p3_curiosity.jpg');}
+.with-bg.bg-edb::after{background-image:url('bg_p4_edb.jpg');}
+.with-bg.bg-hku::after{background-image:url('bg_p4_hku.jpg');}
+.with-bg.bg-first::after{background-image:url('bg_p4_first.jpg');}
+.with-bg.bg-summary::after{background-image:url('bg_p3_summary.jpg');}
+
+/* === Photo-mix layout (multiple photos in 16:9 region) === */
+.photo-mix{position:relative; width:100%; height:100%; min-height:0;
+ display:grid; grid-template-columns:1.5fr 1fr; gap:8px;
+ background:transparent; border:none; animation:none;}
+.photo-mix > img,.photo-mix >.stack > img{
+ width:100%; height:100%; object-fit:contain;
+ background:#fff8f0;
+ border-radius:14px; box-shadow:var(--shadow);
+ transition:transform.4s var(--ease-out);}
+.photo-mix > img:hover,.photo-mix >.stack > img:hover{transform:scale(1.02);}
+.photo-mix.stack{display:flex; flex-direction:column; gap:8px;}
+.photo-mix.three.stack{display:grid; grid-template-rows:1fr 1fr; gap:8px;}
+.photo-mix.cards-row{grid-template-columns:1fr; gap:8px;}
+.photo-mix.cards-row.cards-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:6px;}
+.photo-mix.cards-row.cards-strip img{width:100%; height:100%; object-fit:contain;
+ border-radius:10px; box-shadow:var(--shadow-sm); background:#fffaf3;}
+
+/* === Photo trio (3 photos) === */
+.photo-trio{position:relative; width:100%; height:100%; min-height:0;
+ display:grid; grid-template-columns:1.4fr 1fr; grid-template-rows:1fr 1fr; gap:8px;}
+.photo-trio > img:nth-child(1){grid-row:1 / span 2;
+ width:100%; height:100%; object-fit:contain; background:#fff8f0;
+ border-radius:14px; box-shadow:var(--shadow);}
+.photo-trio > img:nth-child(n+2){
+ width:100%; height:100%; object-fit:contain; background:#fff8f0;
+ border-radius:14px; box-shadow:var(--shadow);}
+
+/* === Photo full (single photo, contain to show whole faces) === */
+.photo-full{position:relative; width:100%; height:100%; min-height:0;
+ display:flex; align-items:center; justify-content:center;
+ background:linear-gradient(135deg,#fff8f0,#fffaf3);
+ border-radius:18px; overflow:hidden;
+ box-shadow:var(--shadow); padding:0;}
+.photo-full img{width:100%; height:100%; object-fit:contain;
+ background:#fff8f0;
+ transition:transform.5s var(--ease-out);}
+.photo-full:hover img{transform:scale(1.02);}
+
+/* === Photo before/after (side-by-side) === */
+.photo-vs{position:relative; width:100%; height:100%; min-height:0;
+ display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch;}
+.photo-vs > div{position:relative; height:100%; border-radius:18px;
+ overflow:hidden; box-shadow:var(--shadow);
+ display:flex; align-items:center; justify-content:center;
+ background:#fff8f0;}
+.photo-vs img{width:100%; height:100%; object-fit:contain; padding:8px;}
+.photo-vs.label{position:absolute; bottom:10px; left:10px;
+ background:rgba(29,28,26,0.85); color:#fff;
+ padding:5px 14px; border-radius:99px;
+ font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:2px;
+ font-weight:700; backdrop-filter:blur(8px);}
+
+/* === Card content sizes when whole presentation feel — auto bigger === */
+.card.body,.card p.body{font-size:13.5px; line-height:1.55;}
+.card h3{line-height:1.3;}
+.quote-text{font-size:14px; line-height:1.5;}
+.quote-author{font-size:11px;}
+.quote{padding:10px 18px 10px 26px;}
+.quote::before{font-size:48px;}
+
+.src-row{font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--ink-3);
+ margin-top:6px; line-height:1.5; letter-spacing:0.3px;}
+.src-row strong{color:var(--ink-2);}
+
+/* === Print to PDF === */
+@media print{
+ @page{size:1280px 720px; margin:0;}
+ html,body{width:1280px!important; height:auto!important; overflow:visible!important;
+  background:var(--bg)!important;}
+ body::before, body::after{display:none!important;}
+ #progress,#section-tag,#brand,#pageInfo,#hint,#dots{display:none!important;}
+.slide{position:relative!important; inset:auto!important;
+  width:1280px!important; height:720px!important;
+  opacity:1!important; transform:none!important; transition:none!important;
+  pointer-events:auto!important; page-break-after:always; display:flex!important;
+  overflow:hidden!important; animation:none!important;}
+.slide:last-child{page-break-after:auto;}
+.slide-inner{width:100%!important; height:100%!important;}
+.slide-inner > *{animation:none!important; opacity:1!important;}
+ *{-webkit-print-color-adjust:exact!important; print-color-adjust:exact!important;}
+}
+</style>
+<style id="v4-editorial-polish">
+/* === V5: 死規則 — 所有 slide 內 <img> + <video> 必須完整顯示（contain）=== */
+/* Logo / icon 例外：subject-icon-xl/md 內嘅圓 logo 保留 cover */
+.slide img:not(.subject-icon-xl img):not(.subject-icon-md img),
+.slide video{
+  object-fit:contain !important;
+  background:#fff8f0;
+}
+.slide video{background:#000 !important;}
+/* === V5: 統一相片容器最低高度，避免 contain 後縮太細 === */
+.slide [style*="border-radius:14px"][style*="overflow:hidden"],
+.slide [style*="border-radius:18px"][style*="overflow:hidden"],
+.slide [style*="border-radius:10px"][style*="overflow:hidden"]{
+  background:#fff8f0;
+}
+
+/* === V4: More breathing room === */
+.slide{padding:36px 56px !important;}
+.slide-inner{gap:14px !important; max-width:1320px !important;}
+
+/* === V4: Refined typography hierarchy === */
+.kicker{font-size:10px !important; letter-spacing:3.2px !important;
+  display:inline-flex; align-items:center; gap:11px;}
+.kicker::before{width:36px !important; height:1.5px !important;}
+
+h1.mega{font-size:84px !important; letter-spacing:-3px !important; line-height:0.94 !important;}
+h1.hero{font-size:58px !important; letter-spacing:-1.8px !important;}
+h2.big{font-size:44px !important; letter-spacing:-1.2px !important; line-height:1.1 !important;}
+h2.med{font-size:32px !important; letter-spacing:-0.7px !important;}
+h3.lead{font-size:18px !important; line-height:1.4 !important;}
+h3.mid{font-size:15px !important;}
+p.tagline{font-size:16.5px !important; line-height:1.55 !important; color:var(--ink-2);}
+p.body{font-size:13.5px !important; line-height:1.65 !important;}
+p.small{font-size:11px !important; line-height:1.55 !important;}
+
+/* === V4: Card minimalism (less border, more whitespace) === */
+.slide .card{
+  background:#fffefb !important;
+  border:none !important;
+  border-left:3px solid transparent !important;
+  border-radius:6px !important;
+  padding:14px 18px !important;
+  box-shadow:0 1px 0 rgba(29,28,26,0.04), 0 4px 16px rgba(29,28,26,0.025) !important;
+}
+.slide .card.card-l-cyan{border-left-color:var(--c1) !important;}
+.slide .card.card-l-magenta{border-left-color:var(--c2) !important;}
+.slide .card.card-l-amber{border-left-color:var(--c3) !important;}
+.slide .card.card-l-emerald{border-left-color:var(--c4) !important;}
+.slide .card.card-l-violet{border-left-color:var(--c5) !important;}
+.slide .card.card-l-pain{border-left-color:var(--c-pain) !important;}
+.slide .card.card-l-claude{border-left-color:var(--c-claude) !important;}
+.slide .card h3{font-size:15.5px !important; letter-spacing:0 !important; font-weight:700 !important;}
+.slide .card .body{font-size:12.8px !important; line-height:1.65 !important; color:var(--ink-2) !important;}
+.slide .card .small{font-size:10.5px !important;}
+
+/* === V4: Editorial quote (italic, refined) === */
+.slide .quote{
+  background:linear-gradient(135deg, #fffaf3 0%, #fffefb 100%) !important;
+  border-left:2px solid var(--c-claude) !important;
+  padding:12px 20px 12px 28px !important;
+  border-radius:0 6px 6px 0 !important;
+}
+.slide .quote::before{font-size:42px !important; opacity:0.22 !important;}
+.slide .quote-text{font-size:13px !important; line-height:1.65 !important;
+  font-style:italic !important; font-weight:400 !important;}
+.slide .quote-author{font-size:10px !important; letter-spacing:2.2px !important;
+  font-weight:700 !important; color:var(--c-claude) !important;}
+
+/* === V4: Subject hero refined === */
+.slide .subject-hero{
+  gap:18px !important; align-items:center !important;
+  padding-bottom:10px !important; margin-bottom:4px !important;
+  border-bottom:1px dashed rgba(29,28,26,0.08) !important;
+}
+.slide .subject-hero h2.big{font-size:36px !important; letter-spacing:-0.8px !important;}
+.slide .subject-icon-xl{width:52px !important; height:52px !important; border-radius:12px !important;}
+
+/* === V4: Photo treatment (thin inner border + soft shadow) === */
+.slide img[src^="photos/"]{
+  filter:contrast(1.02);
+}
+.photo-mix > img, .photo-trio > img, .photo-full img,
+.slide [style*="border-radius:14px"][style*="overflow:hidden"] > img,
+.slide [style*="border-radius:18px"][style*="overflow:hidden"] > img{
+  box-shadow:0 0 0 1px rgba(29,28,26,0.05) inset, 0 8px 24px rgba(29,28,26,0.06) !important;
+}
+
+/* === V4: Research card refined === */
+.research-card{
+  background:#fffefb !important;
+  border:none !important;
+  border-top:3px solid var(--c-claude) !important;
+  padding:16px 18px !important;
+  box-shadow:0 1px 0 rgba(29,28,26,0.04), 0 4px 18px rgba(29,28,26,0.025) !important;
+  border-radius:0 0 8px 8px !important;
+}
+.research-card h4{font-size:17px !important; letter-spacing:0 !important;}
+.research-card .stat{font-size:46px !important; line-height:0.95 !important;
+  letter-spacing:-2px !important; margin:6px 0 !important;}
+.research-card .desc{font-size:12.5px !important; line-height:1.6 !important;}
+.research-card .ref{font-size:10px !important; padding-top:8px !important;}
+.research-card .src-tag{font-size:10px !important; letter-spacing:2px !important;}
+
+/* === V4: Subtle paper texture === */
+body::before{opacity:0.05 !important;}
+body::after{
+  background:
+    radial-gradient(ellipse at 25% 0%, rgba(204,120,92,0.06), transparent 50%),
+    radial-gradient(ellipse at 75% 100%, rgba(212,163,115,0.06), transparent 50%) !important;
+}
+
+/* === V4: Section tag refined === */
+#section-tag{
+  background:rgba(255,255,255,0.92) !important;
+  font-size:10px !important; letter-spacing:3.5px !important;
+  padding:7px 16px !important;
+}
+#progress{height:2px !important;}
+
+/* === V4: Drop cap on first letter of major paragraphs (editorial) === */
+.slide .lead.tagline::first-letter{
+  font-family:'Fraunces',serif;
+  font-weight:900;
+  font-size:1.08em;
+  color:var(--c-claude);
+}
+
+/* === V4 version badge === */
+.slide-inner::after{
+  content:'V5 ULTIMATE';
+  position:absolute; top:0; right:0;
+  font-family:'JetBrains Mono',monospace;
+  font-size:8px; letter-spacing:2px; color:var(--c-claude);
+  opacity:0.4;
+  padding:3px 8px;
+  border:1px solid rgba(204,120,92,0.18);
+  border-radius:99px;
+  pointer-events:none;
+}
+
+/* ============================================================
+   V4 ENTRANCE ANIMATIONS — staggered reveal on slide activation
+   ============================================================ */
+@keyframes v4FadeUp{
+  from{opacity:0; transform:translateY(28px);}
+  to{opacity:1; transform:translateY(0);}
+}
+@keyframes v4FadeIn{
+  from{opacity:0;} to{opacity:1;}
+}
+@keyframes v4ZoomIn{
+  from{opacity:0; transform:scale(0.94);}
+  to{opacity:1; transform:scale(1);}
+}
+@keyframes v4SlideRight{
+  from{opacity:0; transform:translateX(-24px);}
+  to{opacity:1; transform:translateX(0);}
+}
+@keyframes v4LineExpand{
+  from{transform:scaleX(0); opacity:0;}
+  to{transform:scaleX(1); opacity:1;}
+}
+
+/* Enhanced staggered entrance (override v3 single fadeUp) */
+.slide.active .slide-inner > *{
+  animation:v4FadeUp .85s cubic-bezier(.22,1,.36,1) backwards !important;
+}
+.slide.active .slide-inner > *:nth-child(1){animation-delay:.05s !important;}
+.slide.active .slide-inner > *:nth-child(2){animation-delay:.18s !important;}
+.slide.active .slide-inner > *:nth-child(3){animation-delay:.30s !important;}
+.slide.active .slide-inner > *:nth-child(4){animation-delay:.42s !important;}
+.slide.active .slide-inner > *:nth-child(5){animation-delay:.54s !important;}
+.slide.active .slide-inner > *:nth-child(6){animation-delay:.65s !important;}
+.slide.active .slide-inner > *:nth-child(7){animation-delay:.75s !important;}
+
+/* Cards reveal with slight zoom */
+.slide.active .card{
+  animation:v4ZoomIn .7s cubic-bezier(.22,1,.36,1) backwards !important;
+}
+.slide.active .card:nth-of-type(1){animation-delay:.30s !important;}
+.slide.active .card:nth-of-type(2){animation-delay:.40s !important;}
+.slide.active .card:nth-of-type(3){animation-delay:.50s !important;}
+.slide.active .card:nth-of-type(4){animation-delay:.60s !important;}
+.slide.active .card:nth-of-type(5){animation-delay:.70s !important;}
+.slide.active .card:nth-of-type(6){animation-delay:.80s !important;}
+
+/* Photos fade-in with slight scale */
+.slide.active img, .slide.active video{
+  animation:v4ZoomIn .9s cubic-bezier(.22,1,.36,1) backwards;
+  animation-delay:.4s;
+}
+
+/* Kicker line expand */
+.slide.active .kicker::before{
+  animation:v4LineExpand .6s cubic-bezier(.22,1,.36,1) backwards !important;
+  animation-delay:.25s !important;
+}
+
+/* h1/h2 mega titles slide-in from left */
+.slide.active h1.mega,
+.slide.active h1.hero,
+.slide.active h2.big,
+.slide.active h2.med{
+  animation:v4SlideRight .9s cubic-bezier(.22,1,.36,1) backwards !important;
+  animation-delay:.15s !important;
+}
+
+/* Stat numbers count-up + scale */
+.slide.active .stat-num,
+.slide.active .research-card .stat{
+  animation:v4ZoomIn 1s cubic-bezier(.22,1,.36,1) backwards !important;
+  animation-delay:.5s !important;
+}
+
+/* Subject icon hero spin in */
+@keyframes v4IconReveal{
+  from{opacity:0; transform:scale(0.6) rotate(-12deg);}
+  to{opacity:1; transform:scale(1) rotate(0);}
+}
+.slide.active .subject-icon-xl{
+  animation:v4IconReveal 1s cubic-bezier(.34,1.56,.64,1) backwards !important;
+  animation-delay:.2s !important;
+}
+
+/* Quote elegant slide */
+.slide.active .quote{
+  animation:v4SlideRight .85s cubic-bezier(.22,1,.36,1) backwards !important;
+  animation-delay:.7s !important;
+}
+
+/* Hover micro-interactions enhanced */
+.slide .card{transition:all .35s cubic-bezier(.22,1,.36,1);}
+.slide .card:hover{
+  transform:translateY(-3px) scale(1.005);
+  box-shadow:0 2px 0 rgba(29,28,26,0.04), 0 18px 42px rgba(204,120,92,0.10) !important;
+}
+.slide .photo-mix > img:hover,
+.slide .photo-trio > img:hover,
+.slide [style*="border-radius:14px"][style*="overflow:hidden"]:hover img{
+  transform:scale(1.02);
+}
+
+/* Smooth photo container hover */
+.slide [style*="border-radius:14px"][style*="overflow:hidden"],
+.slide [style*="border-radius:18px"][style*="overflow:hidden"]{
+  transition:transform .4s cubic-bezier(.22,1,.36,1);
+}
+.slide [style*="border-radius:14px"][style*="overflow:hidden"]:hover,
+.slide [style*="border-radius:18px"][style*="overflow:hidden"]:hover{
+  transform:translateY(-2px);
+}
+
+/* Section tag pulse on slide change */
+@keyframes v4TagPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(204,120,92,0);}
+  50%{box-shadow:0 0 0 8px rgba(204,120,92,0.15);}
+}
+.slide.active ~ #section-tag,
+#section-tag{animation:v4TagPulse 2s ease-in-out infinite;}
+
+/* Reduce motion respect */
+@media (prefers-reduced-motion: reduce){
+  .slide.active *{animation-duration:0.01s !important;}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="section-tag">PROLOGUE</div>
+<div id="lang-switch">
+<button class="" data-lang="t" title="Traditional Chinese">TC</button>
+<button data-lang="s" title="简体中文">SC</button>
+<button class="active" data-lang="e" title="English">EN</button>
+</div>
+<div id="lang-loading">Converting…</div>
+<div id="brand">LWWF · 2026</div>
+<div id="pageInfo"><span id="pn">1</span><span class="total"> / 40</span></div>
+<div id="hint">← → Navigate · F Fullscreen</div>
+<div id="dots"></div>
+<section class="slide active" data-section="OPENING" data-slide="1">
+<div class="slide-inner cover-stage">
+<div class="cover-orb"></div>
+<div class="kicker">LWWF · 2026 Parent Presentation</div>
+<h1 class="mega"><span class="gradient-text">AI INFINITY</span></h1>
+<p class="tagline" style="font-size:28px; font-weight:300; letter-spacing:3px;">
+ Infinite Possibility · Infinite Creation · Boundless Future
+ </p>
+<div style="width:100%; max-width:880px; aspect-ratio:16/9; border-radius:20px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0;">
+<img alt="LWWF Principal with students" src="photos/p1_hero.jpg" style="width:100%; height:100%; object-fit:contain;"/>
+</div>
+<div class="g4" style="max-width:1020px; gap:18px; width:100%;">
+<div class="card" style="text-align:center; padding:20px;">
+<div class="stat-num" data-target="8">8</div>
+<div class="stat-label">Subjects</div>
+</div>
+<div class="card" style="text-align:center; padding:20px;">
+<div class="stat-num" data-target="70">70</div>
+<div class="stat-label">First in District 70</div>
+</div>
+<div class="card" style="text-align:center; padding:20px;">
+<div class="stat-num" style="font-size:54px;">P1-P6</div>
+<div class="stat-label">Spiral Curriculum</div>
+</div>
+<div class="card" style="text-align:center; padding:20px;">
+<div class="stat-num" data-target="2025">2025</div>
+<div class="stat-label">Programme Launch</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===== P2 v5 講座流程概覽 ===== -->
+<section class="slide" data-section="OPENING · AGENDA" data-slide="2">
+<div class="slide-inner">
+<div class="kicker">AGENDA · TODAY'S TALK</div>
+<h2 class="big">Today's　<span class="gradient-text">Programme</span></h2>
+<p class="tagline" style="max-width:1100px;">Seven topics, each timed clearly so you can follow along.</p>
+<div style="flex:1; display:flex; flex-direction:column; gap:5px; min-height:0;">
+<div class="timeline-row">
+<div class="time-col">00:00-02:00</div>
+<div class="title-col">🎬 Agenda Overview · School Snapshot</div>
+<div class="icon-col" style="color:var(--c-claude); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:1.5px; font-weight:700;">2 min</div>
+</div>
+<div class="timeline-row" style="border-left-color:var(--c2);">
+<div class="time-col">02:00-15:00</div>
+<div class="title-col">🤖 AI IN ALL SUBJECTS — AI Across 8 Subjects</div>
+<div class="icon-col" style="color:var(--c2); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:1.5px; font-weight:700;">13 min</div>
+</div>
+<div class="timeline-row" style="border-left-color:var(--c1);">
+<div class="time-col">15:00-18:00</div>
+<div class="title-col">📚 English Elite + 2026-27 New P1 Streams</div>
+<div class="icon-col" style="color:var(--c1); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:1.5px; font-weight:700;">3 min</div>
+</div>
+<div class="timeline-row" style="border-left-color:var(--c-pain);">
+<div class="time-col">18:00-23:00</div>
+<div class="title-col">✏️ Assessment &amp; No-Dictation Policy</div>
+<div class="icon-col" style="color:var(--c-pain); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:1.5px; font-weight:700;">5 min</div>
+</div>
+<div class="timeline-row" style="border-left-color:var(--c3);">
+<div class="time-col">23:00-25:00</div>
+<div class="title-col">🏫 Tutorial &amp; After-School Care</div>
+<div class="icon-col" style="color:var(--c3); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:1.5px; font-weight:700;">2 min</div>
+</div>
+<div class="timeline-row" style="border-left-color:var(--c4);">
+<div class="time-col">25:00-30:00</div>
+<div class="title-col">🎨 Talent Programme · Activities · P1 Onboarding</div>
+<div class="icon-col" style="color:var(--c4); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:1.5px; font-weight:700;">5 min</div>
+</div>
+<div class="timeline-row" style="border-left-color:var(--c5);">
+<div class="time-col">30:00 起</div>
+<div class="title-col">🎯 Wrap-Up &amp; Q&amp;A</div>
+<div class="icon-col" style="color:var(--c5); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:1.5px; font-weight:700;">Flexible</div>
+</div>
+</div>
+<p class="src-row"><strong>Speakers: </strong>Principal Ms Hui　·　Dean Siu, Curriculum Coordinator　·　<strong>Academic Year: </strong>2025/26</p>
+</div>
+</section>
+<!-- ===== P3 v5 上下午課程編排 ===== -->
+<section class="slide" data-section="OPENING · DAILY RHYTHM" data-slide="3">
+<div class="slide-inner">
+<div class="kicker k-cyan">DAILY RHYTHM · CURRICULUM</div>
+<h2 class="big">Whole-Day　<span class="gradient-text-cool">Two-Track Rhythm</span></h2>
+<p class="tagline" style="max-width:1100px;">Solid core curriculum in the morning. Activities and tutorials in the afternoon. A steady daily rhythm that balances learning and exploration.</p>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; flex:1; align-items:stretch; min-height:0;">
+<!-- 上午 -->
+<div class="card card-l-cyan" style="display:flex; flex-direction:column; gap:14px; padding:24px;">
+<div class="kicker k-cyan">MORNING</div>
+<h3 class="lead" style="color:var(--c1); font-size:24px;">☀️ Core Curriculum</h3>
+<p class="body" style="font-size:14.5px; line-height:1.7;">Eight subjects taught per EDB guidelines — Chinese, English, Math, Humanities, Science, Music, PE, Visual Arts — each weaving AI applications into the lesson.</p>
+<div style="display:flex; flex-wrap:wrap; gap:6px;">
+<span class="chip c1">中</span><span class="chip c1">英</span><span class="chip c1">數</span><span class="chip c1">人文</span>
+<span class="chip c1">科</span><span class="chip c1">音</span><span class="chip c1">體</span><span class="chip c1">視</span>
+</div>
+<p class="small" style="margin-top:auto;">Aligned with the P1-P3 foundation phase and P4-P6 empowerment phase of our spiral curriculum.</p>
+</div>
+<!-- 下午 -->
+<div class="card card-l-magenta" style="display:flex; flex-direction:column; gap:14px; padding:24px;">
+<div class="kicker k-magenta">AFTERNOON</div>
+<h3 class="lead" style="color:var(--c2); font-size:24px;">🎨 Activities · Tutorials · Talent Programme</h3>
+<p class="body" style="font-size:14.5px; line-height:1.7;">Activity sessions, subject tutorials, and the Talent Development Programme — each led by specialist coaches or our own subject teachers.</p>
+<ul class="bullet" style="font-size:13.5px; line-height:1.85;">
+<li><strong style="color:var(--c2);">Tutorials: </strong>Subject reinforcement, with AI tools supporting individual differences</li>
+<li><strong style="color:var(--c2);">Talent Programme: </strong>Multiple-intelligences exploration on a six-year roadmap</li>
+<li><strong style="color:var(--c2);">Affective Education &amp; Parent Education: </strong>whole-person development</li>
+</ul>
+<p class="small" style="margin-top:auto;">Lunch and breaks total one hour — students get plenty of time to rest.</p>
+</div>
+</div>
+<div style="padding:10px 16px; background:linear-gradient(135deg,#fff8f0,#fffefb); border-radius:10px; border-left:3px solid var(--c-claude);">
+<p style="font-size:13px; font-weight:700; color:var(--c-claude); margin:0;">📖 Weekly Highlight: a native-English teacher leads our reading class — opening up an international perspective.</p>
+</div>
+</div>
+</section>
+<!-- ===== P4 v5 校本特色概覽 ===== -->
+<section class="slide" data-section="OPENING · SCHOOL DNA" data-slide="4">
+<div class="slide-inner">
+<div class="kicker k-amber">SCHOOL DNA · OUR THREE PILLARS</div>
+<h2 class="big">LWWF's Three　<span class="gradient-text-warm">Core Pillars</span></h2>
+<p class="tagline" style="max-width:1100px;">What sits beneath the formal curriculum — learning to live, learning to learn, learning to grow alongside family.</p>
+<div class="g3" style="flex:1; gap:18px;">
+<div class="card card-l-cyan" style="display:flex; flex-direction:column; gap:10px; padding:22px;">
+<div style="font-size:42px;">💙</div>
+<div class="kicker k-cyan">Pillar 1</div>
+<h3 class="lead" style="color:var(--c1); font-size:20px;">Affective Education</h3>
+<p class="body" style="font-size:13.5px;">A weekly Affective Education class, led by class teachers and counsellors — cultivating emotional regulation, social skills, and self-awareness.</p>
+<p class="small" style="margin-top:auto;">Aligned with the OECD Well-being framework.</p>
+</div>
+<div class="card card-l-magenta" style="display:flex; flex-direction:column; gap:10px; padding:22px;">
+<div style="font-size:42px;">📖</div>
+<div class="kicker k-magenta">Pillar 2</div>
+<h3 class="lead" style="color:var(--c2); font-size:20px;">Native English Reading</h3>
+<p class="body" style="font-size:13.5px;">A native-English teacher tells stories in person — immersive English learning that builds an international outlook from P1 onwards.</p>
+<p class="small" style="margin-top:auto;">Held every week from P1 through P6.</p>
+</div>
+<div class="card card-l-amber" style="display:flex; flex-direction:column; gap:10px; padding:22px;">
+<div style="font-size:42px;">🤝</div>
+<div class="kicker k-amber">Pillar 3</div>
+<h3 class="lead" style="color:var(--c3); font-size:20px;">Parent Education</h3>
+<p class="body" style="font-size:13.5px;">Regular parent workshops, home-school newsletters, and parenting talks — seamless co-learning between home and school.</p>
+<p class="small" style="margin-top:auto;">At least two workshops per term.</p>
+</div>
+</div>
+<div style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px; padding:12px 14px; background:linear-gradient(135deg,rgba(204,120,92,0.06),rgba(190,24,93,0.06)); border-radius:10px;">
+<div style="text-align:center;"><div class="stat-num" style="font-size:32px;">8</div><div class="stat-label" style="font-size:9px;">Subjects</div></div>
+<div style="text-align:center;"><div class="stat-num" style="font-size:32px;">3</div><div class="stat-label" style="font-size:9px;">Core Pillars</div></div>
+<div style="text-align:center;"><div class="stat-num" style="font-size:32px;">P1-P6</div><div class="stat-label" style="font-size:9px;">Six-Year Spiral</div></div>
+<div style="text-align:center;"><div class="stat-num" style="font-size:32px;">2026</div><div class="stat-label" style="font-size:9px;">New Streaming</div></div>
+</div>
+</div>
+</section>
+<section class="slide" data-section="RESEARCH · GLOBAL" data-slide="2">
+<div class="slide-inner">
+<div class="kicker k-cyan">Global Research · WEF 2023</div>
+<h2 class="big">The Coming <span class="gradient-text">Disruption</span></h2>
+<p class="tagline" style="max-width:1080px;">By the time today's children graduate, the world they enter will look nothing like ours.</p>
+<div class="g3" style="flex:1; gap:20px;">
+<div class="research-card with-bg bg-lost">
+<div class="src-tag" style="color:var(--c-pain); background:rgba(220,38,38,0.10);">VANISHING</div>
+<div class="stat" style="background:linear-gradient(135deg,var(--c-pain),#f97316); -webkit-background-clip:text;">83 million</div>
+<h4>jobs</h4>
+<p class="desc">Data entry. Routine paperwork. Basic customer service. Every "repetitive, rule-based" role will be replaced by AI. The "stable desk job" we encourage today may not exist five years from now.</p>
+<div class="ref">WEF forecast 2023-2027</div>
+</div>
+<div class="research-card with-bg bg-new">
+<div class="src-tag" style="color:var(--c4); background:rgba(4,120,87,0.10);">EMERGING</div>
+<div class="stat" style="background:linear-gradient(135deg,var(--c4),var(--c1)); -webkit-background-clip:text;">69 million</div>
+<h4>new jobs</h4>
+<p class="desc">AI trainers. Prompt engineers. Human-AI collaboration specialists. AI ethicists. What unites them: working alongside AI to judge, refine, and create anew.</p>
+<div class="ref">WEF emerging job categories</div>
+</div>
+<div class="research-card with-bg bg-skill">
+<div class="src-tag" style="color:var(--c3); background:rgba(180,83,9,0.10);">SKILL UPHEAVAL</div>
+<div class="stat">44<span class="small-suffix">%</span></div>
+<h4>of core skills will be disrupted within five years</h4>
+<p class="desc">Children's skills will be obsolete before they graduate. Exam-driven cramming loses its meaning. There is only one viable path forward: <strong style="color:var(--c3);">to learn how to learn</strong>.</p>
+<div class="ref">WEF Skills Stability Index</div>
+</div>
+</div>
+<p class="src-row"><strong>Source: </strong>World Economic Forum, <em>Future of Jobs Report 2023</em>  (a survey of 803 multinational firms across 27 industries, 46 economies, and 11.3 million employees).</p>
+</div>
+</section>
+<section class="slide" data-section="RESEARCH · CRITICAL SKILLS" data-slide="3">
+<div class="slide-inner">
+<div class="kicker k-cyan">Global Research · WEF 2023 + OECD 2030</div>
+<h2 class="big">2027 <span class="gradient-text">Critical Skills</span></h2>
+<p class="tagline" style="max-width:1080px;">Five skills. Each one sits at the heart of AI-era education.</p>
+<div class="g3" style="flex:1; gap:14px;">
+<div class="card card-l-cyan with-bg bg-analytical">
+<div class="kicker k-cyan">01 · ANALYTICAL</div>
+<h3 class="lead" style="margin-top:8px;">Analytical Thinking</h3>
+<p class="body" style="font-size:14px; margin-top:6px;">Knowing what to ask. Knowing how to break a tangled problem apart. AI hands us answers — but only humans decide which questions are worth asking.</p>
+</div>
+<div class="card card-l-magenta with-bg bg-creative">
+<div class="kicker k-magenta">02 · CREATIVE</div>
+<h3 class="lead" style="margin-top:8px;">Creativity</h3>
+<p class="body" style="font-size:14px; margin-top:6px;">AI scores eighty percent on autopilot. What separates the great from the merely good is human taste — a point of view AI cannot copy. Creativity becomes the rarest currency.</p>
+</div>
+<div class="card card-l-amber with-bg bg-ai">
+<div class="kicker k-amber">03 · AI LITERACY</div>
+<h3 class="lead" style="margin-top:8px;">AI &amp; Big Data Literacy</h3>
+<p class="body" style="font-size:14px; margin-top:6px;">Use AI. Question AI. Collaborate with AI. The skill isn't "chatting" — it's knowing when AI is wrong, and when its answers can be trusted.</p>
+</div>
+<div class="card card-l-emerald with-bg bg-resilience">
+<div class="kicker k-emerald">04 · RESILIENCE</div>
+<h3 class="lead" style="margin-top:8px;">Resilience &amp; Agility</h3>
+<p class="body" style="font-size:14px; margin-top:6px;">AI never knows defeat. Students who can iterate through failure become the protagonists of their own stories. The ability to keep moving through uncertainty is the rarest trait of all.</p>
+</div>
+<div class="card card-l-violet with-bg bg-curiosity">
+<div class="kicker k-violet">05 · CURIOSITY</div>
+<h3 class="lead" style="margin-top:8px;">Curiosity + Self-Learning</h3>
+<p class="body" style="font-size:14px; margin-top:6px;">Curiosity is the one human trait AI will never replace. It powers lifelong learning — the only real insurance against forty-four percent skill obsolescence.</p>
+</div>
+<div class="card card-l-claude with-bg bg-summary">
+<div class="kicker">02 + 03 + 05</div>
+<h3 class="lead" style="margin-top:8px;">Every one of these skills sits at the centre of AI education</h3>
+<p class="body" style="font-size:14px; margin-top:6px;">Our AI INFINITY strategy is built around these five skills — not because they're trendy, but because WEF and OECD research demands it.</p>
+</div>
+</div>
+<p class="src-row"><strong>Source: </strong>WEF <em>Future of Jobs 2023</em>, pp. 38–43 "Skills Outlook" chapter; OECD <em>Future of Education and Skills 2030</em> framework (Learning Compass 2030).</p>
+</div>
+</section>
+<section class="slide" data-section="RESEARCH · HK ROLLOUT" data-slide="4">
+<div class="slide-inner">
+<div class="kicker k-amber">HK Local · EDB + HKU + District 70</div>
+<h2 class="big">Hong Kong's AI Education <span class="gradient-text-warm">Is Already Underway</span></h2>
+<p class="tagline" style="max-width:1080px;">Our school is among the very first to put it into practice.</p>
+<div class="g3" style="flex:1; gap:18px;">
+<div class="card card-l-cyan with-bg bg-edb" style="display:flex; flex-direction:column;">
+<div class="kicker k-cyan">EDB</div>
+<h2 class="med" style="color:var(--c1); margin-top:6px; font-size:48px;">$50<span style="font-size:24px; color:var(--ink-3);">萬</span></h2>
+<h3 class="mid" style="margin-top:6px;">Smart i-Learn Programme</h3>
+<p class="body" style="font-size:14px; margin-top:6px;">A one-off government grant supporting an "AI for ALL Subjects" rollout, aligned with the EDB's Digital Literacy Framework.<strong style="color:var(--c1);">We've applied for it — and put it fully to work.</strong></p>
+</div>
+<div class="card card-l-magenta with-bg bg-hku" style="display:flex; flex-direction:column;">
+<div class="kicker k-magenta">The University of Hong Kong</div>
+<h2 class="med" style="color:var(--c2); margin-top:6px; font-size:38px;">QTN-DT</h2>
+<h3 class="mid" style="margin-top:6px;">Self-Directed Learning in the AI Era</h3>
+<p class="body" style="font-size:14px; margin-top:6px;">An HKU-led Quality Education Fund network programme studying self-directed learning in the AI era.<strong style="color:var(--c2);">We are one of the participating schools</strong>, working alongside Hong Kong's leading schools.</p>
+</div>
+<div class="card card-l-amber with-bg bg-first" style="display:flex; flex-direction:column;">
+<div class="kicker k-amber">District 70</div>
+<h2 class="med" style="color:var(--c3); margin-top:6px; font-size:60px;">#1</h2>
+<h3 class="mid" style="margin-top:6px;">First in the District to Adopt Enterprise AI</h3>
+<p class="body" style="font-size:14px; margin-top:6px;">We've fully deployed <strong style="color:var(--c3);">Tencent Youth AI Education Platform</strong>  — our students learn on the same platform industry uses.</p>
+</div>
+</div>
+<div class="card card-l-emerald" style="margin-top:6px; padding:16px;">
+<div class="kicker k-emerald">EARLY MOVER</div>
+<p class="body" style="margin-top:6px;">We've already served as a  <strong style="color:var(--c4);">Jockey Club CoolThink@JC pilot school for several years</strong>. We're not newcomers to AI education — we're among Hong Kong's earliest pioneers. On that foundation, we keep refining our tools and our teaching.</p>
+</div>
+<p class="src-row"><strong>Source: </strong>HK EDB "Smart i-Learn" Programme (announced 2024); HKU Quality Education Fund QTN-DT Network list; Tencent Youth AI Education Platform partner-school records; Jockey Club CoolThink@JC pilot-school list.</p>
+</div>
+</section>
+<section class="slide" data-section="MATRIX · TREND MAPPING" data-slide="5">
+<div class="slide-inner">
+<div class="kicker k-magenta">8 Subjects × Future Mapping</div>
+<h2 class="big">Every subject has <span class="gradient-text">a clear future direction</span></h2>
+<div style="flex:1; overflow:auto; margin-top:4px;">
+<table style="width:100%; border-collapse:collapse; font-size:14px;">
+<thead>
+<tr style="background:rgba(204,120,92,0.07);">
+<th style="padding:12px 14px; text-align:left; border-bottom:2px solid var(--c-claude); color:var(--c-claude); font-family:'JetBrains Mono',monospace; letter-spacing:1.5px; font-size:12px; width:14%;">Subject</th>
+<th style="padding:12px 14px; text-align:left; border-bottom:2px solid var(--c-claude); color:var(--c-claude); font-family:'JetBrains Mono',monospace; letter-spacing:1.5px; font-size:12px;">Future Trend</th>
+<th style="padding:12px 14px; text-align:left; border-bottom:2px solid var(--c-claude); color:var(--c-claude); font-family:'JetBrains Mono',monospace; letter-spacing:1.5px; font-size:12px;">School Practice</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c2);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_chinese.png"/></span>Chinese</span></td><td style="padding:11px 14px;">Cultural Heritage · AI Ethics</td><td style="padding:11px 14px;">P4 Fox-Tiger Idiom Reimagined · Idiom Battle</td></tr>
+<tr style="border-bottom:1px solid var(--border); background:rgba(8,145,178,0.03);"><td style="padding:11px 14px; font-weight:700; color:var(--c1);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_english.png"/></span>English</span></td><td style="padding:11px 14px;">Learning Agency (OECD) </td><td style="padding:11px 14px;">AI Dictation Assistant · Secondary Transition</td></tr>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c3);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_math.png"/></span>Math</span></td><td style="padding:11px 14px;">2 Sigma Personalised Breakthrough</td><td style="padding:11px 14px;">Multiplication Master · Comic Generator · Socratic Questioning</td></tr>
+<tr style="border-bottom:1px solid var(--border); background:rgba(190,24,93,0.03);"><td style="padding:11px 14px; font-weight:700; color:var(--c2);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_humanities.png"/></span>Humanities</span></td><td style="padding:11px 14px;">National Identity · Cross-Cultural</td><td style="padding:11px 14px;">Joyfully Chinese (3rd place) · Cultural Fitting Room</td></tr>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c4);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_science.jpg"/></span>Science</span></td><td style="padding:11px 14px;">Sensory Experience · STEM Inquiry</td><td style="padding:11px 14px;">Plant ID Master · Conservation Day · National Treasure AI Steward</td></tr>
+<tr style="border-bottom:1px solid var(--border); background:rgba(180,83,9,0.03);"><td style="padding:11px 14px; font-weight:700; color:var(--c3);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_music.jpg"/></span>Music</span></td><td style="padding:11px 14px;">Aesthetics · AI Co-Creation</td><td style="padding:11px 14px;">"Fruit Month" Family AI Song (Suno) </td></tr>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:11px 14px; font-weight:700; color:var(--c5);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_pe.jpg"/></span>PE</span></td><td style="padding:11px 14px;">Health Literacy · IoT Data Age</td><td style="padding:11px 14px;">AI National Guardian · AI Smart PE System</td></tr>
+<tr style="background:rgba(204,120,92,0.04);"><td style="padding:11px 14px; font-weight:700; color:var(--c-claude);"><span style="display:inline-flex; align-items:center; gap:10px;"><span class="subject-icon-md"><img alt="" src="icon_va.jpg"/></span>Visual Arts</span></td><td style="padding:11px 14px;">Creativity · Heritage</td><td style="padding:11px 14px;">Modern Door Gods · Future Career APP</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="slide" data-section="Chinese · AI Idiom Battle" data-slide="6">
+<div class="slide-inner">
+<div class="subject-hero">
+<div class="subject-icon-xl"><img alt="Chinese" src="icon_chinese.png"/></div>
+<div style="flex:1;">
+<div class="kicker k-magenta">Chinese · AI Idiom Battle</div>
+<h2 class="big">Turning Chinese Class into <span class="gradient-text">a Card Battle</span></h2>
+</div>
+</div>
+<div style="display:grid; grid-template-columns:1.5fr 1fr; gap:18px; flex:1; align-items:stretch; min-height:0;">
+<div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0;">
+<img alt="4 Students playing Idiom Battle" src="photos/p6_chinese_battle.jpg" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;"/>
+</div>
+<div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; flex:1; min-height:0;">
+<div style="border-radius:10px; overflow:hidden; box-shadow:var(--shadow-sm); background:#fffaf3;">
+<img alt="SSR General Card" src="photos/p6_general_ssr.png" style="width:100%; height:100%; object-fit:contain;"/>
+</div>
+<div style="border-radius:10px; overflow:hidden; box-shadow:var(--shadow-sm); background:#fffaf3;">
+<img alt="SR General Card" src="photos/p6_general_sr.png" style="width:100%; height:100%; object-fit:contain;"/>
+</div>
+</div>
+<div class="card card-l-magenta">
+<h3 class="lead" style="color:var(--c2); font-size:16px;">🎯 Gameplay</h3>
+<p class="body" style="font-size:12.5px; margin-top:4px;">Students write a sentence using a Chinese idiom → AI <strong>10-point scoring</strong> with a 20% chance of drawing <strong>an Ultra-Rare General Card</strong>  — Yue Fei, Guan Yu, or Li Jing — built around character education.</p>
+</div>
+<div class="card card-l-magenta">
+<h3 class="lead" style="color:var(--c2); font-size:16px;">⚔️ Scoring Dimensions</h3>
+<p class="body" style="font-size:12.5px; margin-top:4px;"><strong>Grammar 3</strong> + <strong>Diction 3</strong> + <strong>Richness 2</strong> + <strong>Creativity 2</strong> = 10 pts</p>
+</div>
+<div style="padding:8px 12px; background:linear-gradient(135deg,#fef3c7,#fffaf3); border-radius:10px; border-left:3px solid var(--c3);">
+<p style="font-size:13px; font-weight:700; color:var(--c3); margin:0;">🏆 HK Primary Merit Award · chosen from 103 entries</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide" data-section="AI Magic Dictation" data-slide="7">
+<div class="slide-inner">
+<div class="subject-hero">
+<div class="subject-icon-xl"><img alt="Dictation" src="icon_english.png"/></div>
+<div style="flex:1;">
+<div class="kicker k-cyan">School-Developed · AI Magic Dictation</div>
+<h2 class="big">Built by Our Teachers, with Gemini <span class="gradient-text-cool">A school-grown dictation tool</span></h2>
+</div>
+</div>
+<div style="display:grid; grid-template-columns:1.5fr 1fr; gap:28px; flex:1; align-items:stretch;">
+<div style="border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff;">
+<img alt="AI Magic Dictation web app interface" src="photos/p7_ai_dictation_app.jpg" style="width:100%; height:100%; object-fit:contain; background:#fff;"/>
+</div>
+<div style="display:flex; flex-direction:column; gap:14px;">
+<div class="card card-l-cyan">
+<h3 class="lead" style="color:var(--c1);">🤝 Teachers × Gemini · Co-Creation</h3>
+<p class="body" style="font-size:17px; margin-top:8px; line-height:1.65;">Built by our teachers in dialogue with Gemini, using  <strong style="color:var(--c1);">natural language</strong>  — no coding experience needed. We turned teachers' classroom instinct into a tool students can use today.</p>
+</div>
+<div class="card card-l-cyan">
+<h3 class="lead" style="color:var(--c1);">📚 P2-P4 Self-Learn Dictation</h3>
+<p class="body" style="font-size:17px; margin-top:8px; line-height:1.65;">Made for our youngest learners: <strong>school dictation lists auto-fill</strong>. Students choose their scope, AI reads it aloud, marks them on the spot — so children can  <strong style="color:var(--c1);">study on their own at home</strong>.</p>
+</div>
+<div class="card card-l-cyan">
+<h3 class="lead" style="color:var(--c1);">⚡ Two Modes</h3>
+<p class="body" style="font-size:16px; margin-top:6px;"><strong>① Word Dictation</strong>: AI-generated stories + flashcards<br/><strong>② Smart Read / Recite</strong>: sentence-by-sentence audio, hidden text</p>
+</div>
+<div class="card card-l-emerald">
+<h3 class="lead" style="color:var(--c4);">💡 Solving Parent Pain Points</h3>
+<p class="body" style="font-size:16px; margin-top:6px;">Parents no longer have to read words aloud. AI never tires, never loses patience, and is always ready when you are.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide" data-section="MATH" data-slide="8">
+<div class="slide-inner">
+<div class="subject-hero">
+<div class="subject-icon-xl"><img alt="Math" src="icon_math.png"/></div>
+<div style="flex:1;">
+<div class="kicker k-amber">MATHEMATICS</div>
+<h2 class="big">Cracking a 70-Year-Old Problem <span class="gradient-text-warm">2 Sigma Personalisation</span></h2>
+</div>
+</div>
+<div style="display:grid; grid-template-columns:1fr 1.2fr; gap:28px; flex:1; align-items:stretch;">
+<div style="display:flex; flex-direction:column; gap:14px;">
+<div class="card card-l-amber">
+<h3 class="lead" style="color:var(--c3);">📐 P4 Curriculum: Multiplication Master</h3>
+<p class="body" style="margin-top:8px; font-size:17px;"><strong>Senior students build AI programs themselves</strong>  — P5 and P6 students design multiplication tools that P2 classmates actually use.</p>
+</div>
+<div class="card card-l-amber">
+<h3 class="lead" style="color:var(--c3);">🤖 Socratic Questioning</h3>
+<p class="body" style="margin-top:8px; font-size:17px;">AI refuses to hand over the answer. Instead it asks back: "Why that approach? What else could you try?" — training critical thinking by reflex.</p>
+</div>
+<div class="card card-l-amber">
+<h3 class="lead" style="color:var(--c3);">🎨 Math Comic Generator</h3>
+<p class="body" style="margin-top:8px; font-size:17px;">Students hand-draw their own characters → AI generates <strong>4-panel comic solutions</strong>  → then students explain and fact-check the result themselves.<strong>Math × Chinese × Arts × Tech</strong> integration.</p>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:14px;">
+<div style="flex:0 0 auto; aspect-ratio:16/9; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+<img alt="Multiplication Master class" src="photos/p8_math_class.jpg" style="width:100%; height:100%; object-fit:contain; object-position:center;"/>
+</div>
+<div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; padding:8px;">
+<img alt="Math Comic Generator output" src="photos/p8_math_comic.jpg" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;"/>
+</div>
+</div>
+</div>
+<p class="src-row"><strong>Research basis: </strong>Bloom (1984) <em>The 2 Sigma Problem</em>  — one-on-one tutoring lifts students from the 50th to the 98th percentile.</p>
+</div>
+</section>
+<section class="slide" data-section="HUMANITIES · Joyfully Chinese" data-slide="9">
+<div class="slide-inner">
+<div class="subject-hero">
+<div class="subject-icon-xl"><img alt="Humanities" src="icon_humanities.png"/></div>
+<div style="flex:1;">
+<div class="kicker k-magenta">HUMANITIES · Joyfully Chinese</div>
+<h2 class="big">From App Inventor to <span class="gradient-text">AI Trading Cards</span></h2>
+</div>
+</div>
+<p class="tagline" style="font-size:20px; color:var(--ink-2); max-width:1180px;">
+ From Computer class <strong style="color:var(--c2);">App Inventor</strong> →
+ <strong style="color:var(--c2);">AI "Joyfully Chinese" App</strong> →
+ <strong style="color:var(--c2);">AI Trading Cards</strong> · Three generations of evolution
+ </p>
+<div class="g3" style="flex:1; gap:18px;">
+<div class="card card-l-magenta" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
+<div style="aspect-ratio:4/3; overflow:hidden; background:#fff8f0;">
+<img alt="Gen 1 · App Inventor coding class" src="photos/p9_gen1_app_inventor.jpg" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;"/>
+</div>
+<div style="padding:18px 20px;">
+<div class="kicker k-magenta">Gen 1 · Foundation</div>
+<h3 class="lead" style="color:var(--c2); margin-top:6px;">📱 App Inventor</h3>
+<p class="body" style="font-size:16px; margin-top:8px;">It began in Computer class. Students used MIT App Inventor's visual blocks to build the first generation of cultural games — the foundational coding work that started it all.</p>
+</div>
+</div>
+<div class="card card-l-magenta" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
+<div style="aspect-ratio:4/3; overflow:hidden; background:#fff8f0;">
+<img alt="Gen 2 · Joyfully Chinese booth" src="photos/p9_gen2_lokjoy.jpg" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;"/>
+</div>
+<div style="padding:18px 20px;">
+<div class="kicker k-magenta">Gen 2 · HK 3rd Place</div>
+<h3 class="lead" style="color:var(--c2); margin-top:6px;">🏛️ Joyfully Chinese App</h3>
+<p class="body" style="font-size:16px; margin-top:8px;">AI lets students reinterpret Chinese culture in their own voice. <strong style="color:var(--c3);">Third place across 500 teams Hong Kong-wide</strong>.</p>
+</div>
+</div>
+<div class="card card-l-magenta" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
+<div style="aspect-ratio:4/3; overflow:hidden; background:#fff8f0;">
+<img alt="Gen 3 · AI TCG cards" src="photos/p9_gen3_ai_cards.jpg" style="width:100%; height:100%; object-fit:contain; object-position:center top;"/>
+</div>
+<div style="padding:18px 20px;">
+<div class="kicker k-magenta">Gen 3 · Latest</div>
+<h3 class="lead" style="color:var(--c2); margin-top:6px;">🃏 AI Trading Cards</h3>
+<p class="body" style="font-size:16px; margin-top:8px;">The App grew into a physical + AI card system. Students enter idiom sentences, AI scores them live, and SSR / SR General cards are drawn on the spot.</p>
+</div>
+</div>
+</div>
+<div class="quote" style="margin-top:6px;">
+<div class="quote-text">Real cultural inheritance isn't about turning students into bystanders of history — it's about turning them into culture's re-creators.</div>
+<div class="quote-author">— Principal Ms Hui, RTHK interview</div>
+</div>
+</div>
+</section>
+<section class="slide" data-section="HUMANITIES · AI Cultural Fitting Room" data-slide="9b">
+<div class="slide-inner">
+<div class="kicker k-magenta">HUMANITIES · AI Cultural Fitting Room</div>
+<h2 class="big"><span class="gradient-text">Artificial Intelligence</span> takes you across time and space</h2>
+<div class="g-img-text" style="flex:1;">
+<div class="photo-trio">
+<img alt="Fitting Room booth入口 banner" src="photos/p9b_culture_booth.jpg" style="object-fit:contain; background:#fff8f0;"/>
+<img alt="Cultural Fitting Room live" src="photos/p9b_culture_screen.jpg"/>
+<img alt="Student with Cultural Fitting Room photos" src="photos/p9b_culture_portrait.jpg"/>
+</div>
+<div style="display:flex; flex-direction:column; gap:12px;">
+<div class="card card-l-magenta">
+<h3 class="lead" style="color:var(--c2);">👘 Live Try-On · Live Photo</h3>
+<p class="body" style="margin-top:6px; font-size:15px;">An AI camera and a large screen. The student stands in front, and AI instantly dresses them in Tibetan, Miao, or Mongolian costumes — placed against the appropriate cultural backdrop.</p>
+</div>
+<div class="card card-l-magenta">
+<h3 class="lead" style="color:var(--c2);">🌏 Beyond Textbook Cultural Experience</h3>
+<p class="body" style="margin-top:6px; font-size:15px;">From reading about culture to wearing it. Aligned with the EDB Values Education Framework — and students take their try-on photos home to keep the conversation going.</p>
+</div>
+<div class="card card-l-claude">
+<h3 class="lead" style="color:var(--c-claude);">🎯 Educational Significance</h3>
+<p class="body" style="margin-top:6px; font-size:15px;">AI doesn't replace authentic dress-up — it lowers the barrier so every student can connect personally with cultures across time.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide" data-section="SCIENCE" data-slide="10">
+<div class="slide-inner">
+<div class="subject-hero">
+<div class="subject-icon-xl"><img alt="Science" src="icon_science.jpg"/></div>
+<div style="flex:1;">
+<div class="kicker k-emerald">SCIENCE</div>
+<h2 class="big">From Lab Reports to <span class="gradient-text-cool">Real-World Inquiry</span></h2>
+</div>
+</div>
+<div class="g-text-img" style="flex:1;">
+<div style="display:flex; flex-direction:column; gap:14px;">
+<div class="card card-l-emerald">
+<h3 class="lead" style="color:var(--c4);">🌱 P6 Curriculum: Plant ID Master</h3>
+<p class="body" style="margin-top:6px;">In the school garden, students use an AI plant-ID app — combining live observation, AI tools, and taxonomy. (Hattie d=0.50 inquiry learning.)</p>
+</div>
+<div class="card card-l-emerald">
+<h3 class="lead" style="color:var(--c4);">🐢 AI Conservation Day</h3>
+<p class="body" style="margin-top:6px;">A hands-on encounter with the Aldabra giant tortoise, paired with AI species identification. Students stop being conservation spectators — they become participants.</p>
+</div>
+<div class="card card-l-emerald">
+<h3 class="lead" style="color:var(--c4);">🦎 Flagship: National Treasure AI Steward</h3>
+<p class="body" style="margin-top:6px;">We've adopted a Yaoshan crocodile lizard (China's Class-1 protected, globally endangered) — paired with IoT sensors and an AI monitoring system.<strong>Details on the Flagship page →</strong></p>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:10px; height:100%; min-height:0;">
+<div style="flex:1.4; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#000; position:relative;">
+<video autoplay="" loop="" muted="" playsinline="" preload="metadata" style="width:100%; height:100%; object-fit:contain; background:#000;">
+<source src="photos/p10_plant_id.mp4" type="video/mp4"/>
+</video>
+<div style="position:absolute; top:8px; left:8px; background:rgba(204,120,92,0.92); color:#fff; padding:4px 12px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px; font-weight:700;">▶ Plant ID Video</div>
+</div>
+<div style="flex:1; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+<img alt="Student with iPad + National Treasure AI Steward booth" src="photos/p10_science_steward.jpg" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide" data-section="MUSIC" data-slide="11">
+<div class="slide-inner">
+<div class="subject-hero">
+<div class="subject-icon-xl"><img alt="Music" src="icon_music.jpg"/></div>
+<div style="flex:1;">
+<div class="kicker k-amber">MUSIC</div>
+<h2 class="big">From Theory to <span class="gradient-text">Family AI Co-Creation</span></h2>
+</div>
+</div>
+<div class="g-img-text" style="flex:1;">
+<div style="display:flex; flex-direction:column; gap:14px; height:100%;">
+<div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+<img alt="Fruit Month AI Song award photo" src="photos/p11_music_ai.jpg" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;"/>
+</div>
+<div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+<img alt="Fruit Month Padlet Family AI Song platform" src="photos/p11_music_padlet.png" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;"/>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:14px;">
+<div class="card card-l-amber">
+<h3 class="lead" style="color:var(--c3);">🍎 "Fruit Month" Family AI Song</h3>
+<p class="body" style="margin-top:6px;">Parents and children co-write Cantonese songs in Suno AI, themed around fruit and nutrition. The results land on Padlet for the whole school. Parents stop being supervisors and become co-learners.</p>
+</div>
+<div class="card card-l-amber">
+<h3 class="lead" style="color:var(--c3);">🎤 From Consumer to Author</h3>
+<p class="body" style="margin-top:6px;">The moment students realise they can compose, their relationship with music flips from passive to active. AI isn't replacing creation — it's lowering the barrier (in the spirit of UNESCO's creative expression framework).</p>
+</div>
+<div class="quote">
+<div class="quote-text">Music class used to be about appreciation and singing. Real creation was out of reach. Suno changes that overnight.</div>
+<div class="quote-author">— Music Department</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide" data-section="PHYSICAL EDUCATION" data-slide="12">
+<div class="slide-inner">
+<div class="subject-hero">
+<div class="subject-icon-xl"><img alt="PE" src="icon_pe.jpg"/></div>
+<div style="flex:1;">
+<div class="kicker k-violet">PHYSICAL EDUCATION</div>
+<h2 class="big">From Demos to <span class="gradient-text">IoT-Powered PE</span></h2>
+</div>
+</div>
+<div class="g-text-img" style="flex:1;">
+<div style="display:flex; flex-direction:column; gap:14px;">
+<div class="card card-l-violet">
+<h3 class="lead" style="color:var(--c5);">🛡️ P5 Curriculum: AI National Guardian 2.0</h3>
+<p class="body" style="margin-top:6px;">Rope-skipping triggers AI vision recognition. Each jump powers a "clean-air cannon" that defeats a pollution monster — turning   a fitness drill into a mission to guard a national treasure.</p>
+</div>
+<div class="card card-l-violet">
+<h3 class="lead" style="color:var(--c5);">⚡ AI Smart Sport System (Pilot)</h3>
+<p class="body" style="margin-top:6px;">Big-screen AI vision in the gym counts rope-skips and long-jump distances live — meeting WHO children-activity data-literacy guidelines.</p>
+</div>
+<div class="card card-l-violet">
+<h3 class="lead" style="color:var(--c5);">🎯 Not Surveillance, but Empowerment</h3>
+<p class="body" style="margin-top:6px;">The focus is on personal improvement, not class rankings — to avoid peer-comparison anxiety. Data is for the individual student only, <strong>no heart-rate or oxygen logging, no public naming</strong>.</p>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:14px; height:100%;">
+<div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+<img alt="Large-screen AI Sport System" src="photos/p12_pe_tv.jpg" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;"/>
+</div>
+<div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+<img alt="Students rope-skipping outdoors" src="photos/p12_pe_outdoor.png" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide" data-section="VISUAL ARTS" data-slide="13">
+<div class="slide-inner">
+<div class="subject-hero">
+<div class="subject-icon-xl"><img alt="Visual Arts" src="icon_va.jpg"/></div>
+<div style="flex:1;">
+<div class="kicker" style="color:var(--c-claude);">VISUAL ARTS</div>
+<h2 class="big">From Imitation to <span class="gradient-text">Heritage Meets Innovation</span></h2>
+</div>
+</div>
+<div class="g-img-text" style="flex:1;">
+<div style="display:flex; flex-direction:column; gap:10px; height:100%; min-height:0;">
+<div style="flex:2; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#000; position:relative;">
+<video autoplay="" loop="" muted="" playsinline="" preload="metadata" style="width:100%; height:100%; object-fit:contain; background:#000;">
+<source src="photos/p13_doorgod.mp4" type="video/mp4"/>
+</video>
+<div style="position:absolute; top:8px; left:8px; background:rgba(204,120,92,0.92); color:#fff; padding:4px 12px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px; font-weight:700;">▶ Modern Door Gods Video</div>
+</div>
+<div style="flex:1; min-height:0; display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+<div style="position:relative; border-radius:10px; overflow:hidden; box-shadow:var(--shadow-sm); background:#fff8f0;">
+<img alt="Student original hand-drawn" src="photos/p13_va_original.jpeg" style="width:100%; height:100%; object-fit:contain;"/>
+<span style="position:absolute; bottom:4px; left:4px; background:rgba(29,28,26,0.85); color:#fff; padding:2px 8px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:1px; font-weight:700;">Original</span>
+</div>
+<div style="position:relative; border-radius:10px; overflow:hidden; box-shadow:var(--shadow-sm); background:#fff8f0;">
+<img alt="AI Final" src="photos/p13_va_ai.jpeg" style="width:100%; height:100%; object-fit:contain;"/>
+<span style="position:absolute; bottom:4px; left:4px; background:rgba(204,120,92,0.92); color:#fff; padding:2px 8px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:1px; font-weight:700;">AI Final</span>
+</div>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:14px;">
+<div class="card card-l-claude">
+<h3 class="lead" style="color:var(--c-claude);">🎭 P5 Curriculum: Modern Door Gods</h3>
+<p class="body" style="margin-top:6px;">Students first draft characters in traditional ink, then use AI to bring them alive as dynamic works. Tradition and innovation aren't enemies — they complete each other. (Aligned with 21st-Century 4C skills.)</p>
+</div>
+<div class="card card-l-claude">
+<h3 class="lead" style="color:var(--c-claude);">🎓 P6 Curriculum: Future Career APP</h3>
+<p class="body" style="margin-top:6px;">Graduation career planning meets visual arts. Students draft APP interfaces for the careers they imagine — then refine the visuals with AI.<strong>Creativity × Self-Identity</strong>.</p>
+</div>
+<div class="quote">
+<div class="quote-text">AI doesn't replace the brush. It widens what "creation" can mean. Our job: to help students recognise which version still has their own soul in it.</div>
+<div class="quote-author">— Ms Cheung, Visual Arts</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide" data-section="FLAGSHIP PROJECT" data-slide="14">
+<div class="slide-inner">
+<div class="kicker k-emerald">FLAGSHIP PROJECT</div>
+<h2 class="big">National Treasure AI Steward <span class="gradient-text">Yaoshan Crocodile Lizard</span></h2>
+<div class="g-img-text" style="flex:1;">
+<div class="photo-full">
+<img alt="National Treasure AI Steward booth + 5 students + lizard box + screen" src="photos/p14_flagship_booth.jpg"/>
+</div>
+<div style="display:flex; flex-direction:column; gap:14px;">
+<p class="tagline" style="font-size:20px;">Class-1 Protected in China · Globally Endangered</p>
+<div class="g2" style="gap:12px;">
+<div class="card card-l-emerald" style="padding:16px;">
+<h3 class="mid" style="color:var(--c4);">🦎 Real National Treasure</h3>
+<p class="small" style="margin-top:4px;">One of the few primary schools in Hong Kong legally permitted to adopt one.</p>
+</div>
+<div class="card card-l-cyan" style="padding:16px;">
+<h3 class="mid" style="color:var(--c1);">📡 IoT Smart Monitoring</h3>
+<p class="small" style="margin-top:4px;">Temperature, humidity, and light sensors stream live to the cloud.</p>
+</div>
+<div class="card card-l-amber" style="padding:16px;">
+<h3 class="mid" style="color:var(--c3);">🔬 AI Behaviour Recognition</h3>
+<p class="small" style="margin-top:4px;">Cameras recognise daily behaviour and log health changes automatically.</p>
+</div>
+<div class="card card-l-violet" style="padding:16px;">
+<h3 class="mid" style="color:var(--c5);">🌍 Cross-Disciplinary</h3>
+<p class="small" style="margin-top:4px;">Science · STEAM · Humanities · IT.</p>
+</div>
+</div>
+</div>
+</div>
+<p class="src-row"><strong>School lead: </strong>Dean Siu · Mr Yeung <strong>Partner: </strong>Yaoshan Lizard Conservation Society</p>
+</div>
+</section>
+<section class="slide" data-section="CURRICULUM · Spiral Pathway" data-slide="15">
+<div class="slide-inner">
+<div class="kicker k-cyan">CURRICULUM</div>
+<h2 class="big">P1-P6 <span class="gradient-text-cool">A Two-Stage Spiral</span></h2>
+<div class="g2" style="flex:1; gap:24px;">
+<div class="card card-l-emerald" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
+<div style="aspect-ratio:16/9; overflow:hidden; background:#fff8f0;">
+<img alt="P1-P3 · Matatalab tangible coding" src="photos/p15_matatalab.jpeg" style="width:100%; height:100%; object-fit:contain;"/>
+</div>
+<div style="padding:20px 24px; display:flex; flex-direction:column; gap:10px; flex:1;">
+<div class="kicker k-emerald">Stage 1 · P1-P3 Foundation</div>
+<h2 class="med" style="color:var(--c4);">Computational Thinking · AI Foundations</h2>
+<p class="body" style="font-size:17px;">Through gamified, hands-on play — Matatalab tangible coding, for example — students build the foundational logic they'll need for everything else.</p>
+<div style="display:flex; gap:6px; flex-wrap:wrap;">
+<span class="chip c4">Matatalab</span>
+<span class="chip c4">Scratch Jr.</span>
+<span class="chip c4">Code.org</span>
+</div>
+<p class="small" style="font-style:italic;">We hold back generative AI in P1-P3 — protecting early cognitive development first.</p>
+</div>
+</div>
+<div class="card card-l-cyan" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
+<div style="aspect-ratio:16/9; overflow:hidden; background:#000; position:relative;">
+<video autoplay="" loop="" muted="" playsinline="" poster="photos/p15_huxia.jpg" preload="metadata" style="width:100%; height:100%; object-fit:cover;">
+<source src="photos/p15_translator.mp4" type="video/mp4"/>
+</video>
+<div style="position:absolute; top:8px; left:8px; background:rgba(8,145,178,0.92); color:#fff; padding:4px 12px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px; font-weight:700;">▶ AI Translator</div>
+</div>
+<div style="padding:20px 24px; display:flex; flex-direction:column; gap:10px; flex:1;">
+<div class="kicker k-cyan">Stage 2 · P4-P6 Empowerment</div>
+<h2 class="med" style="color:var(--c1);">Enterprise AI · Cross-Subject PBL</h2>
+<p class="body" style="font-size:17px;">Full enterprise-grade AI deployment, anchored in deep cross-disciplinary projects.</p>
+<p class="body" style="font-size:15px; line-height:1.85;">
+<strong style="color:var(--c1);">P4:</strong>Fox-Tiger Idiom · Multiplication Master<br/>
+<strong style="color:var(--c1);">P5:</strong>Modern Door Gods · AI Translator<br/>
+<strong style="color:var(--c1);">P6:</strong>Plant ID Master · Career Planning
+ </p>
+<p class="small" style="font-style:italic; color:var(--c3);">Student-group and competition works (Idiom Battle, Cultural Fitting Room, National Treasure Steward) are extracurricular — driven by the students themselves.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide" data-section="ETHICS + ASSESSMENT" data-slide="16">
+<div class="slide-inner">
+<div class="kicker k-pain">AI ETHICS · ASSESSMENT REFORM</div>
+<h2 class="big">Bringing in AI <span style="color:var(--c-pain);">Demands Clear Boundaries</span></h2>
+<div style="display:grid; grid-template-columns:1fr 1.1fr; gap:28px; flex:1; align-items:stretch;">
+<div style="display:flex; flex-direction:column; gap:12px;">
+<div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0;">
+<img alt="Student designing with AI on ThinkPad" src="photos/p17_cyber_game.jpg" style="width:100%; height:100%; object-fit:contain; object-position:center;"/>
+</div>
+<div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+<img alt="Student presenting Magnetic Car AI work" src="photos/p16_magnetic_car.jpg" style="width:100%; height:100%; object-fit:contain; object-position:center;"/>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:14px;">
+<div class="card card-l-pain">
+<h3 class="lead" style="color:var(--c-pain);">🚫 Red Line 1: AI Never Replaces Human Judgement</h3>
+<p class="body" style="margin-top:6px; font-size:17px;">AI assists and inspires. Teacher and student judgement always have the final word.</p>
+</div>
+<div class="card card-l-pain">
+<h3 class="lead" style="color:var(--c-pain);">🚫 Red Line 2: No Unverified Facts</h3>
+<p class="body" style="margin-top:6px; font-size:17px;">Students learn to fact-check. Ultimate accuracy rests with the author — always.</p>
+</div>
+<div class="card card-l-emerald">
+<h3 class="lead" style="color:var(--c4);">📋 3-Layer Assessment</h3>
+<p class="body" style="margin-top:6px; font-size:16px;"><strong>① Paper-pen</strong> · <strong>② Process Portfolio</strong> · <strong>③ Demo + Oral Explanation</strong>  — three parallel tracks, designed to make AI ghostwriting impossible.</p>
+</div>
+<div class="quote">
+<div class="quote-text">Paper and pen aren't replaced — but they no longer measure true ability in the AI era.</div>
+<div class="quote-author">— Principal Ms Hui, RTHK interview</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide" data-section="AWARDS · COMPETITIONS" data-slide="17">
+<div class="slide-inner">
+<div class="kicker k-amber">ACHIEVEMENTS</div>
+<h2 class="big">student works <span class="gradient-text">Recognised by the Wider World</span></h2>
+<div class="g-img-text" style="flex:1;">
+<div style="display:flex; flex-direction:column; gap:10px; height:100%; min-height:0;">
+<div style="flex:1; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+<img alt="2024 National Identity Award Ceremony" src="photos/p17_award_2024.jpg" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;"/>
+</div>
+<div style="flex:1; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+<img alt="BETT UK 2026 booth" src="photos/p17_bett_uk.jpg" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;"/>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:14px;">
+<div class="card card-l-amber">
+<div class="kicker k-amber">BRONZE MEDAL</div>
+<h3 class="lead" style="margin-top:6px;">Joyfully Chinese</h3>
+<p class="body" style="margin-top:4px;">HK Primary Chinese Culture Education Competition · third place from 500 teams.</p>
+</div>
+<div class="card card-l-magenta">
+<div class="kicker k-magenta">MERIT AWARD</div>
+<h3 class="lead" style="margin-top:6px;">AI Idiom Battle</h3>
+<p class="body" style="margin-top:4px;">National Identity App Design Competition · selected from 103 entries.</p>
+</div>
+<div class="card card-l-cyan">
+<div class="kicker k-cyan">GLOBAL · Beyond HK</div>
+<h3 class="lead" style="margin-top:6px;">BETT London 2026</h3>
+<p class="body" style="margin-top:4px;">Our school will represent Hong Kong at the London BETT EdTech Expo.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide" data-section="ACTION · Workshop" data-slide="18">
+<div class="slide-inner">
+<div class="kicker">PARENT EMPOWERMENT · WORKSHOP</div>
+<h2 class="big">Parents Aren't Just Bystanders <span class="gradient-text">You're an AI Creator Too</span></h2>
+<div class="g-img-text" style="flex:1;">
+<div style="display:flex; flex-direction:column; gap:12px; height:100%;">
+<div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+<img alt="Parent Workshop live" src="photos/p18_workshop_audience.jpeg" style="width:100%; height:100%; object-fit:contain; object-position:center;"/>
+</div>
+<div style="flex:1; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+<img alt="AI-Era Super Parent · Gemini × Poe Hands-on Workshop" src="photos/p18_workshop_ppt.jpeg" style="width:100%; height:100%; object-fit:contain; object-position:center;"/>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:14px;">
+<div class="card card-l-claude">
+<h3 class="lead" style="color:var(--c-claude);">🛠️ AI-Era Super Parent</h3>
+<p class="body" style="margin-top:8px; font-size:17px;">Our "Gemini × Poe Hands-On Workshop" shows parents how to guide self-learning at home. From zero coding experience to a working AI dictation app — built for your own child, in 30 minutes.</p>
+</div>
+<div class="card card-l-claude">
+<h3 class="lead" style="color:var(--c-claude);">🎯 Held Regularly</h3>
+<p class="body" style="margin-top:8px; font-size:17px;">Held at least twice each term, in lockstep with the student curriculum — so parents stay current with what the school is doing.</p>
+</div>
+<div class="card card-l-claude">
+<h3 class="lead" style="color:var(--c-claude);">💬 Not Just Tech · It's Communication</h3>
+<p class="body" style="margin-top:8px; font-size:17px;">Once parents have built something themselves, they understand: AI isn't magic. Conversations about AI at home suddenly have substance — and limits.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide" data-section="FUTURE BLUEPRINT" data-slide="19">
+<div class="slide-inner">
+<div class="kicker k-emerald">FUTURE BLUEPRINT</div>
+<h2 class="big">What Comes Next <span class="gradient-text-cool">Three Initiatives</span></h2>
+<div class="g3" style="flex:1; gap:18px;">
+<div style="display:flex; flex-direction:column; gap:12px;">
+<div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+<img alt="AI Garden student works" src="photos/p19_ai_garden.jpg" style="width:100%; height:100%; object-fit:contain;"/>
+</div>
+<div class="card card-l-emerald" style="padding:18px;">
+<h3 class="mid" style="color:var(--c4);">🌿 AI Garden</h3>
+<p class="body" style="margin-top:6px; font-size:15px;">A permanent campus exhibit gathering students' AI works across the years — from concept comics to fully working apps.</p>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:12px;">
+<div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+<img alt="5G Smart Butterfly Garden" src="photos/p19_5g_butterfly.jpg" style="width:100%; height:100%; object-fit:contain;"/>
+</div>
+<div class="card card-l-cyan" style="padding:18px;">
+<h3 class="mid" style="color:var(--c1);">🦋 5G Smart Butterfly Garden</h3>
+<p class="body" style="margin-top:6px; font-size:15px;">A 5G IoT sensing garden streaming live ecological data — temperature, humidity, and species ID, in real time.</p>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:12px;">
+<div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0;">
+<img alt="AI-Era Super Parent · Gemini × Poe Workshop" src="photos/p18_workshop_ppt.jpeg" style="width:100%; height:100%; object-fit:contain;"/>
+</div>
+<div class="card card-l-claude" style="padding:14px;">
+<h3 class="mid" style="color:var(--c-claude);">👨‍👩‍👧 Parent Empowerment 2.0</h3>
+<p class="body" style="margin-top:6px; font-size:13px;">From using AI to teaching AI. Parents and children learn side by side — and the relationship deepens.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===== P24 v5 來年 P1 三班別概覽 ===== -->
+<section class="slide" data-section="P1 STREAMS · OVERVIEW" data-slide="24">
+<div class="slide-inner">
+<div class="kicker k-magenta">2026-2027 · NEW P1 STREAMS</div>
+<h2 class="big">Three Streams,　<span class="gradient-text">Distinct Focus</span></h2>
+<p class="tagline" style="max-width:1180px;">Student-centred. Talent-driven. LWWF's signature curriculum — beyond English Elite, we're also raising AI talent for the years ahead.</p>
+<div class="g3" style="flex:1; gap:18px;">
+<div class="card card-l-cyan" style="display:flex; flex-direction:column; gap:10px; padding:20px;">
+<div style="display:flex; align-items:center; gap:12px;">
+<div class="class-badge" style="border-color:var(--c1); color:var(--c1);">A</div>
+<div>
+<div class="kicker k-cyan" style="font-size:9.5px;">CLASS A</div>
+<h3 class="lead" style="color:var(--c1); font-size:18px;">English Elite Class</h3>
+</div>
+</div>
+<p class="body" style="font-size:13px;"><strong style="color:var(--c1);">🎯 Focus: </strong>Build an English-immersive environment to lift students' English ability.</p>
+<div style="border-top:1px dashed var(--border); padding-top:8px;">
+<p class="small" style="font-weight:700; color:var(--c1); margin-bottom:4px;">⚡ Features</p>
+<ul class="bullet" style="font-size:12px; line-height:1.65;">
+<li>Math taught in English</li>
+<li>Science taught in English</li>
+<li>Talent Programme in spring features <strong>English drama training</strong></li>
+</ul>
+</div>
+</div>
+<div class="card card-l-magenta" style="display:flex; flex-direction:column; gap:10px; padding:20px;">
+<div style="display:flex; align-items:center; gap:12px;">
+<div class="class-badge" style="border-color:var(--c2); color:var(--c2);">B</div>
+<div>
+<div class="kicker k-magenta" style="font-size:9.5px;">CLASS B</div>
+<h3 class="lead" style="color:var(--c2); font-size:18px;">Arts &amp; Sports Class</h3>
+</div>
+</div>
+<p class="body" style="font-size:13px;"><strong style="color:var(--c2);">🎯 Focus: </strong>For students with a strong interest in arts and sports — a place to play to their strengths.</p>
+<div style="border-top:1px dashed var(--border); padding-top:8px;">
+<p class="small" style="font-weight:700; color:var(--c2); margin-bottom:4px;">⚡ Features</p>
+<ul class="bullet" style="font-size:12px; line-height:1.65;">
+<li>Talent Programme in spring features <strong>arts-and-sports training</strong></li>
+<li>Integrated music, art, and PE development</li>
+<li>Multiple-intelligences support</li>
+</ul>
+</div>
+</div>
+<div class="card card-l-amber" style="display:flex; flex-direction:column; gap:10px; padding:20px;">
+<div style="display:flex; align-items:center; gap:12px;">
+<div class="class-badge" style="border-color:var(--c3); color:var(--c3);">C</div>
+<div>
+<div class="kicker k-amber" style="font-size:9.5px;">CLASS C</div>
+<h3 class="lead" style="color:var(--c3); font-size:18px;">AI Innovation Class</h3>
+</div>
+</div>
+<p class="body" style="font-size:13px;"><strong style="color:var(--c3);">🎯 Focus: </strong>For students fascinated by AI and digital learning.</p>
+<div style="border-top:1px dashed var(--border); padding-top:8px;">
+<p class="small" style="font-weight:700; color:var(--c3); margin-bottom:4px;">⚡ Features</p>
+<ul class="bullet" style="font-size:12px; line-height:1.65;">
+<li>Around <strong>22 iPads kept in the classroom</strong></li>
+<li>Science inquiry deepens with <strong>AI-powered creation</strong></li>
+<li>Spring Talent Programme: <strong>build a CHATBOT</strong> unit</li>
+</ul>
+</div>
+</div>
+</div>
+<p class="src-row"><strong>Source: </strong>2026-2027 P1 Streaming Arrangement, LWWF Curriculum Office</p>
+</div>
+</section>
+<!-- ===== P25 v5 P1 分班 - 家長意願 + 出入機制 ===== -->
+<section class="slide" data-section="P1 STREAMS · DETAILS" data-slide="25">
+<div class="slide-inner">
+<div class="kicker k-magenta">P1 STREAMS · DETAILS</div>
+<h2 class="big">Parent Choice　＋　<span class="gradient-text">Class Mobility Rules</span></h2>
+<p class="tagline" style="max-width:1180px;">We respect parents' choice — with clear enrolment and transfer rules to fit each student's real-world development.</p>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; flex:1; align-items:stretch; min-height:0;">
+<!-- 左:家長意願 -->
+<div class="card card-l-magenta" style="padding:22px; display:flex; flex-direction:column; gap:14px;">
+<div class="kicker k-magenta">PARENT CHOICE</div>
+<h3 class="lead" style="color:var(--c2); font-size:22px;">👨‍👩‍👧 Free to Choose</h3>
+<div style="display:flex; flex-direction:column; gap:10px;">
+<div style="padding:10px 14px; background:rgba(8,145,178,0.05); border-radius:8px; border-left:3px solid var(--c1);">
+<p style="font-size:13px; font-weight:700; color:var(--c1); margin-bottom:3px;">Class A (English Elite)</p>
+<p style="font-size:12.5px;">Parents may choose freely. <strong>A June interview is required</strong>.</p>
+</div>
+<div style="padding:10px 14px; background:rgba(190,24,93,0.05); border-radius:8px; border-left:3px solid var(--c2);">
+<p style="font-size:13px; font-weight:700; color:var(--c2); margin-bottom:3px;">Class B (Arts &amp; Sports) + Class C (AI Innovation)</p>
+<p style="font-size:12.5px;">Parents choose the stream that fits their child. <strong>If demand exceeds capacity, interviews will be held</strong> — placement is based on each student's circumstances.</p>
+</div>
+</div>
+<p class="small" style="font-style:italic; color:var(--ink-3); margin-top:auto;">📅 June Interview: required for all Class A applicants.</p>
+</div>
+<!-- 右:出入機制 -->
+<div class="card card-l-emerald" style="padding:22px; display:flex; flex-direction:column; gap:14px;">
+<div class="kicker k-emerald">CLASS MOBILITY</div>
+<h3 class="lead" style="color:var(--c4); font-size:22px;">🔄 Year-to-Year Transfer Rules</h3>
+<div style="display:flex; flex-direction:column; gap:10px;">
+<div style="padding:10px 14px; background:rgba(8,145,178,0.05); border-radius:8px; border-left:3px solid var(--c1);">
+<p style="font-size:13px; font-weight:700; color:var(--c1); margin-bottom:5px;">🅰️ Class A (English Elite)</p>
+<p style="font-size:12px; line-height:1.7;">
+<strong>P.1 → P.2: </strong>transfers in and out are open ✅<br/>
+<strong>P.2 → P.3: </strong>transfers out only ⚠️ (mid-year entrants are an exception)
+            </p>
+</div>
+<div style="padding:10px 14px; background:rgba(4,120,87,0.05); border-radius:8px; border-left:3px solid var(--c4);">
+<p style="font-size:13px; font-weight:700; color:var(--c4); margin-bottom:5px;">🅱️🆎 Class B / C (Arts &amp; Sports + AI Innovation)</p>
+<p style="font-size:12px; line-height:1.7;">
+<strong>P.1 to P.3: </strong>free movement ✅<br/>
+<strong>P.4 to P.6: </strong>students are grouped by ability in Chinese, English, and Math for <strong>differentiated instruction</strong>
+</p>
+</div>
+</div>
+<p class="small" style="font-style:italic; color:var(--ink-3); margin-top:auto;">💡 By design: students get room to shine, and parents get room to adjust.</p>
+</div>
+</div>
+<p class="src-row"><strong>Note: </strong>Streams are about interest, not ability sorting — every student has a stream that suits them.</p>
+</div>
+</section>
+<!-- ===== P26 v5 英尖班 ① 概述 ===== -->
+<section class="slide" data-section="ENGLISH ELITE · OVERVIEW" data-slide="26">
+<div class="slide-inner">
+<div class="subject-hero">
+<div class="subject-icon-xl"><img alt="英尖班" src="icon_english.png"/></div>
+<div style="flex:1;">
+<div class="kicker k-cyan">ENGLISH ELITE · Class A</div>
+<h2 class="big">Building an　<span class="gradient-text-cool">English-Immersive</span>Learning Environment</h2>
+</div>
+</div>
+<div style="display:grid; grid-template-columns:1fr 1.05fr; gap:24px; flex:1; align-items:stretch; min-height:0;">
+<!-- 左:placeholder + 數字 -->
+<div style="display:flex; flex-direction:column; gap:12px; min-height:0;">
+<div class="placeholder-16" style="flex:1; min-height:0;">
+<div class="ph-emoji">📸</div>
+<div class="ph-id">P26_PHOTO</div>
+<div class="ph-hint">English Elite class photo · 16:9 placeholder</div>
+</div>
+<div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px;">
+<div style="text-align:center; padding:10px; background:rgba(8,145,178,0.06); border-radius:10px;">
+<div class="stat-num" style="font-size:32px; color:var(--c1); -webkit-text-fill-color:var(--c1); background:none;">2</div>
+<div class="stat-label" style="font-size:9px;">Subjects in English</div>
+</div>
+<div style="text-align:center; padding:10px; background:rgba(8,145,178,0.06); border-radius:10px;">
+<div class="stat-num" style="font-size:32px; color:var(--c1); -webkit-text-fill-color:var(--c1); background:none;">P1</div>
+<div class="stat-label" style="font-size:9px;">Starting Grade</div>
+</div>
+<div style="text-align:center; padding:10px; background:rgba(8,145,178,0.06); border-radius:10px;">
+<div class="stat-num" style="font-size:32px; color:var(--c1); -webkit-text-fill-color:var(--c1); background:none;">6 月</div>
+<div class="stat-label" style="font-size:9px;">Parent Interview</div>
+</div>
+</div>
+</div>
+<!-- 右:核心理念 + cards -->
+<div style="display:flex; flex-direction:column; gap:12px;">
+<div class="card card-l-cyan" style="padding:16px 18px;">
+<h3 class="lead" style="color:var(--c1);">🎯 Programme Philosophy</h3>
+<p class="body" style="margin-top:6px;">Through <strong>English-immersive surroundings</strong>, English shifts from being just "another subject" to being a learning tool — students use it in math, science, and arts contexts to lift all four areas: <strong>Listening · Speaking · Reading · Writing</strong>.</p>
+</div>
+<div class="card card-l-cyan" style="padding:16px 18px;">
+<h3 class="lead" style="color:var(--c1);">📚 Three Pillars</h3>
+<p class="body" style="margin-top:6px;">
+            ① <strong>Math</strong> in English<br/>
+            ② <strong>Science</strong> in English<br/>
+            ③ Spring Talent Programme: <strong>English drama training</strong>
+</p>
+</div>
+<div class="card card-l-emerald" style="padding:16px 18px;">
+<h3 class="lead" style="color:var(--c4);">💡 Why English Elite?</h3>
+<p class="body" style="margin-top:6px;">For students with <strong>a solid English foundation and a real interest in going deeper</strong> — the transition to EMI (English-medium) secondary schools is notably smoother.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===== P27 v5 英尖班 ② 三大特色 ===== -->
+<section class="slide" data-section="ENGLISH ELITE · THREE PILLARS" data-slide="27">
+<div class="slide-inner">
+<div class="kicker k-cyan">ENGLISH ELITE · THREE PILLARS</div>
+<h2 class="big">EMI Classes ×<span class="gradient-text-cool">Drama Training</span></h2>
+<p class="tagline" style="max-width:1180px;">Math, Science, and class routines — three threads moving in step to build a complete English-learning ecology.</p>
+<div class="g3" style="flex:1; gap:18px;">
+<div class="card card-l-cyan" style="display:flex; flex-direction:column; gap:10px; padding:20px;">
+<div style="font-size:42px;">📐</div>
+<div class="kicker k-cyan">Pillar 1</div>
+<h3 class="lead" style="color:var(--c1); font-size:20px;">Math in English</h3>
+<p class="body" style="font-size:13.5px;">Textbook, worksheets, and assessments are all in English — so students learn math concepts and the matching English <strong>academic vocabulary</strong> (addition, subtraction, equation, perimeter) at the same time.</p>
+<p class="small" style="color:var(--c1); font-weight:700; margin-top:auto;">📊 Strong preparation for EMI secondary schools</p>
+</div>
+<div class="card card-l-cyan" style="display:flex; flex-direction:column; gap:10px; padding:20px;">
+<div style="font-size:42px;">🧪</div>
+<div class="kicker k-cyan">Pillar 2</div>
+<h3 class="lead" style="color:var(--c1); font-size:20px;">Science in English</h3>
+<p class="body" style="font-size:13.5px;">Lab unit worksheets and assessments are in English — students absorb <strong>scientific vocabulary</strong>（如：hypothesis, observation, experiment, conclusion）.</p>
+<p class="small" style="color:var(--c1); font-weight:700; margin-top:auto;">🔬 Develops scientific expression in English</p>
+</div>
+<div class="card card-l-cyan" style="display:flex; flex-direction:column; gap:10px; padding:20px;">
+<div style="font-size:42px;">🎭</div>
+<div class="kicker k-cyan">Pillar 3</div>
+<h3 class="lead" style="color:var(--c1); font-size:20px;">Routines + English Drama</h3>
+<p class="body" style="font-size:13.5px;">Daily class routines are run in English — paired with <strong>the spring Talent Programme's drama training</strong>, students use English in authentic contexts — moving from "can read, can listen" to "dare to speak, dare to perform".</p>
+<p class="small" style="color:var(--c1); font-weight:700; margin-top:auto;">🎤 Builds spoken confidence</p>
+</div>
+</div>
+<div style="padding:10px 16px; background:linear-gradient(135deg,rgba(8,145,178,0.08),rgba(4,120,87,0.06)); border-radius:10px; border-left:3px solid var(--c1);">
+<p style="font-size:13px; font-weight:700; color:var(--c1); margin:0;">🌐 As they progress: English cross-subject PBL (Project-Based Learning) starts in P4, preparing students for secondary school.</p>
+</div>
+</div>
+</section>
+<!-- ===== P28 v5 英尖班 ③ 學習成果 + 家長關注 ===== -->
+<section class="slide" data-section="ENGLISH ELITE · OUTCOMES &amp; FAQ" data-slide="28">
+<div class="slide-inner">
+<div class="kicker k-cyan">ENGLISH ELITE · OUTCOMES &amp; FAQ</div>
+<h2 class="big">Outcomes + <span class="gradient-text-cool">Common Parent Questions</span></h2>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; flex:1; align-items:stretch; min-height:0;">
+<!-- 左:學習成果 -->
+<div style="display:flex; flex-direction:column; gap:12px; min-height:0;">
+<div class="card card-l-cyan" style="padding:18px;">
+<div class="kicker k-cyan">📈 OUTCOMES</div>
+<ul class="bullet" style="font-size:13px; line-height:1.85; margin-top:8px;">
+<li><strong style="color:var(--c1);">English Confidence: </strong>students speak up in English without hesitation</li>
+<li><strong style="color:var(--c1);">Academic English: </strong>command of math and science vocabulary</li>
+<li><strong style="color:var(--c1);">EMI Pathway: </strong>smooth transition into English-medium secondary schools</li>
+<li><strong style="color:var(--c1);">Drama Showcase: </strong>every spring features a public performance</li>
+</ul>
+</div>
+<div class="placeholder-16" style="flex:1; min-height:0;">
+<div class="ph-emoji">🎭</div>
+<div class="ph-id">P28_DRAMA_PHOTO</div>
+<div class="ph-hint">English drama performance photo · 16:9 placeholder</div>
+</div>
+</div>
+<!-- 右:家長 FAQ -->
+<div style="display:flex; flex-direction:column; gap:10px;">
+<div class="card card-l-pain" style="padding:14px 16px;">
+<h3 class="mid" style="color:var(--c-pain); font-size:14.5px;">❓ My child's English isn't that strong — will English Elite be too tough?</h3>
+<p class="small" style="margin-top:4px; line-height:1.65;">Class A admissions emphasise <strong>learning interest</strong> over "current level". The June interview assesses adaptability. If your child doesn't settle in, <strong>you can transfer to Class B or C between P.1 and P.2</strong>.</p>
+</div>
+<div class="card card-l-pain" style="padding:14px 16px;">
+<h3 class="mid" style="color:var(--c-pain); font-size:14.5px;">❓ Will Class B/C students get less English exposure?</h3>
+<p class="small" style="margin-top:4px; line-height:1.65;">No. <strong>the English subject itself is identical school-wide</strong>; Class B and C simply have <strong>Math and Science</strong> taught in Chinese. All classes still have native-English reading lessons and daily English activities.</p>
+</div>
+<div class="card card-l-pain" style="padding:14px 16px;">
+<h3 class="mid" style="color:var(--c-pain); font-size:14.5px;">❓ Why can't students join English Elite after P.2 → P.3?</h3>
+<p class="small" style="margin-top:4px; line-height:1.65;">Because from P.3 onwards, <strong>the accumulated knowledge in English-medium subjects</strong> is substantial (math word problems, lab reports, etc.). Joining mid-stream creates too much pressure. <strong>Mid-year entrants are handled case-by-case</strong>.</p>
+</div>
+<div class="card card-l-emerald" style="padding:12px 16px;">
+<h3 class="mid" style="color:var(--c4); font-size:14px;">💡 Still have questions?</h3>
+<p class="small" style="margin-top:3px;">Bring them to Q&amp;A — or contact our Curriculum Office before the June interview for a detailed chat.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===== P29 v5 無考默政策 ① 政策核心 ===== -->
+<section class="slide" data-section="ASSESSMENT · NO-DICTATION" data-slide="29">
+<div class="slide-inner">
+<div class="kicker k-pain">ASSESSMENT REFORM</div>
+<h2 class="big">Why LWWF　<span style="color:var(--c-pain);">Dropped Traditional Dictation</span></h2>
+<p class="tagline" style="max-width:1180px;">From assessing memorisation to assessing application — answering what the AI era actually demands.</p>
+<div style="display:grid; grid-template-columns:1fr 1.4fr; gap:20px; flex:1; align-items:stretch; min-height:0;">
+<!-- 左:大字 statement -->
+<div style="display:flex; flex-direction:column; gap:12px; min-height:0;">
+<div class="placeholder-16" style="flex:1; min-height:0; aspect-ratio:auto;">
+<div class="ph-emoji">🎬</div>
+<div class="ph-id">P29_VIDEO_KEYFRAME</div>
+<div class="ph-hint">No-dictation video<br/>Keyframe placeholder (Nov 17 V7 video)</div>
+</div>
+<div class="card card-l-pain" style="padding:14px;">
+<p class="body" style="font-size:13px; font-weight:700; color:var(--c-pain); line-height:1.6;">📌 We're not abandoning vocabulary — we're abandoning rote dictation as the way to assess it.</p>
+</div>
+</div>
+<!-- 右:4 大支柱 -->
+<div style="display:flex; flex-direction:column; gap:10px;">
+<div class="card card-l-pain" style="padding:14px 16px;">
+<div class="kicker k-pain">Pillar 1</div>
+<h3 class="lead" style="color:var(--c-pain); font-size:15.5px; margin-top:4px;">🔄 Less Rote Memorisation · More Room to Learn</h3>
+<p class="body" style="font-size:12.5px; margin-top:4px;">We redirect dictation time into <strong>reading comprehension, writing, and discussion</strong> — building deeper language ability.</p>
+</div>
+<div class="card card-l-pain" style="padding:14px 16px;">
+<div class="kicker k-pain">Pillar 2</div>
+<h3 class="lead" style="color:var(--c-pain); font-size:15.5px; margin-top:4px;">💪 Lower Pressure · Protect the Joy of Learning</h3>
+<p class="body" style="font-size:12.5px; margin-top:4px;">Traditional dictation breeds <strong>resistance to Chinese and English</strong>. Without it, students <strong>keep loving the language</strong> — the foundation of lifelong learning.</p>
+</div>
+<div class="card card-l-pain" style="padding:14px 16px;">
+<div class="kicker k-pain">Pillar 3</div>
+<h3 class="lead" style="color:var(--c-pain); font-size:15.5px; margin-top:4px;">🤖 The AI Era · Rethinking Assessment</h3>
+<p class="body" style="font-size:12.5px; margin-top:4px;">When AI can produce answers on demand, <strong>the practical value of rote memorisation collapses</strong> — what truly matters is <strong>application, judgement, and creation</strong>.</p>
+</div>
+<div class="card card-l-pain" style="padding:14px 16px;">
+<div class="kicker k-pain">Pillar 4</div>
+<h3 class="lead" style="color:var(--c-pain); font-size:15.5px; margin-top:4px;">📊 Multi-Track Assessment · Reflects Real Ability</h3>
+<p class="body" style="font-size:12.5px; margin-top:4px;">We use <strong>reading comprehension, writing, speaking, and project work</strong> instead — measures that align with real language use.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===== P30 v5 無考默政策 ② 學生 + 家長角度 ===== -->
+<section class="slide" data-section="ASSESSMENT · STUDENT + PARENT" data-slide="30">
+<div class="slide-inner">
+<div class="kicker k-pain">NO-DICTATION · STUDENT GAINS + PARENT ROLE</div>
+<h2 class="big">Students ×<span style="color:var(--c-pain);">Parents</span>— A Win-Win</h2>
+<p class="tagline" style="max-width:1180px;">Dropping dictation doesn't mean parents step back — it means the role shifts. From supervising memorisation to reading and learning together.</p>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; flex:1; align-items:stretch; min-height:0;">
+<!-- 左:學生收穫 -->
+<div class="card card-l-emerald" style="padding:22px; display:flex; flex-direction:column; gap:12px;">
+<div class="kicker k-emerald">STUDENT VIEW</div>
+<h3 class="lead" style="color:var(--c4); font-size:22px;">😊 What They Gain</h3>
+<ul class="bullet" style="font-size:13.5px; line-height:1.85;">
+<li><strong style="color:var(--c4);">Lower Learning Stress</strong> — no more dictation anxiety</li>
+<li><strong style="color:var(--c4);">Stronger Reading Interest</strong> — from "forced to memorise" to "choosing to read"</li>
+<li><strong style="color:var(--c4);">Better Expression</strong> — built through discussion and writing</li>
+<li><strong style="color:var(--c4);">More Flexible Time</strong> — room to pursue interests and strengths</li>
+</ul>
+<div style="padding:8px 12px; background:rgba(4,120,87,0.05); border-radius:8px; margin-top:auto;">
+<p class="small" style="font-style:italic; color:var(--c4);">"I no longer dread dictation days — I actually look forward to Chinese class." — Student</p>
+</div>
+</div>
+<!-- 右:家長配合 -->
+<div class="card card-l-claude" style="padding:22px; display:flex; flex-direction:column; gap:12px;">
+<div class="kicker">PARENT VIEW</div>
+<h3 class="lead" style="color:var(--c-claude); font-size:22px;">🤝 Shifting Roles</h3>
+<ul class="bullet" style="font-size:13.5px; line-height:1.85;">
+<li><strong style="color:var(--c-claude);">From "supervising" to "reading together"</strong> — parent-child reading replaces dictation drilling</li>
+<li><strong style="color:var(--c-claude);">Use the AI Magic Dictation tool</strong> (introduced earlier) as a self-study companion</li>
+<li><strong style="color:var(--c-claude);">Focus on interest</strong> rather than test scores</li>
+<li><strong style="color:var(--c-claude);">Attend home-school workshops</strong> — learn AI alongside your child</li>
+</ul>
+<div style="padding:8px 12px; background:rgba(204,120,92,0.05); border-radius:8px; margin-top:auto;">
+<p class="small" style="font-style:italic; color:var(--c-claude);">The deeper parents engage, the more students gain.</p>
+</div>
+</div>
+</div>
+<p class="src-row"><strong>Core Principle: </strong>"no dictation" doesn't mean "no assessment" — see the next page on our <strong>three-track assessment framework</strong>.</p>
+</div>
+</section>
+<!-- ===== P31 v5 評估三軌進階版 ===== -->
+<section class="slide" data-section="THREE-TRACK ASSESSMENT" data-slide="31">
+<div class="slide-inner">
+<div class="kicker k-emerald">THREE-TRACK ASSESSMENT</div>
+<h2 class="big">Three Tracks,　<span class="gradient-text-cool">Full Picture</span></h2>
+<p class="tagline" style="max-width:1180px;">We didn't drop assessment — we moved from "paper-and-pen only" to three parallel tracks, closing the AI-ghostwriting blind spot.</p>
+<div class="g3" style="flex:1; gap:18px;">
+<div class="card card-l-cyan" style="display:flex; flex-direction:column; gap:10px; padding:20px;">
+<div style="font-size:46px;">📝</div>
+<div class="kicker k-cyan">Track 1</div>
+<h3 class="lead" style="color:var(--c1); font-size:20px;">Paper &amp; Pen</h3>
+<p class="body" style="font-size:13px;">We keep traditional tests and exams — to assess core knowledge, computation, and writing skills.</p>
+<div style="border-top:1px dashed var(--border); padding-top:6px; margin-top:auto;">
+<p class="small"><strong style="color:var(--c1);">Best for: </strong>core concepts · foundational skills</p>
+</div>
+</div>
+<div class="card card-l-amber" style="display:flex; flex-direction:column; gap:10px; padding:20px;">
+<div style="font-size:46px;">📂</div>
+<div class="kicker k-amber">Track 2</div>
+<h3 class="lead" style="color:var(--c3); font-size:20px;">Process Portfolio</h3>
+<p class="body" style="font-size:13px;">Collects a term's worth of work, reflections, and progress — capturing <strong>the learning journey</strong>, not just the result.</p>
+<div style="border-top:1px dashed var(--border); padding-top:6px; margin-top:auto;">
+<p class="small"><strong style="color:var(--c3);">Best for: </strong>creative work · writing · PBL</p>
+</div>
+</div>
+<div class="card card-l-magenta" style="display:flex; flex-direction:column; gap:10px; padding:20px;">
+<div style="font-size:46px;">🎤</div>
+<div class="kicker k-magenta">Track 3</div>
+<h3 class="lead" style="color:var(--c2); font-size:20px;">Performance + Oral Defence</h3>
+<p class="body" style="font-size:13px;">Students demonstrate and explain their own work — <strong>the strongest defence against AI ghostwriting</strong> we have.</p>
+<div style="border-top:1px dashed var(--border); padding-top:6px; margin-top:auto;">
+<p class="small"><strong style="color:var(--c2);">Best for: </strong>STEAM · cross-subject · AI creation</p>
+</div>
+</div>
+</div>
+<div class="quote" style="margin-top:auto;">
+<div class="quote-text">Paper and pen won't disappear, but alone they no longer measure real ability in the AI era. Three tracks together — that's where you see a student actually grow.</div>
+<div class="quote-author">Principal許敏詩 · RTHK 訪問</div>
+</div>
+</div>
+</section>
+<!-- ===== P32 v5 功輔班 vs 課託 ===== -->
+<section class="slide" data-section="AFTER-SCHOOL CARE" data-slide="32">
+<div class="slide-inner">
+<div class="kicker k-amber">AFTER-SCHOOL SUPPORT</div>
+<h2 class="big">Tutorial vs<span class="gradient-text-warm">After-School Care</span></h2>
+<p class="tagline" style="max-width:1180px;">Two after-school options · different hours, services, and school-bus arrangements — choose what fits your family.</p>
+<div style="flex:1; display:grid; grid-template-columns:0.6fr 1fr 1fr; gap:0; align-items:stretch; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff;">
+<!-- header column -->
+<div style="display:flex; flex-direction:column;">
+<div style="background:var(--c-claude); color:#fff; padding:14px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:2px; font-weight:700;">Item</div>
+<div style="padding:18px 14px; border-bottom:1px solid var(--border); font-size:14px; font-weight:700; display:flex; align-items:center; gap:6px;">⏰ Hours</div>
+<div style="padding:18px 14px; border-bottom:1px solid var(--border); font-size:14px; font-weight:700; background:rgba(204,120,92,0.04); display:flex; align-items:center; gap:6px;">📚 Services</div>
+<div style="padding:18px 14px; border-bottom:1px solid var(--border); font-size:14px; font-weight:700; display:flex; align-items:center; gap:6px;">🚌 School Bus</div>
+<div style="padding:18px 14px; font-size:14px; font-weight:700; background:rgba(204,120,92,0.04); display:flex; align-items:center; gap:6px;">👥 Best For</div>
+</div>
+<!-- 功輔班 column -->
+<div style="display:flex; flex-direction:column; border-left:2px solid var(--border);">
+<div style="background:var(--c1); color:#fff; padding:14px; text-align:center;">
+<div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px;">CLASS A</div>
+<div style="font-size:18px; font-weight:800; margin-top:2px;">📝 Homework Tutorial</div>
+</div>
+<div style="padding:18px 14px; border-bottom:1px solid var(--border); font-size:14px;"><strong style="color:var(--c1);">3:00 – 4:30 PM</strong><br/><span style="font-size:11px; color:var(--ink-3);">90 minutes after dismissal</span></div>
+<div style="padding:18px 14px; border-bottom:1px solid var(--border); background:rgba(8,145,178,0.03); font-size:13px; line-height:1.6;">Helps students <strong>complete homework</strong></div>
+<div style="padding:18px 14px; border-bottom:1px solid var(--border); font-size:14px;"><span style="color:var(--c4); font-weight:700;">✅ Provided</span></div>
+<div style="padding:18px 14px; background:rgba(8,145,178,0.03); font-size:13px; line-height:1.6;">Students who need homework help but take the school bus home</div>
+</div>
+<!-- 課託 column -->
+<div style="display:flex; flex-direction:column; border-left:2px solid var(--border);">
+<div style="background:var(--c2); color:#fff; padding:14px; text-align:center;">
+<div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px;">CLASS B</div>
+<div style="font-size:18px; font-weight:800; margin-top:2px;">🏫 After-School Daycare</div>
+</div>
+<div style="padding:18px 14px; border-bottom:1px solid var(--border); font-size:14px;"><strong style="color:var(--c2);">3:00 – 6:30 PM</strong><br/><span style="font-size:11px; color:var(--ink-3);">3.5 hours after dismissal</span></div>
+<div style="padding:18px 14px; border-bottom:1px solid var(--border); background:rgba(190,24,93,0.03); font-size:13px; line-height:1.6;">Homework support + <strong>revision</strong> + <strong>snacks</strong> + <strong>games</strong></div>
+<div style="padding:18px 14px; border-bottom:1px solid var(--border); font-size:14px;"><span style="color:var(--c-pain); font-weight:700;">❌ Not provided</span></div>
+<div style="padding:18px 14px; background:rgba(190,24,93,0.03); font-size:13px; line-height:1.6;">Families who need full after-school care or have late-finishing parents</div>
+</div>
+</div>
+<p class="src-row"><strong>Enrolment: </strong>A registration notice goes out before each school year begins · places are limited, first-come first-served</p>
+</div>
+</section>
+<!-- ===== P33 v5 啟發潛能課 ① 理念 ===== -->
+<section class="slide" data-section="TALENT · PHILOSOPHY" data-slide="33">
+<div class="slide-inner">
+<div class="kicker k-violet">TALENT DEVELOPMENT PROGRAMME</div>
+<h2 class="big">Six Years,　<span class="gradient-text">Multiple Intelligences</span>Explored</h2>
+<p class="tagline" style="max-width:1180px;">The Talent Programme is LWWF's signature design — across six years, every student <strong>systematically</strong> explores all eight intelligence domains.</p>
+<div style="display:grid; grid-template-columns:1fr 1.2fr; gap:20px; flex:1; align-items:stretch; min-height:0;">
+<!-- 左:理念說明 -->
+<div style="display:flex; flex-direction:column; gap:12px; min-height:0;">
+<div class="card card-l-violet" style="padding:18px;">
+<h3 class="lead" style="color:var(--c5);">🌟 Core Philosophy</h3>
+<p class="body" style="margin-top:8px; font-size:14.5px; line-height:1.7;">"Every child has a unique gift." The Talent Programme is designed to <strong>develop each intelligence, unlock potential, and let students shine where they're strongest</strong>.</p>
+</div>
+<div class="card card-l-violet" style="padding:18px;">
+<h3 class="lead" style="color:var(--c5);">📚 Design Foundation</h3>
+<p class="body" style="margin-top:8px; font-size:13.5px;">Built on Howard Gardner's <strong>Theory of Multiple Intelligences</strong> — eight intelligences mapped across six years. Junior students explore broadly; senior students go deep.</p>
+</div>
+<div class="card card-l-violet" style="padding:18px;">
+<h3 class="lead" style="color:var(--c5);">⏰ When It Happens</h3>
+<p class="body" style="margin-top:8px; font-size:13.5px;">A fixed afternoon slot each week — led by <strong>specialist coaches or our own subject teachers</strong>.</p>
+</div>
+</div>
+<!-- 右:8 智能 chips + Gardner -->
+<div style="display:flex; flex-direction:column; gap:14px;">
+<div class="card" style="padding:18px;">
+<div class="kicker">EIGHT INTELLIGENCES</div>
+<div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;">
+<span class="smart-chip" style="font-size:13px; padding:6px 14px;">💃 Bodily-Kinesthetic</span>
+<span class="smart-chip" style="font-size:13px; padding:6px 14px;">🎵 Musical</span>
+<span class="smart-chip" style="font-size:13px; padding:6px 14px;">🎨 Spatial</span>
+<span class="smart-chip" style="font-size:13px; padding:6px 14px;">📖 Linguistic</span>
+<span class="smart-chip" style="font-size:13px; padding:6px 14px;">🔢 Logical-Mathematical</span>
+<span class="smart-chip" style="font-size:13px; padding:6px 14px;">🌳 Naturalist</span>
+<span class="smart-chip" style="font-size:13px; padding:6px 14px;">🤝 Interpersonal</span>
+<span class="smart-chip" style="font-size:13px; padding:6px 14px;">🪞 Intrapersonal</span>
+</div>
+<p class="body" style="font-size:12.5px; margin-top:10px; color:var(--ink-3); font-style:italic;">All eight intelligences rotate through P1 to P6 — see the next page for the detailed roadmap.</p>
+</div>
+<div class="quote" style="padding:14px 18px;">
+<div class="quote-text" style="font-size:13.5px;">Education isn't filling a bucket — it's lighting a fire. The Talent Programme helps every student find their spark.</div>
+<div class="quote-author">— Dean Siu, Curriculum Coordinator</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===== P34 v5 啟發潛能課 ② P1-P6 發展計劃表 ===== -->
+<section class="slide" data-section="TALENT · 6-YEAR ROADMAP" data-slide="34">
+<div class="slide-inner">
+<div class="kicker k-violet">TALENT PROGRAMME · P1-P6 SPIRAL</div>
+<h2 class="big">Six-Year　<span class="gradient-text">Roadmap</span>at a Glance</h2>
+<div style="flex:1; overflow:hidden; border-radius:14px; box-shadow:var(--shadow); background:#fff; min-height:0;">
+<table style="width:100%; border-collapse:collapse; font-size:12.5px;">
+<thead>
+<tr style="background:linear-gradient(135deg,var(--c5),var(--c2));">
+<th style="padding:11px 12px; text-align:left; color:#fff; font-family:'JetBrains Mono',monospace; letter-spacing:1.5px; font-size:11px; width:10%;">Grade</th>
+<th style="padding:11px 12px; text-align:left; color:#fff; font-family:'JetBrains Mono',monospace; letter-spacing:1.5px; font-size:11px; width:32%;">Intelligences</th>
+<th style="padding:11px 12px; text-align:left; color:#fff; font-family:'JetBrains Mono',monospace; letter-spacing:1.5px; font-size:11px;">Matching Activities</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--border);">
+<td style="padding:11px 12px; font-weight:800; color:var(--c5); font-size:14px;">P.1</td>
+<td style="padding:11px 12px;">Bodily · Musical · Spatial · Linguistic</td>
+<td style="padding:11px 12px;">Cat's Cradle　·　Rainbow Bells　·　Creative Drawing　·　Japanese</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border); background:rgba(109,40,217,0.03);">
+<td style="padding:11px 12px; font-weight:800; color:var(--c5); font-size:14px;">P.2</td>
+<td style="padding:11px 12px;">Bodily · Musical · Spatial · Linguistic</td>
+<td style="padding:11px 12px;">Dodge Disc　·　Vocal Arts　·　Clay Art　·　Korean</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border);">
+<td style="padding:11px 12px; font-weight:800; color:var(--c5); font-size:14px;">P.3</td>
+<td style="padding:11px 12px;">Bodily · Musical · Spatial · Linguistic</td>
+<td style="padding:11px 12px;">Climbing　·　Djembe　·　Mosaic Craft　·　Sign Language</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border); background:rgba(109,40,217,0.03);">
+<td style="padding:11px 12px; font-weight:800; color:var(--c5); font-size:14px;">P.4</td>
+<td style="padding:11px 12px;">Naturalist · Spatial · Musical · Logical-Math</td>
+<td style="padding:11px 12px;">STEAM　·　Ukulele　·　Bridge Building　·　3D Model Making</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border);">
+<td style="padding:11px 12px; font-weight:800; color:var(--c5); font-size:14px;">P.5</td>
+<td style="padding:11px 12px;">Interpersonal &amp; Integrated</td>
+<td style="padding:11px 12px;">STEAM Creative Sessions　·　Secondary School Tasters</td>
+</tr>
+<tr style="background:rgba(109,40,217,0.05);">
+<td style="padding:11px 12px; font-weight:800; color:var(--c5); font-size:14px;">Six-Year</td>
+<td style="padding:11px 12px;">Interpersonal &amp; Integrated</td>
+<td style="padding:11px 12px;">Secondary School Interview Prep　·　Self-Selected Activities</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:10px 14px; background:linear-gradient(135deg,rgba(109,40,217,0.05),rgba(190,24,93,0.05)); border-radius:10px;">
+<div style="font-size:11.5px;"><strong style="color:var(--c5);">📊 P1-P3: </strong>broad exploration across four intelligences</div>
+<div style="font-size:11.5px;"><strong style="color:var(--c2);">🎯 P4: </strong>STEAM enters the mix</div>
+<div style="font-size:11.5px;"><strong style="color:var(--c-claude);">🚀 P5-P6: </strong>secondary-school prep + self-directed growth</div>
+</div>
+</div>
+</section>
+<!-- ===== P35 v5 課外活動 ① 6 類概覽 ===== -->
+<section class="slide" data-section="ECA · 6 CATEGORIES" data-slide="35">
+<div class="slide-inner">
+<div class="kicker k-amber">EXTRA-CURRICULAR ACTIVITIES</div>
+<h2 class="big">30+ Activities,　<span class="gradient-text-warm">6 Categories</span></h2>
+<p class="tagline" style="max-width:1180px;">Diverse choices for after-class hours — Music, Sports, Visual Arts, STEAM, Languages, Service &amp; Beyond — there's something for every child.</p>
+<div style="display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:1fr 1fr; gap:14px; flex:1; min-height:0;">
+<div class="act-tile" style="border-top:3px solid var(--c3);">
+<div class="cat-icon">🎵</div>
+<div class="cat-name" style="color:var(--c3);">Music</div>
+<div class="cat-count">6 ACTIVITIES</div>
+<div class="cat-list">String Ensemble · Cello · Violin · Handbells · Choir · Tone Chimes</div>
+</div>
+<div class="act-tile" style="border-top:3px solid var(--c5);">
+<div class="cat-icon">🏃</div>
+<div class="cat-name" style="color:var(--c5);">Sports</div>
+<div class="cat-count">8 ACTIVITIES</div>
+<div class="cat-list">Athletics · Basketball · Volleyball · Football · Rope Skipping (3 levels) · Taekwondo</div>
+</div>
+<div class="act-tile" style="border-top:3px solid var(--c-claude);">
+<div class="cat-icon">🎨</div>
+<div class="cat-name" style="color:var(--c-claude);">Visual Arts</div>
+<div class="cat-count">5 ACTIVITIES</div>
+<div class="cat-list">Creative Drawing (3 levels) · Sand Art · Calligraphy &amp; Ink Painting · Junior Artists Club</div>
+</div>
+<div class="act-tile" style="border-top:3px solid var(--c1);">
+<div class="cat-icon">🤖</div>
+<div class="cat-name" style="color:var(--c1);">STEAM</div>
+<div class="cat-count">3 ACTIVITIES</div>
+<div class="cat-list">Coding Club · STEAM Elite Team · AI LAB Creation</div>
+</div>
+<div class="act-tile" style="border-top:3px solid var(--c4);">
+<div class="cat-icon">🌐</div>
+<div class="cat-name" style="color:var(--c4);">Languages</div>
+<div class="cat-count">5 ACTIVITIES</div>
+<div class="cat-list">Cambridge English · English Drama · English Choral Speaking · Putonghua Recitation · Math Games / Olympiad / Mental Arithmetic</div>
+</div>
+<div class="act-tile" style="border-top:3px solid var(--c2);">
+<div class="cat-icon">🤝</div>
+<div class="cat-name" style="color:var(--c2);">Service &amp; Beyond</div>
+<div class="cat-count">6+ ACTIVITIES</div>
+<div class="cat-list">Community Youth Club · Cub Scouts · Brownies · Book Club · Kids for Kids · Magic Club · Hip-Hop · Jazz Dance</div>
+</div>
+</div>
+<p class="src-row"><strong>$ = </strong>by teacher selection · <strong># = </strong>interest group (free sign-up) · all activities led by trained specialists</p>
+</div>
+</section>
+<!-- ===== P36 v5 課外活動 ② 重點精選 ===== -->
+<section class="slide" data-section="ECA · SIGNATURE PICKS" data-slide="36">
+<div class="slide-inner">
+<div class="kicker k-amber">EXTRA-CURRICULAR · SIGNATURE PICKS</div>
+<h2 class="big">Signature Activities — <span class="gradient-text-warm">the Showcase</span></h2>
+<p class="tagline" style="max-width:1180px;">One marquee activity per category — student favourites, parent-watched, school-championed.</p>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; flex:1; min-height:0;">
+<div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
+<div class="placeholder-16" style="flex:1; min-height:0;">
+<div class="ph-emoji">🎵</div>
+<div class="ph-id">P36_MUSIC</div>
+<div class="ph-hint">String ensemble / choir performance · 16:9</div>
+</div>
+<div class="card card-l-amber" style="padding:12px 14px;">
+<h3 class="mid" style="color:var(--c3); font-size:14px;">🎻 String Ensemble</h3>
+<p class="small" style="margin-top:3px; line-height:1.55;">P3-6 · annual public performance · nurtures musical skill and ensemble teamwork.</p>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
+<div class="placeholder-16" style="flex:1; min-height:0;">
+<div class="ph-emoji">🏆</div>
+<div class="ph-id">P36_SPORTS</div>
+<div class="ph-hint">Rope skipping competition photo · 16:9</div>
+</div>
+<div class="card card-l-violet" style="padding:12px 14px;">
+<h3 class="mid" style="color:var(--c5); font-size:14px;">🪢 Rope Skipping</h3>
+<p class="small" style="margin-top:3px; line-height:1.55;">P2-6 · school team has earned district-level merit awards · AI motion analysis supports training.</p>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
+<div class="placeholder-16" style="flex:1; min-height:0;">
+<div class="ph-emoji">🤖</div>
+<div class="ph-id">P36_STEAM</div>
+<div class="ph-hint">STEAM Elite project photo · 16:9</div>
+</div>
+<div class="card card-l-cyan" style="padding:12px 14px;">
+<h3 class="mid" style="color:var(--c1); font-size:14px;">🔬 STEAM Elite Team</h3>
+<p class="small" style="margin-top:3px; line-height:1.55;">P4-6 · based in the AI LAB · feeds into inter-school competitions like FUN-Joy STEAM and Maker Showcase.</p>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
+<div class="placeholder-16" style="flex:1; min-height:0;">
+<div class="ph-emoji">🎭</div>
+<div class="ph-id">P36_DRAMA</div>
+<div class="ph-hint">English drama performance photo · 16:9</div>
+</div>
+<div class="card card-l-emerald" style="padding:12px 14px;">
+<h3 class="mid" style="color:var(--c4); font-size:14px;">🎤 English Drama · Choral Speaking</h3>
+<p class="small" style="margin-top:3px; line-height:1.55;">P3-6 · pairs with English Elite drama training · annual public showcase · builds spoken confidence.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===== P37 v5 升小適應 ① MATATALAB ===== -->
+<section class="slide" data-section="P1 ONBOARDING · MATATALAB" data-slide="37">
+<div class="slide-inner">
+<div class="kicker k-emerald">P1 ONBOARDING · MATATALAB</div>
+<h2 class="big">From Kindergarten to<span class="gradient-text-cool">Primary One</span></h2>
+<p class="tagline" style="max-width:1180px;">LWWF offers an exclusive <strong>P1 onboarding curriculum</strong> for new P1 students — starting with MATATALAB tangible coding, dovetailing into the STEAM foundations of the AI Innovation, Arts &amp; Sports, and English Elite streams.</p>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; flex:1; align-items:stretch; min-height:0;">
+<!-- 左:Matatalab 介紹 -->
+<div style="display:flex; flex-direction:column; gap:12px; min-height:0;">
+<div class="placeholder-16" style="flex:1; min-height:0;">
+<div class="ph-emoji">🧱</div>
+<div class="ph-id">P37_MATATALAB</div>
+<div class="ph-hint">Matatalab workshop photo · 16:9 placeholder</div>
+</div>
+<div class="card card-l-emerald" style="padding:14px;">
+<h3 class="mid" style="color:var(--c4); font-size:15px;">🧱 MATATALAB Workshops + Competitions</h3>
+<p class="small" style="margin-top:4px; line-height:1.65;">We begin with tangible coding blocks — before students can read, they're already "building logic with their hands", developing the computational thinking the AI era requires.</p>
+</div>
+</div>
+<!-- 右:課程細節 -->
+<div style="display:flex; flex-direction:column; gap:12px;">
+<div class="card card-l-emerald" style="padding:16px 18px;">
+<h3 class="lead" style="color:var(--c4);">🌱 Why MATATALAB?</h3>
+<p class="body" style="margin-top:6px;">P1 students <strong>can't yet read or write commands</strong> — MATATALAB swaps code for <strong>physical blocks</strong>. Students assemble direction, loops, and conditions by hand — making computational thinking tangible from day one.</p>
+</div>
+<div class="card card-l-emerald" style="padding:16px 18px;">
+<h3 class="lead" style="color:var(--c4);">🎯 P1 Onboarding Goals</h3>
+<ul class="bullet" style="font-size:13px; line-height:1.85; margin-top:6px;">
+<li><strong style="color:var(--c4);">Psychological Bridge: </strong>build interest and confidence in learning</li>
+<li><strong style="color:var(--c4);">Skills Bridge: </strong>computational thinking · logical reasoning</li>
+<li><strong style="color:var(--c4);">Social Bridge: </strong>group collaboration · peer interaction</li>
+</ul>
+</div>
+<div class="card card-l-cyan" style="padding:14px 16px;">
+<h3 class="mid" style="color:var(--c1); font-size:14.5px;">🏆 Competition Opportunities</h3>
+<p class="small" style="margin-top:3px;">Compete in MATATALAB and similar inter-school events — building experience from P1 onwards.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===== P38 v5 升小適應 ② 整體銜接安排 ===== -->
+<section class="slide" data-section="P1 ONBOARDING · FIVE PILLARS" data-slide="38">
+<div class="slide-inner">
+<div class="kicker k-emerald">P1 ONBOARDING · FIVE PILLARS</div>
+<h2 class="big">LWWF's<span class="gradient-text-cool">P1 Onboarding —</span>Five Support Pillars</h2>
+<p class="tagline" style="max-width:1180px;">MATATALAB is just the start — LWWF offers five layers of onboarding support so students and parents adjust together.</p>
+<div class="g3" style="flex:1; gap:14px;">
+<div class="card card-l-emerald" style="padding:18px; display:flex; flex-direction:column; gap:8px;">
+<div style="font-size:38px;">📅</div>
+<div class="kicker k-emerald">Pillar 1</div>
+<h3 class="lead" style="color:var(--c4); font-size:17px;">Settling-In Weeks</h3>
+<p class="small" style="line-height:1.65;">The first two weeks run at a gentler pace — students learn the campus, meet teachers, and ease into the whole-day rhythm.</p>
+</div>
+<div class="card card-l-emerald" style="padding:18px; display:flex; flex-direction:column; gap:8px;">
+<div style="font-size:38px;">🧱</div>
+<div class="kicker k-emerald">Pillar 2</div>
+<h3 class="lead" style="color:var(--c4); font-size:17px;">MATATALAB Introduction</h3>
+<p class="small" style="line-height:1.65;">Tangible coding through play — sparks computational thinking and curiosity about learning.</p>
+</div>
+<div class="card card-l-emerald" style="padding:18px; display:flex; flex-direction:column; gap:8px;">
+<div style="font-size:38px;">👩‍🏫</div>
+<div class="kicker k-emerald">Pillar 3</div>
+<h3 class="lead" style="color:var(--c4); font-size:17px;">Big Buddies Programme</h3>
+<p class="small" style="line-height:1.65;">P5-P6 students mentor P1 newcomers — recess company, answers to questions, and a real sense of belonging.</p>
+</div>
+<div class="card card-l-emerald" style="padding:18px; display:flex; flex-direction:column; gap:8px;">
+<div style="font-size:38px;">📖</div>
+<div class="kicker k-emerald">Pillar 4</div>
+<h3 class="lead" style="color:var(--c4); font-size:17px;">Native-English Reading</h3>
+<p class="small" style="line-height:1.65;">English stories from day one — eases anxiety about English and builds listening foundations.</p>
+</div>
+<div class="card card-l-emerald" style="padding:18px; display:flex; flex-direction:column; gap:8px;">
+<div style="font-size:38px;">👪</div>
+<div class="kicker k-emerald">Pillar 5</div>
+<h3 class="lead" style="color:var(--c4); font-size:17px;">Parent Sync</h3>
+<p class="small" style="line-height:1.65;">P1 Parent Day + AI workshops + parenting talks — home and school in sync means a faster transition for students.</p>
+</div>
+<div class="card card-l-claude" style="padding:18px; display:flex; flex-direction:column; gap:8px;">
+<div style="font-size:38px;">💡</div>
+<div class="kicker">Pillar 6</div>
+<h3 class="lead" style="color:var(--c-claude); font-size:17px;">Affective Education</h3>
+<p class="small" style="line-height:1.65;">Weekly Affective Education classes — expressing emotions, getting along with peers, knowing oneself.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="slide" data-section="CONCLUSION" data-slide="39">
+<div class="slide-inner cover-stage">
+<div class="cover-orb"></div>
+<div class="kicker">CONCLUSION</div>
+<h1 class="hero" style="font-size:72px; max-width:1180px;">
+ From Consumers of Technology <br/><span class="gradient-text">to Creators of the Real World</span>
+</h1>
+<p class="tagline" style="max-width:920px; line-height:1.7;">
+ We hope every student moves from being a "consumer of technology"<br/> to a creator who uses technology to solve real problems.
+ </p>
+<div style="width:100%; max-width:880px; aspect-ratio:16/9; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0;">
+<img alt="LWWF students + teachers · Education Expo" src="photos/p20_cta_expo.jpg" style="width:100%; height:100%; object-fit:contain;"/>
+</div>
+<button class="btn-cta">Thank You for Being Here</button>
+<p class="small" style="font-family:'JetBrains Mono',monospace; letter-spacing:3px; color:var(--ink-4);">
+ LWWF · Memorial School
+ </p>
+</div>
+</section>
+<!-- ===== P40 v5 Q&A 問答時間 ===== -->
+<section class="slide" data-section="Q&amp;A SESSION" data-slide="40">
+<div class="slide-inner cover-stage">
+<div class="cover-orb"></div>
+<div class="kicker">Q&amp;A SESSION</div>
+<h1 class="mega"><span class="gradient-text">Q&amp;A Time</span></h1>
+<p class="tagline" style="font-size:24px; max-width:980px; line-height:1.55;">
+      Thank you for joining us today.<br/>
+      We welcome questions now — or feel free to follow up afterwards.
+    </p>
+<div class="g3" style="max-width:1120px; gap:18px; margin-top:6px; width:100%;">
+<div class="card card-l-claude" style="text-align:center; padding:22px 18px;">
+<div style="font-size:42px; margin-bottom:6px;">🏫</div>
+<div class="kicker" style="justify-content:center; font-size:9.5px;">School</div>
+<h3 class="mid" style="margin-top:6px; color:var(--c-claude); font-size:15px;">Lok Sin Tong Leung Wong Wai Fong Memorial School</h3>
+<p class="small" style="font-size:11px; margin-top:6px; line-height:1.65;">
+<strong>Website: </strong>lstlwwfms.edu.hk<br/>
+<strong>Phone: </strong>School Office
+        </p>
+</div>
+<div class="card card-l-cyan" style="text-align:center; padding:22px 18px;">
+<div style="font-size:42px; margin-bottom:6px;">👩‍🏫</div>
+<div class="kicker k-cyan" style="justify-content:center; font-size:9.5px;">Principal</div>
+<h3 class="mid" style="margin-top:6px; color:var(--c1); font-size:15px;">Principal Ms Hui</h3>
+<p class="small" style="font-size:11px; margin-top:6px; line-height:1.65;">
+          School-wide policy queries<br/>
+          P1 admissions interview
+        </p>
+</div>
+<div class="card card-l-magenta" style="text-align:center; padding:22px 18px;">
+<div style="font-size:42px; margin-bottom:6px;">👨‍💼</div>
+<div class="kicker k-magenta" style="justify-content:center; font-size:9.5px;">Curriculum</div>
+<h3 class="mid" style="margin-top:6px; color:var(--c2); font-size:15px;">Dean Siu</h3>
+<p class="small" style="font-size:11px; margin-top:6px; line-height:1.65;">
+          AI curriculum · P1 streaming<br/>
+          English Elite · Talent Programme
+        </p>
+</div>
+</div>
+<div style="display:flex; align-items:center; gap:24px; margin-top:auto; padding-top:14px;">
+<div style="font-size:60px; animation:v5BubbleBounce 1s var(--ease-out) backwards .5s;">💬</div>
+<div>
+<div style="font-family:'Fraunces',serif; font-size:32px; font-weight:900; line-height:1.05;
+          background:linear-gradient(135deg,var(--c-claude),var(--c2)); -webkit-background-clip:text;
+          -webkit-text-fill-color:transparent;">Questions Welcome</div>
+<p class="small" style="font-size:12px; margin-top:4px; color:var(--ink-3);">YOUR QUESTIONS WELCOME</p>
+</div>
+</div>
+<p class="small" style="font-family:'JetBrains Mono',monospace; letter-spacing:3.5px; color:var(--ink-4); font-size:11px; margin-top:6px;">
+      THANK YOU · 多謝 · THANK YOU · 多謝
+    </p>
+</div>
+</section>
+<script>
+const slides = document.querySelectorAll('.slide');
+const dots = document.getElementById('dots');
+const pn = document.getElementById('pn');
+const progress = document.getElementById('progress');
+const sectionTag = document.getElementById('section-tag');
+const total = slides.length;
+
+slides.forEach((s, i) => {
+ const dot = document.createElement('div');
+ dot.className = 'dot';
+ if (i === 0) dot.classList.add('active');
+ dot.addEventListener('click', () => goTo(i));
+ dots.appendChild(dot);
+});
+
+let current = 0;
+function goTo(idx) {
+ if (idx < 0 || idx >= total) return;
+ slides[current].classList.remove('active');
+ slides[idx].classList.add('active');
+ current = idx;
+ pn.textContent = idx + 1;
+ progress.style.width = `${((idx + 1) / total) * 100}%`;
+ sectionTag.textContent = slides[idx].dataset.section || '';
+ document.querySelectorAll('#dots.dot').forEach((d, i) => {
+  d.classList.toggle('active', i === idx);
+  d.classList.toggle('passed', i < idx);
+ });
+ slides[idx].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
+}
+
+function animateCount(el) {
+ const target = parseInt(el.dataset.target);
+ if (isNaN(target)) return;
+ const dur = 1100;
+ const start = performance.now();
+ function frame(t) {
+  const p = Math.min(1, (t - start) / dur);
+  const eased = 1 - Math.pow(1 - p, 3);
+  el.textContent = Math.floor(target * eased);
+  if (p < 1) requestAnimationFrame(frame); else el.textContent = target;
+ }
+ requestAnimationFrame(frame);
+}
+
+// 3D card tilt（細幅度）
+document.querySelectorAll('.card,.research-card').forEach(card => {
+ card.addEventListener('mousemove', e => {
+  const r = card.getBoundingClientRect();
+  const x = (e.clientX - r.left - r.width / 2) / (r.width / 2);
+  const y = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+  card.style.transform = `perspective(900px) rotateY(${x * 3}deg) rotateX(${-y * 3}deg) translateZ(4px)`;
+ });
+ card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+});
+
+document.addEventListener('keydown', e => {
+ if (['ArrowRight', ' ', 'PageDown'].includes(e.key)) goTo(current + 1);
+ else if (['ArrowLeft', 'PageUp'].includes(e.key)) goTo(current - 1);
+ else if (e.key === 'Home') goTo(0);
+ else if (e.key === 'End') goTo(total - 1);
+ else if (e.key.toLowerCase() === 'f') {
+  if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+  else document.exitFullscreen();
+ }
+});
+
+document.body.addEventListener('click', e => {
+ if (e.target.closest('.photo16,.card,.btn-cta,.chip, button, a, table,.research-card')) return;
+ const w = window.innerWidth;
+ if (e.clientX > w / 2) goTo(current + 1);
+ else goTo(current - 1);
+});
+
+document.querySelectorAll('.photo16').forEach(ph => {
+ ph.addEventListener('click', e => {
+  e.stopPropagation();
+  if (ph.classList.contains('has-image')) return;
+  const id = ph.querySelector('.ph-id')?.textContent || '';
+  const hint = ph.querySelector('.ph-hint')?.textContent || '';
+  alert(`${id}\n\n${hint}\n\n用法：將相片放入此資料夾，HTML 中加：\n<img class="real" src="你的相片.jpg">\n+ 外層加 class="has-image"`);
+ });
+});
+
+progress.style.width = `${(1 / total) * 100}%`;
+sectionTag.textContent = slides[0].dataset.section || '';
+slides[0].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
+
+// === 語言切換 (file-based, 跳到對應 file 同保留 slide #) ===
+(function() {
+ const fileMap = {
+  't': 'AI_INFINITY_終極版_v5.html',
+  's': 'AI_INFINITY_終極版_v5-cn.html',
+  'e': 'AI_INFINITY_終極版_v5-en.html',
+ };
+ document.querySelectorAll('#lang-switch button').forEach(btn => {
+  btn.addEventListener('click', e => {
+   e.stopPropagation();
+   const lang = btn.dataset.lang;
+   const target = fileMap[lang];
+   if (!target) return;
+   // 同 current page 一樣就唔做嘢
+   const cur = location.pathname.split('/').pop();
+   if (decodeURIComponent(cur) === target) return;
+   // 保留 hash (slide #) 等用戶喺同一頁
+   const hash = '#' + (current + 1);
+   location.href = target + hash;
+  });
+ });
+ // 開頁時讀 hash 跳對應 slide
+ if (location.hash) {
+  const n = parseInt(location.hash.replace('#', '')) - 1;
+  if (n >= 0 && n < total) {
+   setTimeout(() => goTo(n), 50);
+  }
+ }
+})();
+</script>
+</body>
+</html>
