@@ -154,6 +154,23 @@ if 'currentTime = 0' not in v5_en:
         1
     )
 
+# Fix hash nav for EN — replace old one-shot hash handler with hashchange listener
+# Use regex for flexible indentation matching
+if 'hashchange' not in v5_en:
+    new_hash_nav = """function jumpByHash() {
+    if (!location.hash) return;
+    const n = parseInt(location.hash.replace('#', '')) - 1;
+    if (n >= 0 && n < total && n !== current) goTo(n);
+  }
+  window.addEventListener('hashchange', jumpByHash);
+  setTimeout(jumpByHash, 50);"""
+    v5_en = re.sub(
+        r'//[^\n]*?hash[^\n]*?\n\s*if\s*\(location\.hash\)\s*\{[\s\S]*?\}\s*\}',
+        new_hash_nav,
+        v5_en,
+        count=1
+    )
+
 # Now insert the NEW v5 pages by extracting them from source v5.html and
 # applying the EN translation dictionary.
 
@@ -2231,14 +2248,36 @@ V5_NATIVE_REWRITES = {
 
     # Title spacing fixes (commonly stuck-together words)
     "English-ImmersiveLearning": "English-Immersive Learning",
+    "English-Immersive　Learning": "English-Immersive Learning",
+    "English-Immersive Learning Environment": "English-Immersive Learning Environment",
+    "English Immersive Learning": "English-Immersive Learning",
     "Roadmapat a Glance": "Roadmap at a Glance",
+    "Roadmap a Glance": "Roadmap at a Glance",
     "P.6 Roadmapat": "P.6 Roadmap at",
+    "P.6 Roadmap a Glance": "P.6 Roadmap at a Glance",
     "toPrimary One": "to Primary One",
+    "to　Primary One": "to Primary One",
     "self-assessmentpeer": "self- and peer-",
     "Siu Wai-YanDean": "Dean Siu Wai-Yan",
     "Wai-YanDean": "Wai-Yan, Dean",
+    "Tutorial vsAfter": "Tutorial vs After",
+    "Tutorial vs　After": "Tutorial vs After",
+    "Students ×Parents": "Students × Parents",
+    "Students ×　Parents": "Students × Parents",
+    "EMI Classes ×真實學習": "EMI Classes × Real-World Learning",
+    "EMI Classes × 真實學習": "EMI Classes × Real-World Learning",
+    "EMI Classes × Real-WorldLearning": "EMI Classes × Real-World Learning",
+    "LWWF'sP1 Onboarding": "LWWF's P1 Onboarding",
+    "LWWF'sP1": "LWWF's P1",
+    "Why LWWF　Dropped": "Why LWWF Dropped",
+    "Why LWWFDropped": "Why LWWF Dropped",
+    "MoreThan MATATALAB": "More than MATATALAB",
+    "Six Year": "Six-Year",
     "BBC": "Best for ",
     "byteacher": "by teacher",
+    "trained specialists": "trained specialists",
+    "P1 Onboardingcurriculum": "P1 Onboarding curriculum",
+    "P1 Onboarding curriculum": "P1 Onboarding curriculum",
     "嘅academic vocabulary": " academic vocabulary",
     "嘅 academic": " academic",
     "嘅scientific vocabulary": " scientific vocabulary",
@@ -2281,6 +2320,95 @@ V5_NATIVE_REWRITES = {
     "唔強迫": "no longer force",
     "係課餘自主探究": "are extracurricular and student-driven",
     "嘅啟潛": " Talent Programme",
+
+    # === BATCH 6 — final residual fixes ===
+    # P26-P28 English Elite full content
+    "textbook、worksheets、評估全部英文": "Textbook, worksheets, and assessments are all in English",
+    "textbook、worksheets、評估全英文": "Textbook, worksheets, and assessments all in English",
+    "實驗、報告、評估全英文": "Experiments, reports, and assessments all in English",
+    "實驗、報告、評估全部英文": "Experiments, reports, and assessments all in English",
+    "Math (Mathematics) in English——textbook、worksheets、評估全英文":
+        "Math taught in English — textbook, worksheets, and assessments all in English",
+    "Science (Science) in English——實驗、報告、評估全英文":
+        "Science taught in English — experiments, reports, and assessments all in English",
+    "Spring Talent Programme: English drama training——真實情境運用英語":
+        "Spring Talent Programme: English drama training — using English in authentic situations",
+    "Math (Mathematics) in English":
+        "Math taught in English",
+    "Science (Science) in English":
+        "Science taught in English",
+    "Spring Talent Programme: English drama training":
+        "Spring Talent Programme: English drama training",
+
+    # Mid-sentence Chinese fragments commonly stuck
+    "嘅academic vocabulary": " academic vocabulary",
+    "嘅scientific vocabulary": " scientific vocabulary",
+    "嘅word problems": " word problems",
+    "嘅 word problems": " word problems",
+    "用 AI screen": "with an AI screen",
+    "用 AI screen同小朋友": "with an AI screen, children",
+    "AI screen同小朋友": "AI screen — children",
+    "（NET）": " (NET) ",
+    "（NET）親身": " (NET) tells stories in person",
+    "嘅 NET": " NET",
+    "嘅 SmartLearn": " SmartLearn",
+
+    # Specific phrases that landed mid-sentence
+    "不用機械式默寫去評估學生": "no longer using mechanical dictation to assess students",
+    "中文、英文科": "Chinese and English subjects",
+    "中文、英文科不再用": "Chinese and English subjects no longer use",
+    "中文、英文": "Chinese and English",
+    "五大元素": "five elements",
+    "全方位支援": "All-Round Support",
+    "🎬 講座流程概覽　·　校情速覽": "🎬 Programme Overview · School Snapshot",
+    "🎬 Programme Overview　·　校情速覽": "🎬 Programme Overview · School Snapshot",
+    "校情速覽": "School Snapshot",
+    "📚 英尖班 English Elite + 來年 P1 新分班":
+        "📚 English Elite + Next Year's New P1 Streams",
+    "📚 English Elite + 來年 P1 新分班":
+        "📚 English Elite + Next Year's New P1 Streams",
+    "🎨 啟發潛能課 + 課外活動 + 升小適應":
+        "🎨 Talent Programme · Extra-Curricular · P1 Onboarding",
+    "🎨 Talent Programme + 課外活動 + 升小適應":
+        "🎨 Talent Programme · Extra-Curricular · P1 Onboarding",
+    "🎯 總結與問答時間": "🎯 Wrap-Up & Q&A",
+
+    # Misc cleanup of Chinese-English mixes
+    "Hong Kong 2025 年": "Hong Kong's 2025",
+    "2025 年教育局": "EDB in 2025",
+    "梁校自": "LWWF has, since",
+    "Without it, students 持續喜歡語文": "Without it, students keep loving the language",
+    "students 持續喜歡語文": "students keep loving the language",
+    "the foundation of lifelong learning": "the foundation of lifelong learning",
+    "嘅實際價值大幅下降": ", the practical value collapses",
+    "嘅最有效評估": " — the most effective form of assessment",
+    "嘅能力": " ability",
+    "嘅 ability": " ability",
+    "同分辨 AI 對錯嘅能力": "and the ability to tell when AI is right or wrong",
+
+    # Slide-specific full-paragraph translations to override partial matches
+    "Track 1: 傳統測驗、考試保留——測試基本知識掌握、運算技能、書寫能力.":
+        "Track 1: Traditional tests and exams stay — covering core knowledge, computation, and writing skills.",
+    "Track 2: 收集整個term作品、反思、進度——記錄Learning Process, not just the result. 包括drafts、revision history、self-assessmentpeer assessment.":
+        "Track 2: Collects a term of work, reflections, and progress — capturing the learning journey, not just the result. Includes drafts, revisions, and self- and peer-assessment.",
+    "Track 3: 學生親自演示、解說作品——抗 AI 代寫嘅最有效評估. 老師可以即場追問點解咁設計、點解咁諗.":
+        "Track 3: Students demonstrate and explain their own work — the strongest defence against AI ghostwriting. Teachers can probe their design decisions on the spot.",
+    "Helps students 完成當日功課 · 老師即時解答疑難":
+        "Helps students finish the day's homework · teachers available for instant help",
+    "Homework support + revision + snacks + games · 全方位照顧":
+        "Homework support + revision + snacks + games · full afternoon care",
+    "P1-P3 廣泛探索：4 大智能輪流體驗，唔逼學生過早專注":
+        "P1-P3 Broad Exploration: four intelligences rotate — no rushed specialisation",
+    "P4 STEAM 啟蒙：加入跨域思維，自然 + 數理邏輯":
+        "P4 STEAM Foundation: cross-domain thinking enters — Naturalist + Logical-Math",
+    "P5-P6 secondary school transition：interview訓練 + 自選發展方向":
+        "P5-P6 Secondary Transition: interview practice + self-directed development",
+    "L Lok Sin Tong Leung Wong Wai Fong Memorial School":
+        "Lok Sin Tong Leung Wong Wai Fong Memorial School",
+
+    # Make remaining Cantonese particles safe (only after English words)
+    "Without it, students 持續喜歡": "Without it, students keep loving",
+    " (NET)tells": " (NET) tells",
 }
 
 

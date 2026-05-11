@@ -2187,7 +2187,7 @@ body .slide-inner{
 <h3 class="lead" style="color:var(--c1); font-size:15px;">📚 Three Pillars</h3>
 <p class="body" style="margin-top:5px; font-size:12.5px; line-height:1.7;">
             ① <strong>Math (Mathematics)</strong> in English — textbook, worksheets, and assessments all in English<br/>
-            ② <strong>Science (Science)</strong> in English — experiments, reports, and assessments all in English<br/>
+            ② <strong>Science (Science)</strong> in English——Experiments, reports, and assessments all in English<br/>
             ③ Spring Talent Programme: <strong>English drama training</strong> — using English in real situations
           </p>
 </div>
@@ -2309,7 +2309,7 @@ body .slide-inner{
 <div class="slide-inner">
 <div class="kicker k-pain">ASSESSMENT REFORM</div>
 <h2 class="big">Why LWWF　<span style="color:var(--c-pain);">Dropped Traditional Dictation</span></h2>
-<p class="tagline" style="max-width:1180px;">Moving from "memorisation testing" to "application testing" — answering what the AI era actually demands. LWWF has, since  <strong>2024-25 academic year</strong>has gradually rolled out the no-dictation policy; <strong>中文、英文科</strong>no longer uses traditional dictation as a regular assessment.</p>
+<p class="tagline" style="max-width:1180px;">Moving from "memorisation testing" to "application testing" — answering what the AI era actually demands. LWWF has, since  <strong>2024-25 academic year</strong>has gradually rolled out the no-dictation policy; <strong>Chinese and English subjects</strong>no longer uses traditional dictation as a regular assessment.</p>
 <div style="display:grid; grid-template-columns:1fr 1.5fr; gap:18px; flex:1; align-items:stretch; min-height:0;">
 <!-- 左:大型聲明 + 統計 -->
 <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
@@ -2347,7 +2347,7 @@ body .slide-inner{
 <div class="card card-l-pain" style="padding:13px 16px;">
 <div class="kicker k-pain">Pillar 3</div>
 <h3 class="lead" style="color:var(--c-pain); font-size:15px; margin-top:3px;">🤖 The AI Era · Rethinking Assessment</h3>
-<p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">When AI can answer instantly, autocomplete spelling, and transcribe speech, <strong>the practical value of "remembering how to write a character" collapses</strong> — what truly matters is <strong>application, judgement, and creation</strong>同<strong>分辨 AI 對錯</strong>嘅能力.</p>
+<p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">When AI can answer instantly, autocomplete spelling, and transcribe speech, <strong>the practical value of "remembering how to write a character" collapses</strong> — what truly matters is <strong>application, judgement, and creation</strong>同<strong>分辨 AI 對錯</strong> ability.</p>
 </div>
 <div class="card card-l-pain" style="padding:13px 16px;">
 <div class="kicker k-pain">Pillar 4</div>
@@ -2515,8 +2515,8 @@ body .slide-inner{
 <section class="slide" data-section="TALENT · PHILOSOPHY" data-slide="33">
 <div class="slide-inner">
 <div class="kicker k-violet">INVITATIONAL EDUCATION</div>
-<h2 class="big">五大元素　<span class="gradient-text">Talent Programme</span></h2>
-<p class="tagline" style="max-width:1180px;">Our Talent Programme is built on the international Invitational Education framework — with <strong>Care · Optimism · Respect · Trust · Intentionality</strong>five elements awaken every student's unique gifts.</p>
+<h2 class="big">five elements　<span class="gradient-text">Talent Programme</span></h2>
+<p class="tagline" style="max-width:1180px;">Our Talent Programme is built on the international Invitational Education framework — with <strong>Care · Optimism · Respect · Trust · Intentionality</strong>five elements，喚醒每位學生獨特天賦.</p>
 <div style="display:grid; grid-template-columns:1fr 1.15fr; gap:20px; flex:1; align-items:stretch; min-height:0;">
 <!-- 左:5 元素框架圖 -->
 <div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
@@ -2779,7 +2779,7 @@ body .slide-inner{
 <section class="slide" data-section="升小適應 · 6 大支援" data-slide="38">
 <div class="slide-inner">
 <div class="kicker k-emerald">P1 Onboarding · 6 Support Pillars After Admission</div>
-<h2 class="big">LWWF's<span class="gradient-text-cool">P1 Onboarding —</span>　全方位支援</h2>
+<h2 class="big">LWWF's<span class="gradient-text-cool">P1 Onboarding —</span>　All-Round Support</h2>
 <div style="display:grid; grid-template-columns:1fr 1.55fr; gap:18px; flex:1; align-items:stretch; min-height:0;">
 <!-- 左:Matatalab 比賽 poster -->
 <div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
@@ -3078,13 +3078,13 @@ slides[0].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
    location.href = target + hash;
   });
  });
- // 開頁時讀 hash 跳對應 slide
- if (location.hash) {
-  const n = parseInt(location.hash.replace('#', '')) - 1;
-  if (n >= 0 && n < total) {
-   setTimeout(() => goTo(n), 50);
+ function jumpByHash() {
+    if (!location.hash) return;
+    const n = parseInt(location.hash.replace('#', '')) - 1;
+    if (n >= 0 && n < total && n !== current) goTo(n);
   }
- }
+  window.addEventListener('hashchange', jumpByHash);
+  setTimeout(jumpByHash, 50);
 })();
 </script>
 </body>
