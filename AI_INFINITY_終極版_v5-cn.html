@@ -195,7 +195,7 @@
 <!-- V5 FONT BOOST — 全局字体加大层（最高优先级） -->
 <style id="v5-font-boost">
 /* ========== 全局字体放大（+25-35%）========== */
-/* Tagline (大标下面嘅描述句) */
+/* Tagline (大标下面的描述句) */
 .slide p.tagline, .slide .tagline{font-size:19px !important; line-height:1.62 !important;}
 /* Body (普通内文) */
 .slide p.body, .slide .body{font-size:16px !important; line-height:1.72 !important;}
@@ -268,7 +268,7 @@
 .slide .class-badge{width:54px !important; height:54px !important; font-size:26px !important;}
 
 /* ========== 用 attribute selector 覆盖 inline font-size ========== */
-/* 将原本太细嘅 inline font-size 自动 bump 大 */
+/* 将原本太细的 inline font-size 自动 bump 大 */
 .slide [style*="font-size:11px"]{font-size:13.5px !important;}
 .slide [style*="font-size:11.5px"]{font-size:14px !important;}
 .slide [style*="font-size:12px"]{font-size:14.5px !important;}
@@ -289,7 +289,7 @@
 .slide [style*="font-size:10px"]{font-size:12px !important;}
 .slide [style*="font-size:10.5px"]{font-size:12.5px !important;}
 
-/* 大字 (h1/h2/stat) 保护唔过度放大 */
+/* 大字 (h1/h2/stat) 保护不过度放大 */
 .slide [style*="font-size:18px"]{font-size:20.5px !important;}
 .slide [style*="font-size:20px"]{font-size:22.5px !important;}
 .slide [style*="font-size:22px"]{font-size:24.5px !important;}
@@ -306,7 +306,7 @@
 <!-- V4 Editorial Polish CSS Layer (overrides v3) -->
 <style id="v4-editorial-polish">
 /* === V5: 死规则 — 所有 slide 内 <img> + <video> 必须完整显示（contain）=== */
-/* Logo / icon 例外：subject-icon-xl/md 内嘅圆 logo 保留 cover */
+/* Logo / icon 例外：subject-icon-xl/md 内的圆 logo 保留 cover */
 .slide img:not(.subject-icon-xl img):not(.subject-icon-md img),
 .slide video{
   object-fit:contain !important;
@@ -1037,7 +1037,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 }
 .with-bg:hover::after{opacity:0.58;}
 .with-bg > *{position:relative; z-index:1;}
-/* 硬边 1px outline 模拟 stroke - 文字边缘 sharp 唔蒙 */
+/* 硬边 1px outline 模拟 stroke - 文字边缘 sharp 不模糊 */
 .with-bg h3, .with-bg h4, .with-bg .desc, .with-bg .body, .with-bg .ref, .with-bg .lead, .with-bg .mid, .with-bg p{
   text-shadow:
     1px 0 0 rgba(255,253,248,0.95),
@@ -1159,7 +1159,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 <!-- ===== V5 FINAL OVERRIDES (highest priority — wins all specificity battles) ===== -->
 <style id="v5-final-overrides">
 /* 🎯 Subject hero 标题：v4-editorial-polish 将 .subject-hero h2.big 锁死 36px
-   呢度用更高 specificity (body .slide ...) 覆盖 */
+   这里用更高 specificity (body .slide ...) 覆盖 */
 body .slide .subject-hero h2.big{
   font-size:clamp(46px, 3.8vw, 62px) !important;
   letter-spacing:-1.4px !important;
@@ -1175,12 +1175,12 @@ body .slide .subject-hero{
 }
 
 /* 🛡️ BOTTOM SAFE AREA — 避开 progress dots (z-index:50, bottom:50px) */
-/* Dots 喺 bottom:50px，高度约 30-50px，所以底部 reserve 100px */
+/* Dots 在 bottom:50px，高度约 30-50px，所以底部 reserve 100px */
 body .slide-inner{
   padding-bottom:90px !important;
 }
 
-/* 🛡️ Top safe area — 避开 section-tag / brand 同 progress bar */
+/* 🛡️ Top safe area — 避开 section-tag / brand 与 progress bar */
 body .slide-inner{
   padding-top:18px !important;
 }
@@ -1189,7 +1189,7 @@ body .slide-inner{
 body .slide .src-row{font-size:clamp(13px, 1.05vw, 16.5px) !important; line-height:1.6 !important;}
 body .slide .quote-author{font-size:clamp(13px, 1.05vw, 16.5px) !important;}
 
-/* 🛡️ 确保 progress dots / section-tag 唔被 slide 内容覆盖 (raise z-index) */
+/* 🛡️ 确保 progress dots / section-tag 不被 slide 内容覆盖 (raise z-index) */
 #dots, #section-tag, #brand, #pageInfo, #hint, #progress, #lang-switch{
   z-index:200 !important;
 }
@@ -1200,7 +1200,7 @@ body .slide .quote-author{font-size:clamp(13px, 1.05vw, 16.5px) !important;}
   box-shadow:0 4px 20px rgba(0,0,0,0.10) !important;
 }
 
-/* 🛡️ V5 ULTIMATE 角落 badge 唔好同内容重叠 */
+/* 🛡️ V5 ULTIMATE 角落 badge 不要与内容重叠 */
 .slide-inner::after{
   top:-12px !important;
   right:-12px !important;
@@ -1286,7 +1286,7 @@ body .slide-inner{
 <div id="progress"></div>
 <div id="section-tag">PROLOGUE</div>
 <div id="lang-switch">
-  <button data-lang="t" class="active" title="繁体中文">繁</button>
+  <button data-lang="t" title="繁体中文">繁</button>
   <button data-lang="s" class="active" title="简体中文">简</button>
   <button data-lang="e" title="English">EN</button>
 </div>
@@ -1329,7 +1329,7 @@ body .slide-inner{
   </div>
 </section>
 
-<!-- ===== P2 v5 讲座流程概览 (重写，唔再用 timeline-row class) ===== -->
+<!-- ===== P2 v5 讲座流程概览 (重写，不再用 timeline-row class) ===== -->
 <section class="slide" data-slide="2" data-section="OPENING · 讲座流程">
   <div class="slide-inner">
     <div class="kicker">讲座流程 · AGENDA</div>
@@ -1422,12 +1422,12 @@ body .slide-inner{
   <div class="slide-inner">
     <div class="kicker k-amber">校本特色 · SCHOOL DNA</div>
     <h2 class="big">梁校三大　<span class="gradient-text-warm">核心特色</span></h2>
-    <p class="tagline" style="max-width:1180px;">学科以外的隐性课程——「<strong style="color:var(--c1);">情智 · 阅读 · 亲职</strong>」三条主轴，由 P1 行到 P6，全人成长嘅基石。</p>
+    <p class="tagline" style="max-width:1180px;">学科以外的隐性课程——「<strong style="color:var(--c1);">情智 · 阅读 · 亲职</strong>」三条主轴，由 P1 贯穿至 P6，全人成长的基石。</p>
     <div class="g3" style="flex:1; gap:14px;">
       <!-- 情智教育 -->
       <div class="card card-l-cyan" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
         <div style="aspect-ratio:4/3; overflow:hidden; background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p4_kimochis_kids.jpeg" alt="5 学生持 Kimochis 情绪娃娃喺图书馆合照"
+          <img src="photos/p4_kimochis_kids.jpeg" alt="5 学生持 Kimochis 情绪娃娃在图书馆合照"
                style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
         <div style="padding:14px 16px; display:flex; flex-direction:column; gap:6px; flex:1;">
@@ -1468,7 +1468,7 @@ body .slide-inner{
         <div style="padding:14px 16px; display:flex; flex-direction:column; gap:6px; flex:1;">
           <div class="kicker k-amber">特色 ③ · 家校共学</div>
           <h3 class="lead" style="color:var(--c3); font-size:18px;">🤝 亲职教育</h3>
-          <p class="body" style="font-size:12.5px; line-height:1.65;"><strong style="color:var(--c3);">每星期三下午</strong>嘅亲职教育时段——定期家长 workshop、亲职讲座、家校通讯。家庭与学校无缝共学。</p>
+          <p class="body" style="font-size:12.5px; line-height:1.65;"><strong style="color:var(--c3);">每星期三下午</strong>的亲职教育时段——定期家长 workshop、亲职讲座、家校通讯。家庭与学校无缝共学。</p>
           <ul class="bullet" style="font-size:11.5px; line-height:1.7;">
             <li>AI 工作坊（Gemini × Poe）</li>
             <li>升中／升小衔接讲座</li>
@@ -1578,7 +1578,7 @@ body .slide-inner{
           <div class="kicker k-cyan">教育局</div>
           <h2 class="med" style="color:var(--c1); margin-top:4px; font-size:38px;">$50<span style="font-size:20px; color:var(--ink-3);">万</span></h2>
           <h3 class="mid" style="margin-top:4px;">「智」启学教计划</h3>
-          <p class="body" style="font-size:13px; margin-top:5px; line-height:1.6;">公帑资助学校嘅一笔过拨款，推动「AI for ALL Subjects」全科应用，配合教育局《数字素养架构》校本实践。<strong style="color:var(--c1);">本校已申请并全面落实。</strong></p>
+          <p class="body" style="font-size:13px; margin-top:5px; line-height:1.6;">公帑资助学校的一笔过拨款，推动「AI for ALL Subjects」全科应用，配合教育局《数字素养架构》校本实践。<strong style="color:var(--c1);">本校已申请并全面落实。</strong></p>
         </div>
       </div>
       <div class="card card-l-magenta" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
@@ -1590,7 +1590,7 @@ body .slide-inner{
           <div class="kicker k-magenta">香港大学</div>
           <h2 class="med" style="color:var(--c2); margin-top:4px; font-size:34px;">QTN-DT</h2>
           <h3 class="mid" style="margin-top:4px;">人工智能年代的自主学习</h3>
-          <p class="body" style="font-size:13px; margin-top:5px; line-height:1.6;">港大统筹嘅优质教育基金网络计划，研究 AI 时代嘅自主学习模式。<strong style="color:var(--c2);">本校为参与校之一</strong>，与全港顶尖学校共同实践。</p>
+          <p class="body" style="font-size:13px; margin-top:5px; line-height:1.6;">港大统筹的优质教育基金网络计划，研究 AI 时代的自主学习模式。<strong style="color:var(--c2);">本校为参与校之一</strong>，与全港顶尖学校共同实践。</p>
         </div>
       </div>
       <div class="card card-l-amber" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
@@ -1602,7 +1602,7 @@ body .slide-inner{
           <div class="kicker k-amber">70 校网</div>
           <h2 class="med" style="color:var(--c3); margin-top:4px; font-size:46px;">#1</h2>
           <h3 class="mid" style="margin-top:4px;">第一间引入企业级 AI</h3>
-          <p class="body" style="font-size:13px; margin-top:5px; line-height:1.6;">全面采用<strong style="color:var(--c3);">腾讯青少年人工智能教育平台</strong>嘅小学——学生使用嘅工具，与业界企业同步。</p>
+          <p class="body" style="font-size:13px; margin-top:5px; line-height:1.6;">全面采用<strong style="color:var(--c3);">腾讯青少年人工智能教育平台</strong>的小学——学生使用的工具，与业界企业同步。</p>
         </div>
       </div>
     </div>
@@ -1672,7 +1672,7 @@ body .slide-inner{
         </div>
         <div class="card card-l-magenta">
           <h3 class="lead" style="color:var(--c2); font-size:14.5px;">🃏 三层稀有度　·　集卡机制</h3>
-          <p class="body" style="font-size:12px; margin-top:3px;"><strong>UR / SSR / SR</strong> 三层武将稀有度，学生越用心造句、越有机会抽到稀有卡——将学中文变成可储存、可炫耀嘅成果。</p>
+          <p class="body" style="font-size:12px; margin-top:3px;"><strong>UR / SSR / SR</strong> 三层武将稀有度，学生越用心造句、越有机会抽到稀有卡——将学中文变成可储存、可展示的成果。</p>
         </div>
         <div class="card card-l-magenta">
           <h3 class="lead" style="color:var(--c2); font-size:14.5px;">📚 双轨学习　·　配套 AI 魔法默书</h3>
@@ -1692,7 +1692,7 @@ body .slide-inner{
       <div style="display:grid; grid-template-columns:1.7fr 1fr; gap:10px; flex:1; min-height:0;">
         <!-- 左:P6_3 全套 8 张 -->
         <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; display:flex; align-items:center; justify-content:center; position:relative;">
-          <img src="photos/p6_3_card_collection.png" alt="学生 AI 生成嘅 8 张武将卡牌作品集 — UR / SSR / SR 三层稀有度"
+          <img src="photos/p6_3_card_collection.png" alt="学生 AI 生成的 8 张武将卡牌作品集 — UR / SSR / SR 三层稀有度"
                style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
           <span style="position:absolute; top:8px; left:8px; background:rgba(190,24,93,0.92); color:#fff; padding:4px 12px; border-radius:99px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:1.5px; font-weight:700;">🃏 学生 AI 武将卡作品集</span>
         </div>
@@ -1754,7 +1754,7 @@ body .slide-inner{
         </div>
         <div class="card card-l-emerald">
           <h3 class="lead" style="color:var(--c4);">💡 解决家长痛点</h3>
-          <p class="body" style="font-size:16px; margin-top:6px;">家长唔再需要逐字读默——AI 永不疲倦、随时听写、永远耐心。</p>
+          <p class="body" style="font-size:16px; margin-top:6px;">家长不再需要逐字读默——AI 永不疲倦、随时听写、永远耐心。</p>
         </div>
       </div>
     </div>
@@ -1776,11 +1776,11 @@ body .slide-inner{
       <div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
         <div class="card card-l-amber">
           <h3 class="lead" style="color:var(--c3); font-size:15px;">📐 P4 课程：乘法大师</h3>
-          <p class="body" style="margin-top:4px; font-size:12.5px;"><strong>高年级写 AI 程式回馈低年级</strong>——P5/P6 亲手做乘法工具俾 P2 用。</p>
+          <p class="body" style="margin-top:4px; font-size:12.5px;"><strong>高年级写 AI 程式回馈低年级</strong>——P5/P6 亲手做乘法工具给 P2 使用。</p>
         </div>
         <div class="card card-l-amber">
           <h3 class="lead" style="color:var(--c3); font-size:15px;">🤖 苏格拉底反问</h3>
-          <p class="body" style="margin-top:4px; font-size:12.5px;">AI 不直接给答案，而系反问：「点解咁谂？仲有其他方法吗？」<strong>由「找答案」转为「拆解问题」</strong>。</p>
+          <p class="body" style="margin-top:4px; font-size:12.5px;">AI 不直接给答案，而是反问：「为何这样思考？还有其他方法吗？」<strong>由「找答案」转为「拆解问题」</strong>。</p>
         </div>
         <div class="card card-l-amber">
           <h3 class="lead" style="color:var(--c3); font-size:15px;">🎨 数学漫画变身器</h3>
@@ -1835,7 +1835,7 @@ body .slide-inner{
         <div style="padding:18px 20px;">
           <div class="kicker k-magenta">第一代　·　奠基</div>
           <h3 class="lead" style="color:var(--c2); margin-top:6px;">📱 App Inventor</h3>
-          <p class="body" style="font-size:16px; margin-top:8px;">由电脑堂起步——学生用 MIT App Inventor 图像化编程砌出初代文化游戏。奠基期嘅编程训练。</p>
+          <p class="body" style="font-size:16px; margin-top:8px;">由电脑堂起步——学生用 MIT App Inventor 图像化编程建构初代文化游戏。奠基期的编程训练。</p>
         </div>
       </div>
       <div class="card card-l-magenta" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
@@ -1886,12 +1886,12 @@ body .slide-inner{
           <p class="body" style="margin-top:6px; font-size:15px;">AI 摄影机 + 大电视介面，学生站到镜头前——AI 即时将学生「换上」民族服饰（藏族、苗族、蒙古族）背景，化身古代人物。</p>
         </div>
         <div class="card card-l-magenta">
-          <h3 class="lead" style="color:var(--c2);">🌏 超越教科书嘅文化体验</h3>
-          <p class="body" style="margin-top:6px; font-size:15px;">由「阅读文化」转为「亲身穿戴」——对应教育局《价值观教育架构》。学生带走自己嘅试身相，回家延续分享。</p>
+          <h3 class="lead" style="color:var(--c2);">🌏 超越教科书的文化体验</h3>
+          <p class="body" style="margin-top:6px; font-size:15px;">由「阅读文化」转为「亲身穿戴」——对应教育局《价值观教育架构》。学生带走自己的试身相，回家延续分享。</p>
         </div>
         <div class="card card-l-claude">
           <h3 class="lead" style="color:var(--c-claude);">🎯 教育意义</h3>
-          <p class="body" style="margin-top:6px; font-size:15px;">AI 并非取代真实服饰体验，而系降低门槛——令每位学生都能跨越时空，与多元文化产生个人连结。</p>
+          <p class="body" style="margin-top:6px; font-size:15px;">AI 并非取代真实服饰体验，而是降低门槛——让每位学生都能跨越时空，与多元文化产生个人连结。</p>
         </div>
       </div>
     </div>
@@ -1972,7 +1972,7 @@ body .slide-inner{
           <p class="body" style="margin-top:6px;">当学生发现自己「会作歌」，对音乐的热情会由被动变为主动。AI 并非取代创作，而是降低创作的门槛——对应 UNESCO 创意表达框架。</p>
         </div>
         <div class="quote">
-          <div class="quote-text">音乐科以前系欣赏与演唱为主，难以让学生亲身体验创作。Suno 改变了这一切。</div>
+          <div class="quote-text">音乐科以前以欣赏与演唱为主，难以让学生亲身体验创作。Suno 改变了这一切。</div>
           <div class="quote-author">音乐科组</div>
         </div>
       </div>
@@ -1994,11 +1994,11 @@ body .slide-inner{
       <div style="display:flex; flex-direction:column; gap:14px;">
         <div class="card card-l-violet">
           <h3 class="lead" style="color:var(--c5);">🛡️ P5 课程：AI 国宝守卫战 2.0</h3>
-          <p class="body" style="margin-top:6px;">学生跳绳动作触发 AI 视觉辨识，跳绳次数转化为「清洁气流大砲」嘅能量，击退污染怪兽——将枯燥嘅体能训练变成国宝守卫任务。</p>
+          <p class="body" style="margin-top:6px;">学生跳绳动作触发 AI 视觉辨识，跳绳次数转化为「清洁气流大砲」的能量，击退污染怪兽——将枯燥的体能训练变成国宝守卫任务。</p>
         </div>
         <div class="card card-l-violet">
           <h3 class="lead" style="color:var(--c5);">⚡ AI 智能体育系统（试行）</h3>
-          <p class="body" style="margin-top:6px;">于体育馆设置大电视 AI 视觉辨识，可实时计算跳绳次数、跳远距离——对应 WHO 儿童活动指引嘅数据素养要求。</p>
+          <p class="body" style="margin-top:6px;">于体育馆设置大电视 AI 视觉辨识，可实时计算跳绳次数、跳远距离——对应 WHO 儿童活动指引的数据素养要求。</p>
         </div>
         <div class="card card-l-violet">
           <h3 class="lead" style="color:var(--c5);">🎯 并非监测　而是赋能</h3>
@@ -2055,11 +2055,11 @@ body .slide-inner{
       <div style="display:flex; flex-direction:column; gap:14px;">
         <div class="card card-l-claude">
           <h3 class="lead" style="color:var(--c-claude);">🎭 P5 课程：现代门神</h3>
-          <p class="body" style="margin-top:6px;">学生先以传统水墨手绘稿构思角色，再使用 AI 工具将其转化为动态作品——传统与创新并非对立，而系互相成就。对应 21 世纪 4C 核心技能。</p>
+          <p class="body" style="margin-top:6px;">学生先以传统水墨手绘稿构思角色，再使用 AI 工具将其转化为动态作品——传统与创新并非对立，而是互相成就。对应 21 世纪 4C 核心技能。</p>
         </div>
         <div class="card card-l-claude">
           <h3 class="lead" style="color:var(--c-claude);">🎓 P6 课程：未来职业 APP</h3>
-          <p class="body" style="margin-top:6px;">毕业生涯规划融入视艺——学生为自己嘅未来职业设计 APP 介面草图，再用 AI 完善视觉呈现。<strong>创意 × 自我认同</strong>。</p>
+          <p class="body" style="margin-top:6px;">毕业生涯规划融入视艺——学生为自己的未来职业设计 APP 介面草图，再用 AI 完善视觉呈现。<strong>创意 × 自我认同</strong>。</p>
         </div>
         <div class="quote">
           <div class="quote-text">AI 不会取代画笔，但会扩阔学生对「创作」的想像。我们的责任，是教他们判断哪个版本最有自己的灵魂。</div>
@@ -2095,7 +2095,7 @@ body .slide-inner{
         <div class="g2" style="gap:10px;">
           <div class="card card-l-emerald" style="padding:13px 15px;">
             <h3 class="mid" style="color:var(--c4); font-size:14.5px;">🦎 真实国宝</h3>
-            <p class="small" style="margin-top:4px; font-size:11.5px;">本校为香港少数获准合法领养瑶山鳄蜥嘅小学。</p>
+            <p class="small" style="margin-top:4px; font-size:11.5px;">本校为香港少数获准合法领养瑶山鳄蜥的小学。</p>
           </div>
           <div class="card card-l-cyan" style="padding:13px 15px;">
             <h3 class="mid" style="color:var(--c1); font-size:14.5px;">📡 IoT 智能监测</h3>
@@ -2112,10 +2112,10 @@ body .slide-inner{
         </div>
         <div class="card card-l-claude" style="padding:13px 15px;">
           <h3 class="mid" style="color:var(--c-claude); font-size:14.5px;">🤝 由观察者　变成保育主角</h3>
-          <p class="small" style="margin-top:4px; font-size:11.5px;">学生由「课本看图认识濒危动物」转为「日日 IoT 监察、亲身喂养、AI 行为解读」——真实生命教育，配合中华文化中嘅万物共生观。</p>
+          <p class="small" style="margin-top:4px; font-size:11.5px;">学生由「课本看图认识濒危动物」转为「每日 IoT 监察、亲身喂养、AI 行为解读」——真实生命教育，配合中华文化中的万物共生观。</p>
         </div>
         <div class="quote" style="padding:8px 14px 8px 22px;">
-          <div class="quote-text" style="font-size:12px;">当孩子亲手照顾一只国宝，保育就唔再系教科书嘅口号，而系佢哋自己嘅承诺。</div>
+          <div class="quote-text" style="font-size:12px;">当孩子亲手照顾一只国宝，保育就不再是教科书的口号，而是他们自己的承诺。</div>
           <div class="quote-author" style="font-size:10px;">萧蕙欣主任 · 旗舰项目主理</div>
         </div>
       </div>
@@ -2165,7 +2165,7 @@ body .slide-inner{
             <strong style="color:var(--c1);">P5：</strong>现代门神　·　AI 翻译官<br>
             <strong style="color:var(--c1);">P6：</strong>识花君　·　毕业生涯规划
           </p>
-          <p class="small" style="font-style:italic; color:var(--c3);">学生组别 / 比赛作品（成语攻防战、文化试身室、国宝 AI 管家等）系课余自主探究。</p>
+          <p class="small" style="font-style:italic; color:var(--c3);">学生组别 / 比赛作品（成语攻防战、文化试身室、国宝 AI 管家等）为课余自主探究。</p>
         </div>
       </div>
     </div>
@@ -2204,7 +2204,7 @@ body .slide-inner{
           <p class="body" style="margin-top:6px; font-size:15px; line-height:1.6;">P4-P6 每学年用 <strong style="color:var(--c4);">7 节课堂时间</strong>系统地教 AI 素养——配合教育局《小学数字素养架构》。</p>
           <ul class="bullet" style="font-size:13.5px; line-height:1.7; margin-top:6px; padding-left:18px;">
             <li><strong>第 1 节：</strong>AI 是甚么 · 生活中的 AI 应用</li>
-            <li><strong>第 2 节：</strong>AI 点解识答问题 · 训练数据基础</li>
+            <li><strong>第 2 节：</strong>AI 为何能回答问题 · 训练数据基础</li>
             <li><strong>第 3 节：</strong>有效 Prompt 写作技巧</li>
             <li><strong>第 4 节：</strong>AI 伦理 · 红线与责任</li>
             <li><strong>第 5 节：</strong>Fact-check 验证 AI 答案</li>
@@ -2277,15 +2277,15 @@ body .slide-inner{
       <div style="display:flex; flex-direction:column; gap:14px;">
         <div class="card card-l-claude">
           <h3 class="lead" style="color:var(--c-claude);">🛠️ AI 时代超级家长</h3>
-          <p class="body" style="margin-top:8px; font-size:17px;">「Gemini × Poe 实战工作坊」——轻松引导孩子自主学习。家长由零编程基础开始，30 分钟做出自己孩子嘅 AI 默书 App。</p>
+          <p class="body" style="margin-top:8px; font-size:17px;">「Gemini × Poe 实战工作坊」——轻松引导孩子自主学习。家长由零编程基础开始，30 分钟做出属于自己孩子的 AI 默书 App。</p>
         </div>
         <div class="card card-l-claude">
           <h3 class="lead" style="color:var(--c-claude);">🎯 定期举行</h3>
-          <p class="body" style="margin-top:8px; font-size:17px;">每学期最少两次，配合学生课程进度——确保家长嘅 AI 知识同学校同步。</p>
+          <p class="body" style="margin-top:8px; font-size:17px;">每学期最少两次，配合学生课程进度——确保家长的 AI 知识与学校同步。</p>
         </div>
         <div class="card card-l-claude">
-          <h3 class="lead" style="color:var(--c-claude);">💬 唔只技术　·　更系沟通</h3>
-          <p class="body" style="margin-top:8px; font-size:17px;">家长亲手做过先理解 AI 唔系魔法。家中嘅 AI 对话从此有质素、有界线。</p>
+          <h3 class="lead" style="color:var(--c-claude);">💬 不只技术　·　更是沟通</h3>
+          <p class="body" style="margin-top:8px; font-size:17px;">家长亲手做过才理解 AI 并非魔法。家中的 AI 对话从此有质素、有界线。</p>
         </div>
       </div>
     </div>
@@ -2297,7 +2297,7 @@ body .slide-inner{
   <div class="slide-inner">
     <div class="kicker k-emerald">未来蓝图 · FUTURE</div>
     <h2 class="big">下一步　<span class="gradient-text-cool">三大计划</span></h2>
-    <p class="tagline" style="max-width:1180px;">由实验阶段　走向　校本常设——将过去三年嘅 AI 教育成果，沉淀为持续可运作嘅平台、空间与机制。</p>
+    <p class="tagline" style="max-width:1180px;">由实验阶段　走向　校本常设——将过去三年的 AI 教育成果，沉淀为持续可运作的平台、空间与机制。</p>
     <div class="g3" style="flex:1; gap:14px; min-height:0;">
       <div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
         <div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
@@ -2415,7 +2415,7 @@ body .slide-inner{
   <div class="slide-inner">
     <div class="kicker k-magenta">P1 新分班 · 机制细节</div>
     <h2 class="big">家长意愿　＋　<span class="gradient-text">出入转班机制</span></h2>
-    <p class="tagline" style="max-width:1180px;">尊重家长选择，并设清晰嘅入学同转班规则——配合学生实际发展调整。</p>
+    <p class="tagline" style="max-width:1180px;">尊重家长选择，并设清晰的入学及转班规则——配合学生实际发展调整。</p>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; flex:1; align-items:stretch; min-height:0;">
       <!-- 左:家长意愿 -->
       <div class="card card-l-magenta" style="padding:22px; display:flex; flex-direction:column; gap:14px;">
@@ -2428,7 +2428,7 @@ body .slide-inner{
           </div>
           <div style="padding:10px 14px; background:rgba(190,24,93,0.05); border-radius:8px; border-left:3px solid var(--c2);">
             <p style="font-size:13px; font-weight:700; color:var(--c2); margin-bottom:3px;">B 班（博艺） + C 班（创科）</p>
-            <p style="font-size:12.5px;">家长可自由选择适合自己子女嘅班别。<strong>如人数太多会面试</strong>，根据学生实际情况入读。</p>
+            <p style="font-size:12.5px;">家长可自由选择适合自己子女的班别。<strong>如人数太多会面试</strong>，根据学生实际情况入读。</p>
           </div>
         </div>
         <p class="small" style="font-style:italic; color:var(--ink-3); margin-top:auto;">📅 6 月面试：A 班所有报读家长均需出席。</p>
@@ -2456,7 +2456,7 @@ body .slide-inner{
         <p class="small" style="font-style:italic; color:var(--ink-3); margin-top:auto;">💡 机制设计：让学生有发挥机会，亦给家长调整空间。</p>
       </div>
     </div>
-    <p class="src-row"><strong>提醒：</strong>分班并非「能力分流」，而系「兴趣定位」——每位学生都有适合发展嘅班别。</p>
+    <p class="src-row"><strong>提醒：</strong>分班并非「能力分流」，而是「兴趣定位」——每位学生都有适合发展的班别。</p>
   </div>
 </section>
 
@@ -2498,7 +2498,7 @@ body .slide-inner{
       <div style="display:flex; flex-direction:column; gap:9px;">
         <div class="card card-l-cyan" style="padding:13px 16px;">
           <h3 class="lead" style="color:var(--c1); font-size:15px;">🎯 课程理念</h3>
-          <p class="body" style="margin-top:5px; font-size:12.5px; line-height:1.7;">透过<strong>英语沉浸环境</strong>，将英语由「一个科目」转化为「学习工具」——让学生喺数学、科学等真实情境中运用英文，全面提升<strong>听 · 讲 · 读 · 写</strong>四大能力。<strong style="color:var(--c1);">学术英语</strong>同<strong style="color:var(--c1);">日常英语</strong>并行发展。</p>
+          <p class="body" style="margin-top:5px; font-size:12.5px; line-height:1.7;">透过<strong>英语沉浸环境</strong>，将英语由「一个科目」转化为「学习工具」——让学生在数学、科学等真实情境中运用英文，全面提升<strong>听 · 讲 · 读 · 写</strong>四大能力。<strong style="color:var(--c1);">学术英语</strong>与<strong style="color:var(--c1);">日常英语</strong>并行发展。</p>
         </div>
         <div class="card card-l-cyan" style="padding:13px 16px;">
           <h3 class="lead" style="color:var(--c1); font-size:15px;">📚 三大支柱</h3>
@@ -2510,7 +2510,7 @@ body .slide-inner{
         </div>
         <div class="card card-l-emerald" style="padding:13px 16px;">
           <h3 class="lead" style="color:var(--c4); font-size:15px;">💡 为何选择英尖班？</h3>
-          <p class="body" style="margin-top:5px; font-size:12.5px; line-height:1.65;">适合<strong>英文基础良好、有兴趣深入学习</strong>嘅学生——升中时 EMI（英文授课）中学<strong style="color:var(--c4);">衔接优势明显</strong>。学生毕业时已具备跨学科英语能力。</p>
+          <p class="body" style="margin-top:5px; font-size:12.5px; line-height:1.65;">适合<strong>英文基础良好、有兴趣深入学习</strong>的学生——升中时 EMI（英文授课）中学<strong style="color:var(--c4);">衔接优势明显</strong>。学生毕业时已具备跨学科英语能力。</p>
         </div>
         <div class="card card-l-magenta" style="padding:11px 16px;">
           <h3 class="mid" style="color:var(--c2); font-size:14px;">📋 招生流程</h3>
@@ -2526,7 +2526,7 @@ body .slide-inner{
   <div class="slide-inner">
     <div class="kicker k-cyan">英尖班 · 三大特色 · CORE PILLARS</div>
     <h2 class="big">英授课堂　×　<span class="gradient-text-cool">真实学习</span></h2>
-    <p class="tagline" style="max-width:1180px;">数学、科学、班务常规——三条主线同步推进，建构完整嘅英语学习生态。</p>
+    <p class="tagline" style="max-width:1180px;">数学、科学、班务常规——三条主线同步推进，建构完整的英语学习生态。</p>
     <div class="g3" style="flex:1; gap:14px;">
       <!-- 数学 -->
       <div class="card card-l-cyan" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
@@ -2537,7 +2537,7 @@ body .slide-inner{
         <div style="padding:13px 16px; display:flex; flex-direction:column; gap:6px; flex:1;">
           <div class="kicker k-cyan">特色 ① · 学科沉浸</div>
           <h3 class="lead" style="color:var(--c1); font-size:17px;">📐 Mathematics</h3>
-          <p class="body" style="font-size:12.5px; line-height:1.65;">课本、工作纸、评估<strong>全部英文</strong>——学生由认识数学概念开始，同时学会英文嘅<strong>学术用语</strong>。</p>
+          <p class="body" style="font-size:12.5px; line-height:1.65;">课本、工作纸、评估<strong>全部英文</strong>——学生由认识数学概念开始，同时学会英文的<strong>学术用语</strong>。</p>
           <p class="small" style="font-size:11px; line-height:1.65; color:var(--ink-2);">📚 核心词汇：addition · subtraction · equation · perimeter · fraction · decimal · word problem</p>
           <p class="small" style="color:var(--c1); font-weight:700; margin-top:auto;">📊 升读 EMI 中学 · 衔接无缝</p>
         </div>
@@ -2551,7 +2551,7 @@ body .slide-inner{
         <div style="padding:13px 16px; display:flex; flex-direction:column; gap:6px; flex:1;">
           <div class="kicker k-cyan">特色 ② · 探究式学习</div>
           <h3 class="lead" style="color:var(--c1); font-size:17px;">🧪 Science</h3>
-          <p class="body" style="font-size:12.5px; line-height:1.65;">实验单元嘅工作纸、评估都以<strong>英文进行</strong>——学生做实验时自然吸收 <strong>scientific vocabulary</strong>。</p>
+          <p class="body" style="font-size:12.5px; line-height:1.65;">实验单元的工作纸、评估都以<strong>英文进行</strong>——学生做实验时自然吸收 <strong>scientific vocabulary</strong>。</p>
           <p class="small" style="font-size:11px; line-height:1.65; color:var(--ink-2);">🔬 核心词汇：hypothesis · observation · experiment · conclusion · variable · measurement</p>
           <p class="small" style="color:var(--c1); font-weight:700; margin-top:auto;">🚀 真实作品：火箭制作 · 纸箱装置</p>
         </div>
@@ -2565,7 +2565,7 @@ body .slide-inner{
         <div style="padding:13px 16px; display:flex; flex-direction:column; gap:6px; flex:1;">
           <div class="kicker k-cyan">特色 ③ · 真实运用</div>
           <h3 class="lead" style="color:var(--c1); font-size:17px;">🎭 Routines + Drama</h3>
-          <p class="body" style="font-size:12.5px; line-height:1.65;">日常班务常规以英语进行——加上<strong>下学期启潜英语话剧训练</strong>，学生由「会睇会听」进化为「敢讲敢演」。</p>
+          <p class="body" style="font-size:12.5px; line-height:1.65;">日常班务常规以英语进行——加上<strong>下学期启潜英语话剧训练</strong>，学生由「能读能听」进化为「敢讲敢演」。</p>
           <p class="small" style="font-size:11px; line-height:1.65; color:var(--ink-2);">🎤 日常用语：Good morning · May I... · Please pass me... · I would like to share...</p>
           <p class="small" style="color:var(--c1); font-weight:700; margin-top:auto;">🎬 每年下学期：英语话剧汇演</p>
         </div>
@@ -2604,24 +2604,24 @@ body .slide-inner{
       <!-- 右:家长 FAQ (扩展) -->
       <div style="display:flex; flex-direction:column; gap:8px;">
         <div class="card card-l-pain" style="padding:11px 14px;">
-          <h3 class="mid" style="color:var(--c-pain); font-size:13.5px;">❓ 我子女英文水平唔够高，拣英尖班会唔会跟唔上？</h3>
+          <h3 class="mid" style="color:var(--c-pain); font-size:13.5px;">❓ 我子女英文水平不够高，选英尖班会否跟不上？</h3>
           <p class="small" style="margin-top:3px; line-height:1.65; font-size:11.5px;">A 班招生着重<strong>学习兴趣</strong>而非「现有水平」——6 月面试会评估学生适应能力。如果中途发现不适应，<strong>P.1 升 P.2 阶段可以转去 B/C 班</strong>，无压力。</p>
         </div>
         <div class="card card-l-pain" style="padding:11px 14px;">
-          <h3 class="mid" style="color:var(--c-pain); font-size:13.5px;">❓ B/C 班学生会唔会少咗英文资源？</h3>
-          <p class="small" style="margin-top:3px; line-height:1.65; font-size:11.5px;">唔会。<strong>英文科本身全校统一教学时数同教材</strong>，B/C 班只系<strong>数学、科学</strong>用中文教。所有班别都有外籍英语老师阅读课、英语日常活动。</p>
+          <h3 class="mid" style="color:var(--c-pain); font-size:13.5px;">❓ B/C 班学生会否少了英文资源？</h3>
+          <p class="small" style="margin-top:3px; line-height:1.65; font-size:11.5px;">不会。<strong>英文科本身全校统一教学时数及教材</strong>，B/C 班只是<strong>数学、科学</strong>用中文教。所有班别都有外籍英语老师阅读课、英语日常活动。</p>
         </div>
         <div class="card card-l-pain" style="padding:11px 14px;">
-          <h3 class="mid" style="color:var(--c-pain); font-size:13.5px;">❓ 点解 P.2 升 P.3 之后唔可以入英尖班？</h3>
-          <p class="small" style="margin-top:3px; line-height:1.65; font-size:11.5px;">因为 P.3 开始<strong>英授科目嘅累积知识</strong>已经唔少（数学 word problems、科学实验报告）。中途插入会令学生压力大。<strong>插班生例外处理</strong>。</p>
+          <h3 class="mid" style="color:var(--c-pain); font-size:13.5px;">❓ 为何 P.2 升 P.3 之后不可入英尖班？</h3>
+          <p class="small" style="margin-top:3px; line-height:1.65; font-size:11.5px;">因为 P.3 开始<strong>英授科目的累积知识</strong>已经不少（数学 word problems、科学实验报告）。中途插入会令学生压力大。<strong>插班生例外处理</strong>。</p>
         </div>
         <div class="card card-l-pain" style="padding:11px 14px;">
-          <h3 class="mid" style="color:var(--c-pain); font-size:13.5px;">❓ 数学科用英文教，会唔会影响中文数学概念？</h3>
-          <p class="small" style="margin-top:3px; line-height:1.65; font-size:11.5px;">唔会。中文版同英文版工作纸<strong>内容完全一致</strong>（见左图），老师教课时双语切换。学生两种语言嘅数学概念都熟练。</p>
+          <h3 class="mid" style="color:var(--c-pain); font-size:13.5px;">❓ 数学科用英文教，会否影响中文数学概念？</h3>
+          <p class="small" style="margin-top:3px; line-height:1.65; font-size:11.5px;">不会。中文版与英文版工作纸<strong>内容完全一致</strong>（见左图），老师教课时双语切换。学生两种语言的数学概念都熟练。</p>
         </div>
         <div class="card card-l-emerald" style="padding:10px 14px;">
           <h3 class="mid" style="color:var(--c4); font-size:13px;">💡 仍然有疑问？</h3>
-          <p class="small" style="margin-top:3px; font-size:11px;">欢迎喺问答环节提出 · 6 月面试前可联络课程组萧主任详谈。</p>
+          <p class="small" style="margin-top:3px; font-size:11px;">欢迎在问答环节提出 · 6 月面试前可联络课程组萧主任详谈。</p>
         </div>
       </div>
     </div>
@@ -2633,16 +2633,16 @@ body .slide-inner{
   <div class="slide-inner">
     <div class="kicker k-pain">评估革新 · NO-DICTATION POLICY</div>
     <h2 class="big">为何梁校　<span style="color:var(--c-pain);">取消传统考默？</span></h2>
-    <p class="tagline" style="max-width:1180px;">由「背诵能力」评估　转为「应用能力」评估——回应 AI 时代真正需要嘅学习能力。梁校自 <strong>2024-25 学年</strong>逐步推行无考默政策，<strong>中文、英文科</strong>不再用传统默书作为定期评估。</p>
+    <p class="tagline" style="max-width:1180px;">由「背诵能力」评估　转为「应用能力」评估——回应 AI 时代真正需要的学习能力。梁校自 <strong>2024-25 学年</strong>逐步推行无考默政策，<strong>中文、英文科</strong>不再用传统默书作为定期评估。</p>
     <div style="display:grid; grid-template-columns:1fr 1.5fr; gap:18px; flex:1; align-items:stretch; min-height:0;">
       <!-- 左:大型声明 + 统计 -->
       <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
         <div style="flex:1; min-height:0; padding:20px; background:linear-gradient(135deg,rgba(220,38,38,0.06),rgba(190,24,93,0.04)); border-radius:14px; border:2px solid rgba(220,38,38,0.18); display:flex; flex-direction:column; justify-content:center; align-items:flex-start; gap:10px;">
           <div style="font-size:54px;">📌</div>
           <p style="font-size:16px; font-weight:800; color:var(--c-pain); line-height:1.45;">并非「不再学生字」</p>
-          <p style="font-size:14.5px; line-height:1.55;">而系「<strong style="color:var(--c-pain);">不用机械式默写</strong>去评估学生」</p>
+          <p style="font-size:14.5px; line-height:1.55;">而是「<strong style="color:var(--c-pain);">不用机械式默写</strong>去评估学生」</p>
           <div style="border-top:1px dashed rgba(220,38,38,0.25); padding-top:9px; width:100%;">
-            <p class="small" style="font-size:12px; color:var(--ink-2); line-height:1.65;">学生仍然要学中文字、识生字、会运用——但唔再用机械式默写测验去量度成效。</p>
+            <p class="small" style="font-size:12px; color:var(--ink-2); line-height:1.65;">学生仍然要学中文字、认读生字、会运用——但不再用机械式默写测验去量度成效。</p>
           </div>
         </div>
         <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:8px;">
@@ -2661,17 +2661,17 @@ body .slide-inner{
         <div class="card card-l-pain" style="padding:13px 16px;">
           <div class="kicker k-pain">支柱 ①</div>
           <h3 class="lead" style="color:var(--c-pain); font-size:15px; margin-top:3px;">🔄 释出学习空间　·　深层发展</h3>
-          <p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">将原本俾默书准备同测验嘅时间，用于<strong>阅读理解、写作、讨论、口语表达</strong>——培养更深层次嘅语文能力。香港 2025 年教育局已认可呢个方向。</p>
+          <p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">将原本用于默书准备与测验的时间，投放于<strong>阅读理解、写作、讨论、口语表达</strong>——培养更深层次的语文能力。香港 2025 年教育局已认可这个方向。</p>
         </div>
         <div class="card card-l-pain" style="padding:13px 16px;">
           <div class="kicker k-pain">支柱 ②</div>
           <h3 class="lead" style="color:var(--c-pain); font-size:15px; margin-top:3px;">💪 减低压力　·　保护学习兴趣</h3>
-          <p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">传统默书令学生对中／英文产生<strong>排斥感</strong>——每周多次默书，分数低就被罚。无考默政策让学生<strong>持续喜欢语文</strong>，系终身学习嘅基石。</p>
+          <p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">传统默书令学生对中／英文产生<strong>排斥感</strong>——每周多次默书，分数低就被罚。无考默政策让学生<strong>持续喜欢语文</strong>，是终身学习的基石。</p>
         </div>
         <div class="card card-l-pain" style="padding:13px 16px;">
           <div class="kicker k-pain">支柱 ③</div>
-          <h3 class="lead" style="color:var(--c-pain); font-size:15px; margin-top:3px;">🤖 AI 时代　·　评估嘅再思考</h3>
-          <p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">当 AI 可以即时提供答案、自动拼字、语音输入，<strong>纯粹「记得字点写」嘅实际价值大幅下降</strong>——真正重要系<strong>应用、判断、创造</strong>同<strong>分辨 AI 对错</strong>嘅能力。</p>
+          <h3 class="lead" style="color:var(--c-pain); font-size:15px; margin-top:3px;">🤖 AI 时代　·　评估的再思考</h3>
+          <p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">当 AI 可以即时提供答案、自动拼字、语音输入，<strong>纯粹「记得字怎样写」的实际价值大幅下降</strong>——真正重要的是<strong>应用、判断、创造</strong>与<strong>分辨 AI 对错</strong>的能力。</p>
         </div>
         <div class="card card-l-pain" style="padding:13px 16px;">
           <div class="kicker k-pain">支柱 ④</div>
@@ -2688,16 +2688,16 @@ body .slide-inner{
   <div class="slide-inner">
     <div class="kicker k-pain">无考默 · 学生收获 + 家长配合</div>
     <h2 class="big">学生　×　<span style="color:var(--c-pain);">家长</span>　双赢</h2>
-    <p class="tagline" style="max-width:1180px;">取消传统考默，并非「家长不用管」——而系家校角色转变，由「监督背诵」走向「共读共学」。</p>
+    <p class="tagline" style="max-width:1180px;">取消传统考默，并非「家长不用管」——而是家校角色转变，由「监督背诵」走向「共读共学」。</p>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; flex:1; align-items:stretch; min-height:0;">
       <!-- 左:学生收获 -->
       <div class="card card-l-emerald" style="padding:22px; display:flex; flex-direction:column; gap:12px;">
         <div class="kicker k-emerald">学生角度 · STUDENT</div>
         <h3 class="lead" style="color:var(--c4); font-size:22px;">😊 收获</h3>
         <ul class="bullet" style="font-size:13.5px; line-height:1.85;">
-          <li><strong style="color:var(--c4);">学习压力降低</strong>，唔再为背默而焦虑</li>
+          <li><strong style="color:var(--c4);">学习压力降低</strong>，不再为背默而焦虑</li>
           <li><strong style="color:var(--c4);">阅读兴趣提升</strong>，由「被迫背」转为「主动读」</li>
-          <li><strong style="color:var(--c4);">表达能力进步</strong>，喺讨论、写作中累积</li>
+          <li><strong style="color:var(--c4);">表达能力进步</strong>，在讨论、写作中累积</li>
           <li><strong style="color:var(--c4);">时间更有弹性</strong>，可发展兴趣同特长</li>
         </ul>
         <div style="padding:8px 12px; background:rgba(4,120,87,0.05); border-radius:8px; margin-top:auto;">
@@ -2728,7 +2728,7 @@ body .slide-inner{
   <div class="slide-inner">
     <div class="kicker k-emerald">评估三轨 · THREE-TRACK ASSESSMENT</div>
     <h2 class="big">三轨并行　<span class="gradient-text-cool">全面评估</span></h2>
-    <p class="tagline" style="max-width:1180px;">并非取消评估——而系由「单一纸笔」转为「三轨并行」，避免 AI 代写盲点，真正反映学生能力。</p>
+    <p class="tagline" style="max-width:1180px;">并非取消评估——而是由「单一纸笔」转为「三轨并行」，避免 AI 代写盲点，真正反映学生能力。</p>
     <div style="display:grid; grid-template-columns:1.1fr 1.4fr; gap:18px; flex:1; align-items:stretch; min-height:0;">
       <!-- 左:实验实作相 -->
       <div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
@@ -2769,7 +2769,7 @@ body .slide-inner{
             <div style="flex:1;">
               <div class="kicker k-magenta">轨道 ③ · 真实能力</div>
               <h3 class="lead" style="color:var(--c2); font-size:16px; margin-top:3px;">实作 + 口头解说 · Performance + Oral</h3>
-              <p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">学生亲自演示、解说作品——<strong>抗 AI 代写</strong>嘅最有效评估。老师可以即场追问点解咁设计、点解咁谂。</p>
+              <p class="body" style="font-size:12px; margin-top:4px; line-height:1.65;">学生亲自演示、解说作品——<strong>抗 AI 代写</strong>的最有效评估。老师可以即场追问为何这样设计、为何这样思考。</p>
               <p class="small" style="margin-top:3px; font-size:10.5px;"><strong style="color:var(--c2);">适用：</strong>STEAM · 跨科 · AI 创作 · 30-35% 评估比重</p>
             </div>
           </div>
@@ -2819,7 +2819,7 @@ body .slide-inner{
             <div style="padding:13px 12px; border-bottom:1px solid var(--border); font-size:12.5px;"><strong style="color:var(--c1);">下午 3:00 – 4:30</strong><br><span style="font-size:10.5px; color:var(--ink-3);">放学后 1.5 小时</span></div>
             <div style="padding:13px 12px; border-bottom:1px solid var(--border); background:rgba(8,145,178,0.03); font-size:12px; line-height:1.55;">协助学生<strong>完成当日功课</strong>　·　老师即时解答疑难</div>
             <div style="padding:13px 12px; border-bottom:1px solid var(--border); font-size:12.5px;"><span style="color:var(--c4); font-weight:700;">✅ 提供</span></div>
-            <div style="padding:13px 12px; background:rgba(8,145,178,0.03); font-size:11.5px; line-height:1.55;">需要功课辅导但要赶校车返屋企</div>
+            <div style="padding:13px 12px; background:rgba(8,145,178,0.03); font-size:11.5px; line-height:1.55;">需要功课辅导但要赶校车回家</div>
           </div>
           <!-- 课托 column -->
           <div style="display:flex; flex-direction:column; border-left:2px solid var(--border);">
@@ -2846,7 +2846,7 @@ body .slide-inner{
   <div class="slide-inner">
     <div class="kicker k-violet">启发潜能教育 · INVITATIONAL EDUCATION</div>
     <h2 class="big">五大元素　<span class="gradient-text">启发潜能</span></h2>
-    <p class="tagline" style="max-width:1180px;">梁校嘅启潜理念建基于国际「启发潜能教育」框架——以<strong>关怀 · 乐观 · 尊重 · 信任 · 刻意安排</strong>五大元素，唤醒每位学生独特天赋。</p>
+    <p class="tagline" style="max-width:1180px;">梁校的启潜理念建基于国际「启发潜能教育」框架——以<strong>关怀 · 乐观 · 尊重 · 信任 · 刻意安排</strong>五大元素，唤醒每位学生独特天赋。</p>
     <div style="display:grid; grid-template-columns:1fr 1.15fr; gap:20px; flex:1; align-items:stretch; min-height:0;">
       <!-- 左:5 元素框架图 -->
       <div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
@@ -2865,24 +2865,24 @@ body .slide-inner{
         </div>
         <div class="card card-l-amber" style="padding:11px 14px;">
           <h3 class="mid" style="color:var(--c3); font-size:14.5px;">☀️ 乐观 · OPTIMISM</h3>
-          <p class="body" style="font-size:12px; margin-top:3px;">相信每位学生都有无限可能——失败只系下一步成功嘅起点，永远保持希望。</p>
+          <p class="body" style="font-size:12px; margin-top:3px;">相信每位学生都有无限可能——失败只是下一步成功的起点，永远保持希望。</p>
         </div>
         <div class="card card-l-emerald" style="padding:11px 14px;">
           <h3 class="mid" style="color:var(--c4); font-size:14.5px;">🤝 尊重 · RESPECT</h3>
-          <p class="body" style="font-size:12px; margin-top:3px;">尊重学生嘅选择、兴趣、节奏——唔强迫所有学生喺同一时间掌握同一技能。</p>
+          <p class="body" style="font-size:12px; margin-top:3px;">尊重学生的选择、兴趣、节奏——不强迫所有学生在同一时间掌握同一技能。</p>
         </div>
         <div class="card card-l-cyan" style="padding:11px 14px;">
           <h3 class="mid" style="color:var(--c1); font-size:14.5px;">🌟 信任 · TRUST</h3>
-          <p class="body" style="font-size:12px; margin-top:3px;">老师信任学生有自我成长嘅能力——放手让学生自主探索、自己决定。</p>
+          <p class="body" style="font-size:12px; margin-top:3px;">老师信任学生有自我成长的能力——放手让学生自主探索、自己决定。</p>
         </div>
         <div class="card card-l-magenta" style="padding:11px 14px;">
           <h3 class="mid" style="color:var(--c2); font-size:14.5px;">🎯 刻意安排 · INTENTIONALITY</h3>
-          <p class="body" style="font-size:12px; margin-top:3px;">所有环境、活动、评估都<strong>刻意设计</strong>——并非随机，而系有系统咁启发每位学生独有嘅潜能。</p>
+          <p class="body" style="font-size:12px; margin-top:3px;">所有环境、活动、评估都<strong>刻意设计</strong>——并非随机，而是有系统地启发每位学生独有的潜能。</p>
         </div>
       </div>
     </div>
     <div class="quote" style="padding:8px 16px 8px 24px;">
-      <div class="quote-text" style="font-size:12.5px;">教育并不是装满一桶水，而是点燃一把火——启发潜能，就系帮每个学生揾到属于佢嘅火种。</div>
+      <div class="quote-text" style="font-size:12.5px;">教育并不是装满一桶水，而是点燃一把火——启发潜能，就是帮每个学生找到属于他的火种。</div>
       <div class="quote-author" style="font-size:10px;">萧蕙欣主任 · 课程统筹</div>
     </div>
   </div>
@@ -2902,7 +2902,7 @@ body .slide-inner{
             <tr style="background:linear-gradient(135deg,var(--c5),var(--c2));">
               <th style="padding:9px 10px; text-align:left; color:#fff; font-family:'JetBrains Mono',monospace; letter-spacing:1.5px; font-size:10px; width:12%;">年级</th>
               <th style="padding:9px 10px; text-align:left; color:#fff; font-family:'JetBrains Mono',monospace; letter-spacing:1.5px; font-size:10px; width:34%;">发展智能</th>
-              <th style="padding:9px 10px; text-align:left; color:#fff; font-family:'JetBrains Mono',monospace; letter-spacing:1.5px; font-size:10px;">配合发展嘅活动</th>
+              <th style="padding:9px 10px; text-align:left; color:#fff; font-family:'JetBrains Mono',monospace; letter-spacing:1.5px; font-size:10px;">配合发展的活动</th>
             </tr>
           </thead>
           <tbody>
@@ -2959,7 +2959,7 @@ body .slide-inner{
       </div>
     </div>
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:9px 14px; background:linear-gradient(135deg,rgba(109,40,217,0.05),rgba(190,24,93,0.05)); border-radius:10px;">
-      <div style="font-size:11.5px;"><strong style="color:var(--c5);">📊 P1-P3 广泛探索：</strong>4 大智能轮流体验，唔逼学生过早专注</div>
+      <div style="font-size:11.5px;"><strong style="color:var(--c5);">📊 P1-P3 广泛探索：</strong>4 大智能轮流体验，不逼学生过早专注</div>
       <div style="font-size:11.5px;"><strong style="color:var(--c2);">🎯 P4 STEAM 启蒙：</strong>加入跨域思维，自然 + 数理逻辑</div>
       <div style="font-size:11.5px;"><strong style="color:var(--c-claude);">🚀 P5-P6 升中衔接：</strong>面试训练 + 自选发展方向</div>
     </div>
@@ -2971,7 +2971,7 @@ body .slide-inner{
   <div class="slide-inner">
     <div class="kicker k-amber">课外活动 · ECA OVERVIEW</div>
     <h2 class="big">30+ 课外活动　<span class="gradient-text-warm">6 大类别</span></h2>
-    <p class="tagline" style="max-width:1180px;">课余时间嘅多元选择——音乐、体育、视艺、STEAM、语言、服务及多元——总有一项适合你嘅孩子。</p>
+    <p class="tagline" style="max-width:1180px;">课余时间的多元选择——音乐、体育、视艺、STEAM、语言、服务及多元——总有一项适合您的孩子。</p>
     <div style="display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:1fr 1fr; gap:14px; flex:1; min-height:0;">
       <div class="act-tile" style="border-top:3px solid var(--c3);">
         <div class="cat-icon">🎵</div>
@@ -3066,7 +3066,7 @@ body .slide-inner{
         </div>
         <div class="card card-l-cyan" style="padding:11px 14px;">
           <h3 class="mid" style="color:var(--c1); font-size:14px;">🧩 STEAM 小精英 · 编程班</h3>
-          <p class="small" style="margin-top:3px; line-height:1.6; font-size:11.5px;">P4-6 · 喺 AI LAB 进行 · 对接学界比赛（FUN 享 STEAM、创客大赛）· 培育未来 AI 创新者。</p>
+          <p class="small" style="margin-top:3px; line-height:1.6; font-size:11.5px;">P4-6 · 在 AI LAB 进行 · 对接学界比赛（FUN 享 STEAM、创客大赛）· 培育未来 AI 创新者。</p>
         </div>
       </div>
     </div>
@@ -3081,7 +3081,7 @@ body .slide-inner{
   <div class="slide-inner">
     <div class="kicker k-emerald">升小适应 · K2/K3 ADAPTATION PROGRAMME</div>
     <h2 class="big">由幼稚园　走向　<span class="gradient-text-cool">小学一年级</span></h2>
-    <p class="tagline" style="max-width:1180px;">梁校专为 K2/K3 学生设计嘅<strong>升小适应课程</strong>——AI Sport + MATATALAB 实物编程，无缝衔接 A/B/C 三班 STEAM 基础。</p>
+    <p class="tagline" style="max-width:1180px;">梁校专为 K2/K3 学生设计的<strong>升小适应课程</strong>——AI Sport + MATATALAB 实物编程，无缝衔接 A/B/C 三班 STEAM 基础。</p>
     <div style="display:grid; grid-template-columns:1fr 1.3fr; gap:18px; flex:1; align-items:stretch; min-height:0;">
       <!-- 左:K2/K3 适应课程 poster -->
       <div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
@@ -3096,11 +3096,11 @@ body .slide-inner{
       <div style="display:flex; flex-direction:column; gap:10px;">
         <div class="card card-l-emerald" style="padding:13px 16px;">
           <h3 class="lead" style="color:var(--c4); font-size:16px;">🤖 AI Sport 课程</h3>
-          <p class="body" style="font-size:12.5px; margin-top:5px; line-height:1.65;">用 <strong>AI 萤幕</strong>同小朋友玩<strong>互动运动游戏</strong>——数据即时回馈，齐齐体验运动竞技嘅乐趣！结合科技 + 体育，启发 K3 学生对运动嘅兴趣。</p>
+          <p class="body" style="font-size:12.5px; margin-top:5px; line-height:1.65;">用 <strong>AI 萤幕</strong>与小朋友玩<strong>互动运动游戏</strong>——数据即时回馈，一同体验运动竞技的乐趣！结合科技 + 体育，启发 K3 学生对运动的兴趣。</p>
         </div>
         <div class="card card-l-cyan" style="padding:13px 16px;">
           <h3 class="lead" style="color:var(--c1); font-size:16px;">🧱 Matatalab 课程</h3>
-          <p class="body" style="font-size:12.5px; margin-top:5px; line-height:1.65;">学习使用 <strong>Matatalab 机械人</strong>完成编程任务——喺<strong>比赛中完成各种挑战</strong>。K2/K3 已开始接触运算思维，衔接 P1 创科班。</p>
+          <p class="body" style="font-size:12.5px; margin-top:5px; line-height:1.65;">学习使用 <strong>Matatalab 机械人</strong>完成编程任务——在<strong>比赛中完成各种挑战</strong>。K2/K3 已开始接触运算思维，衔接 P1 创科班。</p>
         </div>
         <div class="card card-l-amber" style="padding:13px 16px;">
           <h3 class="lead" style="color:var(--c3); font-size:16px;">📅 活动详情</h3>
@@ -3112,7 +3112,7 @@ body .slide-inner{
           </p>
         </div>
         <div style="padding:8px 12px; background:linear-gradient(135deg,rgba(4,120,87,0.06),rgba(8,145,178,0.06)); border-radius:8px; border-left:3px solid var(--c4);">
-          <p style="font-size:11.5px; font-weight:700; color:var(--c4); margin:0;">📝 报名截止：2026/1/16（额满即止） · 学校会喺活动期间进行拍摄，作活动宣传之用</p>
+          <p style="font-size:11.5px; font-weight:700; color:var(--c4); margin:0;">📝 报名截止：2026/1/16（额满即止） · 学校会在活动期间进行拍摄，作活动宣传之用</p>
         </div>
       </div>
     </div>
@@ -3203,7 +3203,7 @@ body .slide-inner{
       </div>
     </div>
     <div style="padding:8px 14px; background:linear-gradient(135deg,rgba(4,120,87,0.06),rgba(204,120,92,0.06)); border-radius:8px; border-left:3px solid var(--c4);">
-      <p style="font-size:11.5px; font-weight:700; color:var(--c4); margin:0;">🎯 我们嘅承诺：每位 P1 新生都会喺 8 月开学前收到「升小适应锦囊」 · 9 月有家长日同学长学姐见面会</p>
+      <p style="font-size:11.5px; font-weight:700; color:var(--c4); margin:0;">🎯 我们的承诺：每位 P1 新生都会在 8 月开学前收到「升小适应锦囊」 · 9 月有家长日及学长学姐见面会</p>
     </div>
   </div>
 </section>
@@ -3220,12 +3220,12 @@ body .slide-inner{
       <!-- 左:tagline + 3 cards -->
       <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
         <p class="tagline" style="font-size:14.5px; line-height:1.65;">
-          希望每位学生都能由「科技的消费者」，慢慢变成「能用科技解决真实问题的创造者」——而呢条路，学校、家长、学生一齐行。
+          希望每位学生都能由「科技的消费者」，慢慢变成「能用科技解决真实问题的创造者」——而这条路，学校、家长、学生一同前行。
         </p>
         <div class="card card-l-magenta" style="padding:11px 14px;">
           <div class="kicker k-magenta" style="font-size:9.5px;">致 学 生</div>
           <h3 class="mid" style="margin-top:3px; color:var(--c2); font-size:14.5px;">勇于创造</h3>
-          <p class="body" style="font-size:12px; margin-top:3px;">每一次失败都系下一次更好嘅起点。AI 唔系取代你，而系令你嘅谂法可以飞得更远。</p>
+          <p class="body" style="font-size:12px; margin-top:3px;">每一次失败都是下一次更好的起点。AI 不是取代你，而是让你的想法可以飞得更远。</p>
         </div>
         <div class="card card-l-cyan" style="padding:11px 14px;">
           <div class="kicker k-cyan" style="font-size:9.5px;">致 家 长</div>
@@ -3259,7 +3259,7 @@ body .slide-inner{
 <section class="slide" data-slide="40" data-section="Q&A · 问答时间">
   <div class="slide-inner">
     <div class="kicker">问答环节 · Q&A SESSION</div>
-    <h1 class="hero" style="font-size:64px;"><span class="gradient-text">问答时间</span>　·　多谢您嘅出席</h1>
+    <h1 class="hero" style="font-size:64px;"><span class="gradient-text">问答时间</span>　·　感谢您的出席</h1>
     <p class="tagline" style="font-size:17px; max-width:1180px;">欢迎现场提问　·　亦可会后联络校长 / 课程统筹主任继续讨论——梁校欢迎家长与我们同心同行。</p>
     <div style="display:grid; grid-template-columns:1.05fr 1.15fr 1fr; gap:14px; flex:1; align-items:stretch; min-height:0;">
       <!-- 左:校舍相 -->
@@ -3457,10 +3457,10 @@ slides[0].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
       const lang = btn.dataset.lang;
       const target = fileMap[lang];
       if (!target) return;
-      // 同 current page 一样就唔做嘢
+      // 与 current page 一样就不做事
       const cur = location.pathname.split('/').pop();
       if (decodeURIComponent(cur) === target) return;
-      // 保留 hash (slide #) 等用户喺同一页
+      // 保留 hash (slide #) 让用户停在同一页
       const hash = '#' + (current + 1);
       location.href = target + hash;
     });

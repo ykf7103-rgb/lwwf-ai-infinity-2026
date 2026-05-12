@@ -54,3 +54,6 @@ _batch_log.txt
 # Gemini_Generated_Image_*.png
 # photos/ folder enabled for V3 deployment (was previously excluded)
 photos/_jan15_images/
+
+# Temp audit data (intermediate work)
+_audit_data.json
