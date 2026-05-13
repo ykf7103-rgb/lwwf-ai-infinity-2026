@@ -63,7 +63,12 @@ html, body {
   width: 420mm !important;
   background: var(--bg, #0d0c0b) !important;
 }
-body::before, body::after { display: none !important; }
+/* Keep paper-texture body bg visible in PDF (user wants slide bg image visible).
+   body::before is the bg_main.png paper texture, body::after is gradient orbs. */
+body::before { position: fixed !important; inset: 0 !important; opacity: 0.18 !important;
+                z-index: 0 !important; display: block !important; pointer-events: none !important; }
+body::after { position: fixed !important; inset: 0 !important; opacity: 0.6 !important;
+               z-index: 0 !important; display: block !important; pointer-events: none !important; }
 
 /* Hide interactive UI chrome */
 #progress, #section-tag, #brand, #pageInfo, #hint, #dots,
@@ -123,10 +128,10 @@ button[data-lang], .nav-arrow, .keyboard-hint,
   animation-fill-mode: none !important;
   opacity: 1 !important;
 }
-/* But preserve the decorative bg-image opacity + white veil on .with-bg cards.
-   Specificity wins over the universal `.slide *::after` rule above. */
-.slide .with-bg::after { opacity: 0.05 !important; }
-.slide .with-bg::before { opacity: 1 !important; }
+/* Preserve decorative bg-image opacity for v6 print clarity (was 0.05 in EN
+   version; v6 uses written Chinese which is shorter so we can show more bg). */
+.slide .with-bg::after { opacity: 0.60 !important; }
+.slide .with-bg::before { opacity: 0 !important; }
 
 /* Kill the JS-driven scale variable */
 :root { --slide-scale: 1 !important; }
