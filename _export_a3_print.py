@@ -103,7 +103,7 @@ button[data-lang], .nav-arrow, .keyboard-hint,
   animation: none !important;
   pointer-events: auto !important;
 }
-.slide:last-child { page-break-after: auto !important; }
+.slide:last-child, .slide:last-of-type { page-break-after: auto !important; break-after: auto !important; }
 .slide.active { opacity: 1 !important; transform: none !important; }
 
 /* Let slide-inner take its designed shape; raise its max-width so it
