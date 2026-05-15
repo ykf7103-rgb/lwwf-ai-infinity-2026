@@ -3,38 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI INFINITY · LWWF · v6 (18 頁精選版)</title>
+<title>AI INFINITY · LWWF · v6 (18 页精选版)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&family=Noto+Serif+SC:wght@600;700;900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900;9..144,600..900&display=swap" rel="stylesheet">
 
-<!-- V5 FONT BOOST 2 — 字體再加大 + 全螢幕 fit (clamp + viewport) -->
+<!-- V5 FONT BOOST 2 — 字体再加大 + 全萤幕 fit (clamp + viewport) -->
 <style id="v5-font-boost-2">
-/* ========== 用 clamp() 令字體跟 viewport size 自動 scale ==========
+/* ========== 用 clamp() 令字体跟 viewport size 自动 scale ==========
    1366px viewport (1vw≈13.66px) · 1920px (1vw≈19.2px)
    formula: clamp(MIN, PREFERRED-VW, MAX) */
 
-/* Tagline (大標下面描述) */
+/* Tagline (大标下面描述) */
 .slide p.tagline, .slide .tagline{
   font-size:clamp(20px, 1.7vw, 28px) !important;
   line-height:1.6 !important;}
 
-/* Body (普通內文) */
+/* Body (普通内文) */
 .slide p.body, .slide .body{
   font-size:clamp(17px, 1.4vw, 22px) !important;
   line-height:1.7 !important;}
 
-/* Small (小標、註腳) */
+/* Small (小标、注脚) */
 .slide p.small, .slide .small{
   font-size:clamp(14.5px, 1.15vw, 18px) !important;
   line-height:1.6 !important;}
 
-/* Lead (中標題) */
+/* Lead (中标题) */
 .slide h3.lead{
   font-size:clamp(24px, 2vw, 32px) !important;
   line-height:1.3 !important;}
 
-/* Mid (細標題) */
+/* Mid (细标题) */
 .slide h3.mid{
   font-size:clamp(20px, 1.65vw, 26px) !important;
   line-height:1.35 !important;}
@@ -61,7 +61,7 @@
   font-size:clamp(13px, 1.05vw, 17px) !important;
   letter-spacing:3px !important;}
 
-/* ===== Card 內字體 ===== */
+/* ===== Card 内字体 ===== */
 .slide .card h3{
   font-size:clamp(20px, 1.7vw, 26px) !important;
   font-weight:700 !important;
@@ -141,7 +141,7 @@
   height:clamp(50px, 4vw, 70px) !important;
   font-size:clamp(26px, 2.2vw, 36px) !important;}
 
-/* ========== Attribute selector — 覆蓋全部 inline font-size ========== */
+/* ========== Attribute selector — 覆盖全部 inline font-size ========== */
 .slide [style*="font-size:9px"]{font-size:clamp(12px, 1vw, 15px) !important;}
 .slide [style*="font-size:9.5px"]{font-size:clamp(12.5px, 1vw, 15.5px) !important;}
 .slide [style*="font-size:10px"]{font-size:clamp(13px, 1.05vw, 16px) !important;}
@@ -171,7 +171,7 @@
 .slide [style*="font-size:48px"]{font-size:clamp(54px, 4.5vw, 68px) !important;}
 .slide [style*="font-size:54px"]{font-size:clamp(60px, 5vw, 76px) !important;}
 
-/* ========== Container spacing 細調 (大字後需要 less padding) ========== */
+/* ========== Container spacing 细调 (大字后需要 less padding) ========== */
 .slide{padding:30px 50px !important;}
 .slide-inner{gap:13px !important; max-width:1450px !important;}
 .slide .card{padding:14px 18px !important;}
@@ -181,7 +181,7 @@
 
 /* ========== Photos 容器加大 padding inset ========== */
 
-/* ========== 全螢幕模式 (≥1600px viewport) 額外 boost ========== */
+/* ========== 全萤幕模式 (≥1600px viewport) 额外 boost ========== */
 @media (min-width:1600px){
   .slide{padding:40px 70px !important;}
   .slide-inner{max-width:1620px !important; gap:16px !important;}
@@ -192,18 +192,18 @@
 }
 </style>
 
-<!-- V5 FONT BOOST — 全局字體加大層（最高優先級） -->
+<!-- V5 FONT BOOST — 全局字体加大层（最高优先级） -->
 <style id="v5-font-boost">
-/* ========== 全局字體放大（+25-35%）========== */
-/* Tagline (大標下面的描述句) */
+/* ========== 全局字体放大（+25-35%）========== */
+/* Tagline (大标下面的描述句) */
 .slide p.tagline, .slide .tagline{font-size:19px !important; line-height:1.62 !important;}
-/* Body (普通內文) */
+/* Body (普通内文) */
 .slide p.body, .slide .body{font-size:16px !important; line-height:1.72 !important;}
-/* Small (小標、註腳) */
+/* Small (小标、注脚) */
 .slide p.small, .slide .small{font-size:13.5px !important; line-height:1.65 !important;}
-/* Lead (中標題) */
+/* Lead (中标题) */
 .slide h3.lead{font-size:22px !important; line-height:1.35 !important;}
-/* Mid (細標題) */
+/* Mid (细标题) */
 .slide h3.mid{font-size:18px !important; line-height:1.4 !important;}
 /* Big title */
 .slide h2.big{font-size:50px !important; letter-spacing:-1.2px !important; line-height:1.1 !important;}
@@ -213,7 +213,7 @@
 /* Kicker */
 .slide .kicker{font-size:12px !important; letter-spacing:2.8px !important;}
 
-/* ===== Card 內字體放大 ===== */
+/* ===== Card 内字体放大 ===== */
 .slide .card h3{font-size:18px !important; font-weight:700 !important;}
 .slide .card h4{font-size:17px !important;}
 .slide .card .body, .slide .card p.body{font-size:14.5px !important; line-height:1.7 !important;}
@@ -239,7 +239,7 @@
 .slide .subject-hero h2.big{font-size:42px !important;}
 .slide .subject-icon-xl{width:60px !important; height:60px !important;}
 
-/* ===== Stat numbers (mega 大數字) 放大 ===== */
+/* ===== Stat numbers (mega 大数字) 放大 ===== */
 .slide .stat-num{font-size:38px !important;}
 .slide .stat-label{font-size:11.5px !important;}
 .slide .mega-stat{font-size:96px !important;}
@@ -267,8 +267,8 @@
 /* ===== Class badge (P24 A/B/C) 放大 ===== */
 .slide .class-badge{width:54px !important; height:54px !important; font-size:26px !important;}
 
-/* ========== 用 attribute selector 覆蓋 inline font-size ========== */
-/* 將原本太細的 inline font-size 自動 bump 大 */
+/* ========== 用 attribute selector 覆盖 inline font-size ========== */
+/* 将原本太细的 inline font-size 自动 bump 大 */
 .slide [style*="font-size:11px"]{font-size:13.5px !important;}
 .slide [style*="font-size:11.5px"]{font-size:14px !important;}
 .slide [style*="font-size:12px"]{font-size:14.5px !important;}
@@ -283,13 +283,13 @@
 .slide [style*="font-size:16px"]{font-size:18.5px !important;}
 .slide [style*="font-size:17px"]{font-size:19.5px !important;}
 
-/* 9px / 9.5px / 10px / 10.5px (kicker / chip / label) 維持稍細但加返少少 */
+/* 9px / 9.5px / 10px / 10.5px (kicker / chip / label) 维持稍细但加返少少 */
 .slide [style*="font-size:9px"]{font-size:11px !important;}
 .slide [style*="font-size:9.5px"]{font-size:11.5px !important;}
 .slide [style*="font-size:10px"]{font-size:12px !important;}
 .slide [style*="font-size:10.5px"]{font-size:12.5px !important;}
 
-/* 大字 (h1/h2/stat) 保護不過度放大 */
+/* 大字 (h1/h2/stat) 保护不过度放大 */
 .slide [style*="font-size:18px"]{font-size:20.5px !important;}
 .slide [style*="font-size:20px"]{font-size:22.5px !important;}
 .slide [style*="font-size:22px"]{font-size:24.5px !important;}
@@ -298,22 +298,22 @@
 .slide [style*="font-size:32px"]{font-size:36px !important;}
 .slide [style*="font-size:38px"]{font-size:42px !important;}
 
-/* ========== 容器 spacing 微調以配合更大字體 ========== */
+/* ========== 容器 spacing 微调以配合更大字体 ========== */
 .slide .card{padding:14px 16px !important;}
 .slide .slide-inner{gap:11px !important;}
 </style>
 
 <!-- V4 Editorial Polish CSS Layer (overrides v3) -->
 <style id="v4-editorial-polish">
-/* === V5: 死規則 — 所有 slide 內 <img> + <video> 必須完整顯示（contain）=== */
-/* Logo / icon 例外：subject-icon-xl/md 內的圓 logo 保留 cover */
+/* === V5: 死规则 — 所有 slide 内 <img> + <video> 必须完整显示（contain）=== */
+/* Logo / icon 例外：subject-icon-xl/md 内的圆 logo 保留 cover */
 .slide img:not(.subject-icon-xl img):not(.subject-icon-md img),
 .slide video{
   object-fit:contain !important;
   background:#fff8f0;
 }
 .slide video{background:#000 !important;}
-/* === V5: 統一相片容器最低高度，避免 contain 後縮太細 === */
+/* === V5: 统一相片容器最低高度，避免 contain 后缩太细 === */
 .slide [style*="border-radius:14px"][style*="overflow:hidden"],
 .slide [style*="border-radius:18px"][style*="overflow:hidden"],
 .slide [style*="border-radius:10px"][style*="overflow:hidden"]{
@@ -445,7 +445,7 @@ body::after{
 }
 
 /* ============================================================
-   V5 PAGE-SPECIFIC EFFECTS — 每頁專屬動畫
+   V5 PAGE-SPECIFIC EFFECTS — 每页专属动画
    ============================================================ */
 @keyframes v5TimelineDot{
   0%{transform:scale(0); opacity:0;}
@@ -730,7 +730,7 @@ body::after{
   background:rgba(255,255,255,0.85); border:1px solid var(--border);
   border-radius:99px; backdrop-filter:blur(10px); box-shadow:var(--shadow-sm);}
 
-/* === 語言切換按鈕 === */
+/* === 语言切换按钮 === */
 #lang-switch{position:fixed; top:14px; left:50%; transform:translateX(-50%);
   z-index:80; display:flex; gap:4px;
   background:rgba(255,255,255,0.92); border:1px solid var(--border);
@@ -801,7 +801,7 @@ body::after{
 .slide .subject-hero h2.big{font-size:32px; letter-spacing:-0.5px;}
 .slide .kicker{font-size:11px; letter-spacing:2.4px;}
 
-/* === Unified typography (consistent across 繁/簡/EN) === */
+/* === Unified typography (consistent across 繁/简/EN) === */
 .slide strong{font-weight:700;}
 .slide em{font-style:italic;}
 .slide table{font-feature-settings:"tnum" 1;}
@@ -813,7 +813,7 @@ body::after{
 .slide ul.bullet{padding-left:18px;}
 .slide ul.bullet li{margin-bottom:4px; line-height:1.55;}
 
-/* === 適度動畫 === */
+/* === 适度动画 === */
 @keyframes fadeUp{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
 @keyframes float{0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);}}
 @keyframes shimmerBg{0%{background-position:-200% 0;} 100%{background-position:200% 0;}}
@@ -1037,7 +1037,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 }
 .with-bg:hover::after{opacity:0.75;}
 .with-bg > *{position:relative; z-index:1;}
-/* 硬邊 1px outline 模擬 stroke - 文字邊緣 sharp 不模糊 */
+/* 硬边 1px outline 模拟 stroke - 文字边缘 sharp 不模糊 */
 .with-bg h3, .with-bg h4, .with-bg .desc, .with-bg .body, .with-bg .ref, .with-bg .lead, .with-bg .mid, .with-bg p{
   text-shadow:
     1px 0 0 rgba(255,253,248,0.95),
@@ -1059,7 +1059,7 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
   filter:drop-shadow(0 1px 2px rgba(255,253,248,0.9))
          drop-shadow(0 0 4px rgba(255,253,248,0.6));
 }
-/* 圖片背景對應檔名 */
+/* 图片背景对应档名 */
 .with-bg.bg-lost::after{background-image:url('bg_p2_lost.jpg');}
 .with-bg.bg-new::after{background-image:url('bg_p2_new.jpg');}
 .with-bg.bg-skill::after{background-image:url('bg_p2_skill.jpg');}
@@ -1158,15 +1158,15 @@ p.small{font-size:11px; color:var(--ink-3); line-height:1.5;}
 
 <!-- ===== V5 FINAL OVERRIDES (highest priority — wins all specificity battles) ===== -->
 <style id="v5-final-overrides">
-/* 🎯 Subject hero 標題：v4-editorial-polish 將 .subject-hero h2.big 鎖死 36px
-   這裡用更高 specificity (body .slide ...) 覆蓋 */
+/* 🎯 Subject hero 标题：v4-editorial-polish 将 .subject-hero h2.big 锁死 36px
+   这里用更高 specificity (body .slide ...) 覆盖 */
 body .slide .subject-hero h2.big{
   font-size:clamp(46px, 3.8vw, 62px) !important;
   letter-spacing:-1.4px !important;
   line-height:1.08 !important;
 }
 
-/* 🎯 加埋 .subject-hero 整體 spacing */
+/* 🎯 加埋 .subject-hero 整体 spacing */
 body .slide .subject-hero{
   gap:18px !important;
   padding-bottom:14px !important;
@@ -1174,49 +1174,49 @@ body .slide .subject-hero{
   border-bottom:1px dashed rgba(29,28,26,0.08) !important;
 }
 
-/* 🛡️ BOTTOM SAFE AREA — 避開 progress dots (z-index:50, bottom:50px) */
-/* Dots 在 bottom:50px，高度約 30-50px，所以底部 reserve 100px */
+/* 🛡️ BOTTOM SAFE AREA — 避开 progress dots (z-index:50, bottom:50px) */
+/* Dots 在 bottom:50px，高度约 30-50px，所以底部 reserve 100px */
 body .slide-inner{
   padding-bottom:90px !important;
 }
 
-/* 🛡️ Top safe area — 避開 section-tag / brand 與 progress bar */
+/* 🛡️ Top safe area — 避开 section-tag / brand 与 progress bar */
 body .slide-inner{
   padding-top:18px !important;
 }
 
-/* 🎯 加大細字 footer（agent 報告 10-11px 太細） */
+/* 🎯 加大细字 footer（agent 报告 10-11px 太细） */
 body .slide .src-row{font-size:clamp(13px, 1.05vw, 16.5px) !important; line-height:1.6 !important;}
 body .slide .quote-author{font-size:clamp(13px, 1.05vw, 16.5px) !important;}
 
-/* 🛡️ 確保 progress dots / section-tag 不被 slide 內容覆蓋 (raise z-index) */
+/* 🛡️ 确保 progress dots / section-tag 不被 slide 内容覆盖 (raise z-index) */
 #dots, #section-tag, #brand, #pageInfo, #hint, #progress, #lang-switch{
   z-index:200 !important;
 }
 
-/* 🎨 progress dots 加 backdrop 令底部 reserve area 更明顯 */
+/* 🎨 progress dots 加 backdrop 令底部 reserve area 更明显 */
 #dots{
   background:rgba(255,255,255,0.96) !important;
   box-shadow:0 4px 20px rgba(0,0,0,0.10) !important;
 }
 
-/* 🛡️ V5 ULTIMATE 角落 badge 不要與內容重疊 */
+/* 🛡️ V5 ULTIMATE 角落 badge 不要与内容重叠 */
 .slide-inner::after{
   top:-12px !important;
   right:-12px !important;
 }
 
-/* 🎯 P9 (Slide 9) 中文成語攻防戰 — 緊湊 layout 防止疊位 */
+/* 🎯 P9 (Slide 9) 中文成语攻防战 — 紧凑 layout 防止叠位 */
 .slide[data-slide="6"] .card{padding:10px 13px !important;}
 .slide[data-slide="6"] .card h3.lead{font-size:clamp(15px, 1.25vw, 19px) !important;}
 .slide[data-slide="6"] .card .body{font-size:clamp(14px, 1.15vw, 17.5px) !important; line-height:1.55 !important;}
 
-/* 🎯 P29 (無考默) — 4 支柱 box 加 spacing */
+/* 🎯 P29 (无考默) — 4 支柱 box 加 spacing */
 .slide[data-slide="29"] .card{padding:11px 14px !important; margin-bottom:2px;}
 .slide[data-slide="29"] .card h3.lead{font-size:clamp(15.5px, 1.3vw, 19.5px) !important; line-height:1.3 !important;}
 .slide[data-slide="29"] .card .body{font-size:clamp(13.5px, 1.13vw, 17px) !important; line-height:1.55 !important;}
 
-/* 🎯 P19 (Slide 19 / data-slide=15) curriculum P5/P6 — 進一步壓縮以 fit 1080×688 viewport */
+/* 🎯 P19 (Slide 19 / data-slide=15) curriculum P5/P6 — 进一步压缩以 fit 1080×688 viewport */
 .slide[data-slide="15"] .card{padding:0 !important; overflow:hidden;}
 .slide[data-slide="15"] .card > div:first-child{aspect-ratio:16/8 !important;}
 .slide[data-slide="15"] .card > div:last-child{padding:14px 18px !important; gap:6px !important;}
@@ -1227,33 +1227,33 @@ body .slide .quote-author{font-size:clamp(13px, 1.05vw, 16.5px) !important;}
 .slide[data-slide="15"] .card p.small{font-size:clamp(11px, 0.95vw, 13.5px) !important; line-height:1.5 !important;}
 .slide[data-slide="15"] .chip{font-size:clamp(11px, 0.95vw, 13.5px) !important; padding:4px 10px !important;}
 
-/* 🎯 Slide 8 (data-slide=5 矩陣) — 縮 table cell padding */
+/* 🎯 Slide 8 (data-slide=5 矩阵) — 缩 table cell padding */
 .slide[data-slide="5"] table th,
 .slide[data-slide="5"] table td{padding:8px 12px !important; font-size:clamp(13px, 1.1vw, 16px) !important;}
 
-/* 🎯 Slide 2 (講座流程) — 縮 timeline row */
+/* 🎯 Slide 2 (讲座流程) — 缩 timeline row */
 .slide[data-slide="2"] .timeline-row{padding:8px 16px !important; margin-bottom:5px !important;}
 .slide[data-slide="2"] .timeline-row .title-col{font-size:clamp(15.5px, 1.32vw, 20px) !important;}
 
-/* 🎯 Slide 23 (data-slide=19, 未來藍圖) — 縮 card padding-bottom */
+/* 🎯 Slide 23 (data-slide=19, 未来蓝图) — 缩 card padding-bottom */
 .slide[data-slide="19"] .card{padding-bottom:10px !important;}
 .slide[data-slide="19"] .card .body{font-size:clamp(13px, 1.1vw, 16.5px) !important; line-height:1.55 !important;}
 
-/* 🎯 .quote-author 全局再加強 specificity (slide 5 outlier) */
+/* 🎯 .quote-author 全局再加强 specificity (slide 5 outlier) */
 body html .slide .quote-author{
   font-size:clamp(13px, 1.1vw, 17px) !important;
   letter-spacing:2px !important;
 }
 
 /* ============================================================
-   🖥️ FIT-TO-SCREEN — 確保任何 desktop 尺寸都見到全部內容
+   🖥️ FIT-TO-SCREEN — 确保任何 desktop 尺寸都见到全部内容
    ============================================================
    策略：
    - .slide-inner 固定 1600×900 reference frame (16:9)
-   - 用 JS 計算 scale 倍率，再透過 --slide-scale CSS 變數 transform:scale
+   - 用 JS 计算 scale 倍率，再透过 --slide-scale CSS 变数 transform:scale
    - 小 monitor (1280x720, 1366x768) → scale ↓ 全 fit
-   - 大 monitor (1920x1080, 2560x1440) → scale ↑ 用盡空間
-   - 全部內容 100% 永遠可見 */
+   - 大 monitor (1920x1080, 2560x1440) → scale ↑ 用尽空间
+   - 全部内容 100% 永远可见 */
 body .slide{
   padding:0 !important;
   display:flex !important;
@@ -1269,10 +1269,10 @@ body .slide-inner{
   flex:none !important;
   flex-shrink:0 !important;
   padding:48px 70px !important;
-  padding-bottom:120px !important;  /* 加大底部 reserve 避免 dots 截斷 footer */
+  padding-bottom:120px !important;  /* 加大底部 reserve 避免 dots 截断 footer */
   transform:scale(var(--slide-scale, 1));
   transform-origin:center center;
-  transition:none !important;  /* 移除 transition 解決 stuck CSS transition 問題 */
+  transition:none !important;  /* 移除 transition 解决 stuck CSS transition 问题 */
   box-sizing:border-box;
 }
 /* 大 monitor (≥1920) 用更多 padding */
@@ -1378,30 +1378,30 @@ body .slide-inner{
 <div id="progress"></div>
 <div id="section-tag">PROLOGUE</div>
 <div id="lang-switch">
-  <button data-lang="t" class="active" title="繁體中文">繁</button>
-  <button data-lang="s" title="简体中文">简</button>
+  <button data-lang="t" title="繁体中文">繁</button>
+  <button data-lang="s" class="active" title="简体中文">简</button>
   <button data-lang="e" title="English">EN</button>
 </div>
-<div id="lang-loading">轉換中⋯</div>
+<div id="lang-loading">转换中⋯</div>
 <div id="brand">LWWF · 2026</div>
 <div id="pageInfo"><span id="pn">1</span><span class="total"> / 17</span></div>
-<div id="hint">← → 切換　·　F 全屏</div>
+<div id="hint">← → 切换　·　F 全屏</div>
 <div id="dots"></div>
 
 <!-- ===== v6 SLIDE 1 — COVER ===== -->
-<section class="slide active" data-slide="1" data-section="OPENING · 開場">
+<section class="slide active" data-slide="1" data-section="OPENING · 开场">
   <div class="slide-inner cover-stage" style="justify-content:center; gap:20px;">
     <div class="cover-orb"></div>
     <div style="display:flex; flex-direction:column; align-items:center; gap:14px; flex-shrink:0;">
       <img src="photos/p_school_badge.png" alt="LWWF 校徽" style="width:160px; height:160px; object-fit:contain; background:transparent;">
-      <p style="font-size:44px; font-weight:800; color:var(--ink); letter-spacing:4px; margin:0; text-align:center; line-height:1.2;">樂善堂梁黃蕙芳紀念學校</p>
+      <p style="font-size:44px; font-weight:800; color:var(--ink); letter-spacing:4px; margin:0; text-align:center; line-height:1.2;">乐善堂梁黄蕙芳纪念学校</p>
       <h1 class="mega" style="margin:0; text-align:center; font-size:96px !important;"><span class="gradient-text">AI INFINITY</span></h1>
       <p class="tagline" style="font-size:26px; font-weight:300; letter-spacing:4px; margin:0; text-align:center;">
-        無限可能　·　無限創造　·　無限未來
+        无限可能　·　无限创造　·　无限未来
       </p>
     </div>
     <div style="width:100%; max-width:1180px; min-height:340px; border-radius:20px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; flex:1 1 340px;">
-      <img src="photos/p1_group_photo.jpg" alt="校長 · 老師 · 學生大合照" style="width:100%; height:100%; object-fit:contain;">
+      <img src="photos/p1_group_photo.jpg" alt="校长 · 老师 · 学生大合照" style="width:100%; height:100%; object-fit:contain;">
     </div>
     <div class="g4" style="max-width:1180px; gap:18px; width:100%; flex-shrink:0;">
       <div class="card" style="text-align:center; padding:20px;">
@@ -1410,11 +1410,11 @@ body .slide-inner{
       </div>
       <div class="card" style="text-align:center; padding:20px;">
         <div class="stat-num" data-target="70">70</div>
-        <div class="stat-label">校網第一</div>
+        <div class="stat-label">校网第一</div>
       </div>
       <div class="card" style="text-align:center; padding:20px;">
         <div class="stat-num" style="font-size:54px;">P1-P6</div>
-        <div class="stat-label">螺旋課程</div>
+        <div class="stat-label">螺旋课程</div>
       </div>
       <div class="card" style="text-align:center; padding:20px;">
         <div class="stat-num" data-target="2025">2025</div>
@@ -1424,15 +1424,15 @@ body .slide-inner{
   </div>
 </section>
 
-<!-- ===== v6 SLIDE 2 — 7 大主題 AGENDA ===== -->
-<section class="slide" data-slide="2" data-section="OPENING · 講座流程">
+<!-- ===== v6 SLIDE 2 — 7 大主题 AGENDA ===== -->
+<section class="slide" data-slide="2" data-section="OPENING · 讲座流程">
   <div class="slide-inner">
-    <div class="kicker">講座流程 · AGENDA</div>
-    <h2 class="big" style="font-size:54px !important; margin-bottom:18px;">今日　<span class="gradient-text">講座流程</span>　·　7 大主題</h2>
+    <div class="kicker">讲座流程 · AGENDA</div>
+    <h2 class="big" style="font-size:54px !important; margin-bottom:18px;">今日　<span class="gradient-text">讲座流程</span>　·　7 大主题</h2>
     <div style="display:flex; flex-direction:column; gap:10px;">
       <div style="display:flex; align-items:center; gap:22px; padding:14px 22px; border-radius:14px; background:rgba(255,254,251,0.9); border-left:6px solid var(--c-claude); box-shadow:0 3px 10px rgba(29,28,26,0.05);">
         <div style="flex-shrink:0; width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--c-claude),#d99a82); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:30px; font-weight:900;">1</div>
-        <div style="flex:1; font-size:26px; font-weight:700; color:var(--ink);">講座流程概覽　·　校情速覽</div>
+        <div style="flex:1; font-size:26px; font-weight:700; color:var(--ink);">讲座流程概览　·　校情速览</div>
       </div>
       <div style="display:flex; align-items:center; gap:22px; padding:14px 22px; border-radius:14px; background:rgba(255,254,251,0.9); border-left:6px solid var(--c2); box-shadow:0 3px 10px rgba(29,28,26,0.05);">
         <div style="flex-shrink:0; width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--c2),#d44a8a); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:30px; font-weight:900;">2</div>
@@ -1440,158 +1440,158 @@ body .slide-inner{
       </div>
       <div style="display:flex; align-items:center; gap:22px; padding:14px 22px; border-radius:14px; background:rgba(255,254,251,0.9); border-left:6px solid var(--c1); box-shadow:0 3px 10px rgba(29,28,26,0.05);">
         <div style="flex-shrink:0; width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--c1),#2ab5d8); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:30px; font-weight:900;">3</div>
-        <div style="flex:1; font-size:26px; font-weight:700; color:var(--ink);">三大特色班別</div>
+        <div style="flex:1; font-size:26px; font-weight:700; color:var(--ink);">三大特色班别</div>
       </div>
       <div style="display:flex; align-items:center; gap:22px; padding:14px 22px; border-radius:14px; background:rgba(255,254,251,0.9); border-left:6px solid var(--c-pain); box-shadow:0 3px 10px rgba(29,28,26,0.05);">
         <div style="flex-shrink:0; width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--c-pain),#f97316); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:30px; font-weight:900;">4</div>
-        <div style="flex:1; font-size:26px; font-weight:700; color:var(--ink);">評估安排與無考默政策</div>
+        <div style="flex:1; font-size:26px; font-weight:700; color:var(--ink);">评估安排与无考默政策</div>
       </div>
       <div style="display:flex; align-items:center; gap:22px; padding:14px 22px; border-radius:14px; background:rgba(255,254,251,0.9); border-left:6px solid var(--c3); box-shadow:0 3px 10px rgba(29,28,26,0.05);">
         <div style="flex-shrink:0; width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--c3),#d99540); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:30px; font-weight:900;">5</div>
-        <div style="flex:1; font-size:26px; font-weight:700; color:var(--ink);">啟發潛能課　+　課外活動　+　升小銜接</div>
+        <div style="flex:1; font-size:26px; font-weight:700; color:var(--ink);">启发潜能课　+　课外活动　+　升小衔接</div>
       </div>
       <div style="display:flex; align-items:center; gap:22px; padding:14px 22px; border-radius:14px; background:rgba(255,254,251,0.9); border-left:6px solid var(--c4); box-shadow:0 3px 10px rgba(29,28,26,0.05);">
         <div style="flex-shrink:0; width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--c4),#2ab38e); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:30px; font-weight:900;">6</div>
-        <div style="flex:1; font-size:26px; font-weight:700; color:var(--ink);">功課輔導班　+　課後託管</div>
+        <div style="flex:1; font-size:26px; font-weight:700; color:var(--ink);">功课辅导班　+　课后托管</div>
       </div>
       <div style="display:flex; align-items:center; gap:22px; padding:14px 22px; border-radius:14px; background:rgba(255,254,251,0.9); border-left:6px solid var(--c5); box-shadow:0 3px 10px rgba(29,28,26,0.05);">
         <div style="flex-shrink:0; width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--c5),#9252e8); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:30px; font-weight:900;">7</div>
-        <div style="flex:1; font-size:26px; font-weight:700; color:var(--ink);">總結與問答時間</div>
+        <div style="flex:1; font-size:26px; font-weight:700; color:var(--ink);">总结与问答时间</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== v6 SLIDE 3 — 五大元素 啟發潛能 (from v5 P33) ===== -->
-<section class="slide" data-slide="3" data-section="啟發潛能 · INVITATIONAL EDUCATION">
+<!-- ===== v6 SLIDE 3 — 五大元素 启发潜能 (from v5 P33) ===== -->
+<section class="slide" data-slide="3" data-section="启发潜能 · INVITATIONAL EDUCATION">
   <div class="slide-inner">
-    <div class="kicker k-violet">啟發潛能教育 · INVITATIONAL EDUCATION</div>
-    <h2 class="big">五大元素　<span class="gradient-text">啟發潛能</span></h2>
-    <p class="tagline" style="max-width:1280px; font-size:24px;">關懷　·　樂觀　·　尊重　·　信任　·　刻意安排　——　喚醒每位學生獨特天賦。</p>
+    <div class="kicker k-violet">启发潜能教育 · INVITATIONAL EDUCATION</div>
+    <h2 class="big">五大元素　<span class="gradient-text">启发潜能</span></h2>
+    <p class="tagline" style="max-width:1280px; font-size:24px;">关怀　·　乐观　·　尊重　·　信任　·　刻意安排　——　唤醒每位学生独特天赋。</p>
     <div style="display:grid; grid-template-columns:1fr 1.15fr; gap:24px; flex:1; align-items:stretch; min-height:0;">
       <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-        <img src="photos/p_invitational_5_hd.jpg" alt="啟發潛能教育五大元素" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+        <img src="photos/p_invitational_5_hd.jpg" alt="启发潜能教育五大元素" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
       </div>
       <div style="display:flex; flex-direction:column; gap:12px;">
         <div class="card card-l-violet" style="padding:14px 20px;">
-          <h3 class="mid" style="color:var(--c5); font-size:24px;">💜 關懷　·　CARE</h3>
-          <p class="body" style="font-size:20px; margin-top:4px;">每位學生都被看見、被聽見、被理解。</p>
+          <h3 class="mid" style="color:var(--c5); font-size:24px;">💜 关怀　·　CARE</h3>
+          <p class="body" style="font-size:20px; margin-top:4px;">每位学生都被看见、被听见、被理解。</p>
         </div>
         <div class="card card-l-amber" style="padding:14px 20px;">
-          <h3 class="mid" style="color:var(--c3); font-size:24px;">☀️ 樂觀　·　OPTIMISM</h3>
-          <p class="body" style="font-size:20px; margin-top:4px;">相信每位學生都有無限可能。</p>
+          <h3 class="mid" style="color:var(--c3); font-size:24px;">☀️ 乐观　·　OPTIMISM</h3>
+          <p class="body" style="font-size:20px; margin-top:4px;">相信每位学生都有无限可能。</p>
         </div>
         <div class="card card-l-emerald" style="padding:14px 20px;">
           <h3 class="mid" style="color:var(--c4); font-size:24px;">🤝 尊重　·　RESPECT</h3>
-          <p class="body" style="font-size:20px; margin-top:4px;">尊重學生的選擇、興趣、節奏。</p>
+          <p class="body" style="font-size:20px; margin-top:4px;">尊重学生的选择、兴趣、节奏。</p>
         </div>
         <div class="card card-l-cyan" style="padding:14px 20px;">
           <h3 class="mid" style="color:var(--c1); font-size:24px;">🌟 信任　·　TRUST</h3>
-          <p class="body" style="font-size:20px; margin-top:4px;">放手讓學生自主探索、自己決定。</p>
+          <p class="body" style="font-size:20px; margin-top:4px;">放手让学生自主探索、自己决定。</p>
         </div>
         <div class="card card-l-magenta" style="padding:14px 20px;">
           <h3 class="mid" style="color:var(--c2); font-size:24px;">🎯 刻意安排　·　INTENTIONALITY</h3>
-          <p class="body" style="font-size:20px; margin-top:4px;">所有環境、活動、評估都<strong>刻意設計</strong>。</p>
+          <p class="body" style="font-size:20px; margin-top:4px;">所有环境、活动、评估都<strong>刻意设计</strong>。</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== v6 SLIDE 4 — 全球研究 + 必備技能 (MERGED) ===== -->
+<!-- ===== v6 SLIDE 4 — 全球研究 + 必备技能 (MERGED) ===== -->
 <section class="slide" data-slide="4" data-section="RESEARCH · 全球研究">
   <div class="slide-inner">
     <div class="kicker k-cyan">全球研究 · WEF 2023 + OECD 2030</div>
-    <h2 class="big">全球研究　·　<span class="gradient-text">未來必備技能</span></h2>
+    <h2 class="big">全球研究　·　<span class="gradient-text">未来必备技能</span></h2>
     <div style="display:grid; grid-template-columns:2.3fr 1fr; gap:22px; flex:1; min-height:0; align-items:stretch;">
-      <!-- 左:兩張相 (研究圖 + 新聞圖) + 3 stats -->
+      <!-- 左:两张相 (研究图 + 新闻图) + 3 stats -->
       <div style="display:flex; flex-direction:column; gap:16px; min-height:0;">
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; flex:1; min-height:0;">
           <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-            <img src="photos/p_global_research.jpg" alt="全球研究 · 未來工作劇變" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+            <img src="photos/p_global_research.jpg" alt="全球研究 · 未来工作剧变" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
           </div>
           <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-            <img src="photos/p_news_nvidia_hket.jpg" alt="黃仁勳：AI 不會取代你，但更擅長用 AI 的人會取代你" style="width:100%; height:100%; object-fit:contain; background:#fff;">
+            <img src="photos/p_news_nvidia_hket.jpg" alt="黄仁勋：AI 不会取代你，但更擅长用 AI 的人会取代你" style="width:100%; height:100%; object-fit:contain; background:#fff;">
           </div>
         </div>
         <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px;">
           <div style="text-align:center; padding:14px 8px; background:rgba(220,38,38,0.07); border-radius:12px;">
-            <div style="font-size:30px; font-weight:900; color:var(--c-pain); line-height:1;">8,300萬</div>
-            <div style="font-size:14px; font-weight:700; color:var(--ink-2); margin-top:4px;">消失職位</div>
+            <div style="font-size:30px; font-weight:900; color:var(--c-pain); line-height:1;">8,300万</div>
+            <div style="font-size:14px; font-weight:700; color:var(--ink-2); margin-top:4px;">消失职位</div>
           </div>
           <div style="text-align:center; padding:14px 8px; background:rgba(4,120,87,0.07); border-radius:12px;">
-            <div style="font-size:30px; font-weight:900; color:var(--c4); line-height:1;">6,900萬</div>
-            <div style="font-size:14px; font-weight:700; color:var(--ink-2); margin-top:4px;">新興職位</div>
+            <div style="font-size:30px; font-weight:900; color:var(--c4); line-height:1;">6,900万</div>
+            <div style="font-size:14px; font-weight:700; color:var(--ink-2); margin-top:4px;">新兴职位</div>
           </div>
           <div style="text-align:center; padding:14px 8px; background:rgba(180,83,9,0.07); border-radius:12px;">
             <div style="font-size:30px; font-weight:900; color:var(--c3); line-height:1;">44%</div>
-            <div style="font-size:14px; font-weight:700; color:var(--ink-2); margin-top:4px;">技能過時</div>
+            <div style="font-size:14px; font-weight:700; color:var(--ink-2); margin-top:4px;">技能过时</div>
           </div>
         </div>
       </div>
       <!-- 右:5 大技能 -->
       <div style="display:flex; flex-direction:column; gap:10px;">
-        <h3 class="lead" style="color:var(--c-claude); margin:0;">2027 五大必備技能</h3>
-        <div class="card card-l-cyan" style="padding:13px 18px;"><div style="display:flex; gap:14px; align-items:center;"><div style="font-size:28px;">🔍</div><div style="flex:1;"><div class="kicker k-cyan" style="font-size:13px;">01 · ANALYTICAL</div><h4 style="color:var(--c1); margin:3px 0 0;">分析性思維</h4></div></div></div>
-        <div class="card card-l-magenta" style="padding:13px 18px;"><div style="display:flex; gap:14px; align-items:center;"><div style="font-size:28px;">💡</div><div style="flex:1;"><div class="kicker k-magenta" style="font-size:13px;">02 · CREATIVE</div><h4 style="color:var(--c2); margin:3px 0 0;">創造力</h4></div></div></div>
-        <div class="card card-l-amber" style="padding:13px 18px;"><div style="display:flex; gap:14px; align-items:center;"><div style="font-size:28px;">🤖</div><div style="flex:1;"><div class="kicker k-amber" style="font-size:13px;">03 · AI LITERACY</div><h4 style="color:var(--c3); margin:3px 0 0;">AI 與大數據素養</h4></div></div></div>
-        <div class="card card-l-emerald" style="padding:13px 18px;"><div style="display:flex; gap:14px; align-items:center;"><div style="font-size:28px;">💪</div><div style="flex:1;"><div class="kicker k-emerald" style="font-size:13px;">04 · RESILIENCE</div><h4 style="color:var(--c4); margin:3px 0 0;">韌性與敏捷</h4></div></div></div>
-        <div class="card card-l-violet" style="padding:13px 18px;"><div style="display:flex; gap:14px; align-items:center;"><div style="font-size:28px;">🌟</div><div style="flex:1;"><div class="kicker k-violet" style="font-size:13px;">05 · CURIOSITY</div><h4 style="color:var(--c5); margin:3px 0 0;">好奇心 + 主動學習</h4></div></div></div>
+        <h3 class="lead" style="color:var(--c-claude); margin:0;">2027 五大必备技能</h3>
+        <div class="card card-l-cyan" style="padding:13px 18px;"><div style="display:flex; gap:14px; align-items:center;"><div style="font-size:28px;">🔍</div><div style="flex:1;"><div class="kicker k-cyan" style="font-size:13px;">01 · ANALYTICAL</div><h4 style="color:var(--c1); margin:3px 0 0;">分析性思维</h4></div></div></div>
+        <div class="card card-l-magenta" style="padding:13px 18px;"><div style="display:flex; gap:14px; align-items:center;"><div style="font-size:28px;">💡</div><div style="flex:1;"><div class="kicker k-magenta" style="font-size:13px;">02 · CREATIVE</div><h4 style="color:var(--c2); margin:3px 0 0;">创造力</h4></div></div></div>
+        <div class="card card-l-amber" style="padding:13px 18px;"><div style="display:flex; gap:14px; align-items:center;"><div style="font-size:28px;">🤖</div><div style="flex:1;"><div class="kicker k-amber" style="font-size:13px;">03 · AI LITERACY</div><h4 style="color:var(--c3); margin:3px 0 0;">AI 与大数据素养</h4></div></div></div>
+        <div class="card card-l-emerald" style="padding:13px 18px;"><div style="display:flex; gap:14px; align-items:center;"><div style="font-size:28px;">💪</div><div style="flex:1;"><div class="kicker k-emerald" style="font-size:13px;">04 · RESILIENCE</div><h4 style="color:var(--c4); margin:3px 0 0;">韧性与敏捷</h4></div></div></div>
+        <div class="card card-l-violet" style="padding:13px 18px;"><div style="display:flex; gap:14px; align-items:center;"><div style="font-size:28px;">🌟</div><div style="flex:1;"><div class="kicker k-violet" style="font-size:13px;">05 · CURIOSITY</div><h4 style="color:var(--c5); margin:3px 0 0;">好奇心 + 主动学习</h4></div></div></div>
       </div>
     </div>
-    <p class="src-row" style="margin-top:8px;"><strong>資料來源：</strong>WEF <em>Future of Jobs 2023</em>　·　OECD <em>Future of Education 2030</em></p>
+    <p class="src-row" style="margin-top:8px;"><strong>资料来源：</strong>WEF <em>Future of Jobs 2023</em>　·　OECD <em>Future of Education 2030</em></p>
   </div>
 </section>
 
-<!-- ===== v6 SLIDE 5 — 8 科 AI 教學 (NEW grid) ===== -->
-<section class="slide" data-slide="5" data-section="MATRIX · 8 科 AI 教學">
+<!-- ===== v6 SLIDE 5 — 8 科 AI 教学 (NEW grid) ===== -->
+<section class="slide" data-slide="5" data-section="MATRIX · 8 科 AI 教学">
   <div class="slide-inner">
     <div class="kicker k-magenta">AI in ALL SUBJECTS · 8 大科</div>
-    <h2 class="big">8 科　·　<span class="gradient-text">全面 AI 教學</span></h2>
+    <h2 class="big">8 科　·　<span class="gradient-text">全面 AI 教学</span></h2>
     <div style="display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:1fr 1fr; gap:14px; flex:1; min-height:0;">
       <div class="subj8-tile" style="border-top-color:var(--c2);">
-        <div class="photo"><img src="photos/p6_chinese_battle.jpg" alt="中文 AI 成語攻防戰"></div>
-        <div class="meta"><div class="subj-name" style="color:var(--c2);">中文</div><div class="subj-line">AI 成語攻防戰</div></div>
+        <div class="photo"><img src="photos/p6_chinese_battle.jpg" alt="中文 AI 成语攻防战"></div>
+        <div class="meta"><div class="subj-name" style="color:var(--c2);">中文</div><div class="subj-line">AI 成语攻防战</div></div>
       </div>
       <div class="subj8-tile" style="border-top-color:var(--c1);">
-        <div class="photo"><img src="photos/p5_english_ai.jpg" alt="英文 AI 魔法默書"></div>
-        <div class="meta"><div class="subj-name" style="color:var(--c1);">英文</div><div class="subj-line">AI 魔法默書</div></div>
+        <div class="photo"><img src="photos/p5_english_ai.jpg" alt="英文 AI 魔法默书"></div>
+        <div class="meta"><div class="subj-name" style="color:var(--c1);">英文</div><div class="subj-line">AI 魔法默书</div></div>
       </div>
       <div class="subj8-tile" style="border-top-color:var(--c3);">
-        <div class="photo"><img src="photos/p8_math_comic.jpg" alt="數學 漫畫變身器"></div>
-        <div class="meta"><div class="subj-name" style="color:var(--c3);">數學</div><div class="subj-line">乘法大師 · 漫畫變身器</div></div>
+        <div class="photo"><img src="photos/p8_math_comic.jpg" alt="数学 漫画变身器"></div>
+        <div class="meta"><div class="subj-name" style="color:var(--c3);">数学</div><div class="subj-line">乘法大师 · 漫画变身器</div></div>
       </div>
       <div class="subj8-tile" style="border-top-color:var(--c2);">
-        <div class="photo"><img src="photos/p5_humanities_booth.jpg" alt="人文 樂在其中 攤位"></div>
-        <div class="meta"><div class="subj-name" style="color:var(--c2);">人文</div><div class="subj-line">樂在其「中」 · 文化試身室</div></div>
+        <div class="photo"><img src="photos/p5_humanities_booth.jpg" alt="人文 乐在其中 摊位"></div>
+        <div class="meta"><div class="subj-name" style="color:var(--c2);">人文</div><div class="subj-line">乐在其「中」 · 文化试身室</div></div>
       </div>
       <div class="subj8-tile" style="border-top-color:var(--c4);">
-        <div class="photo"><img src="photos/p10_science_steward.jpg" alt="科學 國寶 AI 管家"></div>
-        <div class="meta"><div class="subj-name" style="color:var(--c4);">科學</div><div class="subj-line">識花君 · 國寶 AI 管家</div></div>
+        <div class="photo"><img src="photos/p10_science_steward.jpg" alt="科学 国宝 AI 管家"></div>
+        <div class="meta"><div class="subj-name" style="color:var(--c4);">科学</div><div class="subj-line">识花君 · 国宝 AI 管家</div></div>
       </div>
       <div class="subj8-tile" style="border-top-color:var(--c3);">
-        <div class="photo"><img src="photos/p5_music_intelligence.jpg" alt="音樂智能 · 手鈴 + 小結他"></div>
-        <div class="meta"><div class="subj-name" style="color:var(--c3);">音樂</div><div class="subj-line">親子 AI 歌曲 · Suno</div></div>
+        <div class="photo"><img src="photos/p5_music_intelligence.jpg" alt="音乐智能 · 手铃 + 小结他"></div>
+        <div class="meta"><div class="subj-name" style="color:var(--c3);">音乐</div><div class="subj-line">亲子 AI 歌曲 · Suno</div></div>
       </div>
       <div class="subj8-tile" style="border-top-color:var(--c5);">
-        <div class="photo"><img src="photos/p12_pe_tv.jpg" alt="體育 AI 智能"></div>
-        <div class="meta"><div class="subj-name" style="color:var(--c5);">體育</div><div class="subj-line">AI 國寶守衛戰</div></div>
+        <div class="photo"><img src="photos/p12_pe_tv.jpg" alt="体育 AI 智能"></div>
+        <div class="meta"><div class="subj-name" style="color:var(--c5);">体育</div><div class="subj-line">AI 国宝守卫战</div></div>
       </div>
       <div class="subj8-tile" style="border-top-color:var(--c-claude);">
-        <div class="photo"><img src="photos/p13_va_ai.jpeg" alt="視藝 現代門神"></div>
-        <div class="meta"><div class="subj-name" style="color:var(--c-claude);">視藝</div><div class="subj-line">現代門神 · 未來職業</div></div>
+        <div class="photo"><img src="photos/p13_va_ai.jpeg" alt="视艺 现代门神"></div>
+        <div class="meta"><div class="subj-name" style="color:var(--c-claude);">视艺</div><div class="subj-line">现代门神 · 未来职业</div></div>
       </div>
     </div>
     <div style="display:flex; justify-content:center; padding-top:8px;">
-      <a class="play-btn-v6" href="#" onclick="alert('影片即將播放'); return false;">▶ 播放 8 科 AI 教學影片</a>
+      <a class="play-btn-v6" href="#" onclick="alert('影片即将播放'); return false;">▶ 播放 8 科 AI 教学影片</a>
     </div>
   </div>
 </section>
 
-<!-- ===== v6 SLIDE 6 — 三班別「看見天賦，自選未來！」 ===== -->
-<section class="slide" data-slide="6" data-section="P1 新分班 · 三班別">
+<!-- ===== v6 SLIDE 6 — 三班别「看见天赋，自选未来！」 ===== -->
+<section class="slide" data-slide="6" data-section="P1 新分班 · 三班别">
   <div class="slide-inner" style="padding:0; gap:0; max-width:none; align-items:center; justify-content:center;">
-    <img src="photos/p6_three_streams_full.jpg" alt="2026-2027 P1 新分班 · 看見天賦 自選未來 · 英尖博藝創科 仁愛勤誠樂學" style="width:100%; height:100%; object-fit:contain;">
+    <img src="photos/p6_three_streams_full.jpg" alt="2026-2027 P1 新分班 · 看见天赋 自选未来 · 英尖博艺创科 仁爱勤诚乐学" style="width:100%; height:100%; object-fit:contain;">
   </div>
 </section>
 
@@ -1603,404 +1603,404 @@ body .slide-inner{
     <div style="display:grid; grid-template-columns:1.15fr 1fr; gap:22px; flex:1; min-height:0; align-items:stretch;">
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; min-height:0;">
         <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p_english_worksheet.jpg" alt="英文版 P1 數學工作紙" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <img src="photos/p_english_worksheet.jpg" alt="英文版 P1 数学工作纸" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
         <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p14_english_ai_dictation.jpg" alt="英語沉浸式學習" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <img src="photos/p14_english_ai_dictation.jpg" alt="英语沉浸式学习" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
       </div>
       <div style="display:flex; flex-direction:column; gap:12px;">
         <div class="card card-l-cyan" style="padding:16px 20px;">
-          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">📐</div><h3 class="lead" style="color:var(--c1); margin:0;">數學以英語授課</h3></div>
+          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">📐</div><h3 class="lead" style="color:var(--c1); margin:0;">数学以英语授课</h3></div>
         </div>
         <div class="card card-l-cyan" style="padding:16px 20px;">
-          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">🧪</div><h3 class="lead" style="color:var(--c1); margin:0;">科學以英語授課</h3></div>
+          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">🧪</div><h3 class="lead" style="color:var(--c1); margin:0;">科学以英语授课</h3></div>
         </div>
         <div class="card card-l-cyan" style="padding:16px 20px;">
-          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">🎭</div><h3 class="lead" style="color:var(--c1); margin:0;">下學期啟潛　·　英語話劇訓練</h3></div>
+          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">🎭</div><h3 class="lead" style="color:var(--c1); margin:0;">下学期启潜　·　英语话剧训练</h3></div>
         </div>
         <div class="card card-l-cyan" style="padding:16px 20px;">
-          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">✨</div><h3 class="lead" style="color:var(--c1); margin:0;">AI 魔法默書　·　即時評分</h3></div>
+          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">✨</div><h3 class="lead" style="color:var(--c1); margin:0;">AI 魔法默书　·　即时评分</h3></div>
         </div>
         <div style="padding:14px 20px; background:linear-gradient(135deg,rgba(8,145,178,0.08),rgba(8,145,178,0.04)); border-radius:12px; border-left:4px solid var(--c1);">
-          <p style="font-size:20px; font-weight:700; color:var(--c1); margin:0;">🎯 目的：打造英語環境　·　提升學生英語能力</p>
+          <p style="font-size:20px; font-weight:700; color:var(--c1); margin:0;">🎯 目的：打造英语环境　·　提升学生英语能力</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== v6 SLIDE 8 — 創科班 (NEW) ===== -->
-<section class="slide" data-slide="8" data-section="創科班 · AI INNOVATION">
+<!-- ===== v6 SLIDE 8 — 创科班 (NEW) ===== -->
+<section class="slide" data-slide="8" data-section="创科班 · AI INNOVATION">
   <div class="slide-inner">
-    <div class="kicker k-amber">創科班 · AI INNOVATION</div>
-    <h2 class="big">創科班　·　<span class="gradient-text-warm">AI Innovation</span></h2>
+    <div class="kicker k-amber">创科班 · AI INNOVATION</div>
+    <h2 class="big">创科班　·　<span class="gradient-text-warm">AI Innovation</span></h2>
     <div style="display:grid; grid-template-columns:1.15fr 1fr; gap:22px; flex:1; min-height:0; align-items:stretch;">
       <div style="display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:12px; min-height:0;">
         <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p15_matatalab.jpeg" alt="Matatalab 實物編程" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <img src="photos/p15_matatalab.jpeg" alt="Matatalab 实物编程" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
         <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p15_matatalab2.jpeg" alt="Matatalab 啟蒙" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <img src="photos/p15_matatalab2.jpeg" alt="Matatalab 启蒙" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
         <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p16_magnetic_car.jpg" alt="磁力車創客作品" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <img src="photos/p16_magnetic_car.jpg" alt="磁力车创客作品" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
         <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p32_ipad_worksheet.jpeg" alt="iPad 創作" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <img src="photos/p32_ipad_worksheet.jpeg" alt="iPad 创作" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
       </div>
       <div style="display:flex; flex-direction:column; gap:12px;">
         <div class="card card-l-amber" style="padding:16px 20px;">
-          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">📱</div><h3 class="lead" style="color:var(--c3); margin:0;">課室常駐每人一部 iPad</h3></div>
+          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">📱</div><h3 class="lead" style="color:var(--c3); margin:0;">课室常驻每人一部 iPad</h3></div>
         </div>
         <div class="card card-l-amber" style="padding:16px 20px;">
-          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">🔧</div><h3 class="lead" style="color:var(--c3); margin:0;">製作 AI 小工具</h3></div>
+          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">🔧</div><h3 class="lead" style="color:var(--c3); margin:0;">制作 AI 小工具</h3></div>
         </div>
         <div class="card card-l-amber" style="padding:16px 20px;">
-          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">🎮</div><h3 class="lead" style="color:var(--c3); margin:0;">製作 AI 小遊戲</h3></div>
+          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">🎮</div><h3 class="lead" style="color:var(--c3); margin:0;">制作 AI 小游戏</h3></div>
         </div>
         <div class="card card-l-amber" style="padding:16px 20px;">
-          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">🚀</div><h3 class="lead" style="color:var(--c3); margin:0;">啟發創科潛能，迎接無限未來。</h3></div>
+          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">🚀</div><h3 class="lead" style="color:var(--c3); margin:0;">启发创科潜能，迎接无限未来。</h3></div>
         </div>
         <div style="padding:14px 20px; background:linear-gradient(135deg,rgba(180,83,9,0.08),rgba(180,83,9,0.04)); border-radius:12px; border-left:4px solid var(--c3);">
-          <p style="font-size:20px; font-weight:700; color:var(--c3); margin:0;">🎯 目的：培育對 AI 及電子學習有興趣的學生</p>
+          <p style="font-size:20px; font-weight:700; color:var(--c3); margin:0;">🎯 目的：培育对 AI 及电子学习有兴趣的学生</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== v6 SLIDE 9 — 博藝班 (NEW) ===== -->
-<section class="slide" data-slide="9" data-section="博藝班 · ARTS & SPORTS">
+<!-- ===== v6 SLIDE 9 — 博艺班 (NEW) ===== -->
+<section class="slide" data-slide="9" data-section="博艺班 · ARTS & SPORTS">
   <div class="slide-inner">
-    <div class="kicker k-magenta">博藝班 · ARTS & SPORTS</div>
-    <h2 class="big">博藝班　·　<span class="gradient-text">Arts & Sports</span></h2>
+    <div class="kicker k-magenta">博艺班 · ARTS & SPORTS</div>
+    <h2 class="big">博艺班　·　<span class="gradient-text">Arts & Sports</span></h2>
     <div style="display:grid; grid-template-columns:1.15fr 1fr; gap:22px; flex:1; min-height:0; align-items:stretch;">
       <div style="display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:12px; min-height:0;">
         <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p_pe_jumping.jpg" alt="體育課 · 跳躍訓練" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <img src="photos/p_pe_jumping.jpg" alt="体育课 · 跳跃训练" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
         <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p9_sand_art_kid.jpg" alt="沙畫 · 學生創作中" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <img src="photos/p9_sand_art_kid.jpg" alt="沙画 · 学生创作中" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
         <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p34_climbing.jpeg" alt="攀石活動" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <img src="photos/p34_climbing.jpeg" alt="攀石活动" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
         <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p35_piano.jpg" alt="鋼琴演奏" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <img src="photos/p35_piano.jpg" alt="钢琴演奏" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
       </div>
       <div style="display:flex; flex-direction:column; gap:12px;">
         <div class="card card-l-magenta" style="padding:16px 20px;">
-          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">🏃</div><h3 class="lead" style="color:var(--c2); margin:0;">下學期啟潛　·　體藝活動訓練</h3></div>
+          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">🏃</div><h3 class="lead" style="color:var(--c2); margin:0;">下学期启潜　·　体艺活动训练</h3></div>
         </div>
         <div class="card card-l-magenta" style="padding:16px 20px;">
-          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">🎵</div><h3 class="lead" style="color:var(--c2); margin:0;">音樂 · 美術 · 體育綜合培育</h3></div>
+          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">🎵</div><h3 class="lead" style="color:var(--c2); margin:0;">音乐 · 美术 · 体育综合培育</h3></div>
         </div>
         <div class="card card-l-magenta" style="padding:16px 20px;">
-          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">🌈</div><h3 class="lead" style="color:var(--c2); margin:0;">多元智能配套發展</h3></div>
+          <div style="display:flex; gap:14px; align-items:center;"><div style="font-size:32px;">🌈</div><h3 class="lead" style="color:var(--c2); margin:0;">多元智能配套发展</h3></div>
         </div>
         <div style="padding:14px 20px; background:linear-gradient(135deg,rgba(190,24,93,0.08),rgba(190,24,93,0.04)); border-radius:12px; border-left:4px solid var(--c2);">
-          <p style="font-size:20px; font-weight:700; color:var(--c2); margin:0;">🎯 目的：對體藝活動特別有興趣的同學發揮所長</p>
+          <p style="font-size:20px; font-weight:700; color:var(--c2); margin:0;">🎯 目的：对体艺活动特别有兴趣的同学发挥所长</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== v6 SLIDE 10 — 家長意願 + 出入轉班機制 ===== -->
-<section class="slide" data-slide="10" data-section="P1 分班 · 機制細節">
+<!-- ===== v6 SLIDE 10 — 家长意愿 + 出入转班机制 ===== -->
+<section class="slide" data-slide="10" data-section="P1 分班 · 机制细节">
   <div class="slide-inner">
-    <div class="kicker k-magenta">P1 新分班 · 機制細節</div>
-    <h2 class="big">家長意願　＋　<span class="gradient-text">出入轉班機制</span></h2>
-    <p class="tagline" style="max-width:1280px;"><strong style="color:var(--c-pain);">上午／下午 — 能力探索評核日</strong>　·　根據小朋友的評核結果以安排合適的班別。</p>
+    <div class="kicker k-magenta">P1 新分班 · 机制细节</div>
+    <h2 class="big">家长意愿　＋　<span class="gradient-text">出入转班机制</span></h2>
+    <p class="tagline" style="max-width:1280px;"><strong style="color:var(--c-pain);">上午／下午 — 能力探索评核日</strong>　·　根据小朋友的评核结果以安排合适的班别。</p>
     <div style="display:grid; grid-template-columns:1.1fr 1fr 1fr; gap:18px; flex:1; min-height:0; align-items:stretch;">
-      <!-- 左:2 張相 -->
+      <!-- 左:2 张相 -->
       <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
         <div style="flex:1; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p10_kid_helmet_bike.jpg" alt="P1 學生 · 能力探索評核日" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <img src="photos/p10_kid_helmet_bike.jpg" alt="P1 学生 · 能力探索评核日" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
         <div style="flex:1; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p38_p1_happy.jpeg" alt="P1 學生" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <img src="photos/p38_p1_happy.jpeg" alt="P1 学生" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
       </div>
-      <!-- 中:家長意願 -->
+      <!-- 中:家长意愿 -->
       <div class="card card-l-magenta" style="padding:18px 22px; display:flex; flex-direction:column; gap:12px;">
-        <div class="kicker k-magenta">家長意願 · PARENT CHOICE</div>
-        <h3 class="lead" style="color:var(--c2); margin:0;">👨‍👩‍👧 自由選擇</h3>
+        <div class="kicker k-magenta">家长意愿 · PARENT CHOICE</div>
+        <h3 class="lead" style="color:var(--c2); margin:0;">👨‍👩‍👧 自由选择</h3>
         <div style="padding:12px 16px; background:rgba(8,145,178,0.06); border-radius:10px; border-left:4px solid var(--c1);">
           <p style="font-size:18px; font-weight:800; color:var(--c1); margin-bottom:4px;">英尖班</p>
-          <p style="font-size:18px;">自由選擇　·　需 6 月面試</p>
+          <p style="font-size:18px;">自由选择　·　需 6 月面试</p>
         </div>
         <div style="padding:12px 16px; background:rgba(190,24,93,0.06); border-radius:10px; border-left:4px solid var(--c2);">
-          <p style="font-size:18px; font-weight:800; color:var(--c2); margin-bottom:4px;">博藝 + 創科</p>
-          <p style="font-size:18px;">家長自由選擇　·　報讀人數多時需要面試</p>
+          <p style="font-size:18px; font-weight:800; color:var(--c2); margin-bottom:4px;">博艺 + 创科</p>
+          <p style="font-size:18px;">家长自由选择　·　报读人数多时需要面试</p>
         </div>
         <div style="padding:12px 16px; background:rgba(4,120,87,0.06); border-radius:10px; border-left:4px solid var(--c4); margin-top:auto;">
-          <p style="font-size:17px; font-weight:700; color:var(--c4); line-height:1.5;">📊 P4–P6 將會按中、英、數能力拔分班</p>
+          <p style="font-size:17px; font-weight:700; color:var(--c4); line-height:1.5;">📊 P4–P6 将会按中、英、数能力拔分班</p>
         </div>
       </div>
-      <!-- 右:出入機制 -->
+      <!-- 右:出入机制 -->
       <div class="card card-l-emerald" style="padding:18px 22px; display:flex; flex-direction:column; gap:12px;">
-        <div class="kicker k-emerald">出入機制 · MOBILITY</div>
-        <h3 class="lead" style="color:var(--c4); margin:0;">🔄 升班轉班</h3>
+        <div class="kicker k-emerald">出入机制 · MOBILITY</div>
+        <h3 class="lead" style="color:var(--c4); margin:0;">🔄 升班转班</h3>
         <div style="padding:12px 16px; background:rgba(8,145,178,0.06); border-radius:10px; border-left:4px solid var(--c1);">
           <p style="font-size:18px; font-weight:800; color:var(--c1); margin-bottom:4px;">英尖班</p>
           <p style="font-size:17px;">P1→P2 可出可入　·　P2→P3 可出不可入</p>
         </div>
         <div style="padding:12px 16px; background:rgba(4,120,87,0.06); border-radius:10px; border-left:4px solid var(--c4);">
-          <p style="font-size:18px; font-weight:800; color:var(--c4); margin-bottom:4px;">博藝 / 創科</p>
-          <p style="font-size:17px;">P1-P3 可自由出入　·　P4-P6 按能力分組</p>
+          <p style="font-size:18px; font-weight:800; color:var(--c4); margin-bottom:4px;">博艺 / 创科</p>
+          <p style="font-size:17px;">P1-P3 可自由出入　·　P4-P6 按能力分组</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== v6 SLIDE 11 — 為何梁校取消一年級傳統考默 ===== -->
-<section class="slide" data-slide="11" data-section="評估革新 · 無考默">
+<!-- ===== v6 SLIDE 11 — 为何梁校取消一年级传统考默 ===== -->
+<section class="slide" data-slide="11" data-section="评估革新 · 无考默">
   <div class="slide-inner">
-    <div class="kicker k-pain">評估革新 · NO-DICTATION POLICY</div>
-    <h2 class="big">為何梁校用　<span style="color:var(--c-pain);">多元化評估</span>　取替一年級傳統考默</h2>
-    <p class="tagline" style="max-width:1280px;">並非「不再學生字」　·　而是「不用機械式默寫」去評估學生。</p>
+    <div class="kicker k-pain">评估革新 · NO-DICTATION POLICY</div>
+    <h2 class="big">为何梁校用　<span style="color:var(--c-pain);">多元化评估</span>　取替一年级传统考默</h2>
+    <p class="tagline" style="max-width:1280px;">并非「不再学生字」　·　而是「不用机械式默写」去评估学生。</p>
     <div style="display:grid; grid-template-columns:1fr 1.4fr; gap:20px; flex:1; min-height:0; align-items:stretch;">
       <div style="border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-        <img src="photos/p11_blocks_assess.jpg" alt="P1 學生 · 數理積木實作評估" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+        <img src="photos/p11_blocks_assess.jpg" alt="P1 学生 · 数理积木实作评估" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
       </div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
         <div class="card card-l-pain" style="padding:20px;">
           <div class="kicker k-pain">支柱 ①</div>
-          <h3 class="lead" style="color:var(--c-pain); margin-top:6px;">🔄 釋出學習空間</h3>
-          <p class="body" style="margin-top:8px; font-size:22px; line-height:1.65;">時間投放於閱讀、寫作、討論、口語表達。</p>
+          <h3 class="lead" style="color:var(--c-pain); margin-top:6px;">🔄 释出学习空间</h3>
+          <p class="body" style="margin-top:8px; font-size:22px; line-height:1.65;">时间投放于阅读、写作、讨论、口语表达。</p>
         </div>
         <div class="card card-l-pain" style="padding:20px;">
           <div class="kicker k-pain">支柱 ②</div>
-          <h3 class="lead" style="color:var(--c-pain); margin-top:6px;">💪 減低壓力 · 保護學習興趣</h3>
-          <p class="body" style="margin-top:8px; font-size:22px; line-height:1.65;">讓學生持續喜歡語文。</p>
+          <h3 class="lead" style="color:var(--c-pain); margin-top:6px;">💪 减低压力 · 保护学习兴趣</h3>
+          <p class="body" style="margin-top:8px; font-size:22px; line-height:1.65;">让学生持续喜欢语文。</p>
         </div>
         <div class="card card-l-pain" style="padding:20px;">
           <div class="kicker k-pain">支柱 ③</div>
-          <h3 class="lead" style="color:var(--c-pain); margin-top:6px;">🤖 AI 時代的評估再思考</h3>
-          <p class="body" style="margin-top:8px; font-size:22px; line-height:1.65;">純記字價值降低　·　重在應用、判斷、創造。</p>
+          <h3 class="lead" style="color:var(--c-pain); margin-top:6px;">🤖 AI 时代的评估再思考</h3>
+          <p class="body" style="margin-top:8px; font-size:22px; line-height:1.65;">纯记字价值降低　·　重在应用、判断、创造。</p>
         </div>
         <div class="card card-l-pain" style="padding:20px;">
           <div class="kicker k-pain">支柱 ④</div>
-          <h3 class="lead" style="color:var(--c-pain); margin-top:6px;">📊 多元評估 · 全面反映能力</h3>
-          <p class="body" style="margin-top:8px; font-size:22px; line-height:1.65;">閱讀、寫作、口語、實作項目並行。</p>
+          <h3 class="lead" style="color:var(--c-pain); margin-top:6px;">📊 多元评估 · 全面反映能力</h3>
+          <p class="body" style="margin-top:8px; font-size:22px; line-height:1.65;">阅读、写作、口语、实作项目并行。</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== v6 SLIDE 12 — 全日制 雙軌節奏 · 六日循環 ===== -->
-<section class="slide" data-slide="12" data-section="OPENING · 上下午編排">
+<!-- ===== v6 SLIDE 12 — 全日制 双轨节奏 · 六日循环 ===== -->
+<section class="slide" data-slide="12" data-section="OPENING · 上下午编排">
   <div class="slide-inner">
-    <div class="kicker k-cyan">2025/26 全日制時間表</div>
-    <h2 class="big">全日制　<span class="gradient-text-cool">雙軌節奏</span>　·　六日循環</h2>
+    <div class="kicker k-cyan">2025/26 全日制时间表</div>
+    <h2 class="big">全日制　<span class="gradient-text-cool">双轨节奏</span>　·　六日循环</h2>
     <div style="display:grid; grid-template-columns:1.6fr 1fr; gap:22px; flex:1; min-height:0; align-items:stretch;">
       <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
         <div style="flex:1; min-height:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p3_timetable.png" alt="2025/26 時間表" style="width:100%; height:100%; object-fit:contain; background:#fff;">
+          <img src="photos/p3_timetable.png" alt="2025/26 时间表" style="width:100%; height:100%; object-fit:contain; background:#fff;">
         </div>
-        <p style="text-align:center; color:var(--ink-3); font-style:italic; font-size:18px;">DAY 1-6 六日循環　·　每日 6 節正規課</p>
+        <p style="text-align:center; color:var(--ink-3); font-style:italic; font-size:18px;">DAY 1-6 六日循环　·　每日 6 节正规课</p>
       </div>
       <div style="display:flex; flex-direction:column; gap:14px; min-height:0;">
         <div class="card card-l-cyan" style="padding:18px 22px;">
-          <div class="kicker k-cyan">☀️ 上午 · 正規課程</div>
-          <p class="body" style="margin-top:8px; font-size:24px; line-height:1.6;">8:00 班主任課</p>
+          <div class="kicker k-cyan">☀️ 上午 · 正规课程</div>
+          <p class="body" style="margin-top:8px; font-size:24px; line-height:1.6;">8:00 班主任课</p>
         </div>
         <div class="card card-l-magenta" style="padding:18px 22px;">
           <div class="kicker k-magenta">🍱 12:40-13:40 · 午膳</div>
-          <p class="body" style="margin-top:8px; font-size:24px; line-height:1.6;">充足 1 小時休息、操場活動。</p>
+          <p class="body" style="margin-top:8px; font-size:24px; line-height:1.6;">充足 1 小时休息、操场活动。</p>
         </div>
         <div class="card card-l-amber" style="padding:18px 22px;">
-          <div class="kicker k-amber">🎨 下午 · 多元活動</div>
-          <p class="body" style="margin-top:8px; font-size:22px; line-height:1.6;">一：班營　·　二：人文<br>三：閱讀　·　四：啟發潛能課<br>五：13:30 放學</p>
+          <div class="kicker k-amber">🎨 下午 · 多元活动</div>
+          <p class="body" style="margin-top:8px; font-size:22px; line-height:1.6;">一：班营　·　二：人文<br>三：阅读　·　四：启发潜能课<br>五：13:30 放学</p>
         </div>
       </div>
     </div>
     <div style="display:flex; justify-content:center; padding-top:8px;">
-      <a class="play-btn-v6" href="#" onclick="alert('影片即將播放'); return false;">▶ 播放校園日常影片</a>
+      <a class="play-btn-v6" href="#" onclick="alert('影片即将播放'); return false;">▶ 播放校园日常影片</a>
     </div>
   </div>
 </section>
 
-<!-- ===== v6 SLIDE 13 — 六年級啟潛發展計劃 ===== -->
-<section class="slide" data-slide="13" data-section="啟發潛能 · 6 年發展表">
+<!-- ===== v6 SLIDE 13 — 六年级启潜发展计划 ===== -->
+<section class="slide" data-slide="13" data-section="启发潜能 · 6 年发展表">
   <div class="slide-inner">
-    <div class="kicker k-violet">啟發潛能 · P1-P6 螺旋發展</div>
-    <h2 class="big">梁校　<span class="gradient-text">啟發潛能課</span>　六年計劃</h2>
+    <div class="kicker k-violet">启发潜能 · P1-P6 螺旋发展</div>
+    <h2 class="big">梁校　<span class="gradient-text">启发潜能课</span>　六年计划</h2>
     <div style="display:grid; grid-template-columns:1.5fr 1fr; gap:20px; flex:1; min-height:0; align-items:stretch;">
       <div style="display:flex; flex-direction:column; min-height:0; border-radius:14px; box-shadow:var(--shadow); background:#fff; overflow:hidden;">
         <table style="width:100%; border-collapse:collapse; font-size:22px;">
           <thead>
             <tr style="background:linear-gradient(135deg,var(--c5),var(--c2));">
-              <th style="text-align:left; color:#fff; width:14%; padding:18px; font-size:22px;">年級</th>
-              <th style="text-align:left; color:#fff; width:34%; padding:18px; font-size:22px;">發展智能</th>
-              <th style="text-align:left; color:#fff; padding:18px; font-size:22px;">活動</th>
+              <th style="text-align:left; color:#fff; width:14%; padding:18px; font-size:22px;">年级</th>
+              <th style="text-align:left; color:#fff; width:34%; padding:18px; font-size:22px;">发展智能</th>
+              <th style="text-align:left; color:#fff; padding:18px; font-size:22px;">活动</th>
             </tr>
           </thead>
           <tbody>
             <tr style="border-bottom:1px solid var(--border);">
               <td style="font-weight:800; color:var(--c5); padding:18px; font-size:22px;">P1</td>
-              <td style="padding:18px; font-size:22px;">肢體 / 音樂 / 空間 / 語文</td>
-              <td style="padding:18px; font-size:22px;">花繩 · 彩虹鐘 · 創意畫 · 日文</td>
+              <td style="padding:18px; font-size:22px;">肢体 / 音乐 / 空间 / 语文</td>
+              <td style="padding:18px; font-size:22px;">花绳 · 彩虹钟 · 创意画 · 日文</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border); background:rgba(109,40,217,0.04);">
               <td style="font-weight:800; color:var(--c5); padding:18px; font-size:22px;">P2</td>
-              <td style="padding:18px; font-size:22px;">肢體 / 音樂 / 空間 / 語文</td>
-              <td style="padding:18px; font-size:22px;">躲避盤 · 聲藝 · 黏土繪藝 · 韓文</td>
+              <td style="padding:18px; font-size:22px;">肢体 / 音乐 / 空间 / 语文</td>
+              <td style="padding:18px; font-size:22px;">躲避盘 · 声艺 · 黏土绘艺 · 韩文</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);">
               <td style="font-weight:800; color:var(--c5); padding:18px; font-size:22px;">P3</td>
-              <td style="padding:18px; font-size:22px;">肢體 / 音樂 / 空間 / 語文</td>
-              <td style="padding:18px; font-size:22px;">攀石 · 非洲鼓 · 馬賽克砌砌樂 · 手語</td>
+              <td style="padding:18px; font-size:22px;">肢体 / 音乐 / 空间 / 语文</td>
+              <td style="padding:18px; font-size:22px;">攀石 · 非洲鼓 · 马赛克砌砌乐 · 手语</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border); background:rgba(109,40,217,0.04);">
               <td style="font-weight:800; color:var(--c5); padding:18px; font-size:22px;">P4</td>
-              <td style="padding:18px; font-size:22px;">自然 / 空間 / 音樂 / 數理邏輯</td>
-              <td style="padding:18px; font-size:22px;">STEAM · 夏威夷小結他 · 魔力橋 · 立體模型</td>
+              <td style="padding:18px; font-size:22px;">自然 / 空间 / 音乐 / 数理逻辑</td>
+              <td style="padding:18px; font-size:22px;">STEAM · 夏威夷小结他 · 魔力桥 · 立体模型</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);">
               <td style="font-weight:800; color:var(--c5); padding:18px; font-size:22px;">P5</td>
-              <td style="padding:18px; font-size:22px;">人際及綜合</td>
-              <td style="padding:18px; font-size:22px;">STEAM 創意 · 中學體驗</td>
+              <td style="padding:18px; font-size:22px;">人际及综合</td>
+              <td style="padding:18px; font-size:22px;">STEAM 创意 · 中学体验</td>
             </tr>
             <tr style="background:rgba(109,40,217,0.06);">
               <td style="font-weight:800; color:var(--c5); padding:18px; font-size:22px;">P6</td>
-              <td style="padding:18px; font-size:22px;">人際及綜合</td>
-              <td style="padding:18px; font-size:22px;">升中面試 · 自選活動</td>
+              <td style="padding:18px; font-size:22px;">人际及综合</td>
+              <td style="padding:18px; font-size:22px;">升中面试 · 自选活动</td>
             </tr>
           </tbody>
         </table>
       </div>
       <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
         <div style="flex:1; min-height:0; border-radius:12px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p13_frisbee.jpg" alt="啟潛 · 躲避盤活動" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <img src="photos/p13_frisbee.jpg" alt="启潜 · 躲避盘活动" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
         <div style="flex:1; min-height:0; border-radius:12px; overflow:hidden; box-shadow:var(--shadow); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p13_climbing.jpg" alt="啟潛 · 攀石牆活動" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <img src="photos/p13_climbing.jpg" alt="启潜 · 攀石墙活动" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
       </div>
     </div>
     <div style="display:flex; justify-content:center; padding-top:6px;">
-      <a class="play-btn-v6" href="#" onclick="alert('影片即將播放'); return false;">▶ 播放啟潛 + 課外活動影片</a>
+      <a class="play-btn-v6" href="#" onclick="alert('影片即将播放'); return false;">▶ 播放启潜 + 课外活动影片</a>
     </div>
   </div>
 </section>
 
-<!-- ===== v6 SLIDE 14 — 30+ 課外活動 6 大類別 ===== -->
-<section class="slide" data-slide="14" data-section="課外活動 · 6 大類別">
+<!-- ===== v6 SLIDE 14 — 30+ 课外活动 6 大类别 ===== -->
+<section class="slide" data-slide="14" data-section="课外活动 · 6 大类别">
   <div class="slide-inner">
-    <div class="kicker k-amber">課外活動 · ECA OVERVIEW</div>
-    <h2 class="big"><span class="gradient-text-warm">六大類別</span>　課外活動</h2>
+    <div class="kicker k-amber">课外活动 · ECA OVERVIEW</div>
+    <h2 class="big"><span class="gradient-text-warm">六大类别</span>　课外活动</h2>
     <div style="display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:1fr 1fr; gap:16px; flex:1; min-height:0;">
       <div class="eca-tile">
-        <div class="photo" style="border-top-color:var(--c3);"><img src="photos/p14_violin_trio.jpg" alt="弦樂三人組 · 小提琴"></div>
-        <div class="meta"><div class="cat-h" style="color:var(--c3); font-size:26px;">🎵 音樂</div><div class="cat-list" style="font-size:18px;">弦樂 · 大提琴 · 小提琴 · 手鐘 · 合唱團</div></div>
+        <div class="photo" style="border-top-color:var(--c3);"><img src="photos/p14_violin_trio.jpg" alt="弦乐三人组 · 小提琴"></div>
+        <div class="meta"><div class="cat-h" style="color:var(--c3); font-size:26px;">🎵 音乐</div><div class="cat-list" style="font-size:18px;">弦乐 · 大提琴 · 小提琴 · 手钟 · 合唱团</div></div>
       </div>
       <div class="eca-tile">
-        <div class="photo" style="border-top-color:var(--c5);"><img src="photos/p_act_sport.jpg" alt="體育"></div>
-        <div class="meta"><div class="cat-h" style="color:var(--c5); font-size:26px;">🏃 體育</div><div class="cat-list" style="font-size:18px;">田徑 · 籃球 · 排球 · 跳繩 · 跆拳道</div></div>
+        <div class="photo" style="border-top-color:var(--c5);"><img src="photos/p_act_sport.jpg" alt="体育"></div>
+        <div class="meta"><div class="cat-h" style="color:var(--c5); font-size:26px;">🏃 体育</div><div class="cat-list" style="font-size:18px;">田径 · 篮球 · 排球 · 跳绳 · 跆拳道</div></div>
       </div>
       <div class="eca-tile">
-        <div class="photo" style="border-top-color:var(--c-claude);"><img src="photos/p14_calligraphy.jpg" alt="書法班 · 學生練字"></div>
-        <div class="meta"><div class="cat-h" style="color:var(--c-claude); font-size:26px;">🎨 視藝</div><div class="cat-list" style="font-size:18px;">創意繪畫 · 沙畫 · 書法 · 校園小畫家</div></div>
+        <div class="photo" style="border-top-color:var(--c-claude);"><img src="photos/p14_calligraphy.jpg" alt="书法班 · 学生练字"></div>
+        <div class="meta"><div class="cat-h" style="color:var(--c-claude); font-size:26px;">🎨 视艺</div><div class="cat-list" style="font-size:18px;">创意绘画 · 沙画 · 书法 · 校园小画家</div></div>
       </div>
       <div class="eca-tile">
         <div class="photo" style="border-top-color:var(--c1);"><img src="photos/p_act_steam.jpg" alt="STEAM"></div>
-        <div class="meta"><div class="cat-h" style="color:var(--c1); font-size:26px;">🤖 STEAM</div><div class="cat-list" style="font-size:18px;">編程班 · STEAM 小精英 · AI LAB</div></div>
+        <div class="meta"><div class="cat-h" style="color:var(--c1); font-size:26px;">🤖 STEAM</div><div class="cat-list" style="font-size:18px;">编程班 · STEAM 小精英 · AI LAB</div></div>
       </div>
       <div class="eca-tile">
-        <div class="photo" style="border-top-color:var(--c4);"><img src="photos/p_act_language.jpg" alt="語言"></div>
-        <div class="meta"><div class="cat-h" style="color:var(--c4); font-size:26px;">🌐 語言</div><div class="cat-list" style="font-size:18px;">劍橋英語 · 話劇 · 集誦 · 奧數</div></div>
+        <div class="photo" style="border-top-color:var(--c4);"><img src="photos/p_act_language.jpg" alt="语言"></div>
+        <div class="meta"><div class="cat-h" style="color:var(--c4); font-size:26px;">🌐 语言</div><div class="cat-list" style="font-size:18px;">剑桥英语 · 话剧 · 集诵 · 奥数</div></div>
       </div>
       <div class="eca-tile">
-        <div class="photo" style="border-top-color:var(--c2);"><img src="photos/p_act_service.jpg" alt="服務及多元"></div>
-        <div class="meta"><div class="cat-h" style="color:var(--c2); font-size:26px;">🤝 服務及多元</div><div class="cat-list" style="font-size:18px;">公益少年團 · 童軍 · 街舞 · 爵士舞</div></div>
+        <div class="photo" style="border-top-color:var(--c2);"><img src="photos/p_act_service.jpg" alt="服务及多元"></div>
+        <div class="meta"><div class="cat-h" style="color:var(--c2); font-size:26px;">🤝 服务及多元</div><div class="cat-list" style="font-size:18px;">公益少年团 · 童军 · 街舞 · 爵士舞</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== v6 SLIDE 15 — 功輔班 vs 課後託管 ===== -->
-<section class="slide" data-slide="15" data-section="放學後 · 功輔 vs 課託">
+<!-- ===== v6 SLIDE 15 — 功辅班 vs 课后托管 ===== -->
+<section class="slide" data-slide="15" data-section="放学后 · 功辅 vs 课托">
   <div class="slide-inner">
-    <div class="kicker k-amber">放學後支援 · AFTER-SCHOOL</div>
-    <h2 class="big">功輔班　vs　<span class="gradient-text-warm">課後託管</span></h2>
-    <p class="tagline" style="max-width:1280px;">兩種放學後支援　·　家長按需要自由選擇。</p>
+    <div class="kicker k-amber">放学后支援 · AFTER-SCHOOL</div>
+    <h2 class="big">功辅班　vs　<span class="gradient-text-warm">课后托管</span></h2>
+    <p class="tagline" style="max-width:1280px;">两种放学后支援　·　家长按需要自由选择。</p>
     <div style="flex:1; min-height:0; display:grid; grid-template-columns:0.5fr 1fr 1fr; grid-template-rows:auto repeat(4, 1fr); border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff;">
       <!-- HEADER ROW -->
-      <div style="background:var(--c-claude); color:#fff; padding:22px 20px; font-weight:800; font-size:28px; display:flex; align-items:center; justify-content:center;">項目</div>
+      <div style="background:var(--c-claude); color:#fff; padding:22px 20px; font-weight:800; font-size:28px; display:flex; align-items:center; justify-content:center;">项目</div>
       <div style="background:var(--c1); color:#fff; padding:14px 18px; text-align:center; border-left:2px solid var(--border);">
         <div style="font-size:18px; letter-spacing:2px;">OPTION A</div>
-        <div style="font-size:32px; font-weight:900; margin-top:4px;">📝 功輔班</div>
+        <div style="font-size:32px; font-weight:900; margin-top:4px;">📝 功辅班</div>
       </div>
       <div style="background:var(--c2); color:#fff; padding:14px 18px; text-align:center; border-left:2px solid var(--border);">
         <div style="font-size:18px; letter-spacing:2px;">OPTION B</div>
-        <div style="font-size:32px; font-weight:900; margin-top:4px;">🏫 課後託管</div>
+        <div style="font-size:32px; font-weight:900; margin-top:4px;">🏫 课后托管</div>
       </div>
-      <!-- ROW: 時間 -->
-      <div style="padding:22px 20px; border-bottom:1px solid var(--border); font-weight:700; font-size:28px; display:flex; align-items:center;">⏰ 時間</div>
+      <!-- ROW: 时间 -->
+      <div style="padding:22px 20px; border-bottom:1px solid var(--border); font-weight:700; font-size:28px; display:flex; align-items:center;">⏰ 时间</div>
       <div style="padding:22px 20px; border-bottom:1px solid var(--border); border-left:2px solid var(--border); font-size:32px; display:flex; align-items:center;"><strong style="color:var(--c1);">下午 3:00 – 4:30</strong></div>
       <div style="padding:22px 20px; border-bottom:1px solid var(--border); border-left:2px solid var(--border); font-size:32px; display:flex; align-items:center;"><strong style="color:var(--c2);">下午 3:00 – 6:30</strong></div>
-      <!-- ROW: 內容 -->
-      <div style="padding:22px 20px; border-bottom:1px solid var(--border); background:rgba(204,120,92,0.04); font-weight:700; font-size:28px; display:flex; align-items:center;">📚 內容</div>
-      <div style="padding:22px 20px; border-bottom:1px solid var(--border); border-left:2px solid var(--border); background:rgba(8,145,178,0.04); font-size:32px; display:flex; align-items:center;">完成當日功課　·　老師解答疑難</div>
-      <div style="padding:22px 20px; border-bottom:1px solid var(--border); border-left:2px solid var(--border); background:rgba(190,24,93,0.04); font-size:32px; display:flex; align-items:center;">功課 + 溫習 + 茶點 + 遊戲</div>
-      <!-- ROW: 校車 -->
-      <div style="padding:22px 20px; border-bottom:1px solid var(--border); font-weight:700; font-size:28px; display:flex; align-items:center;">🚌 校車</div>
+      <!-- ROW: 内容 -->
+      <div style="padding:22px 20px; border-bottom:1px solid var(--border); background:rgba(204,120,92,0.04); font-weight:700; font-size:28px; display:flex; align-items:center;">📚 内容</div>
+      <div style="padding:22px 20px; border-bottom:1px solid var(--border); border-left:2px solid var(--border); background:rgba(8,145,178,0.04); font-size:32px; display:flex; align-items:center;">完成当日功课　·　老师解答疑难</div>
+      <div style="padding:22px 20px; border-bottom:1px solid var(--border); border-left:2px solid var(--border); background:rgba(190,24,93,0.04); font-size:32px; display:flex; align-items:center;">功课 + 温习 + 茶点 + 游戏</div>
+      <!-- ROW: 校车 -->
+      <div style="padding:22px 20px; border-bottom:1px solid var(--border); font-weight:700; font-size:28px; display:flex; align-items:center;">🚌 校车</div>
       <div style="padding:22px 20px; border-bottom:1px solid var(--border); border-left:2px solid var(--border); font-size:32px; display:flex; align-items:center;"><span style="color:var(--c4); font-weight:800;">✅ 提供</span></div>
       <div style="padding:22px 20px; border-bottom:1px solid var(--border); border-left:2px solid var(--border); font-size:32px; display:flex; align-items:center;"><span style="color:var(--c-pain); font-weight:800;">❌ 不提供</span></div>
-      <!-- ROW: 適合 -->
-      <div style="padding:22px 20px; background:rgba(204,120,92,0.04); font-weight:700; font-size:28px; display:flex; align-items:center;">👥 適合</div>
-      <div style="padding:22px 20px; border-left:2px solid var(--border); background:rgba(8,145,178,0.04); font-size:24px; display:flex; align-items:center;">需功課輔導但要趕校車</div>
-      <div style="padding:22px 20px; border-left:2px solid var(--border); background:rgba(190,24,93,0.04); font-size:24px; display:flex; align-items:center;">家長放工較晚 · 需全方位照顧</div>
+      <!-- ROW: 适合 -->
+      <div style="padding:22px 20px; background:rgba(204,120,92,0.04); font-weight:700; font-size:28px; display:flex; align-items:center;">👥 适合</div>
+      <div style="padding:22px 20px; border-left:2px solid var(--border); background:rgba(8,145,178,0.04); font-size:24px; display:flex; align-items:center;">需功课辅导但要赶校车</div>
+      <div style="padding:22px 20px; border-left:2px solid var(--border); background:rgba(190,24,93,0.04); font-size:24px; display:flex; align-items:center;">家长放工较晚 · 需全方位照顾</div>
     </div>
   </div>
 </section>
 
-<!-- ===== v6 SLIDE 16 — 由消費者轉為創造者 (was P17) ===== -->
-<section class="slide" data-slide="17" data-section="CTA · 結語">
+<!-- ===== v6 SLIDE 16 — 由消费者转为创造者 (was P17) ===== -->
+<section class="slide" data-slide="17" data-section="CTA · 结语">
   <div class="slide-inner">
-    <div class="kicker">結語 · CTA</div>
-    <h1 class="hero" style="font-size:64px; max-width:1380px;">由科技消費者　<span class="gradient-text">→ 真實世界創造者</span></h1>
+    <div class="kicker">结语 · CTA</div>
+    <h1 class="hero" style="font-size:64px; max-width:1380px;">由科技消费者　<span class="gradient-text">→ 真实世界创造者</span></h1>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:22px; flex:1; min-height:0; align-items:stretch;">
       <div style="border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-        <img src="photos/p16_students_macbook.jpg" alt="學生展示自家 AI 作品 · 編程中" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+        <img src="photos/p16_students_macbook.jpg" alt="学生展示自家 AI 作品 · 编程中" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
       </div>
       <div style="display:flex; flex-direction:column; gap:14px; min-height:0;">
         <div style="flex:1; min-height:0; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-          <img src="photos/p17_bett_uk.jpg" alt="BETT UK 國際展示" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+          <img src="photos/p17_bett_uk.jpg" alt="BETT UK 国际展示" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
         </div>
-        <p style="text-align:center; font-family:'JetBrains Mono',monospace; letter-spacing:3px; color:var(--ink-4); font-size:14px;">LWWF · 樂善堂梁黃蕙芳紀念學校 · 2026</p>
+        <p style="text-align:center; font-family:'JetBrains Mono',monospace; letter-spacing:3px; color:var(--ink-4); font-size:14px;">LWWF · 乐善堂梁黄蕙芳纪念学校 · 2026</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== v6 SLIDE 18 — 問答時間 ===== -->
-<section class="slide" data-slide="18" data-section="Q&A · 問答時間">
+<!-- ===== v6 SLIDE 18 — 问答时间 ===== -->
+<section class="slide" data-slide="18" data-section="Q&A · 问答时间">
   <div class="slide-inner">
-    <div class="kicker">問答環節 · Q&A SESSION</div>
-    <h1 class="hero" style="font-size:64px;"><span class="gradient-text">問答時間</span>　·　多謝您的出席</h1>
+    <div class="kicker">问答环节 · Q&A SESSION</div>
+    <h1 class="hero" style="font-size:64px;"><span class="gradient-text">问答时间</span>　·　多谢您的出席</h1>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; flex:1; min-height:0; align-items:stretch;">
-      <!-- 左:升小銜接 poster -->
+      <!-- 左:升小衔接 poster -->
       <div style="border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff8f0; display:flex; align-items:center; justify-content:center;">
-        <img src="photos/p1_school_poster.jpg" alt="升小銜接 學校海報" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
+        <img src="photos/p1_school_poster.jpg" alt="升小衔接 学校海报" style="width:100%; height:100%; object-fit:contain; background:#fff8f0;">
       </div>
-      <!-- 右:WhatsApp QR (上) + 微信 QR (下) - 純 QR + 上方大標籤 -->
+      <!-- 右:WhatsApp QR (上) + 微信 QR (下) - 纯 QR + 上方大标签 -->
       <div style="display:grid; grid-template-rows:1fr 1fr; gap:20px;">
         <div style="border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding:18px 16px;">
-          <h3 style="font-size:32px; font-weight:900; color:#25D366; margin:0 0 12px; text-align:center; line-height:1.2; letter-spacing:1px;">📱 WhatsApp 二維碼</h3>
+          <h3 style="font-size:32px; font-weight:900; color:#25D366; margin:0 0 12px; text-align:center; line-height:1.2; letter-spacing:1px;">📱 WhatsApp 二维码</h3>
           <div style="flex:1; min-height:0; width:100%; display:flex; align-items:center; justify-content:center;">
             <img src="photos/p_qr_whatsapp_clean.jpg" alt="WhatsApp QR" style="max-width:100%; max-height:100%; object-fit:contain; background:#fff;">
           </div>
         </div>
         <div style="border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:#fff; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding:18px 16px;">
-          <h3 style="font-size:32px; font-weight:900; color:#07C160; margin:0 0 12px; text-align:center; line-height:1.2; letter-spacing:1px;">💬 微信二維碼</h3>
+          <h3 style="font-size:32px; font-weight:900; color:#07C160; margin:0 0 12px; text-align:center; line-height:1.2; letter-spacing:1px;">💬 微信二维码</h3>
           <div style="flex:1; min-height:0; width:100%; display:flex; align-items:center; justify-content:center;">
             <img src="photos/p_qr_wechat.jpg" alt="微信 QR" style="max-width:100%; max-height:100%; object-fit:contain; background:#fff;">
           </div>
@@ -2011,7 +2011,7 @@ body .slide-inner{
 </section>
 
 <script>
-// 🖥️ FIT-TO-SCREEN: 計算 scale 令 1600×900 reference frame fit 任何 viewport
+// 🖥️ FIT-TO-SCREEN: 计算 scale 令 1600×900 reference frame fit 任何 viewport
 (function fitToScreen(){
   const REF_W = 1600, REF_H = 900;
   function update(){
@@ -2056,7 +2056,7 @@ function goTo(idx) {
     d.classList.toggle('passed', i < idx);
   });
   slides[idx].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
-  // 🎬 Reset videos to start when slide becomes active (P14 科學識花君 / P17 視藝門神 / 等)
+  // 🎬 Reset videos to start when slide becomes active (P14 科学识花君 / P17 视艺门神 / 等)
   slides[idx].querySelectorAll('video').forEach(v => {
     try {
       v.currentTime = 0;
@@ -2084,7 +2084,7 @@ function animateCount(el) {
   requestAnimationFrame(frame);
 }
 
-// 3D card tilt（細幅度）
+// 3D card tilt（细幅度）
 document.querySelectorAll('.card, .research-card').forEach(card => {
   card.addEventListener('mousemove', e => {
     const r = card.getBoundingClientRect();
@@ -2119,7 +2119,7 @@ document.querySelectorAll('.photo16').forEach(ph => {
     if (ph.classList.contains('has-image')) return;
     const id = ph.querySelector('.ph-id')?.textContent || '';
     const hint = ph.querySelector('.ph-hint')?.textContent || '';
-    alert(`${id}\n\n${hint}\n\n用法：將相片放入此資料夾，HTML 中加：\n<img class="real" src="你的相片.jpg">\n+ 外層加 class="has-image"`);
+    alert(`${id}\n\n${hint}\n\n用法：将相片放入此资料夹，HTML 中加：\n<img class="real" src="你的相片.jpg">\n+ 外层加 class="has-image"`);
   });
 });
 
@@ -2127,7 +2127,7 @@ progress.style.width = `${(1 / total) * 100}%`;
 sectionTag.textContent = slides[0].dataset.section || '';
 slides[0].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
 
-// === 語言切換 (file-based, 跳到對應 file 同保留 slide #) ===
+// === 语言切换 (file-based, 跳到对应 file 同保留 slide #) ===
 (function() {
   const fileMap = {
     't': 'AI_INFINITY_v6.html',
@@ -2140,15 +2140,15 @@ slides[0].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
       const lang = btn.dataset.lang;
       const target = fileMap[lang];
       if (!target) return;
-      // 與 current page 一樣就不做事
+      // 与 current page 一样就不做事
       const cur = location.pathname.split('/').pop();
       if (decodeURIComponent(cur) === target) return;
-      // 保留 hash (slide #) 讓用戶停在同一頁
+      // 保留 hash (slide #) 让用户停在同一页
       const hash = '#' + (current + 1);
       location.href = target + hash;
     });
   });
-  // 開頁時讀 hash + listen hash change 跳對應 slide
+  // 开页时读 hash + listen hash change 跳对应 slide
   function jumpByHash() {
     if (!location.hash) return;
     const n = parseInt(location.hash.replace('#', '')) - 1;
@@ -2157,7 +2157,7 @@ slides[0].querySelectorAll('.stat-num[data-target]').forEach(animateCount);
     }
   }
   window.addEventListener('hashchange', jumpByHash);
-  // 初次 load 等 DOM 設定好先跳
+  // 初次 load 等 DOM 设定好先跳
   setTimeout(jumpByHash, 50);
 })();
 </script>
