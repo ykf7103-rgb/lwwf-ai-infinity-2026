@@ -94,6 +94,12 @@ button[data-lang], .nav-arrow, .keyboard-hint,
 .slide .with-bg::after { opacity: 0.60 !important; }
 .slide .with-bg::before { opacity: 0 !important; }
 
+/* Slide 14 (ECA 6 categories) — English labels longer than CJK, shrink photo
+   ratio + tighter gap so 2 rows of (photo + meta) fit A4 height. */
+.slide[data-slide="14"] .eca-tile .photo { aspect-ratio: 16/9 !important; }
+.slide[data-slide="14"] > .slide-inner > div[style*="grid-template-rows"] { gap: 10px !important; }
+.slide[data-slide="14"] .eca-tile .meta { padding: 8px 12px !important; }
+
 :root { --slide-scale: 1 !important; }
 
 * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
